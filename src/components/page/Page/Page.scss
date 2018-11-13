@@ -1,0 +1,16 @@
+
+/* ===================================================================
+   PAGE
+   =================================================================== */
+
+.base {
+    display: block;
+    padding: $spacing--large;
+}
+
+
+@include for-tablet-portrait-down(){
+    .base {
+        padding: $spacing--medium $spacing--phone-edge;
+    }
+}

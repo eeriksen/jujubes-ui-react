@@ -1,0 +1,40 @@
+{
+    "name": "kembo-ui-react",
+    "version": "1.0.0",
+    "description": "Kembo UI - React",
+    "main": "index.js",
+    "scripts": {
+        "storybook": "start-storybook -p 9001 -c .storybook"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eeriksen/kembo-ui-react.git"
+    },
+    "author": "Eivind Eriksen (mail@eivinderiksen.com)",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/eeriksen/kembo-ui-react/issues"
+    },
+    "homepage": "https://github.com/eeriksen/kembo-ui-react#readme",
+    "dependencies": {
+        "react": "^16.6.1",
+        "react-dom": "^16.6.1"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.1.5",
+        "@babel/preset-env": "^7.1.5",
+        "@storybook/addon-options": "^4.0.4",
+        "@storybook/addon-viewport": "^4.0.4",
+        "@storybook/react": "^4.0.4",
+        "autoprefixer": "^9.3.1",
+        "babel-loader": "^8.0.4",
+        "classnames": "^2.2.6",
+        "css-loader": "^1.0.1",
+        "node-sass": "^4.10.0",
+        "postcss-loader": "^3.0.0",
+        "react-perfect-scrollbar": "^1.4.2",
+        "sass-loader": "^7.1.0",
+        "style-loader": "^0.23.1",
+        "webpack": "^4.25.1"
+    }
+}

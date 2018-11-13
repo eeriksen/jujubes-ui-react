@@ -1,0 +1,125 @@
+
+/* ===================================================================
+   APP NAV - MENU
+   =================================================================== */
+
+$spacing-sides: 25px;
+
+.base {
+    display: block;
+    margin: $spacing--medium 0;
+}
+
+
+/* HEADING
+---------------------------------------------------------------------- */
+.heading {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 $spacing-sides - 1;
+    font-weight: $fontWeight--bold;
+    line-height: $size--element-small;
+    color: rgba(0, 0, 0, 0.3);
+    font-size: $fontSize--small;
+    text-transform: uppercase;
+    text-align: left;
+    letter-spacing: 1px;
+    @include m-truncate();
+}
+
+
+/* ITEM
+---------------------------------------------------------------------- */
+.item {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: $size--element-normal;
+    padding: 0 $spacing-sides;
+    outline: none;
+    user-select: none;
+    transition: background-color .2s ease-in-out;
+    align-items: center;
+
+    // Icon
+    .icon {
+        display: flex;
+        align-items: center;
+        width: 32px;
+        @include m-iconColor(rgba($color--contrast, .2), true);
+    }
+
+    // Label
+    .label {
+        @include m-truncate();
+        text-decoration: none;
+        color: rgba($color--contrast, 0.6);
+        flex-grow: 1;
+        font-weight: $fontWeight--medium;
+        transition: color .2s ease-in-out;
+        padding-top: $fontFamily--pixel-adjustment;
+    }
+
+    // Indicators
+    .indicators {
+        display: flex;
+        align-items: center;
+
+        // Counter
+        .counter {
+            display: inline-block;
+            line-height: 1;
+            min-width: 20px;
+            text-align: center;
+            font-weight: $fontWeight--bold;
+            font-size: $fontSize--small;
+            color: $color--contrast;
+            background-color: $color--error;
+            padding: 3px 5px;
+            border-radius: 20px;
+        }
+
+        // Arrow
+        .arrow {
+            @include m-iconSize(8px);
+            @include m-iconColor(rgba($color--contrast, 0.3), true);
+        }
+    }
+
+    // STATE: Hover
+    &:hover {
+        cursor: pointer;
+
+        .icon {
+            @include m-iconColor($color--contrast);
+        }
+
+        .label {
+            color: $color--contrast;
+        }
+
+        .arrow {
+            @include m-iconColor(rgba($color--contrast, 0.8), true);
+        }
+    }
+
+    // STATE: Selected
+    &.selected {
+        background-color: rgba(0, 0, 0, 0.1);
+        cursor: default;
+
+        .icon {
+            @include m-iconColor(rgba($color--primary, 1));
+        }
+
+        .label {
+            color: $color--contrast;
+        }
+
+        .arrow {
+            @include m-iconColor(rgba($color--contrast, 0.8));
+        }
+    }
+}

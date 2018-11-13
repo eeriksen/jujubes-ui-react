@@ -1,0 +1,132 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   ICON
+   =================================================================== */
+
+// Base
+.base {
+    display: inline-block;
+    line-height: 1;
+
+    svg {
+        display: block;
+        fill: $color--base;
+        vertical-align: top;
+        width: $iconSize--normal;
+        height: $iconSize--normal;
+    }
+
+    // For presenting icons in a grid
+    &.presentation {
+        display: block !important;
+        border: 1px solid $color--base-10;
+        border-radius: $borderRadius--regular;
+        text-align: center;
+        padding: $spacing--medium $spacing--small;
+        @include m-iconColor($color--primary);
+        @include m-iconSize($iconSize--large);
+        margin-bottom: $spacing--normal;
+        min-height: 120px;
+
+        svg {
+            display: inline-block;
+        }
+
+        .label {
+            margin-top: $spacing--medium;
+            display: block;
+            color: $color--base-80;
+        }
+    }
+
+}
+
+// Colors
+.base80 {
+    @include m-iconColor($color--base-80);
+}
+
+.base60 {
+    @include m-iconColor($color--base-60);
+}
+
+.base40 {
+    @include m-iconColor($color--base-40);
+}
+
+.info {
+    @include m-iconColor($color--info);
+}
+
+.primary {
+    @include m-iconColor($color--primary);
+}
+
+.success {
+    @include m-iconColor($color--success);
+}
+
+.warning {
+    @include m-iconColor($color--warning);
+}
+
+.error {
+    @include m-iconColor($color--error);
+}
+
+// Sizes
+
+.small {
+    svg {
+        width: $iconSize--small;
+        height: $iconSize--small;
+    }
+}
+
+.medium {
+    svg {
+        width: $iconSize--medium;
+        height: $iconSize--medium;
+    }
+}
+
+.large {
+    svg {
+        width: $iconSize--large;
+        height: $iconSize--large;
+    }
+}
+
+.xLarge {
+    svg {
+        width: $iconSize--large-x;
+        height: $iconSize--large-x;
+    }
+}
+
+.xxLarge {
+    svg {
+        width: $iconSize--large-xx;
+        height: $iconSize--large-xx;
+    }
+}
+
+// Margins
+.marginRight {
+    margin-right: $spacing--small;
+}
+
+// Animation
+.rotate {
+    animation: rotate 1.5s infinite linear;
+
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}

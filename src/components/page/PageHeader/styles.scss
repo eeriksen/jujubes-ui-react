@@ -1,0 +1,50 @@
+
+/* ===================================================================
+   PAGE HEADER
+   =================================================================== */
+
+.base {
+    position: relative;
+    margin-bottom: $spacing--large;
+
+    .titles {
+        .mainTitle {
+            margin: 0;
+            font-size: $fontSize--heading-1;
+            line-height: $lineHeight--heading-1;
+            font-weight: $fontWeight--light;
+        }
+
+        .subTitle {
+            display: inline-block;
+            margin: 0;
+            font-size: $fontSize--heading-4;
+            line-height: $lineHeight--heading-4;
+            background-color: darken($color--background, 5%);
+            color: $color--base-80;
+            font-weight: $fontWeight--regular;
+            padding: 0 10px;
+            margin-top: -5px;
+        }
+    }
+
+}
+
+
+
+@include for-phone-only(){
+    .base {
+        .titles {
+            .mainTitle {
+                font-size: $fontSize--heading-2;
+                line-height: $lineHeight--heading-2;
+            }
+            .subTitle {
+                font-size: $fontSize--large;
+                line-height: $lineHeight--large;
+                padding: 0 7px;
+                margin-top: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,91 @@
+
+/* ===================================================================
+   APP BAR
+   =================================================================== */
+
+.base {
+    position: relative;
+    height: $appBar--height;
+    z-index: $zIndex--appBar;
+
+    .mainBar {
+        position: relative;
+        background-color: $color--primary;
+        box-shadow: $boxShadow--regular;
+        height: $appBar--height;
+        display: flex;
+        z-index: 2;
+
+        .center {
+            flex-grow: 1;
+            text-align: center;
+            font-size: $fontSize--large;
+            color: $color--contrast;
+            line-height: $appBar--height;
+            padding: 0 $spacing--medium;
+            font-weight: $fontWeight--bold;
+            @include m-truncate();
+        }
+    }
+
+    .subBar {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: $appBar--height;
+        background-color: $color--contrast;
+        transition: top .2s cubic-bezier(0.550, 0.055, 0.675, 0.190), box-shadow .2s linear;
+        z-index: 1;
+    }
+}
+
+
+
+.item {
+    width: $appBar--height;
+    height: $appBar--height;
+    background-color: #0F67D0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    .wrapper {
+        width: $size--element-small;
+        height: $size--element-small;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include m-iconColor(rgba($color--contrast, 0.9));
+        @include m-iconSize($iconSize--large);
+    }
+
+    &:hover {
+        @include m-iconColor($color--contrast);
+    }
+}
+
+
+
+@include for-tablet-landscape-up(){
+    .base {
+        .mainBar {
+            display: none;
+        }
+    }
+}
+
+@include for-tablet-landscape-down(){
+    .base {
+        .subBar {
+            box-shadow: none;
+        }
+
+        &.subBarActive {
+            .subBar {
+                top: $appBar--height;
+                box-shadow: $boxShadow--regular;
+            }
+        }
+    }
+}

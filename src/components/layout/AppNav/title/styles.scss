@@ -1,0 +1,35 @@
+/* ===================================================================
+   APP NAV - TITLE
+   =================================================================== */
+
+
+.base {
+    padding: $spacing--medium 20px;
+
+    .icon {
+        border-radius: $borderRadius--regular;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.1);
+        margin-bottom: $spacing--medium - 3px;
+        @include m-iconSize($iconSize--large);
+        @include m-iconColor($color--contrast);
+    }
+
+    .title {
+        font-size: $fontSize--heading-4;
+        line-height: $lineHeight--heading-4;
+        font-weight: $fontWeight--bold;
+        color: $color--contrast;
+    }
+
+    .lead {
+        font-size: $fontSize--normal;
+        color: rgba($color--contrast, 0.8);
+        font-weight: $fontWeight--regular;
+        margin-top: -3px;
+    }
+}

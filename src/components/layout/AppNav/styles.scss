@@ -1,0 +1,97 @@
+
+/* ===================================================================
+   APP NAV
+   =================================================================== */
+
+.base {
+    position: relative;
+    z-index: $zIndex--appNav;
+
+    .content {
+        width: $appNav--width;
+        height: 100vh;
+        background-color: $color--base;
+        z-index: 2;
+    }
+
+    .overlay {
+        display: none;
+        z-index: 1;
+    }
+}
+
+
+/* HEADER
+---------------------------------------------------------------------- */
+.header {
+    position: relative;
+    height: $appBar--height;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: $spacing--normal;
+
+    .logo {
+        display: flex;
+        height: 100%;
+        align-items: center;
+    }
+}
+
+
+/* MENU
+---------------------------------------------------------------------- */
+.menu {
+    position: absolute;
+    top: $appBar--height;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+
+    .fade {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: linear-gradient(to top, rgba($color--base,1) 0%,rgba($color--base,0) 100%);
+        z-index: 2;
+        pointer-events: none;
+    }
+}
+
+
+@include for-tablet-landscape-down(){
+    .base {
+
+        .content {
+            position: fixed;
+            left: - $appNav--width;
+            transition: left .3s ease-in-out, box-shadow .3s linear;
+        }
+
+        .overlay {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba($color--contrast, 0.8);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity .3s linear;
+        }
+
+        &.active {
+            .content {
+                left: 0;
+                box-shadow: $boxShadow--medium;
+            }
+
+            .overlay {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+    }
+}

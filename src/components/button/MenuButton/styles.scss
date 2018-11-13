@@ -1,0 +1,46 @@
+
+/* ===================================================================
+   MENU BUTTON
+   =================================================================== */
+
+$height--menuButton:    22px;
+$width--menuButton:     30px;
+
+.base {
+    padding: (($appBar--height - $height--menuButton) / 2) (($appBar--height - $width--menuButton) / 2);
+    display: inline-block;
+    cursor: pointer;
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: $height--menuButton;
+        width: $width--menuButton;
+
+        span {
+            display: block;
+            border-radius: 1px;
+            height: 2px;
+            background-color: rgba($color--contrast, .9);
+            transition: width .3s cubic-bezier(0.620, 0.055, 0.240, 1.305), background-color .3s ease-in-out;
+
+            &:first-child {
+                width: 50%;
+            }
+
+            &:last-child {
+                width: 75%;
+            }
+        }
+    }
+
+    &:hover {
+        .wrapper {
+            span {
+                background-color: $color--contrast;
+                width: 100%;
+            }
+        }
+    }
+}

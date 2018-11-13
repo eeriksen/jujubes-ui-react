@@ -1,0 +1,11 @@
+
+/* ===================================================================
+   CARD
+   =================================================================== */
+
+.base {
+    position: relative;
+    margin-bottom: $spacing--medium;
+    background-color: $color--contrast;
+    box-shadow: $boxShadow--regular;
+}

@@ -1,5 +1,5 @@
 import AppBar from "./AppBar"
-import Item from "./Item"
+import Item from "./item/Item"
 
 
 AppBar.Item = Item;

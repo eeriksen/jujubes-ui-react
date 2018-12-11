@@ -1,0 +1,26 @@
+
+/* ===================================================================
+   ARROW
+   =================================================================== */
+
+.base {
+    transform-origin: center bottom;
+
+    svg {
+        display: block;
+        width: 20px;
+        height: auto;
+    }
+
+    &.colorContrast {
+        svg {
+            fill: $color--contrast;
+        }
+    }
+
+    &.colorPrimary {
+        svg {
+            fill: $color--primary;
+        }
+    }
+}

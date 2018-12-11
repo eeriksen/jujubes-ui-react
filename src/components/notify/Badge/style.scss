@@ -1,0 +1,131 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   BADGE
+   =================================================================== */
+
+$borderWidth--badge: 1px;
+$height--badge: 21px;
+$height--badge-small: 16px;
+
+.base {
+    display: inline-block;
+    height: $height--badge;
+    line-height: $height--badge;
+    padding: 0 7px;
+    font-size: 11px;
+    box-sizing: border-box;
+    border: $borderWidth--badge solid $color--base-40;
+    font-weight: $fontWeight--medium;
+    text-transform: uppercase;
+    border-radius: $borderRadius--regular;
+    color: $color--base-80;
+    letter-spacing: .5px;
+
+    &.fill {
+        background-color: $color--base;
+        border-color: $color--base;
+        color: $color--contrast;
+    }
+
+    /* Badge variants
+    ---------------------------------------------------------------------- */
+    &.primary {
+        border-color: $color--primary;
+        background-color: transparent;
+        color: $color--primary;
+
+        &.fill {
+            background-color: $color--primary;
+            color: $color--contrast;
+        }
+    }
+
+    &.silent {
+        border-color: $color--base-10;
+        background-color: transparent;
+        color: $color--base-40;
+
+        &.fill {
+            border-color: transparent;
+            background-color: $color--base-10;
+            color: $color--base-40;
+        }
+    }
+
+    &.info {
+        border-color: $color--info;
+        background-color: transparent;
+        color: $color--info;
+
+        &.fill {
+            background-color: $color--info;
+            color: $color--status-text;
+        }
+    }
+
+    &.error {
+        border-color: $color--error;
+        background-color: transparent;
+        color: $color--error;
+
+        &.fill {
+            background-color: $color--error;
+            color: $color--status-text;
+        }
+    }
+
+    &.warning {
+        border-color: $color--warning;
+        background-color: transparent;
+        color: $color--warning;
+
+        &.fill {
+            background-color: $color--warning;
+            color: $color--status-text;
+        }
+    }
+
+    &.success {
+        border-color: $color--success;
+        background-color: transparent;
+        color: $color--success;
+
+        &.fill {
+            background-color: $color--success;
+            color: $color--status-text;
+        }
+    }
+
+    &.contrast {
+        border-color: $color--contrast;
+        background-color: transparent;
+        color: $color--contrast;
+
+        &.fill {
+            background-color: $color--contrast;
+            color: $color--base;
+        }
+    }
+
+    /* Size
+    ---------------------------------------------------------------------- */
+    &.small {
+        vertical-align: middle;
+        height: $height--badge-small;
+        line-height: $height--badge-small;
+        border-radius: $borderRadius--small;
+        font-size: 9px;
+        padding: 0 4px;
+    }
+
+    /* Spacing
+    ---------------------------------------------------------------------- */
+    &.leftSpacing {
+        margin-left: $spacing--small;
+    }
+
+    &.rightSpacing {
+        margin-right: $spacing--small;
+    }
+}

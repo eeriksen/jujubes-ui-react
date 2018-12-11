@@ -108,6 +108,7 @@ class Icon extends React.Component {
             [style.base60]: color === "base60",
             [style.base40]: color === "base40",
 
+            [style.contrast]: color === "contrast",
             [style.info]: color === "info",
             [style.primary]: color === "primary",
             [style.success]: color === "success",

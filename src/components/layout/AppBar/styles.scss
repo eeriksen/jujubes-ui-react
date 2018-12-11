@@ -18,13 +18,21 @@
 
         .center {
             flex-grow: 1;
-            text-align: center;
-            font-size: $fontSize--large;
-            color: $color--contrast;
-            line-height: $appBar--height;
-            padding: 0 $spacing--medium;
-            font-weight: $fontWeight--bold;
-            @include m-truncate();
+            position: relative;
+
+            .text {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                line-height: $appBar--height;
+                text-align: center;
+                font-size: $fontSize--large;
+                font-weight: $fontWeight--bold;
+                color: $color--contrast;
+                padding: 0 $spacing--normal;
+                @include m-truncate();
+            }
         }
     }
 
@@ -36,34 +44,20 @@
         background-color: $color--contrast;
         transition: top .2s cubic-bezier(0.550, 0.055, 0.675, 0.190), box-shadow .2s linear;
         z-index: 1;
-    }
-}
-
-
-
-.item {
-    width: $appBar--height;
-    height: $appBar--height;
-    background-color: #0F67D0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-
-    .wrapper {
-        width: $size--element-small;
-        height: $size--element-small;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        @include m-iconColor(rgba($color--contrast, 0.9));
-        @include m-iconSize($iconSize--large);
-    }
 
-    &:hover {
-        @include m-iconColor($color--contrast);
+        .left {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .right {
+            flex-grow: 1;
+            text-align: right;
+        }
     }
 }
+
 
 
 

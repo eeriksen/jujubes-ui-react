@@ -1,0 +1,24 @@
+
+/* ===================================================================
+   APP NAV - HEADER
+   =================================================================== */
+
+
+.header {
+    position: relative;
+    padding: 25px;
+
+    .logo {
+        display: flex;
+        height: 100%;
+        align-items: center;
+    }
+
+    .title {
+        font-size: $fontSize--heading-4;
+        line-height: $lineHeight--heading-4;
+        font-weight: $fontWeight--bold;
+        color: $color--contrast;
+        margin-top: $spacing--large-x;
+    }
+}

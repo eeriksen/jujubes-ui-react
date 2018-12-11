@@ -3,6 +3,8 @@
    APP NAV
    =================================================================== */
 
+$baseColor: $color--primary;
+
 .base {
     position: relative;
     z-index: $zIndex--appNav;
@@ -10,8 +12,23 @@
     .content {
         width: $appNav--width;
         height: 100vh;
-        background-color: $color--base;
+        background-color: $baseColor;
         z-index: 2;
+
+        .fade {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, rgba($baseColor,1) 0%,rgba($baseColor,0) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+    }
+
+    .menu {
+        padding-bottom: 60px;
     }
 
     .overlay {
@@ -21,45 +38,8 @@
 }
 
 
-/* HEADER
+/* RESPONSIVE: Table landscape down
 ---------------------------------------------------------------------- */
-.header {
-    position: relative;
-    height: $appBar--height;
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: $spacing--normal;
-
-    .logo {
-        display: flex;
-        height: 100%;
-        align-items: center;
-    }
-}
-
-
-/* MENU
----------------------------------------------------------------------- */
-.menu {
-    position: absolute;
-    top: $appBar--height;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    overflow: hidden;
-
-    .fade {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 60px;
-        background: linear-gradient(to top, rgba($color--base,1) 0%,rgba($color--base,0) 100%);
-        z-index: 2;
-        pointer-events: none;
-    }
-}
-
-
 @include for-tablet-landscape-down(){
     .base {
 
@@ -82,7 +62,7 @@
             transition: opacity .3s linear;
         }
 
-        &.active {
+        &.isActive {
             .content {
                 left: 0;
                 box-shadow: $boxShadow--medium;

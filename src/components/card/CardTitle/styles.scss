@@ -1,0 +1,25 @@
+
+/* ===================================================================
+   CARD TITLE
+   =================================================================== */
+
+.base {
+    height: $size--element-big;
+    border-bottom: 1px solid $color--base-10;
+    display: flex;
+
+    .title {
+        flex-grow: 1;
+        font-size: $fontSize--large;
+        font-weight: $fontWeight--medium;
+        line-height: $size--element-big;
+        padding: 0 $spacing--medium;
+        @include m-truncate();
+    }
+
+    .addons {
+        padding: 0 $spacing--medium;
+        display: flex;
+        align-items: center;
+    }
+}

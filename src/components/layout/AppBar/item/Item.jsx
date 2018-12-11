@@ -1,10 +1,11 @@
 import React from "react"
+import PropTypes from "prop-types"
 import styles from "./styles.scss"
 
 
-import Clickable from "../../button/Clickable"
+import Clickable from "../../../button/Clickable/index"
 
-export default class extends React.Component {
+export default class Item extends React.Component {
     render(){
         return (
             <Clickable {...this.props} className={styles.item}>
@@ -15,3 +16,8 @@ export default class extends React.Component {
         )
     }
 }
+
+Item.propTypes = {
+    placeLeft: PropTypes.bool,
+    placeRight: PropTypes.bool
+};

@@ -1,0 +1,17 @@
+
+/* ===================================================================
+   APP BAR ITEM
+   =================================================================== */
+
+.item {
+    display: inline-block;
+    cursor: pointer;
+
+    .wrapper {
+        height: $appBar--height;
+        padding: 0 $spacing--phone-edge;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

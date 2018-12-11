@@ -1,0 +1,58 @@
+
+/* ===================================================================
+   CARD USER HEAD
+   =================================================================== */
+
+.base {
+    position: relative;
+    background-color: $color--primary;
+    overflow: hidden;
+
+    .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.05;
+        pointer-events: none;
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+        padding: $spacing--medium;
+
+        .image {
+            width: 65px;
+            height: 65px;
+            overflow: hidden;
+            border-radius: 50%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: 50% 50%;
+            }
+        }
+
+        .details {
+            padding-left: $spacing--medium;
+            min-width: 0;
+
+            .name {
+                font-size: $fontSize--medium;
+                font-weight: $fontWeight--medium;
+                color: $color--contrast;
+                @include m-truncate();
+            }
+
+            .email {
+                color: rgba($color--contrast, 0.7);
+                font-weight: $fontWeight--light;
+                @include m-truncate();
+            }
+        }
+    }
+}

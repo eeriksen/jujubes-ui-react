@@ -44,6 +44,23 @@
 }
 
 
+// CLEARFIX
+@mixin m-clearFix(){
+    zoom: 1;
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+        visibility: hidden;
+        font-size: 0;
+        height: 0;
+    }
+}
+
+
 // BREAKPOINTS
 @mixin for-phone-only {
   @media (max-width: $breakpoint--tablet-portrait - 1px) { @content; }

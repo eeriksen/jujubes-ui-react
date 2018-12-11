@@ -11,7 +11,7 @@ export default class MenuItem extends React.Component {
     render(){
 
         // Properties
-        const { icon, link, count, children } = this.props;
+        const { icon, link, indicator, children } = this.props;
 
         // Classes
         const pathName = window.location.pathname;
@@ -36,11 +36,7 @@ export default class MenuItem extends React.Component {
 
                 {/* Indicators */}
                 <div className={styles.indicators}>
-                    {count ? (
-                        <span className={styles.counter}>
-                            {count}
-                        </span>
-                    ) : (
+                    {indicator ? indicator : (
                         <Icon className={styles.arrow} name="chevron-right" />
                     )}
                 </div>

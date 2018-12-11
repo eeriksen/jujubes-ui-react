@@ -4,9 +4,8 @@ import styles from "./styles.scss"
 
 import layoutActions from "../../../utils/layoutActions"
 
-import Item from "./Item"
-import Icon from "../../graphic/Icon"
 import MenuButton from "../../button/MenuButton"
+import DotsButton from "../../button/DotsButton"
 
 
 export default class AppBar extends React.Component {
@@ -54,16 +53,21 @@ export default class AppBar extends React.Component {
                         <MenuButton onClick={() => layoutActions.toggleNav()} />
                     </div>
                     <div className={styles.center}>
-                        {title}
+                        <div className={styles.text}>
+                            {title}
+                        </div>
                     </div>
                     <div className={styles.right}>
-                        <Item onClick={() => layoutActions.toggleSubBar()}>
-                            <Icon name="menu-dots" />
-                        </Item>
+                        <DotsButton onClick={() => layoutActions.toggleSubBar()} active={subBarActive} />
                     </div>
                 </div>
                 <div className={styles.subBar}>
-                    {children}
+                    <div className={styles.left}>
+                        {React.Children.toArray(children).filter((c) => c.props.placeLeft)}
+                    </div>
+                    <div className={styles.right}>
+                        {React.Children.toArray(children).filter((c) => c.props.placeRight)}
+                    </div>
                 </div>
             </div>
         )

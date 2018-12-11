@@ -4,7 +4,7 @@ import styles from "./styles.scss"
 
 import layoutActions from "../../../utils/layoutActions"
 
-import Header from "./Header"
+import Header from "./header/Header"
 import Clickable from "../../button/Clickable"
 import ScrollableArea from "../ScrollableArea"
 
@@ -38,14 +38,15 @@ export default class AppNav extends React.Component {
     render(){
 
         // Properties
-        const { logo, children } = this.props;
+        const { title, logo, minimal, children } = this.props;
 
         // Variables
         const { active } = this.state;
 
         // Classes
         const baseClasses = classNames(styles.base, {
-            [styles.active]: active
+            [styles.isActive]: active,
+            [styles.isMinimal]: minimal
         });
 
         return (
@@ -53,17 +54,20 @@ export default class AppNav extends React.Component {
 
                 {/* Content pane */}
                 <div className={styles.content}>
-                    <Header logo={logo} />
-                    <div className={styles.menu}>
-                        <div className={styles.fade} />
-                        <ScrollableArea>
+                    <ScrollableArea>
+                        <Header title={title} logo={logo} />
+                        <div className={styles.menu}>
                             {children}
-                        </ScrollableArea>
-                    </div>
+                        </div>
+                    </ScrollableArea>
+                    <div className={styles.fade} />
                 </div>
 
                 {/* Overlay */}
                 <Clickable onClick={() => layoutActions.toggleNav()} className={styles.overlay} />
+
+                {/* Flick */}
+                <div className={styles.flick} />
 
             </div>
         )

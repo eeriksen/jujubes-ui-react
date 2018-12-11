@@ -7,7 +7,7 @@ $height--menuButton:    22px;
 $width--menuButton:     30px;
 
 .base {
-    padding: (($appBar--height - $height--menuButton) / 2) (($appBar--height - $width--menuButton) / 2);
+    padding: (($appBar--height - $height--menuButton) / 2) $spacing--phone-edge;
     display: inline-block;
     cursor: pointer;
 
@@ -22,7 +22,7 @@ $width--menuButton:     30px;
             display: block;
             border-radius: 1px;
             height: 2px;
-            background-color: rgba($color--contrast, .9);
+            background-color: $color--contrast;
             transition: width .3s cubic-bezier(0.620, 0.055, 0.240, 1.305), background-color .3s ease-in-out;
 
             &:first-child {

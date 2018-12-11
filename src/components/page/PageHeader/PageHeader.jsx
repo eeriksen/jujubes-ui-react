@@ -1,8 +1,7 @@
 import React from "react"
 import styles from "./styles.scss"
 
-
-
+import Clickable from "../../button/Clickable"
 
 export default class PageHeader extends React.Component {
 
@@ -27,6 +26,19 @@ export default class PageHeader extends React.Component {
                 </div>
 
                 {/* Choices */}
+                {choices ? this._renderChoices() : null}
+
+            </div>
+        )
+    }
+
+
+    _renderChoices(){
+        return (
+            <div className={styles.action}>
+                <Clickable label="Actions">
+
+                </Clickable>
             </div>
         )
     }

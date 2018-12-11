@@ -4,11 +4,11 @@ export default class Clickable extends React.Component {
     render(){
 
         // Properties
-        const { block, children, link, onClick } = this.props;
+        const { block, children, link, onClick, className } = this.props;
 
         const tagType = block ? 'div' : 'span';
         return React.createElement(tagType, {
-            ...this.props
+            children, link, onClick, className
         });
     }
 }

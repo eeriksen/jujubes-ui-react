@@ -55,9 +55,9 @@ $spacing-sides: 25px;
     .label {
         @include m-truncate();
         text-decoration: none;
-        color: rgba($color--contrast, 0.6);
+        color: rgba($color--contrast, 0.7);
         flex-grow: 1;
-        font-weight: $fontWeight--medium;
+        font-weight: $fontWeight--bold;
         transition: color .2s ease-in-out;
         padding-top: $fontFamily--pixel-adjustment;
     }
@@ -67,24 +67,10 @@ $spacing-sides: 25px;
         display: flex;
         align-items: center;
 
-        // Counter
-        .counter {
-            display: inline-block;
-            line-height: 1;
-            min-width: 20px;
-            text-align: center;
-            font-weight: $fontWeight--bold;
-            font-size: $fontSize--small;
-            color: $color--contrast;
-            background-color: $color--error;
-            padding: 3px 5px;
-            border-radius: 20px;
-        }
-
         // Arrow
         .arrow {
             @include m-iconSize(8px);
-            @include m-iconColor(rgba($color--contrast, 0.3), true);
+            @include m-iconColor(rgba($color--contrast, 0.2), true);
         }
     }
 
@@ -93,7 +79,7 @@ $spacing-sides: 25px;
         cursor: pointer;
 
         .icon {
-            @include m-iconColor($color--contrast);
+            @include m-iconColor(rgba($color--contrast, .5));
         }
 
         .label {
@@ -107,11 +93,11 @@ $spacing-sides: 25px;
 
     // STATE: Selected
     &.selected {
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: rgba(0, 0, 0, 0.05);
         cursor: default;
 
         .icon {
-            @include m-iconColor(rgba($color--primary, 1));
+            @include m-iconColor(rgba(0, 0, 0, 0.35));
         }
 
         .label {

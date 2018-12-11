@@ -1,0 +1,193 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   GRID COL
+   =================================================================== */
+
+
+$grid-columns:              24;
+
+
+
+
+// MAKE GRID COLUMNS
+// ----------------------------------------------------------
+
+@mixin colList($index, $list) {
+  @if ($index <= $grid-columns) {
+    $item: ".grid_col_#{$index}, .grid_col_xs_#{$index}, .grid_col_sm_#{$index}, .grid_col_md_#{$index}, .grid_col_lg_#{$index}";
+    @include colList(($index + 1), "#{$list}, #{$item}");
+  }
+
+  @else if ($index > $grid-columns){
+    #{$list} {
+      position: relative;
+      min-height: 1px;
+      padding-left:  ($grid--gutter-regular / 2);
+      padding-right: ($grid--gutter-regular / 2);
+    }
+  }
+}
+
+@mixin col($index) {
+  $item: ".grid_col_#{$index}, .grid_col_xs_#{$index}, .grid_col_sm_#{$index}, .grid_col_md_#{$index}, .grid_col_lg_#{$index}";
+  @include colList(($index + 1), $item);
+}
+
+@mixin make-grid-columns() {
+  @include col(1);
+}
+
+// Spacing
+.grid_col_spacing_bottom {
+  margin-bottom: $grid--gutter-regular;
+}
+
+// Align content right
+.grid_col_align_right {
+  text-align: right;
+}
+
+// Align content right
+.grid_col_align_center {
+  text-align: center;
+}
+
+
+// MAKE FLOAT GRID COLUMNS
+// ----------------------------------------------------------
+
+@mixin floatColList($index, $list, $class) {
+  @if ($index <= $grid-columns){
+    $item: ".grid_col#{$class}_#{$index}";
+    @include floatColList(($index + 1), "#{$list}, #{$item}", $class);
+  }
+  @else if ($index > $grid-columns) {
+    #{$list} {
+      float: left;
+      flex: 0 0 auto;
+    }
+  }
+}
+
+@mixin floatCol($index, $class) {
+  $item: ".grid_col#{$class}_#{$index}";
+  @include floatColList(($index + 1), $item, $class);
+}
+
+@mixin float-grid-columns($class) {
+  @include floatCol(1, $class);
+}
+
+
+
+// MAKE LOOP GRID COLUMNS
+// ----------------------------------------------------------
+
+@mixin loop-grid-columns($index, $class) {
+
+  @if($index > 0){
+    .grid_col#{$class}_#{$index} {
+      display: block;
+      width: percentage(($index / $grid-columns));
+    }
+
+    .grid_col#{$class}_push_#{$index} {
+      left: percentage(($index / $grid-columns));
+    }
+
+    .grid_col#{$class}_pull_#{$index} {
+      right: percentage(($index / $grid-columns));
+    }
+
+    .grid_col#{$class}_offset_#{$index} {
+      margin-left: percentage(($index / $grid-columns));
+    }
+
+    .grid_col#{$class}_order_#{$index} {
+      order: $index;
+    }
+
+    @include loop-grid-columns(($index - 1), $class);
+  }
+
+  @else if ($index == 0) {
+    .grid_col#{$class}_#{$index} {
+      display: none;
+    }
+
+    .grid_col_push_#{$index} {
+      left: auto;
+    }
+
+    .grid_col_pull_#{$index} {
+      right: auto;
+    }
+
+    .grid_col#{$class}_push_#{$index} {
+      left: auto;
+    }
+
+    .grid_col#{$class}_pull_#{$index} {
+      right: auto;
+    }
+
+    .grid_col#{$class}_offset_#{$index} {
+      margin-left: 0;
+    }
+
+    .grid_col#{$class}_order_#{$index} {
+      order: 0;
+    }
+  }
+}
+
+
+@mixin make-grid($class: '') {
+  @include float-grid-columns($class);
+  @include loop-grid-columns($grid-columns, $class);
+}
+
+
+
+.grid_col {
+  position: relative;
+  display: block;
+}
+
+@include make-grid-columns();
+@include make-grid();
+
+// Extra small grid
+//
+// Columns, offsets, pushes, and pulls for extra small devices like
+// smartphones.
+
+@include make-grid("_xs");
+
+// Small grid
+//
+// Columns, offsets, pushes, and pulls for the small device range, from phones
+// to tablets.
+
+@include for-tablet-portrait-up(){
+  @include make-grid("_sm");
+}
+
+
+// Medium grid
+//
+// Columns, offsets, pushes, and pulls for the desktop device range.
+
+@include for-tablet-landscape-up(){
+  @include make-grid("_md");
+}
+
+
+// Large grid
+//
+// Columns, offsets, pushes, and pulls for the large desktop device range.
+
+@include for-desktop-up(){
+  @include make-grid("_lg");
+}

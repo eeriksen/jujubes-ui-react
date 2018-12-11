@@ -1,0 +1,19 @@
+
+/* ===================================================================
+   POP OVER
+   =================================================================== */
+
+.body {
+    background-color: $color--contrast;
+    min-width: 300px;
+    box-shadow: $boxShadow--large;
+    border-radius: $borderRadius--regular;
+}
+
+.pop {
+    :global {
+        .Popover-tip {
+            fill: $color--contrast;
+        }
+    }
+}

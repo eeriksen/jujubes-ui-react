@@ -55,6 +55,10 @@
     @include m-iconColor($color--base-40);
 }
 
+.contrast {
+    @include m-iconColor($color--contrast);
+}
+
 .info {
     @include m-iconColor($color--info);
 }

@@ -12,8 +12,10 @@ function loadStories() {
 configure(loadStories, module);
 
 // Option defaults:
-setOptions({
-    name: 'Kembo UI',
-    url: 'https://ui.kembo.app',
-    addonPanelInRight: true
-});
+addDecorator(
+    setOptions({
+        name: "Kembo UI",
+        url: "https://ui.kembo.app",
+        addonPanelInRight: true
+    })
+);

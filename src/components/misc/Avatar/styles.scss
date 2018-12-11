@@ -1,0 +1,34 @@
+
+/* ===================================================================
+   AVATAR
+   =================================================================== */
+
+.base {
+    height: $size--element-normal;
+    width: $size--element-normal;
+    border-radius: $size--element-normal;
+    background-color: $color--base-5;
+    overflow: hidden;
+
+    .placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $color--primary;
+        @include m-iconColor($color--contrast);
+    }
+
+    .image {
+        width: 100%;
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 50%;
+        }
+    }
+}

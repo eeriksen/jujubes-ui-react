@@ -59,6 +59,7 @@ $zIndex-10:                         1000;
 
 $zIndex--appBar:                    $zIndex-5;
 $zIndex--appNav:                    $zIndex-6;
+$zIndex--popOver:                   $zIndex-7;
 
 
 
@@ -88,12 +89,15 @@ $color--contrast:                   #ffffff;
 
 // Primary
 $color--primary:                    #0F67D0;
+$color--accent:                     #4aa1db;
+
 
 // Status colors
 $color--success:                    #27b577;
 $color--error:                      #d04b67;
 $color--warning:                    #d8a54c;
 $color--info:                       #4aa1db;
+$color--status-text:                #ffffff;
 
 // Social media color
 $color--facebook:                   #3B5999;
@@ -120,7 +124,7 @@ $spacing--phone-edge:               18px;
 // Elements sizes
 $size--element-small:               34px;
 $size--element-normal:              42px;
-$size--element-big:                 52px;
+$size--element-big:                 56px;
 $size--element-huge:                74px;
 
 // Icon sizes
@@ -144,6 +148,7 @@ $borderRadius--medium:              8px;
 // Box shadows
 $boxShadow--regular:                0 1px 10px 1px rgba($color--base, .08);
 $boxShadow--medium:                 0 1px 15px 1px rgba($color--base, .2);
+$boxShadow--large:                  0 1px 30px 1px rgba($color--base, .2);
 
 
 /* LAYOUT
@@ -151,3 +156,6 @@ $boxShadow--medium:                 0 1px 15px 1px rgba($color--base, .2);
 
 $appBar--height:                    68px;
 $appNav--width:                     280px;
+
+$grid--gutter-small:                $spacing--small;
+$grid--gutter-regular:              $spacing--medium;

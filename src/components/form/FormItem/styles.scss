@@ -1,0 +1,52 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   FORM ITEM
+   =================================================================== */
+
+
+.base {
+    display: block;
+    margin-bottom: $spacing--medium;
+
+    // LABEL
+    .label {
+        text-align: left;
+
+        label {
+            display: block;
+            font-size: $fontSize--normal;
+            font-weight: $fontWeight--medium;
+            line-height: $lineHeight--normal;
+            color: $color--base;
+            padding: 0 0 4px 0;
+
+            .colon {
+                padding: 0 $spacing--small 0 2px;
+            }
+        }
+    }
+
+    // FIELD
+    .field {
+        display: block;
+    }
+
+    .infoText {
+        font-size: $fontSize--small;
+        color: $color--base-60;
+        padding-top: $spacing--small;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+
+    // ERROR
+    &.error {
+        .infoText {
+            color: $color--error;
+        }
+    }
+}

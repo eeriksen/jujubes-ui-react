@@ -18,8 +18,7 @@ of content blocks that can break into separate rows on three different breakpoin
 ### Row properties
 | Property | Type | Required | Default | Description |
 | --- | --- | --- | --- | --- |
-| `bottomSpacing` | bool | *no* | null | Add spacing to the bottom of the row. |
-| `colSpacing` | bool | *no* | null | Add spacing to the bottom of each column when they break to separate rows. |
+| `spacing` | string | *no* | null | Add spacing to 'bottom' or 'column'. |
 | `className` | string | *no* | null | Add class to row. |
 
 ### Column properties
@@ -33,6 +32,5 @@ of content blocks that can break into separate rows on three different breakpoin
 | `md` | object | *no* | null | Define span and offset for medium screens. |
 | `lg` | object | *no* | null | Define span and offset for large screens. |
 | `className` | string | *no* | null | Add class name to the column. |
-| `bottomSpacing` | bool | *no* | false | Add bottom spacing to column. |
-| `alignRight` | bool | *no* | false | Align column content to the right. |
-| `alignCenter` | bool | *no* | false | Align column content to center. |
+| `spacing` | string | *no* | null | Add spacing to the bottom of the column. |
+| `align` | string | *no* | null | Align content 'right' or 'center'.|

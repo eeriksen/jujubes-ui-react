@@ -1,0 +1,31 @@
+
+/* ===================================================================
+   FORM BUTTONS
+   =================================================================== */
+
+.base {
+
+    .button {
+        vertical-align: top;
+        margin-right: $spacing--small;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+
+    // RESPONSIVE
+    @include for-phone-only(){
+        .button {
+            margin-right: 0;
+            margin-bottom: $spacing--small;
+            display: block;
+            width: 100%;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import classNames from "classnames"
-import style from "./style.scss"
+import styles from "./styles.scss"
 
 import Filler from "../Filler"
 
@@ -16,7 +16,7 @@ export default class Col extends React.Component {
 
         const props = this.props;
 
-        const { span, order, offset, push, pull, className, children, bottomSpacing, alignRight, alignCenter, ...others } = props;
+        const { span, order, offset, push, pull, className, children, bottomSpacing, align, gutter } = props;
         let spanLabel = 0;
 
         let sizeClassObj = {};
@@ -33,35 +33,34 @@ export default class Col extends React.Component {
                 sizeProps = props[size] || {};
             }
 
-            delete others[size];
-
             // Set span label
             if(sizeProps.span > spanLabel){
                 spanLabel = sizeProps.span;
             }
 
             sizeClassObj = Object.assign({}, sizeClassObj, {
-                [style[`grid_col_${size}_${sizeProps.span}`]]: sizeProps.span !== undefined,
-                [style[`grid_col_${size}_order_${sizeProps.order}`]]: sizeProps.order || sizeProps.order === 0,
-                [style[`grid_col_${size}_offset_${sizeProps.offset}`]]: sizeProps.offset || sizeProps.offset === 0,
-                [style[`grid_col_${size}_push_${sizeProps.push}`]]: sizeProps.push || sizeProps.push === 0,
-                [style[`grid_col_${size}_pull_${sizeProps.pull}`]]: sizeProps.pull || sizeProps.pull === 0,
+                [styles[`grid_col_${size}_${sizeProps.span}`]]: sizeProps.span !== undefined,
+                [styles[`grid_col_${size}_order_${sizeProps.order}`]]: sizeProps.order || sizeProps.order === 0,
+                [styles[`grid_col_${size}_offset_${sizeProps.offset}`]]: sizeProps.offset || sizeProps.offset === 0,
+                [styles[`grid_col_${size}_push_${sizeProps.push}`]]: sizeProps.push || sizeProps.push === 0,
+                [styles[`grid_col_${size}_pull_${sizeProps.pull}`]]: sizeProps.pull || sizeProps.pull === 0,
             });
 
         });
 
         const classes = classNames({
-            [style.grid_col_spacing_bottom]: bottomSpacing,
-            [style.grid_col_align_right]: alignRight,
-            [style.grid_col_align_center]: alignCenter,
-            [style[`grid_col_${span}`]]: span !== undefined,
-            [style[`grid_col_order_${order}`]]: order,
-            [style[`grid_col_offset_${offset}`]]: offset,
-            [style[`grid_col_push_${push}`]]: push,
-            [style[`grid_col_pull_${pull}`]]: pull
+            [styles.gutterSmall]: gutter === "small",
+            [styles.grid_col_spacing_bottom]: bottomSpacing,
+            [styles.grid_col_align_right]: align === "right",
+            [styles.grid_col_align_center]: align === "left",
+            [styles[`grid_col_${span}`]]: span !== undefined,
+            [styles[`grid_col_order_${order}`]]: order,
+            [styles[`grid_col_offset_${offset}`]]: offset,
+            [styles[`grid_col_push_${push}`]]: push,
+            [styles[`grid_col_pull_${pull}`]]: pull
         }, className, sizeClassObj);
 
-        return <div {...others} className={classes}>
+        return <div  className={classes}>
             {children ? children : (
                 <Filler>{spanLabel}</Filler>
             )}

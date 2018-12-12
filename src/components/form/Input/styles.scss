@@ -1,0 +1,226 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   INPUT
+   =================================================================== */
+
+.base {
+    position: relative;
+
+    /* INPUT
+    --------------------------------------- */
+    .input {
+        display: inline-block;
+        height: $size--element-normal;
+        width: 100%;
+        outline: none;
+        padding: 0 10px 0;
+        border: $input--border;
+        font-family: $fontFamily--primary;
+        font-size: $fontSize--normal;
+        color: $color--base-80;
+        transition: border-color .3s ease, box-shadow .3s ease;
+        background-color: $color--contrast;
+        border-radius: $borderRadius--regular;
+        appearance: none;
+
+        &:focus {
+            border: $input--border-focus;
+            color: $color--base;
+            box-shadow: $input--boxShadow-focus;
+        }
+
+        &[disabled] {
+            background-color: transparent;
+            border-color: $color--base-10;
+            color: $color--base-60;
+        }
+    }
+
+    /* ICON
+    --------------------------------------- */
+    &.inputIcon {
+
+        .input {
+            padding-left: 52px;
+        }
+
+        .icon {
+            position: absolute;
+            top: 50%;
+            margin-top: -7px;
+            left: 11px;
+            @include m-iconColor(lighten($color--primary, 10%));
+
+            &:after {
+                content: '';
+                position: absolute;
+                right: -11px;
+                top: -9px;
+                bottom: -5px;
+                width: 1px;
+                background-color: rgba($color--base-5, 0);
+                background-image: -webkit-linear-gradient(bottom, rgba($color--base-15, 0) 0, $color--base-15 30%, $color--base-15 70%, rgba($color--base-15, 0) 100%);
+                background-image: linear-gradient(to top, rgba($color--base-15, 0) 0, $color--base-15 30%, $color--base-15 70%, rgba($color--base-15, 0) 100%);
+            }
+        }
+
+        &.big {
+            .input {
+                padding-left: 56px;
+            }
+
+            .icon {
+                left: 13px;
+
+                &:after {
+                    right: -13px;
+                }
+            }
+        }
+    }
+
+    /* PREPEND
+    --------------------------------------- */
+    &.inputPrepend {
+        display: flex;
+        user-select: none;
+
+        .input {
+            flex-grow: 1;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .prepend {
+            display: flex;
+            flex-shrink: 0;
+            border: $input--border;
+            border-right: none;
+            border-radius: $borderRadius--regular 0 0 $borderRadius--regular;
+            background-color: $color--base-3;
+            padding: 0 $spacing--normal;
+            min-width: $size--element-normal;
+            align-items: center;
+            justify-content: center;
+
+            .content {
+                display: inherit;
+            }
+
+            &.clickable {
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $color--base-5;
+                }
+
+            }
+
+            &.disabled {
+                border-color: $color--base-10;
+            }
+
+        }
+    }
+
+    /* APPEND
+  --------------------------------------- */
+    &.inputAppend {
+        display: flex;
+        user-select: none;
+
+        .input {
+            flex-grow: 1;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .append {
+            display: flex;
+            flex-shrink: 0;
+            border: $input--border;
+            border-left: none;
+            border-radius: 0 $borderRadius--regular $borderRadius--regular 0;
+            background-color: $color--base-3;
+            padding: 0 $spacing--normal;
+            min-width: $size--element-normal;
+            align-items: center;
+            justify-content: center;
+
+            .content {
+                display: inherit;
+            }
+
+            &.clickable {
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $color--base-5;
+                }
+
+            }
+        }
+    }
+
+    /* COUNTER
+    --------------------------------------- */
+    .counter {
+        position: absolute;
+        right: -$spacing--medium;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $color--base-40;
+        font-size: $fontSize--small;
+    }
+
+    // SIZE: Small
+    &.small {
+        .input {
+            height: $size--element-small;
+            font-size: $fontSize--small;
+        }
+    }
+
+    // SIZE: Big
+    &.big {
+        .input {
+            height: $size--element-big;
+            font-size: $fontSize--medium;
+        }
+    }
+
+    // STATE: Error
+    &.error {
+        .input {
+            border-color: $input--border-error;
+
+            &:focus {
+                //box-shadow: $input--box-shadow-hover--error;
+            }
+        }
+
+        .icon {
+            @include m-iconColor(lighten($color--error, 10%));
+        }
+    }
+
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: $color--base-40;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: $color--base-40;
+    opacity: 1;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: $color--base-40;
+    opacity: 1;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $color--base-40;
+}

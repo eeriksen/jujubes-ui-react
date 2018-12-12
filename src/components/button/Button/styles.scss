@@ -1,0 +1,276 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   BUTTON
+   =================================================================== */
+
+$height--button: $size--element-normal;
+$height--button-big: $size--element-big;
+$height--button-small: $size--element-small;
+
+.base {
+    position: relative;
+    display: inline-block;
+    outline: none;
+    background: none;
+    height: $height--button;
+    font-family: $fontFamily--primary;
+    font-size: $fontSize--normal;
+    font-weight: $fontWeight--medium;
+    padding: 0 30px 0;
+    cursor: pointer;
+    border: 1px solid $color--primary;
+    border-radius: $borderRadius--regular;
+    text-decoration: none;
+    user-select: none;
+    transition: all 0.3s ease;
+    @include m-truncate();
+
+    &:active {
+        transition: background-color 0s ease;
+    }
+}
+
+// Disabled
+.base[disabled], .base[disabled]:hover, .base[disabled]:active {
+    border-color: $color--base-5;
+    background-color: $color--base-3;
+    color: $color--base-30;
+    box-shadow: none;
+    cursor: default;
+
+    .icon {
+        @include m-iconColor($color--base-20 !important);
+    }
+
+    &:hover {
+        color: $color--base-30;
+    }
+}
+
+/* ===================================================================
+   BUTTON ICON
+   =================================================================== */
+
+.base {
+    .icon {
+        vertical-align: -3px;
+        margin-right: $spacing--small;
+        margin-left: -6px;
+    }
+
+    // Icon on the right side of label
+    &.iconRight {
+        .icon {
+            margin-right: 0;
+            margin-left: $spacing--small;
+        }
+    }
+
+    // Primary colored icon
+    &.iconPrimary {
+        .icon {
+            @include m-iconColor($color--primary);
+        }
+    }
+
+    // Info colored icon
+    &.iconInfo {
+        .icon {
+            @include m-iconColor($color--info);
+        }
+    }
+
+
+    // Success colored icon
+    &.iconSuccess {
+        .icon {
+            @include m-iconColor($color--success);
+        }
+    }
+
+    // Error colored icon
+    &.iconError {
+        .icon {
+            @include m-iconColor($color--error);
+        }
+    }
+
+    // Hide icon
+    &.hideIcon {
+        .icon {
+            opacity: 0 !important;
+        }
+    }
+}
+
+/* ===================================================================
+   BUTTON COLORS
+   =================================================================== */
+
+.default {
+    color: $color--base-80;
+    border-color: $color--base-60;
+    background-color: $color--contrast;
+
+    .icon {
+        @include m-iconColor($color--base);
+    }
+
+    &:hover {
+        color: $color--contrast;
+        border-color: $color--base;
+        background-color: $color--base;
+    }
+
+    &:active, &.active {
+
+    }
+}
+
+.primary {
+    color: $color--primary;
+    border-color: $color--primary;
+    background-color: transparent;
+
+    .icon {
+        @include m-iconColor($color--contrast);
+    }
+
+    &:hover {
+        border-color: transparent;
+        background-color: $color--primary;
+        color: $color--contrast;
+    }
+
+    &:active, &.active {
+        background-color: darken($color--primary, 5%);
+    }
+}
+
+
+.success {
+    color: $color--success;
+    border-color: $color--success;
+    background-color: transparent;
+
+    .icon {
+        @include m-iconColor($color--status-text);
+    }
+
+    &:hover {
+        border-color: $color--success;
+        background-color: $color--success;
+        color: $color--status-text;
+    }
+
+    &:active, &.active {
+        background-color: darken($color--success, 5%);
+    }
+}
+
+
+.error {
+    color: $color--error;
+    border-color: $color--error;
+    background-color: transparent;
+
+    .icon {
+        @include m-iconColor($color--status-text);
+    }
+
+    &:hover {
+        border-color: transparent;
+        background-color: $color--error;
+        color: $color--status-text;
+    }
+
+    &:active, &.active {
+        background-color: darken($color--error, 5%);
+    }
+}
+
+
+
+/* ===================================================================
+   BUTTON SIZES
+   =================================================================== */
+
+.big {
+    height: $height--button-big;
+    line-height: $height--button-big - 2px;
+    font-size: $fontSize--medium;
+    padding: 0 50px;
+
+    .icon {
+        vertical-align: -4px;
+        margin-right: 8px;
+        @include m-iconSize($iconSize--medium);
+    }
+}
+
+.small {
+    padding-left: 20px;
+    padding-right: 20px;
+    height: $height--button-small;
+    line-height: $height--button-small - 2px;
+
+    .icon {
+        @include m-iconSize($iconSize--small);
+        vertical-align: -2px;
+    }
+}
+
+/* ===================================================================
+   BUTTON MUTTATORS
+   =================================================================== */
+
+.block {
+    display: block;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.compact {
+    padding-left: $spacing--small;
+    padding-right: $spacing--small;
+}
+
+.circle {
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 50%;
+    width: $height--button;
+
+    .icon {
+        margin: 0;
+    }
+
+    &.big {
+        width: $height--button-big;
+    }
+}
+
+.square {
+    padding-left: 0;
+    padding-right: 0;
+    width: $height--button;
+
+    .icon {
+        margin: 0;
+    }
+
+    &.small {
+        width: $height--button-small;
+    }
+
+    &.big {
+        width: $height--button-big;
+    }
+}
+
+.hideLabel {
+    transition: color 0s ease;
+    color: rgba(0, 0, 0, 0) !important;
+}

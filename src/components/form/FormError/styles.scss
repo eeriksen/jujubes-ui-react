@@ -1,0 +1,19 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   FORM ERROR
+   =================================================================== */
+
+.base {
+    display: block;
+    margin-bottom: 0;
+
+    .error {
+        margin-bottom: $spacing--normal;
+        padding: $spacing--normal;
+        border-radius: $borderRadius--regular;
+        border: 1px dashed rgba($color--error, 0.5);
+        color: $color--error;
+        text-align: left;
+    }
+}

@@ -1,0 +1,107 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   SELECT
+   =================================================================== */
+
+.base {
+    position: relative;
+
+    // ARROW
+    .arrow {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 10px;
+        right: $spacing--normal;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+
+        .icon {
+            @include m-iconSize(10px);
+            @include m-iconColor($color--base-60);
+        }
+    }
+
+    &.placeholder {
+        .select {
+            color: $color--base-40;
+        }
+    }
+
+    // SELECT
+    .select {
+        display: inline-block;
+        height: $size--element-normal;
+        width: 100%;
+        outline: none;
+        padding: 0 $size--element-normal 0 10px;
+        border: $input--border;
+        font-family: $fontFamily--primary;
+        font-size: $fontSize--normal;
+        color: $color--base-80;
+        border-radius: $borderRadius--regular;
+        transition: border-color 0.3s ease;
+        background-color: $color--contrast;
+        appearance: none;
+
+        &:focus {
+            border: $input--border-focus;
+            color: $color--base;
+            box-shadow: $input--boxShadow-focus;
+        }
+    }
+
+    // OPTION
+    .option {
+
+    }
+
+    // STATE: Error
+    &.error {
+        .select {
+            border-color: $input--border-error;
+
+            &:focus {
+                //box-shadow: $input--box-shadow-hover--error;
+            }
+        }
+    }
+
+
+    // STATE: Disabled
+    &.disabled {
+        .arrow {
+            .icon {
+                @include m-iconColor($color--base-30);
+            }
+        }
+
+        .select {
+            background-color: transparent;
+            border-color: $color--base-10;
+            color: $color--base-60;
+        }
+    }
+
+
+
+    // SIZE: Small
+    &.small {
+        .select {
+            height: $size--element-small;
+            font-size: $fontSize--small;
+            padding-right: $size--element-small;
+        }
+    }
+
+    // SIZE: Big
+    &.big {
+        .select {
+            height: $size--element-big;
+            font-size: $fontSize--medium;
+        }
+    }
+
+}

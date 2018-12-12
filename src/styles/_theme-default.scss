@@ -89,8 +89,6 @@ $color--contrast:                   #ffffff;
 
 // Primary
 $color--primary:                    #0F67D0;
-$color--accent:                     #4aa1db;
-
 
 // Status colors
 $color--success:                    #27b577;
@@ -157,5 +155,12 @@ $boxShadow--large:                  0 1px 30px 1px rgba($color--base, .2);
 $appBar--height:                    68px;
 $appNav--width:                     280px;
 
+// Grid gutter
 $grid--gutter-small:                $spacing--small;
 $grid--gutter-regular:              $spacing--medium;
+
+// Input style
+$input--border:                     1px solid $color--base-20;
+$input--border-focus:               1px solid $color--primary;
+$input--border-error:               1px solid $color--error;
+$input--boxShadow-focus:            0 0 0 2px rgba($color--primary, 0.2);

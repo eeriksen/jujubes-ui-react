@@ -1,7 +1,8 @@
-import React from 'react';
+import React from "react"
 
-import { storiesOf } from '@storybook/react'
-import { withState } from '@dump247/storybook-state'
+import { storiesOf } from "@storybook/react"
+import { withState } from "@dump247/storybook-state"
+import { action } from "@storybook/addon-actions"
 
 import AppLayout from "../../src/components/layout/AppLayout"
 import { AppNav, MenuHeading, Menu, MenuItem } from "../../src/components/layout/AppNav"
@@ -12,6 +13,15 @@ import PageHeader from "../../src/components/page/PageHeader"
 import Card from "../../src/components/card/Card"
 import CardContent from "../../src/components/card/CardContent"
 import UserMenu from "../../src/components/user/UserMenu"
+import Form from "../../src/components/form/Form"
+import FormItem from "../../src/components/form/FormItem"
+import Input from "../../src/components/form/Input"
+import Textarea from "../../src/components/form/Textarea"
+import Checkbox from "../../src/components/form/Checkbox"
+import FormButtons from "../../src/components/form/FormButtons"
+import SubmitButton from "../../src/components/button/SubmitButton"
+import Button from "../../src/components/button/Button"
+import { Select, Option } from "../../src/components/form/Select"
 
 
 // Section title
@@ -29,7 +39,13 @@ const pageDecorator = (story) => (
  */
 storiesOf(`${SECTION_TITLE}`, module)
     .addDecorator(pageDecorator)
-    .add('example', withState({ userMenu: false })(({ store }) => (
+    .add('example', withState({
+        userMenu: false,
+        name: null,
+        comment: null,
+        group: null,
+        everyone: true
+    })(({ store }) => (
         <AppLayout>
             <AppBar title="Digital Historiefortelling">
                 <AppBar.Item placeRight>
@@ -81,6 +97,38 @@ storiesOf(`${SECTION_TITLE}`, module)
                     <Card>
                         <CardContent>
                             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardContent>
+                            <Form onSubmit={action("SUBMIT")}>
+                                <FormItem label="Your name">
+                                    <Input value={store.state.name} onChange={(e) => store.set({name: e.target.value})} placeholder="Write here..." />
+                                </FormItem>
+                                <FormItem label="Your comment">
+                                    <Textarea value={store.state.comment} onChange={(e) => store.set({comment: e.target.value})} placeholder="Write here..." />
+                                </FormItem>
+                                <FormItem label="Message group">
+                                    <Select value={store.state.group} onChange={(val) => store.set({group: val})}>
+                                        <Option value={1}>General</Option>
+                                        <Option value={2}>Tips & tricks</Option>
+                                        <Option value={3}>Help & guides</Option>
+                                    </Select>
+                                </FormItem>
+                                <FormItem>
+                                    <Checkbox checked={store.state.everyone} onToggle={(val) => store.set({everyone: !val})}>
+                                        Send to everyone
+                                    </Checkbox>
+                                </FormItem>
+                                <FormButtons>
+                                    <SubmitButton color="primary">
+                                        Submit comment
+                                    </SubmitButton>
+                                    <Button onClick={() => store.set({name: null, comment: null, everyone: true})}>
+                                        Clear
+                                    </Button>
+                                </FormButtons>
+                            </Form>
                         </CardContent>
                     </Card>
                 </Page>

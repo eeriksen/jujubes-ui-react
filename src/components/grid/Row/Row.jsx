@@ -2,34 +2,24 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Children, cloneElement } from 'react'
 import classNames from 'classnames'
-import style from "./style.scss"
+import styles from "./styles.scss"
 
 
 export default class Row extends React.Component {
     render() {
 
-        let { type, justify, align, className, gutter, bottomSpacing, colSpacing, maxWidth, children, ...others } = this.props;
+        let { className, gutter, spacing, children } = this.props;
 
-        type = !type ? null : type.charAt(0).toUpperCase() + type.slice(1);
-        justify = !justify ? null : justify.charAt(0).toUpperCase() + justify.slice(1);
-        align = !align ? null : align.charAt(0).toUpperCase() + align.slice(1);
+        // Spacings
+        const bottomSpacing = spacing && spacing.indexOf("bottom") >= 0;
+        const columnSpacing = spacing && spacing.indexOf("column") >= 0;
 
         // Classes
-        const classes = classNames({
-            [style.row]: !type,
-            [style[`row${type}`]]: type,
-            [style[`row${type}${justify}`]]: justify,
-            [style[`row${type}${align}`]]: align,
-            [style.bottomSpacing]: bottomSpacing,
-            [style.colSpacing]: colSpacing
+        const classes = classNames(styles.row, {
+            [styles.bottomSpacing]: bottomSpacing,
+            [styles.colSpacing]: columnSpacing,
+            [styles.gutterSmall]: gutter === "small"
         }, className);
-
-        // Row style
-        const rowStyle = gutter > 0 ? Object.assign({}, {
-            maxWidth: maxWidth,
-            marginLeft: gutter / -2,
-            marginRight: gutter / -2,
-        }, this.props.style) : this.props.style;
 
         // Columns
         const cols = Children.map(children, (col) => {
@@ -38,17 +28,14 @@ export default class Row extends React.Component {
             }
             if (col.props) {
                 return cloneElement(col, {
-                    style: gutter > 0 ? Object.assign({}, {
-                        paddingLeft: gutter / 2,
-                        paddingRight: gutter / 2,
-                    }, col.props.style) : col.props.style,
-                    bottomSpacing: colSpacing
+                    bottomSpacing: columnSpacing,
+                    gutter: gutter
                 });
             }
             return col;
         });
 
-        return <div {...others} className={classes} style={rowStyle}>{cols}</div>;
+        return <div className={classes}>{cols}</div>;
     }
 }
 
@@ -63,5 +50,5 @@ Row.propTypes = {
 };
 
 Row.defaultProps = {
-    gutter:                 0
+    gutter: 0
 };

@@ -1,0 +1,116 @@
+
+/* ===================================================================
+   CHECKBOX
+   =================================================================== */
+
+$checkbox--size: 28px;
+
+.base {
+    cursor: pointer;
+    display: inline-block;
+    min-height: $checkbox--size;
+    user-select: none;
+    vertical-align: top;
+    position: relative;
+
+    $topBottom-margin: ($size--element-normal - $checkbox--size) / 2;
+    margin: $topBottom-margin $spacing--medium $topBottom-margin 0;
+
+    .check {
+        position: relative;
+        float: left;
+        width: $checkbox--size;
+        height: $checkbox--size;
+        border: $input--border;
+        border-radius: $borderRadius--regular;
+        transition: all 0.2s ease;
+        background-color: $color--contrast;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .icon {
+            opacity: 0;
+            transform: scale(1.5);
+            transition: transform .3s cubic-bezier(0.620, 0.055, 0.240, 1.305);
+            @include m-iconColor($color--contrast);
+        }
+    }
+
+    .label {
+        margin-left: $checkbox--size;
+        padding: 1px 0 0 $spacing--normal;
+        color: $color--base-80;
+        transition: all 0.2s ease;
+        min-height: $checkbox--size;
+        display: flex;
+        align-items: center;
+    }
+
+    &:hover {
+        .check {
+            border-color: $input--border-focus;
+        }
+
+        .label {
+            color: $color--base;
+        }
+    }
+
+    // No margin
+    &.noMargin {
+        margin: 0;
+    }
+
+    // Embedded
+    &.embedded {
+        display: block;
+        margin: 0;
+        padding: 7px 7px 8px;
+    }
+
+    // STATE: Checked
+    &.isChecked {
+        .check {
+            border-color: transparent;
+            background-color: $color--primary;
+
+            .icon {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .label {
+            color: $color--base;
+        }
+
+        &:active {
+            .check {
+                background-color: darken($color--primary, 5%);
+            }
+        }
+    }
+
+
+    // Hidden input
+    input[type=checkbox] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        opacity: 0;
+
+        &:focus + label {
+            .check {
+                box-shadow: $input--boxShadow-focus;
+                border: $input--border-focus;
+            }
+        }
+    }
+
+    label {
+        cursor: pointer;
+    }
+}
+

@@ -7,6 +7,7 @@ import Page from "../../src/components/page/Page"
 import Card from "../../src/components/card/Card"
 import CardTitle from "../../src/components/card/CardTitle"
 import CardContent from "../../src/components/card/CardContent"
+import CardUserHead from "../../src/components/card/CardUserHead"
 import Badge from "../../src/components/notify/Badge"
 
 
@@ -63,6 +64,21 @@ storiesOf(`${SECTION_TITLE}`, module)
             <CardTitle title={"This is the card title"}>
                 <Badge color="primary" fill>New feature</Badge>
             </CardTitle>
+            <CardContent>
+                Lorem ipsum dolor sit amet, mel aliquip consetetur ea, postulant salutandi et ius.
+                Quas semper dissentiunt ad mel, in putent minimum ius, ne doctus audiam menandri mel.
+                In amet utroque facilisi quo, mei ad mutat graeci evertitur, natum fastidii no mel.
+                Etiam praesent moderatius an vis, vim velit tollit cu.
+            </CardContent>
+        </Card>
+    ))
+    .add('card with user details', () => (
+        <Card>
+            <CardUserHead
+                picture={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1tvQgE1rb77QbsbrplQQWD-PtjOsERde6Xhyyef8g7DC102a0"}
+                name="Joshua Homme"
+                email="joshua.homme@mail.com"
+            />
             <CardContent>
                 Lorem ipsum dolor sit amet, mel aliquip consetetur ea, postulant salutandi et ius.
                 Quas semper dissentiunt ad mel, in putent minimum ius, ne doctus audiam menandri mel.

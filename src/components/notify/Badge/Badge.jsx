@@ -1,28 +1,29 @@
 import React from "react"
 import classNames from "classnames"
-import style from "./style.scss"
+import styles from "./styles.scss"
 
 
 export default class Badge extends React.Component {
     render(){
 
-        const { fill, small, leftSpacing, rightSpacing, color } = this.props;
+        const { fill, small, leftSpacing, rightSpacing, color, round } = this.props;
 
-        const classes = classNames(style.base, {
-            [style.primary]: color === "primary",
-            [style.silent]: color === "silent",
-            [style.info]: color === "info",
-            [style.success]: color === "success",
-            [style.warning]: color === "warning",
-            [style.error]: color === "error",
-            [style.contrast]: color === "contrast",
+        const classes = classNames(styles.base, {
+            [styles.primary]: color === "primary",
+            [styles.silent]: color === "silent",
+            [styles.info]: color === "info",
+            [styles.success]: color === "success",
+            [styles.warning]: color === "warning",
+            [styles.error]: color === "error",
+            [styles.contrast]: color === "contrast",
 
-            [style.small]: small,
+            [styles.small]: small,
 
-            [style.leftSpacing]: leftSpacing,
-            [style.rightSpacing]: rightSpacing,
+            [styles.leftSpacing]: leftSpacing,
+            [styles.rightSpacing]: rightSpacing,
 
-            [style.fill]: fill
+            [styles.fill]: fill,
+            [styles.round]: round
         });
 
         return (

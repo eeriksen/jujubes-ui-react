@@ -12,7 +12,8 @@ export default class Arrow extends React.Component {
         // Base classes
         const baseClasses = classNames(styles.base, {
             [styles.colorContrast]: color === "contrast",
-            [styles.colorPrimary]: color === "primary"
+            [styles.colorPrimary]: color === "primary",
+            [styles.colorAccent]: color === "accent"
         }, className);
 
         return (

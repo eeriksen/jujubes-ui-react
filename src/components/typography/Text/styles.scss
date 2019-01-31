@@ -1,0 +1,115 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   TEXT
+   =================================================================== */
+
+.base {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.block {
+    display: block;
+}
+
+.truncate {
+    @include m-truncate();
+}
+
+// SIZES
+
+.sizeSmall {
+    font-size: $fontSize--small;
+    line-height: $lineHeight--small;
+}
+
+.sizeNormal {
+    font-size: $fontSize--normal;
+    line-height: $lineHeight--normal;
+}
+
+.sizeMedium {
+    font-size: $fontSize--medium;
+    line-height: $lineHeight--medium;
+}
+
+.sizeLarge {
+    font-size: $fontSize--large;
+    line-height: $lineHeight--large;
+}
+
+.sizeXlarge {
+    font-size: $fontSize--heading-3;
+    line-height: $lineHeight--heading-3;
+}
+
+// WEIGHTS
+
+.weightMedium {
+    font-weight: $fontWeight--medium;
+}
+
+.weightBold {
+    font-weight: $fontWeight--bold;
+}
+
+// COLORS
+
+.base {
+    color: $color--base;
+}
+
+.base80 {
+    color: $color--base-80;
+}
+
+.base60 {
+    color: $color--base-60;
+}
+
+.base40 {
+    color: $color--base-40;
+}
+
+.success {
+    color: $color--success;
+}
+
+.warning {
+    color: $color--warning;
+}
+
+.error {
+    color: $color--error;
+}
+
+.primary {
+    color: $color--primary;
+}
+
+.contrast {
+    color: $color--contrast;
+}
+
+.info {
+    color: $color--info;
+}
+
+// FORMATTING
+
+.strikeThrough {
+    text-decoration: line-through;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.italic {
+    font-style: italic;
+}

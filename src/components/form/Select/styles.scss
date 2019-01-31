@@ -7,6 +7,14 @@
 .base {
     position: relative;
 
+    &:hover {
+        .arrow {
+            .icon {
+                @include m-iconColor($color--base-60, true);
+            }
+        }
+    }
+
     // ARROW
     .arrow {
         position: absolute;
@@ -20,7 +28,7 @@
 
         .icon {
             @include m-iconSize(10px);
-            @include m-iconColor($color--base-60);
+            @include m-iconColor($color--base-20, true);
         }
     }
 
@@ -61,10 +69,10 @@
     // STATE: Error
     &.error {
         .select {
-            border-color: $input--border-error;
+            border: $input--border-error;
 
             &:focus {
-                //box-shadow: $input--box-shadow-hover--error;
+                box-shadow: $input--boxShadow-error;
             }
         }
     }
@@ -72,16 +80,18 @@
 
     // STATE: Disabled
     &.disabled {
+
         .arrow {
             .icon {
-                @include m-iconColor($color--base-30);
+                @include m-iconColor($color--base-10);
             }
         }
 
         .select {
-            background-color: transparent;
+            cursor: not-allowed;
+            background-color: $color--base-3;
             border-color: $color--base-10;
-            color: $color--base-60;
+            color: $color--base-40;
         }
     }
 

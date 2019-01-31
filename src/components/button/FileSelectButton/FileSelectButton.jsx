@@ -5,8 +5,6 @@ import styles from "./styles.scss"
 
 import Dropzone from "react-dropzone"
 import Button from "../Button"
-import LoaderHorizontal from "../../loader/LoaderHorizontal"
-
 
 const fileTypeMimes = {
     images:         "image/*",
@@ -19,18 +17,12 @@ const fileTypeMimes = {
 export default class FileSelectButton extends React.Component {
 
     /**
-     * Open file selector
-     * @private
-     */
-    _openFileSelector = () => {
-        this.dropzone.open();
-    };
-
-    /**
      * Callback when files are selected
      * @private
      */
     _handleFilesSelected = (acceptedFiles) => {
+
+        console.log("FILES", acceptedFiles);
 
         // Callback
         if(this.props.onSelect){
@@ -68,25 +60,24 @@ export default class FileSelectButton extends React.Component {
         const classes = classNames(styles.base, className);
 
         return (
-            <Button onClick={this._openFileSelector} className={classes} disabled={busy || disabled} hideIcon={busy} hideLabel={busy} {...this.props}>
-
-                {busy ? (
-                    <div className={styles.loader}>
-                        <LoaderHorizontal />
+            <Dropzone
+                onDrop={this._handleFilesSelected}
+                multiple={multiple}
+                accept={acceptTypes}
+                disableClick
+                disabled={busy || disabled}>
+                {({getRootProps, getInputProps, open}) => (
+                    <div className={classes} {...getRootProps()}>
+                        <input className={styles.input} {...getInputProps()} />
+                        <Button
+                            onClick={() => open()}
+                            busy={busy}
+                            {...this.props}>
+                            {children}
+                        </Button>
                     </div>
-                ) : null}
-
-                {children}
-
-                <Dropzone
-                    className={styles.dropzone}
-                    ref={(node) => { this.dropzone = node; }}
-                    onDrop={this._handleFilesSelected}
-                    multiple={multiple}
-                    accept={acceptTypes}
-                    disabled={busy || disabled}
-                />
-            </Button>
+                )}
+            </Dropzone>
         )
     }
 }

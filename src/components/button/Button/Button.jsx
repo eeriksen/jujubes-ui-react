@@ -3,6 +3,8 @@ import classNames from "classnames"
 import styles from "./styles.scss"
 import Icon from "../../graphic/Icon"
 
+import LoaderHorizontal from "../../loader/LoaderHorizontal"
+
 
 export default class extends React.Component {
 
@@ -35,6 +37,7 @@ export default class extends React.Component {
         else if(onClick){
             onClick(event);
         }
+
     };
 
 
@@ -45,11 +48,13 @@ export default class extends React.Component {
     render(){
 
         // Properties
-        const { color, size, active, compact, block, circle, square, iconRight, icon, iconColor,
-            hideIcon, hideLabel, className, type, disabled, children, onMouseOver, onMouseOut, title, cyp } = this.props;
+        const { color, size, active, compact, block, circle, square, iconRight, icon, iconColor, labelColor,
+            hideIcon, hideLabel, className, type, disabled, children, onMouseOver, onMouseOut, title, busy
+        } = this.props;
 
         // Classnames
-        const buttonClasses = classNames(styles.base, styles.default, {
+        const buttonClasses = classNames(styles.base, {
+            [styles.default]: !color,
             [styles.primary]: color === "primary",
             [styles.success]: color === "success",
             [styles.error]: color === "error",
@@ -64,13 +69,15 @@ export default class extends React.Component {
             [styles.square]: square,
 
             [styles.iconRight]: iconRight,
-            [styles.hideIcon]: hideIcon,
-            [styles.hideLabel]: hideLabel,
+            [styles.hideIcon]: hideIcon || busy,
+            [styles.hideLabel]: hideLabel || busy,
 
             [styles.iconPrimary]: iconColor === "primary",
             [styles.iconInfo]: iconColor === "info",
             [styles.iconSuccess]: iconColor === "success",
             [styles.iconError]: iconColor === "error",
+
+            [styles.labelError]: labelColor === "error"
 
         }, className);
 
@@ -80,13 +87,20 @@ export default class extends React.Component {
             className: buttonClasses,
             type: type || 'button',
             onClick: this._onClick,
-            disabled: disabled,
+            disabled: disabled || busy,
             onMouseOver, onMouseOut,
             title: title
         };
 
         return (
-            <button {...props} data-cyp={cyp}>
+            <button {...props}>
+
+                {/* Busy */}
+                {busy ? (
+                    <div className={styles.loader}>
+                        <LoaderHorizontal />
+                    </div>
+                ) : null}
 
                 {/* Icon left */}
                 {icon && !iconRight ? (<Icon className={styles.icon} name={icon} />) : null}

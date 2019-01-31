@@ -1,4 +1,3 @@
-@import "../../../styles/base";
 
 /* ===================================================================
    INPUT
@@ -10,6 +9,7 @@
     /* INPUT
     --------------------------------------- */
     .input {
+        position: relative;
         display: inline-block;
         height: $size--element-normal;
         width: 100%;
@@ -28,12 +28,23 @@
             border: $input--border-focus;
             color: $color--base;
             box-shadow: $input--boxShadow-focus;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 20px;
+                width: 2px;
+                height: 5px;
+                background-color: $color--primary;
+            }
         }
 
         &[disabled] {
-            background-color: transparent;
+            background-color: $color--base-3;
             border-color: $color--base-10;
-            color: $color--base-60;
+            color: $color--base-40;
+            cursor: not-allowed;
         }
     }
 
@@ -42,22 +53,22 @@
     &.inputIcon {
 
         .input {
-            padding-left: 52px;
+            padding-left: 55px;
         }
 
         .icon {
             position: absolute;
             top: 50%;
-            margin-top: -7px;
-            left: 11px;
+            margin-top: -8px;
+            left: 13px;
             @include m-iconColor(lighten($color--primary, 10%));
 
             &:after {
                 content: '';
                 position: absolute;
-                right: -11px;
-                top: -9px;
-                bottom: -5px;
+                right: -13px;
+                top: -4px;
+                bottom: -4px;
                 width: 1px;
                 background-color: rgba($color--base-5, 0);
                 background-image: -webkit-linear-gradient(bottom, rgba($color--base-15, 0) 0, $color--base-15 30%, $color--base-15 70%, rgba($color--base-15, 0) 100%);
@@ -67,14 +78,14 @@
 
         &.big {
             .input {
-                padding-left: 56px;
+                padding-left: 65px;
             }
 
             .icon {
-                left: 13px;
+                left: 18px;
 
                 &:after {
-                    right: -13px;
+                    right: -18px;
                 }
             }
         }
@@ -192,11 +203,12 @@
 
     // STATE: Error
     &.error {
+
         .input {
-            border-color: $input--border-error;
+            border: $input--border-error;
 
             &:focus {
-                //box-shadow: $input--box-shadow-hover--error;
+                box-shadow: $input--boxShadow-error;
             }
         }
 

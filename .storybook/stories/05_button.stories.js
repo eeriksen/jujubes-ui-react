@@ -11,14 +11,14 @@ import CardContent from "../../src/components/card/CardContent"
 import Button from "../../src/components/button/Button"
 import ButtonGroup from "../../src/components/button/ButtonGroup"
 import Clickable from "../../src/components/button/Clickable"
-import SubmitButton from "../../src/components/button/SubmitButton/SubmitButton"
 import FileSelectButton from "../../src/components/button/FileSelectButton/index"
+import ConfirmActionButton from "../../src/components/button/ConfirmActionButton"
 
 import ButtonReadme from "../../src/components/button/Button/README.md"
 import ClickableReadme from "../../src/components/button/Clickable/README.md"
-import SubmitButtonReadme from "../../src/components/button/SubmitButton/README.md"
 import FileSelectButtonReadme from "../../src/components/button/FileSelectButton/README.md"
 import ButtonGroupReadme from "../../src/components/button/ButtonGroup/README.md"
+import ConfirmActionButtonReadme from "../../src/components/button/ConfirmActionButton/README.md"
 
 
 // Decorator
@@ -52,8 +52,8 @@ storiesOf(`${SECTION_TITLE}/Button`, module)
     ))
     .add('sizes', () => (
         <div>
-            <Button size="small">Small button</Button>
-            <Button>Regular button</Button>
+            <Button size="small">Small button</Button><br /><br />
+            <Button>Regular button</Button><br /><br />
             <Button size="big">Big button</Button>
         </div>
     ))
@@ -65,21 +65,36 @@ storiesOf(`${SECTION_TITLE}/Button`, module)
     ))
     .add('with icon colors', () => (
         <div>
-            <Button iconColor="primary" icon="check">Button with primary icon</Button>
-            <Button iconColor="info" icon="eye">Button with info icon</Button>
-            <Button iconColor="success" icon="plus-small">Button with success icon</Button>
+            <Button icon="check">Button with default icon</Button><br /><br />
+            <Button iconColor="info" icon="eye">Button with info icon</Button><br /><br />
+            <Button iconColor="success" icon="plus">Button with success icon</Button><br /><br />
             <Button iconColor="error" icon="trash">Button with error icon</Button>
         </div>
     ))
     .add('variants', () => (
         <div>
-            <Button active>Active button</Button>
-            <Button compact>Compact button</Button>
-            <Button block>Block button</Button>
-            <Button circle icon="gear" />
-            <Button square icon="gear" />
+            <Button active>Active button</Button><br /><br />
+            <Button compact>Compact button</Button><br /><br />
+            <Button block>Block button</Button><br /><br />
+            <Button circle icon="gear" /><br /><br />
+            <Button square icon="gear" /> <Button square icon="gear" size="small" /> <Button square icon="gear" size="small" color="primary" />
         </div>
-    ));
+    ))
+    .add('submit/busy', withState({
+        busySubmittingForm: false
+    }, (store) => (
+        <Button
+            type="submit"
+            busy={store.state.busySubmittingForm}
+            onClick={() => {
+                store.set({busySubmittingForm: true});
+                setTimeout(() => {
+                    store.set({busySubmittingForm: false});
+                }, 2000);
+            }}>
+            Submit this form
+        </Button>
+    )));
 
 
 /**
@@ -91,28 +106,6 @@ storiesOf(`${SECTION_TITLE}/Clickable`, module)
     .add('regular', () => (
         <Clickable onClick={action('Clicked!')}>Some clickable content</Clickable>
     ));
-
-
-/**
- * SUBMIT BUTTON
- */
-storiesOf(`${SECTION_TITLE}/SubmitButton`, module)
-    .addDecorator(pageDecorator)
-    .addDecorator(withReadme(SubmitButtonReadme))
-    .add('regular', withState({
-        busySubmittingForm: false
-    }, (store) => (
-        <SubmitButton
-            busy={store.state.busySubmittingForm}
-            onClick={() => {
-                store.set({busySubmittingForm: true});
-                setTimeout(() => {
-                    store.set({busySubmittingForm: false});
-                }, 2000);
-            }}>
-            Submit this form
-        </SubmitButton>
-    )));
 
 
 /**
@@ -152,4 +145,36 @@ storiesOf(`${SECTION_TITLE}/ButtonGroup`, module)
             <Button>Middle</Button>
             <Button>Right</Button>
         </ButtonGroup>
+    ))
+    .add('active', withState({
+        active: 1
+    }, (store) => (
+        <ButtonGroup>
+            <Button active={store.state.active === 1} onClick={() => store.set({active: 1})}>Left</Button>
+            <Button active={store.state.active === 2} onClick={() => store.set({active: 2})}>Middle</Button>
+            <Button active={store.state.active === 3} onClick={() => store.set({active: 3})}>Right</Button>
+        </ButtonGroup>
+    )));
+
+
+/**
+ * CONFIRM ACTION BUTTON
+ */
+storiesOf(`${SECTION_TITLE}/ConfirmActionButton`, module)
+    .addDecorator(pageDecorator)
+    .addDecorator(withReadme(ConfirmActionButtonReadme))
+    .add('regular', () => (
+        <ConfirmActionButton
+            label="Delete something"
+            question="Are you sure you want to delete something?"
+            onConfirm={() => console.log("DELETED!")}
+        />
+    ))
+    .add('small', () => (
+        <ConfirmActionButton
+            size="small"
+            label="Delete something"
+            question="Are you sure you want to delete something?"
+            onConfirm={() => console.log("DELETED!")}
+        />
     ));

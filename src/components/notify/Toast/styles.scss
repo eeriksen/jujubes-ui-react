@@ -1,0 +1,106 @@
+
+/* ===================================================================
+   TOAST
+   =================================================================== */
+
+
+.base {
+    user-select: none;
+    color: $color--contrast;
+    font-weight: $fontWeight--medium;
+    padding: 10px 20px 9px;
+    background-color: $color--info;
+    border-radius: $borderRadius--regular;
+
+    &.success {
+        background-color: $color--success;
+        color: $color--status-text;
+    }
+
+    &.error {
+        background-color: $color--error;
+        color: $color--status-text;
+    }
+
+    &.loading {
+        .icon {
+            @include m-iconColor($color--base-60);
+        }
+    }
+
+}
+
+:global {
+    .rc-notification {
+        position: fixed;
+        z-index: $zIndex--toast;
+        width: 100%;
+        top: 16px;
+        left: 0;
+        pointer-events: none;
+
+        &-notice {
+            width: 100%;
+            text-align: center;
+            margin-bottom: $spacing--normal;
+        }
+
+        &-notice-content {
+            display: inline-block;
+            margin: 0 $spacing--large;
+        }
+
+        @mixin fade-effect() {
+            animation-duration: 0.2s;
+            animation-fill-mode: both;
+            animation-timing-function: cubic-bezier(0.325, 0.510, 0.050, 0.770);
+        }
+
+        .fade-enter {
+            opacity: 0;
+            transform: translateY(100%);
+            @include fade-effect();
+            animation-play-state: paused;
+        }
+
+        .fade-leave {
+            @include fade-effect();
+            animation-play-state: paused;
+        }
+
+        .fade-enter.fade-enter-active {
+            :local {
+                animation-name: NotificationFadeIn;
+            }
+            animation-play-state: running;
+        }
+
+        .fade-leave.fade-leave-active {
+            :local {
+                animation-name: NotificationFadeOut;
+            }
+            animation-play-state: running;
+        }
+    }
+
+}
+
+@keyframes NotificationFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes NotificationFadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}

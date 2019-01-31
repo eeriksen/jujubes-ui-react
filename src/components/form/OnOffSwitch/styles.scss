@@ -1,0 +1,126 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   ON/OFF SWITCH
+   =================================================================== */
+
+$switch--height: 28px;
+$switch--width: 56px;
+
+.base {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    user-select: none;
+
+    $topBottom-margin: ($size--element-normal - $switch--height) / 2;
+    margin: $topBottom-margin $spacing--medium $topBottom-margin 0;
+
+    .switch {
+        overflow: hidden;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-block;
+        height: $switch--height;
+        width: $switch--width;
+        border-radius: $switch--height;
+        background-color: $color--success;
+        transition: background-color 0.3s ease;
+
+        .handle {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: $switch--height - 4px;
+            height: $switch--height - 4px;
+            background-color: $color--status-text;
+            border-radius: 50%;
+            transition: left 0.3s ease-in-out;
+            text-align: center;
+            padding-top: 1px;
+            @include m-iconColor($color--base-25);
+        }
+
+        .onIcon {
+            position: absolute;
+            right: 9px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: right 0.3s ease-in-out;
+            @include m-iconColor(rgba($color--status-text, 0.9));
+            @include m-iconSize($iconSize--small);
+        }
+
+        .offIcon {
+            position: absolute;
+            left: -($switch--width - $switch--height - 9px);
+            top: 50%;
+            transform: translateY(-50%);
+            transition: left 0.3s ease-in-out;
+            @include m-iconColor(rgba($color--status-text, 0.9));
+            @include m-iconSize($iconSize--small);
+        }
+    }
+
+    .label {
+        margin-left: $switch--width;
+        padding: 1px 0 0 $spacing--normal;
+        color: $color--base-80;
+        transition: all 0.2s ease;
+        min-height: $switch--height;
+        display: flex;
+        align-items: center;
+    }
+
+    &.isOff {
+        .switch {
+            background-color: $color--error;
+
+            .handle {
+                left: calc((100% - #{$switch--height}) + 2px);
+            }
+
+            .onIcon {
+                right: -($switch--width - $switch--height - 9px);
+            }
+
+            .offIcon {
+                left: 9px;
+            }
+
+        }
+
+        .label {
+            color: $color--base-60;
+        }
+    }
+
+    &:hover {
+        .label {
+            color: $color--base;
+        }
+    }
+
+    // STATE: No label
+    &.noLabel {
+        min-height: $switch--height;
+    }
+
+    // STATE: Disabled
+    &.disabled {
+        cursor: not-allowed;
+
+        &:hover {
+            .label {
+                color: $color--base-60;
+            }
+        }
+
+        .switch {
+            background-color: $color--base-20;
+        }
+    }
+}
+
+

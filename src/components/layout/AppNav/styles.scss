@@ -1,19 +1,41 @@
+@import "config";
 
 /* ===================================================================
    APP NAV
    =================================================================== */
 
-$baseColor: $color--primary;
-
 .base {
     position: relative;
     z-index: $zIndex--appNav;
 
+    .header {
+        padding: $spacing--nav-sides $spacing--nav-sides $spacing--large-x;
+
+        .logo {
+            margin-bottom: $spacing--medium;
+        }
+
+        .title {
+            color: $color--contrast;
+            font-size: $fontSize--heading-4;
+            line-height: $lineHeight--heading-4;
+            font-weight: $fontWeight--medium;
+
+            .subtitle {
+                font-size: $fontSize--normal;
+                font-weight: $fontWeight--regular;
+                color: rgba($color--contrast, 0.6);
+                margin-top: -5px;
+            }
+        }
+    }
+
     .content {
         width: $appNav--width;
         height: 100vh;
-        background-color: $baseColor;
+        background: linear-gradient(135deg, $color--primary 0%, $color--accent 100%);
         z-index: 2;
+        box-shadow: inset 3px 0 0 0 rgba(0, 0, 0, .1);
 
         .fade {
             position: absolute;
@@ -21,7 +43,7 @@ $baseColor: $color--primary;
             left: 0;
             right: 0;
             height: 60px;
-            background: linear-gradient(to top, rgba($baseColor,1) 0%,rgba($baseColor,0) 100%);
+            background: linear-gradient(to top, rgba($color--accent,1) 0%,rgba($color--accent,0) 100%);
             z-index: 2;
             pointer-events: none;
         }

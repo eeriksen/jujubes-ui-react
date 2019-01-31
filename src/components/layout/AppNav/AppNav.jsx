@@ -4,7 +4,6 @@ import styles from "./styles.scss"
 
 import layoutActions from "../../../utils/layoutActions"
 
-import Header from "./header/Header"
 import Clickable from "../../button/Clickable"
 import ScrollableArea from "../ScrollableArea"
 
@@ -38,15 +37,14 @@ export default class AppNav extends React.Component {
     render(){
 
         // Properties
-        const { title, logo, minimal, children } = this.props;
+        const { logo, title, subtitle, children } = this.props;
 
         // Variables
         const { active } = this.state;
 
         // Classes
         const baseClasses = classNames(styles.base, {
-            [styles.isActive]: active,
-            [styles.isMinimal]: minimal
+            [styles.isActive]: active
         });
 
         return (
@@ -54,11 +52,30 @@ export default class AppNav extends React.Component {
 
                 {/* Content pane */}
                 <div className={styles.content}>
+
+                    {/* Header */}
+                    <div className={styles.header}>
+                        <div className={styles.logo}>
+                            {logo}
+                        </div>
+                        <div className={styles.title}>
+                            {title}
+
+                            {subtitle ? (
+                                <div className={styles.subtitle}>
+                                    {subtitle}
+                                </div>
+                            ) : null}
+                        </div>
+                    </div>
+
                     <ScrollableArea>
-                        <Header title={title} logo={logo} />
+
+                        {/* Menu */}
                         <div className={styles.menu}>
                             {children}
                         </div>
+
                     </ScrollableArea>
                     <div className={styles.fade} />
                 </div>

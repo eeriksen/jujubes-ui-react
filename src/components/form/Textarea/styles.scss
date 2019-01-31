@@ -25,12 +25,19 @@
         color: $color--base;
     }
 
+    &[disabled] {
+        background-color: $color--base-3;
+        border-color: $color--base-10;
+        color: $color--base-40;
+        cursor: not-allowed;
+    }
+
     // STATE: Error
     &.error {
-        border-color: $input--border-error;
+        border: $input--border-error;
 
         &:focus {
-            //box-shadow: $input--box-shadow-hover--error;
+            box-shadow: $input--boxShadow-error;
         }
     }
 

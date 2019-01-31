@@ -3,10 +3,11 @@ import classNames from "classnames"
 import ReactDOM from "react-dom"
 import styles from "./styles.scss"
 
+import ClickOutside from "../../action/ClickOutside"
 import Avatar from "../../misc/Avatar"
 import Arrow from "../../graphic/Arrow"
+import Overlay from "../../layout/Overlay"
 import CardUserHead from "../../card/CardUserHead"
-import CardContent from "../../card/CardContent"
 
 const POP_WIDTH = 300;
 const POP_GUTTER = 10;
@@ -37,6 +38,9 @@ export default class UserMenu extends React.Component {
 
     render(){
 
+        // Properties
+        const { name, email, picture, children } = this.props;
+
         // Variables
         const { rightOffset, showPop } = this.state;
 
@@ -46,23 +50,27 @@ export default class UserMenu extends React.Component {
         });
 
         return (
-            <div className={styles.base}>
+            <ClickOutside onClickOutside={() => this.setState({showPop: false})} className={styles.base}>
 
                 {/* Avatar */}
-                <Avatar onClick={() => this.setState({showPop: !showPop})} imageUrl={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3EZo1PcTFDG3aIcjMFz4ZntDmRo8FW8D0x7dyAOT1QCZuwZYY"} />
+                <Avatar onClick={() => this.setState({showPop: !showPop})} imageUrl={picture} />
 
                 {/* Popup */}
-                <div ref={(r) => this.popRef = r} className={popClasses}>
-                    <Arrow color="primary" className={styles.arrow} />
-                    <div className={styles.content} style={{left: `${rightOffset}px`}}>
-                        <CardUserHead picture={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3EZo1PcTFDG3aIcjMFz4ZntDmRo8FW8D0x7dyAOT1QCZuwZYY"} name="Donald Trump" email="donald.trump@whitehouse.gov.us" />
-                        <CardContent>
-                            Heisann
-                        </CardContent>
+                <div className={popClasses}>
+                    <Overlay className={styles.overlay} visible={showPop} onClick={() => this.setState({showPop: false})} />
+
+                    <div ref={(r) => this.popRef = r} className={styles.box}>
+                        <Arrow color="accent" className={styles.arrow} />
+                        <div className={styles.content} style={{left: `${rightOffset}px`}}>
+                            <CardUserHead picture={picture} name={name} email={email} />
+                            <div className={styles.frame}>
+                                {children}
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-            </div>
+            </ClickOutside>
         )
     }
 }

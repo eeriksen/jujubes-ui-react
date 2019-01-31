@@ -1,13 +1,14 @@
+@import "../config";
 
 /* ===================================================================
    APP NAV - MENU
    =================================================================== */
 
-$spacing-sides: 25px;
+$spacing-sides: $spacing--nav-sides;
 
 .base {
     display: block;
-    margin: $spacing--medium 0;
+    margin-bottom: $spacing--large;
 }
 
 
@@ -18,10 +19,9 @@ $spacing-sides: 25px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 0 $spacing-sides - 1;
+    padding: 0 $spacing-sides;
     font-weight: $fontWeight--bold;
-    line-height: $size--element-small;
-    color: rgba(0, 0, 0, 0.3);
+    color: rgba($color--contrast, .9);
     font-size: $fontSize--small;
     text-transform: uppercase;
     text-align: left;
@@ -37,11 +37,12 @@ $spacing-sides: 25px;
     display: flex;
     width: 100%;
     height: $size--element-normal;
-    padding: 0 $spacing-sides;
+    padding: 0 $spacing-sides 0 ($spacing-sides - 3px);
     outline: none;
     user-select: none;
     transition: background-color .2s ease-in-out;
     align-items: center;
+    border-left: 3px solid transparent;;
 
     // Icon
     .icon {
@@ -55,9 +56,9 @@ $spacing-sides: 25px;
     .label {
         @include m-truncate();
         text-decoration: none;
-        color: rgba($color--contrast, 0.7);
+        color: rgba($color--contrast, 0.8);
         flex-grow: 1;
-        font-weight: $fontWeight--bold;
+        font-weight: $fontWeight--medium;
         transition: color .2s ease-in-out;
         padding-top: $fontFamily--pixel-adjustment;
     }
@@ -95,9 +96,10 @@ $spacing-sides: 25px;
     &.selected {
         background-color: rgba(0, 0, 0, 0.05);
         cursor: default;
+        border-left-color: $color--contrast;
 
         .icon {
-            @include m-iconColor(rgba(0, 0, 0, 0.35));
+            @include m-iconColor($color--contrast);
         }
 
         .label {

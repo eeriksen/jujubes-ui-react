@@ -13,11 +13,12 @@ import Input from "../../src/components/form/Input"
 import Textarea from "../../src/components/form/Textarea"
 import Checkbox from "../../src/components/form/Checkbox"
 import FormButtons from "../../src/components/form/FormButtons"
-import SubmitButton from "../../src/components/button/SubmitButton"
 import Button from "../../src/components/button/Button"
 import { Select, Option } from "../../src/components/form/Select"
 import Card from "../../src/components/card/Card"
 import CardContent from "../../src/components/card/CardContent"
+import Text from "../../src/components/typography/Text"
+import OnOffSwitch from "../../src/components/form/OnOffSwitch"
 
 
 import FormReadme from "../../src/components/form/Form/README.md"
@@ -25,6 +26,7 @@ import FormItemReadme from "../../src/components/form/FormItem/README.md"
 import InputReadme from "../../src/components/form/Input/README.md"
 import TextareaReadme from "../../src/components/form/Textarea/README.md"
 import SelectReadme from "../../src/components/form/Select/README.md"
+import OnOffSwitchReadme from "../../src/components/form/OnOffSwitch/README.md"
 
 
 
@@ -69,9 +71,9 @@ storiesOf(`${SECTION_TITLE}/Form`, module)
                 </Checkbox>
             </FormItem>
             <FormButtons>
-                <SubmitButton color="primary">
+                <Button type="submit" color="primary">
                     Submit comment
-                </SubmitButton>
+                </Button>
                 <Button onClick={() => store.set({name: null, comment: null, everyone: true})}>
                     Clear
                 </Button>
@@ -99,9 +101,9 @@ storiesOf(`${SECTION_TITLE}/Form`, module)
                 There was an error posting your comment
             </FormError>
             <FormButtons>
-                <SubmitButton kind="primary">
+                <Button type="submit" color="primary">
                     Submit comment
-                </SubmitButton>
+                </Button>
                 <Button onClick={() => store.set({name: null, comment: null, everyone: true})}>
                     Clear
                 </Button>
@@ -174,12 +176,13 @@ storiesOf(`${SECTION_TITLE}/Input`, module)
         </Form>
     )))
     .add('sizes', withState({
+        smallValue: null,
         regularValue: null,
         bigValue: null
     }, (store) => (
         <Form>
             <FormItem>
-                <Input value={store.state.regularValue} onChange={(e) => store.set({regularValue: e.target.value})} small placeholder="Regular input" />
+                <Input value={store.state.smallValue} onChange={(e) => store.set({smallValue: e.target.value})} small placeholder="Small input" />
             </FormItem>
             <FormItem>
                 <Input value={store.state.regularValue} onChange={(e) => store.set({regularValue: e.target.value})} placeholder="Regular input" />
@@ -208,7 +211,12 @@ storiesOf(`${SECTION_TITLE}/Input`, module)
     }, (store) => (
         <Form>
             <FormItem>
-                <Input value={store.state.value} onChange={(e) => store.set({value: e.target.value})} placeholder="Input with prepend" prepend={'http://'} />
+                <Input
+                    value={store.state.value}
+                    onChange={(e) => store.set({value: e.target.value})}
+                    placeholder="Input with prepend"
+                    prepend={<Text color="base60">http://</Text>}
+                />
             </FormItem>
         </Form>
     )))
@@ -217,7 +225,12 @@ storiesOf(`${SECTION_TITLE}/Input`, module)
     }, (store) => (
         <Form>
             <FormItem>
-                <Input value={store.state.value} onChange={(e) => store.set({value: e.target.value})} placeholder="Input with append" append={'.com'} />
+                <Input
+                    value={store.state.value}
+                    onChange={(e) => store.set({value: e.target.value})}
+                    placeholder="Input with append"
+                    append={<Text color="base60">.com</Text>}
+                />
             </FormItem>
         </Form>
     )))
@@ -246,7 +259,15 @@ storiesOf(`${SECTION_TITLE}/Textarea`, module)
                 <Textarea value={store.state.value} onChange={(e) => store.set({value: e.target.value})} placeholder="Default textarea" />
             </FormItem>
         </Form>
-    )));
+    )))
+    .add('disabled', () => (
+        <Form>
+            <FormItem>
+                <Textarea placeholder="Default textarea" disabled />
+            </FormItem>
+        </Form>
+    ));
+
 
 
 /**
@@ -312,6 +333,30 @@ storiesOf(`${SECTION_TITLE}/Select`, module)
                         Fourth
                     </Option>
                 </Select>
+            </FormItem>
+        </Form>
+    )));
+
+
+/**
+ * ON/OFF SWITCH
+ */
+storiesOf(`${SECTION_TITLE}/OnOffSwitch`, module)
+    .addDecorator(pageDecorator)
+    .addDecorator(withReadme(OnOffSwitchReadme))
+    .add('default', withState({
+        active: true
+    }, (store) => (
+        <Form>
+            <FormItem>
+                <OnOffSwitch value={store.state.active} onChange={(val) => store.set({active: !val})}>
+                    Switch
+                </OnOffSwitch>
+            </FormItem>
+            <FormItem>
+                <OnOffSwitch disabled>
+                    Switch (disabled)
+                </OnOffSwitch>
             </FormItem>
         </Form>
     )));

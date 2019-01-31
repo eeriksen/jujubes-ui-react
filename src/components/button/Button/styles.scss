@@ -14,29 +14,33 @@ $height--button-small: $size--element-small;
     outline: none;
     background: none;
     height: $height--button;
+    line-height: $height--button + 1px;
     font-family: $fontFamily--primary;
     font-size: $fontSize--normal;
     font-weight: $fontWeight--medium;
     padding: 0 30px 0;
+    border: 1px solid transparent;
     cursor: pointer;
-    border: 1px solid $color--primary;
     border-radius: $borderRadius--regular;
     text-decoration: none;
     user-select: none;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s linear, color .3s linear, background-color .3s linear;
     @include m-truncate();
 
     &:active {
         transition: background-color 0s ease;
     }
+
+    &.active {
+        cursor: default;
+    }
 }
 
 // Disabled
 .base[disabled], .base[disabled]:hover, .base[disabled]:active {
-    border-color: $color--base-5;
+    border-color: transparent;
     background-color: $color--base-3;
     color: $color--base-30;
-    box-shadow: none;
     cursor: default;
 
     .icon {
@@ -48,6 +52,24 @@ $height--button-small: $size--element-small;
     }
 }
 
+
+/* ===================================================================
+   LOADER (Busy)
+   =================================================================== */
+
+.loader {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 $spacing--medium;
+}
+
+
+
 /* ===================================================================
    BUTTON ICON
    =================================================================== */
@@ -55,15 +77,15 @@ $height--button-small: $size--element-small;
 .base {
     .icon {
         vertical-align: -3px;
-        margin-right: $spacing--small;
-        margin-left: -6px;
+        margin-right: 6px;
+        margin-left: -7px;
     }
 
     // Icon on the right side of label
     &.iconRight {
         .icon {
-            margin-right: 0;
-            margin-left: $spacing--small;
+            margin-right: -7px;
+            margin-left: 6px;
         }
     }
 
@@ -104,41 +126,59 @@ $height--button-small: $size--element-small;
     }
 }
 
+
+/* ===================================================================
+   LABEL COLOR
+   =================================================================== */
+
+.base {
+
+    &.labelError {
+        color: $color--error;
+
+        &:hover {
+            color: $color--error;
+        }
+    }
+
+}
+
+
+
 /* ===================================================================
    BUTTON COLORS
    =================================================================== */
 
 .default {
     color: $color--base-80;
-    border-color: $color--base-60;
+    border-color: $color--base-20;
     background-color: $color--contrast;
 
     .icon {
-        @include m-iconColor($color--base);
+        @include m-iconColor($color--primary);
     }
 
     &:hover {
-        color: $color--contrast;
-        border-color: $color--base;
-        background-color: $color--base;
+        color: $color--base;
+        border-color: $color--base-20;
+        background-color: darken($color--contrast, 2%);
     }
 
     &:active, &.active {
-
+        background-color: $color--base-10;
     }
 }
 
 .primary {
-    color: $color--primary;
-    border-color: $color--primary;
-    background-color: transparent;
+    color: $color--contrast;
+    border: none;
+    background: $color--primary;
 
     .icon {
         @include m-iconColor($color--contrast);
     }
 
     &:hover {
-        border-color: transparent;
         background-color: $color--primary;
         color: $color--contrast;
     }
@@ -150,9 +190,9 @@ $height--button-small: $size--element-small;
 
 
 .success {
-    color: $color--success;
-    border-color: $color--success;
-    background-color: transparent;
+    color: $color--status-text;
+    border-color: transparent;
+    background-color: $color--success;
 
     .icon {
         @include m-iconColor($color--status-text);
@@ -171,9 +211,9 @@ $height--button-small: $size--element-small;
 
 
 .error {
-    color: $color--error;
-    border-color: $color--error;
-    background-color: transparent;
+    color: $color--status-text;
+    border-color: transparent;
+    background-color: $color--error;
 
     .icon {
         @include m-iconColor($color--status-text);
@@ -198,7 +238,7 @@ $height--button-small: $size--element-small;
 
 .big {
     height: $height--button-big;
-    line-height: $height--button-big - 2px;
+    line-height: $height--button-big + 1px;
     font-size: $fontSize--medium;
     padding: 0 50px;
 
@@ -213,7 +253,7 @@ $height--button-small: $size--element-small;
     padding-left: 20px;
     padding-right: 20px;
     height: $height--button-small;
-    line-height: $height--button-small - 2px;
+    line-height: $height--button-small + 1px;
 
     .icon {
         @include m-iconSize($iconSize--small);

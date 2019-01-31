@@ -1,0 +1,146 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   MENU
+   =================================================================== */
+
+// Base
+.base {
+    display: block;
+    background-color: $color--contrast;
+
+    // Hidden menu
+    &.hidden {
+        display: none;
+    }
+}
+
+// Heading
+.heading {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: $size--element-small;
+    line-height: $size--element-small;
+    padding: 0 10px;
+    font-weight: $fontWeight--bold;
+    color: $color--base-40;
+    font-size: $fontSize--small;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+// Item
+.item {
+    position: relative;
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    border-bottom: 1px solid $color--base-5;
+    border-right: none;
+    height: $size--element-normal;
+    line-height: $size--element-normal;
+    padding: 0 5px;
+    font-size: $fontSize--normal;
+    text-decoration: none;
+    background-color: $color--contrast;
+    text-align: left;
+    font-family: $fontFamily--primary;
+    outline: none;
+    transition: color 0.2s ease-in-out;
+    user-select: none;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    // Icon
+    .icon {
+        display: inline-block;
+        padding: 0px 5px;
+        width: 28px;
+        position: relative;
+        top: 3px;
+        @include m-iconColor(rgba($color--primary, 0.8));
+    }
+
+    // Label
+    .label {
+        color: $color--base-80;
+        padding: 0 5px;
+        flex-grow: 1;
+    }
+
+    // Indicator
+    .indicator {
+        display: flex;
+        align-items: center;
+        padding: 0 5px;
+    }
+
+    // Counter
+    $size--counter: 20px;
+    .counter {
+        display: flex;
+        align-items: center;
+        padding: 0 5px;
+
+        .counterIndicator {
+            min-width: $size--counter;
+            text-align: center;
+            font-weight: $fontWeight--medium;
+            font-size: $fontSize--smallest;
+            color: $color--status-text;
+            background-color: $color--error;
+            height: $size--counter;
+            line-height: $size--counter;
+            padding: 0 7px;
+            border-radius: $size--counter;
+        }
+    }
+
+
+    // STATE: Hover
+    &:hover {
+        cursor: pointer;
+
+        .icon {
+            @include m-iconColor($color--primary);
+        }
+
+        .label {
+            color: $color--base;
+        }
+    }
+
+    // Selected item
+    &.selected {
+        cursor: default;
+
+        .icon {
+            @include m-iconColor($color--base-30);
+        }
+
+        .label {
+            color: $color--base-60;
+        }
+
+        .counter {
+            .counterIndicator {
+                background-color: $color--base-10;
+            }
+        }
+
+        &:hover {
+            background-color: transparent;
+        }
+    }
+
+    // Hidden item
+    &.hidden {
+        display: none;
+    }
+}

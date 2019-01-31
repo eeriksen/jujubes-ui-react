@@ -1,0 +1,15 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   CONFIRM ACTION BUTTON
+   =================================================================== */
+
+.base {
+
+    .frame {
+        padding: $spacing--medium;
+        border: 1px solid $color--base-10;
+        background-color: $color--base-1;
+        border-radius: $borderRadius--regular;
+    }
+}

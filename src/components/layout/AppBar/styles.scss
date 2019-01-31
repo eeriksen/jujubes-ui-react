@@ -10,11 +10,11 @@
 
     .mainBar {
         position: relative;
-        background-color: $color--primary;
+        background: linear-gradient(135deg, $color--primary 0%, $color--accent 100%);
         box-shadow: $boxShadow--regular;
         height: $appBar--height;
         display: flex;
-        z-index: 2;
+        z-index: 1;
 
         .center {
             flex-grow: 1;
@@ -27,8 +27,8 @@
                 width: 100%;
                 line-height: $appBar--height;
                 text-align: center;
-                font-size: $fontSize--large;
-                font-weight: $fontWeight--bold;
+                font-size: $fontSize--heading-4;
+                font-weight: $fontWeight--medium;
                 color: $color--contrast;
                 padding: 0 $spacing--normal;
                 @include m-truncate();
@@ -43,7 +43,6 @@
         height: $appBar--height;
         background-color: $color--contrast;
         transition: top .2s cubic-bezier(0.550, 0.055, 0.675, 0.190), box-shadow .2s linear;
-        z-index: 1;
         display: flex;
 
         .left {

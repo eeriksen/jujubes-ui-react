@@ -75,9 +75,9 @@ storiesOf(`${SECTION_TITLE}`, module)
     .add('card with user details', () => (
         <Card>
             <CardUserHead
-                picture={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1tvQgE1rb77QbsbrplQQWD-PtjOsERde6Xhyyef8g7DC102a0"}
-                name="Joshua Homme"
-                email="joshua.homme@mail.com"
+                picture="https://scontent.fosl3-2.fna.fbcdn.net/v/t1.0-9/44859415_10161122646425644_5424185099438522368_n.jpg?_nc_cat=103&_nc_ht=scontent.fosl3-2.fna&oh=98cf4f4abd65962c199c32e62b8d6716&oe=5CF50070"
+                name="Eivind Eriksen"
+                email="mail@eivinderiksen.com"
             />
             <CardContent>
                 Lorem ipsum dolor sit amet, mel aliquip consetetur ea, postulant salutandi et ius.

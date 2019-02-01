@@ -9,7 +9,7 @@ export default class ButtonGroup extends React.Component {
     render(){
 
         // Properties
-        const { children, className } = this.props;
+        const { block, children, className } = this.props;
 
         // Button elements
         const buttons = React.Children.map(children, (child) => {
@@ -21,7 +21,9 @@ export default class ButtonGroup extends React.Component {
         });
 
         // Base classes
-        const baseClasses = classNames(styles.base, className);
+        const baseClasses = classNames(styles.base, {
+            [styles.block]: block
+        }, className);
 
         return (
             <div className={baseClasses}>

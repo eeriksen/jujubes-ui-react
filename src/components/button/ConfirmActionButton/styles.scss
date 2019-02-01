@@ -4,12 +4,35 @@
    CONFIRM ACTION BUTTON
    =================================================================== */
 
-.base {
+$color--prompt-frame: rgba($color--error, 0.7);
 
-    .frame {
-        padding: $spacing--medium;
-        border: 1px solid $color--base-10;
-        background-color: $color--base-1;
+.base {
+    max-width: 500px;
+
+    .prompt {
+        background-image: linear-gradient(90deg, $color--prompt-frame 50%, transparent 50%), linear-gradient(90deg, $color--prompt-frame 50%, transparent 50%), linear-gradient(0deg, $color--prompt-frame 50%, transparent 50%), linear-gradient(0deg, $color--prompt-frame 50%, transparent 50%);
+        background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+        background-size: 5px 1px, 5px 1px, 1px 5px, 1px 5px;
+        background-position: left top, right bottom, left bottom, right   top;
+        animation: border-dance .5s infinite linear;
+        padding: $spacing--normal;
         border-radius: $borderRadius--regular;
+
+        .question {
+            padding: $spacing--small $spacing--normal $spacing--normal;
+            text-align: center;
+            font-weight: $fontWeight--medium;
+            color: $color--error;
+        }
     }
+
+    @keyframes border-dance {
+        0% {
+            background-position: left top, right bottom, left bottom, right   top;
+        }
+        100% {
+            background-position: left 5px top, right 5px bottom , left bottom 5px , right top 5px;
+        }
+    }
+
 }

@@ -1,0 +1,166 @@
+
+/* ===================================================================
+   PROGRESS
+   =================================================================== */
+
+$height--bar: 16px;
+$color--bar-animation: rgba(0, 0, 0, 0.05);
+
+// LINE
+// ----------------------------------------------
+
+.progressLine {
+    display: block;
+    margin: $spacing--normal 0;
+
+    .bar {
+
+        .info {
+            margin-bottom: $spacing--small;
+
+            .label {
+                display: inline-block;
+                margin-right: $spacing--medium;
+                color: $color--base-60;
+            }
+
+            .percent {
+                vertical-align: top;
+                float: right;
+                font-weight: $fontWeight--medium;
+            }
+        }
+
+        .trail {
+            position: relative;
+            overflow: hidden;
+            height: $height--bar;
+            background-color: $color--base-5;
+            border-radius: $height--bar;
+
+            .indicator {
+                position: relative;
+                height: 100%;
+                border-radius: $height--bar;
+                background: linear-gradient(135deg, $color--primary 0%, $color--accent 100%);;
+                transition: width 0.2s ease;
+
+                .stripes {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    background: linear-gradient(-45deg, $color--bar-animation 25%, transparent 25%, transparent 50%, $color--bar-animation 50%, $color--bar-animation 75%, transparent 75%);
+                    background-size: 20px 20px;
+                    mix-blend-mode: overlay;
+                }
+            }
+        }
+    }
+
+    // Animation
+    &.animation {
+        .bar {
+            .trail {
+                .indicator {
+                    .stripes {
+                        animation: linear-progress-bar-stripes 500ms linear infinite reverse;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+// CIRCLE
+// ----------------------------------------------
+
+.progressCircle {
+    position: relative;
+
+    > svg {
+        display: block;
+    }
+
+    :global {
+        .rc-progress-circle {
+            .rc-progress-circle-trail {
+                stroke: $color--base-5 !important;
+            }
+
+            .rc-progress-circle-path {
+                stroke: $color--primary !important;
+            }
+        }
+    }
+
+    &.successType {
+        :global {
+            .rc-progress-circle {
+                .rc-progress-circle-path {
+                    stroke: $color--success !important;
+                }
+            }
+        }
+    }
+
+    &.errorType {
+        :global {
+            .rc-progress-circle {
+                .rc-progress-circle-path {
+                    stroke: $color--error !important;
+                }
+            }
+        }
+    }
+
+    .details {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .wrapper {
+            .value {
+                svg {
+                    text-align: center;
+                    overflow: visible;
+
+                    text {
+                        fill: $color--base-80;
+                    }
+                }
+            }
+
+            .percent {
+                position: absolute;
+                top: 5px;
+                right: 15px;
+
+                svg {
+                    text {
+                        fill: $color--base-30;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@keyframes linear-progress-bar-stripes {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 20px 0;
+    }
+}

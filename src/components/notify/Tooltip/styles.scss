@@ -1,0 +1,32 @@
+
+/* ===================================================================
+   TOOLTIP
+   =================================================================== */
+
+
+:global {
+    .tippy-popper {
+        .tippy-tooltip {
+            background-color: $color--base;
+            color: $color--contrast;
+            font-family: $fontFamily--primary;
+            font-size: $fontSize--normal;
+        }
+
+        &[x-placement^=bottom] [x-arrow] {
+            border-bottom-color: $color--base !important;
+        }
+
+        &[x-placement^=top] [x-arrow] {
+            border-top-color: $color--base !important;
+        }
+
+        &[x-placement^=right] [x-arrow] {
+            border-right-color: $color--base !important;
+        }
+
+        &[x-placement^=left] [x-arrow] {
+            border-left-color: $color--base !important;
+        }
+    }
+}

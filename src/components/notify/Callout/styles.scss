@@ -1,0 +1,42 @@
+
+/* ===================================================================
+   CALLOUT
+   =================================================================== */
+
+.base {
+    padding: $spacing--normal;
+    border-radius: $borderRadius--regular;
+    border: 1px solid $color--base-10;
+    background-color: $color--base-3;
+    color: $color--base-80;
+
+    &.info {
+        background-color: rgba($color--info, 0.1);
+        border-color: rgba($color--info, 0.3);
+        color: desaturate($color--info, 30%);
+    }
+
+    &.success {
+        background-color: rgba($color--success, 0.1);
+        border-color: rgba($color--success, 0.3);
+        color: desaturate($color--success, 30%);
+    }
+
+    &.warning {
+        background-color: rgba($color--warning, 0.1);
+        border-color: rgba($color--warning, 0.4);
+        color: desaturate($color--warning, 30%);
+    }
+
+    &.error {
+        background-color: rgba($color--error, 0.1);
+        border-color: rgba($color--error, 0.3);
+        color: desaturate($color--error, 30%);
+    }
+
+    .title {
+        font-size: $fontSize--medium;
+        line-height: $lineHeight--medium;
+        font-weight: $fontWeight--bold;
+    }
+}

@@ -5,6 +5,7 @@
    =================================================================== */
 
 .base {
+    display: flex;
 
     .item {
         vertical-align: top;
@@ -25,6 +26,12 @@
         &:last-child:not(:first-child) {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
+        }
+    }
+
+    &.block {
+        .item {
+            flex-grow: 1;
         }
     }
 }

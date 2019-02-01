@@ -94,9 +94,9 @@ $popup--width-normal: 450px;
 
         // CONTENT
         .content {
-
             .frame {
-                max-height: 64vh;
+                max-height: 62vh;
+
 
                 .wrapper {
                     padding: $spacing--medium;
@@ -124,8 +124,8 @@ $popup--width-normal: 450px;
 
         // TABS
         .tabs {
-            border-top: 1px solid $color--base-10;;
-            margin-top: $spacing--medium;
+            //border-top: 1px solid $color--base-10;;
+            //margin-top: $spacing--medium;
         }
 
     }
@@ -143,7 +143,7 @@ $popup--width-normal: 450px;
     &.errorType {
         > .box {
             .title {
-                background: linear-gradient(135deg, darken($color--error, 10%) 0%, $color--error 100%);
+                background: linear-gradient(135deg, darken($color--error, 5%) 0%, $color--error 100%);
             }
         }
     }
@@ -168,24 +168,27 @@ $popup--width-normal: 450px;
             display: block;
             min-width: 100%;
 
-            .buttons {
+            .buttons.twoButtons {
                 display: flex;
-                padding-left: $spacing--medium;
-                padding-right: $spacing--medium;
-
-                .buttonElement {
-                    display: block;
-                    width: 100%;
-                    padding-left: 0;
-                    padding-right: 0;
-                }
 
                 .mainButton {
-                    width: 60%;
+                    width: 50%;
+
+                    .buttonElement {
+                        display: block;
+                        width: 100%;
+                        padding: 0;
+                    }
                 }
 
                 .extraButton {
-                    width: 40%;
+                    width: 50%;
+
+                    .buttonElement {
+                        display: block;
+                        width: 100%;
+                        padding: 0;
+                    }
                 }
 
             }

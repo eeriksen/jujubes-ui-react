@@ -68,20 +68,4 @@ $height-tabs: $size--element-normal + 4px;
     .pane {
 
     }
-
-
-    // MODE: Inside a popup
-    &.popupMode {
-        .tabs {
-            height: $height-tabs - 5px;
-
-            .wrapper {
-                padding-top: 5px;
-            }
-        }
-        .pane {
-            margin-top: 0;
-        }
-    }
-
 }

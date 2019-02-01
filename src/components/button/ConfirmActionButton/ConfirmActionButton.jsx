@@ -2,7 +2,6 @@ import React from "react"
 import styles from "./styles.scss"
 
 import Button from "../Button"
-import Paragraph from "../../typography/Paragraph"
 import Row from "../../grid/Row"
 import Col from "../../grid/Col"
 
@@ -16,26 +15,26 @@ export default class ConfirmActionButton extends React.Component {
     render(){
 
         // Properties
-        const { label, question, onConfirm, size, cyp } = this.props;
+        const { label, question, onConfirm, size } = this.props;
 
         // Variables
         const { promptConfirm } = this.state;
 
         return (
-            <div className={styles.base} data-cyp={cyp}>
+            <div className={styles.base}>
                 {promptConfirm ? (
-                    <div className={styles.frame}>
-                        <Paragraph>
+                    <div className={styles.prompt}>
+                        <div className={styles.question}>
                             {question}
-                        </Paragraph>
-                        <Row>
+                        </div>
+                        <Row gutter="small">
                             <Col span={12}>
-                                <Button block size={size} icon="check" color="success" onClick={() => {this.setState({promptConfirm: false}, onConfirm)}}>
+                                <Button block size={size} icon="check" iconColor="success" onClick={() => {this.setState({promptConfirm: false}, onConfirm)}}>
                                     Yes
                                 </Button>
                             </Col>
                             <Col span={12}>
-                                <Button block size={size} icon="close" color="error" onClick={() => this.setState({promptConfirm: false})}>
+                                <Button block size={size} icon="close" iconColor="error" onClick={() => this.setState({promptConfirm: false})}>
                                     No
                                 </Button>
                             </Col>

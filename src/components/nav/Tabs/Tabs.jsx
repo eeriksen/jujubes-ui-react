@@ -56,7 +56,7 @@ class Tabs extends React.Component {
         const { activeKey } = this.state;
 
         // Properties
-        const { popupMode, history } = this.props;
+        const { history } = this.props;
 
         // Current path
         const url = history.location.pathname;
@@ -73,9 +73,7 @@ class Tabs extends React.Component {
         }
 
         // Classes
-        const baseClasses = classNames(styles.base, {
-            [styles.popupMode]: popupMode
-        });
+        const baseClasses = classNames(styles.base);
 
         return (
             <div className={baseClasses}>

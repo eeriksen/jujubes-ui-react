@@ -4,6 +4,7 @@ import StoryRouter from 'storybook-router'
 import { storiesOf } from '@storybook/react'
 import { withReadme }  from 'storybook-readme'
 import { withState } from '@dump247/storybook-state'
+import { action } from '@storybook/addon-actions'
 
 import Page from "../../src/components/page/Page"
 import Card from "../../src/components/card/Card"
@@ -16,14 +17,22 @@ import ButtonGroup from "../../src/components/button/ButtonGroup"
 import Row from "../../src/components/grid/Row"
 import Col from "../../src/components/grid/Col"
 import { Popup, PopupTitle, PopupContent, PopupButtons, PopupTabs } from "../../src/components/notify/Popup"
+import PopupYesNo from "../../src/components/notify/PopupYesNo"
+import PopupMessage from "../../src/components/notify/PopupMessage"
 import Text from "../../src/components/typography/Text"
 import Form from "../../src/components/form/Form"
 import FormItem from "../../src/components/form/FormItem"
 import { Tabs, TabPane } from "../../src/components/nav/Tabs"
 import Input from "../../src/components/form/Input"
+import Callout from "../../src/components/notify/Callout"
+import Tooltip from "../../src/components/notify/Tooltip"
 
 import BadgeReadme from "../../src/components/notify/Badge/README.md"
 import PopupReadme from "../../src/components/notify/Popup/README.md"
+import PopupYesNoReadme from "../../src/components/notify/PopupYesNo/README.md"
+import PopupMessageReadme from "../../src/components/notify/PopupMessage/README.md"
+import CalloutReadme from "../../src/components/notify/Callout/README.md"
+import TooltipReadme from "../../src/components/notify/Tooltip/README.md"
 
 
 
@@ -195,12 +204,26 @@ storiesOf(`${SECTION_TITLE}/Popup`, module)
                 <PopupContent>
                     <Paragraph>
                         <Text base60>
-                            Filet mignon rump strip steak short loin burgdoggen venison beef
-                            jowl pork loin shoulder pork pig biltong ham hock.
-
-                            Bacon ipsum dolor amet jowl t-bone meatloaf short ribs. Picanha pork loin frankfurter, sausage kevin cow andouille buffalo cupim porchetta boudin. Hamburger ham hock corned beef brisket strip steak kevin tenderloin. Turkey chicken bacon chuck ground round fatback. Short ribs capicola bacon tongue beef cupim brisket leberkas landjaeger bresaola chuck meatball ball tip. Picanha burgdoggen salami, prosciutto shankle tri-tip jowl pancetta kielbasa strip steak ham hock boudin ham frankfurter. Corned beef kevin leberkas, cow ball tip ham hock jowl pork belly venison turkey tri-tip turducken pork chop shoulder porchetta.
-
-                            T-bone porchetta ham hock, spare ribs pastrami strip steak jowl. Boudin beef fatback hamburger t-bone tail pig. Ground round tri-tip pork belly shankle pastrami. Pancetta prosciutto ribeye ham hock alcatra, shankle frankfurter tri-tip andouille hamburger picanha pork belly. Pork pork chop bresaola chicken cow bacon andouille kevin short ribs meatball rump chuck capicola turducken shoulder. Pig alcatra flank fatback landjaeger ribeye, short loin biltong capicola shankle burgdoggen meatball pancetta chuck. T-bone ball tip turducken turkey ham picanha brisket prosciutto rump pork ground round.
+                            Filet mignon rump strip steak short loin burgdoggen venison beef jowl pork loin shoulder pork
+                            pig biltong ham hock. Sirloin short ribs pork loin corned beef meatloaf pig,
+                            ham cupim. Turkey beef pastrami filet mignon,
+                            pork loin venison beef ribs ribeye short loin. Landjaeger sirloin chicken doner short ribs.
+                            Bacon ipsum dolor amet bresaola pork hamburger cupim meatball beef ribs.
+                            Bacon pork loin sirloin ball tip, landjaeger picanha ground round tenderloin porchetta bresaola cupim pork.
+                            Biltong tongue porchetta, pork loin bacon filet mignon shankle cow andouille
+                            ground round cupim turducken alcatra strip steak. Tenderloin kevin tri-tip buffalo
+                            short loin bacon strip steak shoulder brisket. Tail ribeye sausage, short loin pastrami
+                            jerky shank biltong turducken shoulder beef hamburger pig. Porchetta filet mignon boudin corned beef.
+                            Ham rump meatloaf, corned beef jowl landjaeger cow hamburger.<br /><br />
+                            Shoulder hamburger salami pancetta filet mignon, brisket prosciutto tri-tip ham chuck chicken doner.
+                            Buffalo capicola boudin kevin cupim ribeye. Bacon drumstick burgdoggen, ribeye t-bone beef jowl tenderloin.
+                            @Andouille beef pork ball tip. Buffalo brisket tri-tip hamburger. Filet mignon pig leberkas,
+                            tenderloin short loin tri-tip tail bacon pancetta biltong shank beef.<br /><br />
+                            Brisket sausage drumstick, pork bacon shoulder leberkas ribeye turkey shankle porchetta kielbasa.
+                            Capicola bresaola swine, hamburger short loin turkey shankle sausage salami frankfurter.
+                            Shankle beef ribs pork loin, cow strip steak ground round turkey. Burgdoggen porchetta
+                            swine short ribs pancetta landjaeger alcatra buffalo. Shankle pancetta short ribs
+                            porchetta kielbasa.
                         </Text>
                     </Paragraph>
                     <Form>
@@ -217,39 +240,6 @@ storiesOf(`${SECTION_TITLE}/Popup`, module)
             </Popup>
         </React.Fragment>
     )))
-    .add('scrollable content', () => (
-        <Popup>
-            <PopupTitle>
-                Scrollable content
-            </PopupTitle>
-            <PopupContent scrollable>
-                Filet mignon rump strip steak short loin burgdoggen venison beef jowl pork loin shoulder pork
-                pig biltong ham hock. Sirloin short ribs pork loin corned beef meatloaf pig, ham cupim.
-                Turkey beef pastrami filet mignon, pork loin venison beef ribs ribeye short loin.
-                Landjaeger sirloin chicken doner short ribs.<br /><br />
-
-                Jerky strip steak shank t-bone, cow pork chop frankfurter turkey kielbasa fatback shoulder.
-                Ribeye drumstick tail ball tip strip steak brisket biltong pork loin frankfurter prosciutto.
-                Meatball boudin ham pork belly cupim brisket alcatra salami frankfurter capicola pork loin tongue biltong pig.
-                T-bone rump pastrami buffalo chuck, alcatra pancetta. Sirloin tongue sausage turducken ball tip ham cupim.
-                Alcatra pork loin doner drumstick boudin.<br /><br />
-
-                Short loin fatback sausage shank pork chop, burgdoggen ground round hamburger.
-                Swine landjaeger strip steak chicken sirloin short loin fatback pork bacon turducken biltong hamburger.
-                Pork chop prosciutto biltong venison boudin tongue. Jowl shankle doner buffalo swine meatball pork chop
-                sirloin shank corned beef. Filet mignon capicola venison ham pig brisket salami turkey shoulder
-                t-bone meatloaf ground round bresaola ribeye. Chuck cow ribeye short ribs cupim ham bacon tenderloin pork corned beef.
-            </PopupContent>
-            <PopupButtons>
-                <Button kind="primary">
-                    Save changes
-                </Button>
-                <Button>
-                    Close
-                </Button>
-            </PopupButtons>
-        </Popup>
-    ))
     .add('with tabs', withState({
         activeKey: 1
     }, (store) => (
@@ -261,10 +251,7 @@ storiesOf(`${SECTION_TITLE}/Popup`, module)
                 <Tabs activeKey={store.state.activeKey} onChange={(val) => store.set({activeKey: val})}>
                     <TabPane key={1} label="First tab">
                         <PopupContent>
-                            Filet mignon rump strip steak short loin burgdoggen venison beef jowl pork loin shoulder pork
-                            pig biltong ham hock. Sirloin short ribs pork loin corned beef meatloaf pig,
-                            ham cupim. Turkey beef pastrami filet mignon,
-                            pork loin venison beef ribs ribeye short loin. Landjaeger sirloin chicken doner short ribs.
+                            First tab pane content
                         </PopupContent>
                     </TabPane>
                     <TabPane key={2} label="Second tab">
@@ -285,7 +272,7 @@ storiesOf(`${SECTION_TITLE}/Popup`, module)
                 </Tabs>
             </PopupTabs>
             <PopupButtons>
-                <Button kind="primary">
+                <Button color="primary">
                     Save changes
                 </Button>
                 <Button>
@@ -294,3 +281,113 @@ storiesOf(`${SECTION_TITLE}/Popup`, module)
             </PopupButtons>
         </Popup>
     )));
+
+
+/**
+ * POPUP YES/NO
+ */
+storiesOf(`${SECTION_TITLE}/PopupYesNo`, module)
+    .addDecorator(pageDecorator)
+    .addDecorator(withReadme(PopupYesNoReadme))
+    .add('default', () => (
+        <PopupYesNo
+            title="Are you sure?"
+            onYes={action('yes')}
+            onNo={action('no')}>
+            Are you absolutely positively sure you want to perform the following action?
+        </PopupYesNo>
+    ));
+
+
+
+/**
+ * POPUP MESSAGE
+ */
+storiesOf(`${SECTION_TITLE}/PopupMessage`, module)
+    .addDecorator(pageDecorator)
+    .addDecorator(withReadme(PopupMessageReadme))
+    .add('types', withState({
+        visible: true,
+        type: null
+    }, (store) => (
+        <div>
+            <ButtonGroup>
+                <Button color="primary" onClick={() => store.set({visible: true, type: null})}>Show default alert</Button><br />
+                <Button color="success" onClick={() => store.set({visible: true, type: "success"})}>Show success alert</Button><br />
+                <Button color="error" onClick={() => store.set({visible: true, type: "error"})}>Show error alert</Button><br />
+            </ButtonGroup>
+
+            <PopupMessage
+                visible={store.state.visible && !store.state.type}
+                type={store.state.type}
+                title="Info!"
+                message="We just want to show the user a little harmless info message right here."
+                onOk={() => store.set({visible: false})}
+            />
+            <PopupMessage
+                visible={store.state.visible && store.state.type === "success"}
+                type={store.state.type}
+                title="Success!"
+                message="Something happened successfully which is worth noting with a popup."
+                onOk={() => store.set({visible: false})}
+            />
+            <PopupMessage
+                visible={store.state.visible && store.state.type === "error"}
+                type={store.state.type}
+                title="Error!"
+                message="There was an error performing some kind of operation. Please try again."
+                onOk={() => store.set({visible: false})}
+            />
+        </div>
+    )));
+
+
+
+/**
+ * CALLOUT
+ */
+storiesOf(`${SECTION_TITLE}/Callout`, module)
+    .addDecorator(pageDecorator)
+    .addDecorator(withReadme(CalloutReadme))
+    .add('types', () => (
+        <React.Fragment>
+            <Callout title="Default">
+                This is a default callout where you can write something.
+            </Callout><br />
+            <Callout title="Info!" type="info">
+                This is an info callout where you can write something.
+            </Callout><br />
+            <Callout title="Success!" type="success">
+                This is a success callout where you can write something.
+            </Callout><br />
+            <Callout title="Warning!" type="warning">
+                This is a warning callout where you can write something.
+            </Callout><br />
+            <Callout title="Error!" type="error">
+                This is an error callout where you can write something.
+            </Callout>
+        </React.Fragment>
+    ));
+
+
+
+/**
+ * TOOLTIP
+ */
+storiesOf(`${SECTION_TITLE}/Tooltip`, module)
+    .addDecorator(pageDecorator)
+    .addDecorator(withReadme(TooltipReadme))
+    .add('default', () => (
+        <Row>
+            <Col span={12}>
+                <Tooltip title="This is a regular tooltip">
+                    Hover to show tooltip
+                </Tooltip>
+            </Col>
+            <Col span={12}>
+                <Tooltip title="This is a regular tooltip" trigger="click">
+                    Click to show another tooltip
+                </Tooltip>
+            </Col>
+        </Row>
+    ));

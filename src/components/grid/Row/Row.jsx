@@ -41,14 +41,10 @@ export default class Row extends React.Component {
 
 Row.propTypes = {
     className:              PropTypes.string,
-    gutter:                 PropTypes.number,
+    gutter:                 PropTypes.string,
     type:                   PropTypes.string,
     align:                  PropTypes.string,
     justify:                PropTypes.string,
     style:                  PropTypes.object,
     children:               PropTypes.node
-};
-
-Row.defaultProps = {
-    gutter: 0
 };

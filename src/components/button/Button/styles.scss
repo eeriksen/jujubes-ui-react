@@ -231,6 +231,26 @@ $height--button-small: $size--element-small;
 }
 
 
+.silent {
+    color: $color--base-80;
+    border-color: $color--base-5;
+    background-color: $color--contrast;
+
+    .icon {
+        @include m-iconColor($color--base-80);
+    }
+
+    &:hover {
+        border-color: $color--base-20;
+        color: $color--base-80;
+    }
+
+    &:active, &.active {
+        border-color: $color--base-30;
+    }
+}
+
+
 
 /* ===================================================================
    BUTTON SIZES

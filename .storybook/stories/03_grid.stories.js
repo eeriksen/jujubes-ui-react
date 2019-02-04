@@ -4,6 +4,8 @@ import { storiesOf } from '@storybook/react'
 import { withReadme }  from 'storybook-readme'
 
 import Page from "../../src/components/page/Page"
+import Card from "../../src/components/card/Card"
+import CardContent from "../../src/components/card/CardContent"
 import Row from "../../src/components/grid/Row"
 import Col from "../../src/components/grid/Col"
 
@@ -15,7 +17,11 @@ const SECTION_TITLE = "03 - Grid";
 // Decorator
 const pageDecorator = (story) => (
     <Page>
-        {story()}
+        <Card>
+            <CardContent>
+                {story()}
+            </CardContent>
+        </Card>
     </Page>
 );
 

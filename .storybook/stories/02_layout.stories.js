@@ -11,6 +11,7 @@ import AppContent from "../../src/components/layout/AppContent"
 import Page from "../../src/components/page/Page"
 import PageHeader from "../../src/components/page/PageHeader"
 import Card from "../../src/components/card/Card"
+import CardTitle from "../../src/components/card/CardTitle"
 import CardContent from "../../src/components/card/CardContent"
 import UserMenu from "../../src/components/user/UserMenu"
 import Form from "../../src/components/form/Form"
@@ -21,9 +22,10 @@ import Checkbox from "../../src/components/form/Checkbox"
 import FormButtons from "../../src/components/form/FormButtons"
 import Button from "../../src/components/button/Button"
 import { Select, Option } from "../../src/components/form/Select"
-import Text from "../../src/components/typography/Text"
+import Badge from "../../src/components/notify/Badge"
 import { Menu, MenuItem } from "../../src/components/nav/Menu"
 import Icon from "../../src/components/graphic/Icon"
+import { Section, SectionTitle } from "../../src/components/layout/Section"
 
 
 // Section title
@@ -96,7 +98,7 @@ storiesOf(`${SECTION_TITLE}`, module)
                     <AppNav.MenuItem icon="feather">
                         Buttons
                     </AppNav.MenuItem>
-                    <AppNav.MenuItem icon="image">
+                    <AppNav.MenuItem icon="image" indicator={<Badge round fill color="error">34</Badge>}>
                         Icons
                     </AppNav.MenuItem>
                     <AppNav.MenuItem icon="lock">
@@ -114,11 +116,38 @@ storiesOf(`${SECTION_TITLE}`, module)
                 <Page>
                     <PageHeader title="Articles" subtitle="Create new" />
                     <Card>
+                        <CardTitle title="This is the card title">
+                            <Badge color="success" fill>Success</Badge>
+                        </CardTitle>
                         <CardContent>
-                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                            <Section>
+                                <SectionTitle>
+                                    Here is a new section with the first title
+                                </SectionTitle>
+                                There are many variations of passages of Lorem Ipsum available, but the majority have
+                                suffered alteration in some form, by injected humour, or randomised words which don't
+                                look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need
+                                to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem
+                                Ipsum generators on the Internet tend to repeat predefined chunks as necessary,
+                                making this the first true generator on the Internet. It uses a dictionary of over
+                                200 Latin words, combined with a handful of model sentence structures, to generate
+                                Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always
+                                free from repetition, injected humour, or non-characteristic words etc.
+                            </Section>
+                            <Section spacing="none">
+                                <SectionTitle>
+                                    Here is a new section with a title
+                                </SectionTitle>
+                                Ipsum generators on the Internet tend to repeat predefined chunks as necessary,
+                                making this the first true generator on the Internet. It uses a dictionary of over
+                                200 Latin words, combined with a handful of model sentence structures, to generate
+                                Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always
+                                free from repetition, injected humour, or non-characteristic words etc.
+                            </Section>
                         </CardContent>
                     </Card>
                     <Card>
+                        <CardTitle title="This is some form" actions={[{icon: "edit", onClick: action("ACTION!")}, {icon: "gear", onClick: action("ACTION!")}]} />
                         <CardContent>
                             <Form onSubmit={action("SUBMIT")}>
                                 <FormItem label="Your name">

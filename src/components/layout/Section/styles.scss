@@ -1,0 +1,36 @@
+
+/* ===================================================================
+   SECTION
+   =================================================================== */
+
+.base {
+    margin-bottom: $spacing--large;
+
+    &.spacingNone {
+        margin-bottom: 0;
+    }
+
+    &.spacingSmall {
+        margin-bottom: $spacing--medium;
+    }
+
+    &.spacingMedium {
+        margin-bottom: $spacing--large-x;
+    }
+
+    &.spacingLarge {
+        margin-bottom: $spacing--large-x * 2;
+    }
+
+    &.alignCenter {
+        text-align: center;
+    }
+}
+
+
+.title {
+    font-size: $fontSize--medium;
+    line-height: $lineHeight--medium;
+    font-weight: $fontWeight--medium;
+    margin-bottom: $spacing--normal;
+}

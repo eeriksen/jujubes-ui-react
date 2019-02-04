@@ -11,6 +11,7 @@
             color: $color--contrast;
             font-family: $fontFamily--primary;
             font-size: $fontSize--normal;
+            padding: .4rem .7rem .3rem;
         }
 
         &[x-placement^=bottom] [x-arrow] {

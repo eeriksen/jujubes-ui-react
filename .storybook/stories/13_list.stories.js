@@ -12,8 +12,12 @@ import { ItemList, Item } from "../../src/components/list/ItemList"
 import Text from "../../src/components/typography/Text"
 import Badge from "../../src/components/notify/Badge"
 import Image from "../../src/components/media/Image"
+import KeyValueList from "../../src/components/list/KeyValueList"
+import Checklist from "../../src/components/list/Checklist"
 
 import ItemListReadme from "../../src/components/list/ItemList/README.md"
+import KeyValueListReadme from "../../src/components/list/KeyValueList/README.md"
+import ChecklistReadme from "../../src/components/list/Checklist/README.md"
 
 
 // Decorator
@@ -30,7 +34,6 @@ const pageDecorator = (story) => (
 
 // Section title
 const SECTION_TITLE = "13 - List";
-const PROFILE_PICTURE = "https://scontent.fosl3-2.fna.fbcdn.net/v/t1.0-9/44859415_10161122646425644_5424185099438522368_n.jpg?_nc_cat=103&_nc_ht=scontent.fosl3-2.fna&oh=98cf4f4abd65962c199c32e62b8d6716&oe=5CF50070";
 
 
 /**
@@ -41,6 +44,25 @@ storiesOf(`${SECTION_TITLE}/ItemList`, module)
     .addDecorator(withReadme(ItemListReadme))
     .add('default', () => (
         <ItemList>
+            <Item>
+                <Text block>This is the first item</Text>
+            </Item>
+            <Item>
+                <Text block>This is the second item</Text>
+            </Item>
+            <Item>
+                <Text block>This is the third item</Text>
+            </Item>
+            <Item>
+                <Text block>This is the fourth item</Text>
+            </Item>
+            <Item>
+                <Text block>This is the fifth item</Text>
+            </Item>
+        </ItemList>
+    ))
+    .add('busy', () => (
+        <ItemList busy>
             <Item>
                 <Text block>This is the first item</Text>
             </Item>
@@ -103,4 +125,107 @@ storiesOf(`${SECTION_TITLE}/ItemList`, module)
                 <Text block size="small" color="base60">Italy</Text>
             </Item>
         </ItemList>
+    ));
+
+
+
+/**
+ * KEY VALUE LIST
+ */
+storiesOf(`${SECTION_TITLE}/KeyValueList`, module)
+    .addDecorator(pageDecorator)
+    .addDecorator(withReadme(KeyValueListReadme))
+    .add('default', () => (
+        <KeyValueList>
+            <KeyValueList.Item label="First label">
+                First value
+            </KeyValueList.Item>
+            <KeyValueList.Item label="Second label">
+                Second value
+            </KeyValueList.Item>
+            <KeyValueList.Item label="Third label">
+                Third value
+            </KeyValueList.Item>
+            <KeyValueList.Item label="Fourth label">
+                Fourth value
+            </KeyValueList.Item>
+        </KeyValueList>
+    ))
+    .add('fluid', () => (
+        <KeyValueList fluid>
+            <KeyValueList.Item label="First label">
+                First value
+            </KeyValueList.Item>
+            <KeyValueList.Item label="Second label">
+                Second value
+            </KeyValueList.Item>
+            <KeyValueList.Item label="Third label">
+                Third value
+            </KeyValueList.Item>
+            <KeyValueList.Item label="Fourth label">
+                Fourth value
+            </KeyValueList.Item>
+        </KeyValueList>
+    ))
+    .add('horizontal', () => (
+        <KeyValueList horizontal>
+            <KeyValueList.Item label="Men">
+                <Text size="large">456</Text>
+            </KeyValueList.Item>
+            <KeyValueList.Item label="Women">
+                <Text size="large">873</Text>
+            </KeyValueList.Item>
+            <KeyValueList.Item label="Total">
+                <Text size="large">456</Text>
+            </KeyValueList.Item>
+            <KeyValueList.Item label="Churn">
+                <Text size="large">6.5%</Text>
+            </KeyValueList.Item>
+        </KeyValueList>
+    ));
+
+
+
+/**
+ * CHECKLIST
+ */
+storiesOf(`${SECTION_TITLE}/Checklist`, module)
+    .addDecorator(pageDecorator)
+    .addDecorator(withReadme(ChecklistReadme))
+    .add('default', withState({
+        first: true,
+        second: false,
+        third: false,
+        fourth: false
+    }, (store) => (
+        <Checklist onItemToggle={(item) => store.set({[item]: !store.state[item]})}>
+            <Checklist.Item value={"first"} checked={store.state.first}>
+                First checklist item
+            </Checklist.Item>
+            <Checklist.Item value={"second"} checked={store.state.second}>
+                Second checklist item
+            </Checklist.Item>
+            <Checklist.Item value={"third"} checked={store.state.third}>
+                Third checklist item
+            </Checklist.Item>
+            <Checklist.Item value={"fourth"} checked={store.state.fourth}>
+                Fourth checklist item
+            </Checklist.Item>
+        </Checklist>
+    )))
+    .add('busy', () => (
+        <Checklist busy>
+            <Checklist.Item>
+                First checklist item
+            </Checklist.Item>
+            <Checklist.Item>
+                Second checklist item
+            </Checklist.Item>
+            <Checklist.Item>
+                Third checklist item
+            </Checklist.Item>
+            <Checklist.Item>
+                Fourth checklist item
+            </Checklist.Item>
+        </Checklist>
     ));

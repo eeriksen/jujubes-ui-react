@@ -58,6 +58,7 @@ export default class extends React.Component {
             [styles.primary]: color === "primary",
             [styles.success]: color === "success",
             [styles.error]: color === "error",
+            [styles.silent]: color === "silent",
 
             [styles.small]: size === "small",
             [styles.big]: size === "big",

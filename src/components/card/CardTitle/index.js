@@ -1,1 +1,2 @@
-export { default } from "./CardTitle"
+import CardTitle from "./CardTitle"
+export default CardTitle;

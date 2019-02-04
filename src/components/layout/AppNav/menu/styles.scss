@@ -37,19 +37,18 @@ $spacing-sides: $spacing--nav-sides;
     display: flex;
     width: 100%;
     height: $size--element-normal;
-    padding: 0 $spacing-sides 0 ($spacing-sides - 3px);
+    padding: 0 $spacing-sides 0 $spacing-sides;
     outline: none;
     user-select: none;
     transition: background-color .2s ease-in-out;
     align-items: center;
-    border-left: 3px solid transparent;;
 
     // Icon
     .icon {
         display: flex;
         align-items: center;
         width: 32px;
-        @include m-iconColor(rgba($color--contrast, .2), true);
+        @include m-iconColor(rgba($color--contrast, .4), true);
     }
 
     // Label
@@ -80,7 +79,7 @@ $spacing-sides: $spacing--nav-sides;
         cursor: pointer;
 
         .icon {
-            @include m-iconColor(rgba($color--contrast, .5));
+            @include m-iconColor(rgba($color--contrast, .8));
         }
 
         .label {
@@ -96,7 +95,6 @@ $spacing-sides: $spacing--nav-sides;
     &.selected {
         background-color: rgba(0, 0, 0, 0.05);
         cursor: default;
-        border-left-color: $color--contrast;
 
         .icon {
             @include m-iconColor($color--contrast);

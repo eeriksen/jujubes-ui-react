@@ -43,6 +43,7 @@
         height: $appBar--height;
         background-color: $color--contrast;
         transition: top .2s cubic-bezier(0.550, 0.055, 0.675, 0.190), box-shadow .2s linear;
+        box-shadow: $boxShadow--regular;
         display: flex;
 
         .left {

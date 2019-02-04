@@ -1,0 +1,153 @@
+
+/* ===================================================================
+   PROGRESS CIRCLE
+   =================================================================== */
+
+
+.base {
+    display: flex;
+    justify-content: center;
+
+    .content {
+        width: 90px;
+        min-width: 90px;
+        position: relative;
+    }
+
+    .circle {
+        display: block;
+        position: relative;
+        z-index: 2;
+
+        :global {
+            .rc-progress-circle-trail {
+                stroke: $color--base-5 !important;
+                stroke-width: 5;
+            }
+
+            .rc-progress-circle-path {
+                stroke: $color--primary !important;
+                stroke-width: 5;
+            }
+        }
+    }
+
+    .details {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+
+        .wrapper {
+            width: 100%;
+
+            .value {
+                position: relative;
+                text-align: center;
+                line-height: 1;
+                font-weight: $fontWeight--bold;
+                font-size: 22px;
+                color: $color--base-80;
+                margin: 0 5px;
+
+                .annotation {
+                    position: absolute;
+                    font-size: 50%;
+                    color: $color--base-60;
+                }
+            }
+
+            .label {
+                color: $color--base-60;
+                text-align: center;
+                @include m-truncate();
+                padding: 0 10px;
+            }
+        }
+    }
+
+
+    // Success type
+    &.successType {
+        .circle {
+            :global {
+                .rc-progress-circle-path {
+                    stroke: $color--success !important;
+                }
+            }
+        }
+    }
+
+    // Warning type
+    &.warningType {
+        .circle {
+            :global {
+                .rc-progress-circle-path {
+                    stroke: $color--warning !important;
+                }
+            }
+        }
+    }
+
+    // Error type
+    &.errorType {
+        .circle {
+            :global {
+                .rc-progress-circle-path {
+                    stroke: $color--error !important;
+                }
+            }
+        }
+    }
+
+
+    // Size small
+    &.sizeSmall {
+        .content {
+            width: 50px;
+            min-width: 50px;
+        }
+
+        .details {
+            .wrapper {
+                .value {
+                    font-size: 18px;
+
+                    .annotation {
+                        display: none;
+                    }
+                }
+                .label {
+                    display: none;
+                }
+            }
+        }
+    }
+
+
+    // large small
+    &.sizeLarge {
+        .content {
+            width: 150px;
+            min-width: 150px;
+        }
+
+        .details {
+            .wrapper {
+                .value {
+                    font-size: 40px;
+                }
+                .label {
+
+                }
+            }
+        }
+    }
+
+
+}

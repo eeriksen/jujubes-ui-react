@@ -8,22 +8,22 @@ import Page from "../../src/components/page/Page"
 import Card from "../../src/components/card/Card"
 import CardContent from "../../src/components/card/CardContent"
 import Spinner from "../../src/components/loader/Spinner"
-import Progress from "../../src/components/loader/Progress"
+import ProgressBar from "../../src/components/loader/ProgressBar"
+import ProgressCircle from "../../src/components/loader/ProgressCircle"
+import LoaderHorizontal from "../../src/components/loader/LoaderHorizontal"
 import Row from "../../src/components/grid/Row"
 import Col from "../../src/components/grid/Col"
 
 import SpinnerReadme from "../../src/components/loader/Spinner/README.md"
-import ProgressReadme from "../../src/components/loader/Progress/README.md"
+import ProgressBarReadme from "../../src/components/loader/ProgressBar/README.md"
+import ProgressCircleReadme from "../../src/components/loader/ProgressCircle/README.md"
+
 
 
 // Decorator
 const pageDecorator = (story) => (
     <Page>
-        <Card>
-            <CardContent>
-                {story()}
-            </CardContent>
-        </Card>
+        {story()}
     </Page>
 );
 
@@ -39,41 +39,124 @@ storiesOf(`${SECTION_TITLE}/Spinner`, module)
     .addDecorator(pageDecorator)
     .addDecorator(withReadme(SpinnerReadme))
     .add('default', () => (
-        <Spinner />
+        <Card>
+            <CardContent>
+                <Spinner />
+            </CardContent>
+        </Card>
     ))
     .add('large', () => (
-        <Spinner large primary />
+        <Card>
+            <CardContent>
+                <Spinner large primary />
+            </CardContent>
+        </Card>
     ));
 
 
 /**
- * PROGRESS
+ * LOADER HORIZONTAL
  */
-storiesOf(`${SECTION_TITLE}/Progress`, module)
+storiesOf(`${SECTION_TITLE}/LoaderHorizontal`, module)
     .addDecorator(pageDecorator)
-    .addDecorator(withReadme(ProgressReadme))
+    .add('default', () => (
+        <Card>
+            <CardContent>
+                <Row>
+                    <Col span={6}>
+                        <LoaderHorizontal/>
+                    </Col>
+                </Row>
+            </CardContent>
+        </Card>
+    ));
+
+
+
+/**
+ * PROGRESS BAR
+ */
+storiesOf(`${SECTION_TITLE}/ProgressBar`, module)
+    .addDecorator(pageDecorator)
+    .addDecorator(withReadme(ProgressBarReadme))
     .add('default', withState({
         barPercent: 89
     }, (store) => (
-        <Row>
-            <Col span={24}>
-                <Progress percent={store.state.barPercent}>
-                    Uploading file...
-                </Progress>
-            </Col>
-        </Row>
-    )))
-    .add('circle', () => (
-        <Row>
-            <Col span={4}>
-                <Progress circle percent={9} />
-            </Col>
-            <Col span={4}>
-                <Progress circle color="success" percent={59} />
-            </Col>
-            <Col span={4}>
-                <Progress circle color="error" percent={89} />
-            </Col>
-        </Row>
+        <Card>
+            <CardContent>
+                <Row>
+                    <Col span={24}>
+                        <ProgressBar percent={store.state.barPercent}>
+                            Uploading file...
+                        </ProgressBar>
+                    </Col>
+                </Row>
+            </CardContent>
+        </Card>
+    )));
+
+
+
+/**
+ * PROGRESS CIRCLE
+ */
+storiesOf(`${SECTION_TITLE}/ProgressCircle`, module)
+    .addDecorator(pageDecorator)
+    .addDecorator(withReadme(ProgressCircleReadme))
+    .add('types', () => (
+        <React.Fragment>
+            <Card>
+                <CardContent>
+                    <Row>
+                        <Col span={6}>
+                            <ProgressCircle percent={8}>
+                                Primary
+                            </ProgressCircle>
+                        </Col>
+                        <Col span={6}>
+                            <ProgressCircle color="success" percent={74}>
+                                Success
+                            </ProgressCircle>
+                        </Col>
+                        <Col span={6}>
+                            <ProgressCircle color="warning" percent={43}>
+                                Warning
+                            </ProgressCircle>
+                        </Col>
+                        <Col span={6}>
+                            <ProgressCircle color="error" percent={21}>
+                                Error
+                            </ProgressCircle>
+                        </Col>
+                    </Row>
+                </CardContent>
+            </Card>
+        </React.Fragment>
+    ))
+    .add('sizes', () => (
+        <React.Fragment>
+            <Card>
+                <CardContent>
+                    <Row>
+                        <Col span={8}>
+                            <ProgressCircle percent={89} size="small">
+                                Small
+                            </ProgressCircle>
+                        </Col>
+                        <Col span={8}>
+                            <ProgressCircle percent={89}>
+                                Regular
+                            </ProgressCircle>
+                        </Col>
+                        <Col span={8}>
+                            <ProgressCircle percent={89} size="large">
+                                Large
+                            </ProgressCircle>
+                        </Col>
+                    </Row>
+                </CardContent>
+            </Card>
+        </React.Fragment>
     ));
+
 

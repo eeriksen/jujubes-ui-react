@@ -41,6 +41,7 @@
         "react-click-outside": "github:tj/react-click-outside",
         "react-dropzone": "^8.0.0",
         "react-perfect-scrollbar": "^1.4.2",
+        "react-sortable-hoc": "^1.5.3",
         "react-tippy": "^1.2.3",
         "sass-loader": "^7.1.0",
         "storybook-readme": "^4.0.2",

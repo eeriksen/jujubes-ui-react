@@ -1,18 +1,17 @@
-# Progress
+# Progress Circle
 
 ### Description
-The `<Progress />` component is great for showing progress when uploading files to a server.
-It comes in two variants; as a bar or a circle.
+The `<ProgressCircle />` component is great for showing progress when uploading files to a server.
 
 ### Usage
 ```javascript
-import { Progress } from "tv2-ui-react"
+import { ProgressCircle } from "tv2-ui-react"
 ```
 
 ```jsx
-<Progress percent={80}>
+<ProgressCircle percent={80}>
     Uploading file...
-</Progress>
+</ProgressCircle>
 ```
 
 

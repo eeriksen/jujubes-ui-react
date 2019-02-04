@@ -57,9 +57,10 @@ $zIndex-8:                          800;
 $zIndex-9:                          900;
 $zIndex-10:                         1000;
 
-$zIndex--appBar:                    $zIndex-5;
-$zIndex--appNav:                    $zIndex-6;
-$zIndex--toast:                     $zIndex-6;
+$zIndex--appBar:                    $zIndex-4;
+$zIndex--appNav:                    $zIndex-5;
+$zIndex--toast:                     $zIndex-5;
+$zIndex--itemList-draggedItem:      $zIndex-6;
 $zIndex--popOver:                   $zIndex-7;
 $zIndex--popups:                    $zIndex-9;
 $zIndex--userMenu:                  $zIndex-9;
@@ -104,6 +105,7 @@ $color--status-text:                #ffffff;
 // Social media color
 $color--facebook:                   #3B5999;
 
+$background--primary:               linear-gradient(135deg, $color--primary 0%, $color--accent 100%);
 
 
 /* SIZES / DIMENSIONS

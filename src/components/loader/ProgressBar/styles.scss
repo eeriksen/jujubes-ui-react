@@ -1,15 +1,13 @@
 
 /* ===================================================================
-   PROGRESS
+   PROGRESS BAR
    =================================================================== */
 
 $height--bar: 16px;
 $color--bar-animation: rgba(0, 0, 0, 0.05);
 
-// LINE
-// ----------------------------------------------
 
-.progressLine {
+.base {
     display: block;
     margin: $spacing--normal 0;
 
@@ -42,7 +40,7 @@ $color--bar-animation: rgba(0, 0, 0, 0.05);
                 position: relative;
                 height: 100%;
                 border-radius: $height--bar;
-                background: linear-gradient(135deg, $color--primary 0%, $color--accent 100%);;
+                background: $background--primary;;
                 transition: width 0.2s ease;
 
                 .stripes {
@@ -74,87 +72,6 @@ $color--bar-animation: rgba(0, 0, 0, 0.05);
 
 }
 
-
-// CIRCLE
-// ----------------------------------------------
-
-.progressCircle {
-    position: relative;
-
-    > svg {
-        display: block;
-    }
-
-    :global {
-        .rc-progress-circle {
-            .rc-progress-circle-trail {
-                stroke: $color--base-5 !important;
-            }
-
-            .rc-progress-circle-path {
-                stroke: $color--primary !important;
-            }
-        }
-    }
-
-    &.successType {
-        :global {
-            .rc-progress-circle {
-                .rc-progress-circle-path {
-                    stroke: $color--success !important;
-                }
-            }
-        }
-    }
-
-    &.errorType {
-        :global {
-            .rc-progress-circle {
-                .rc-progress-circle-path {
-                    stroke: $color--error !important;
-                }
-            }
-        }
-    }
-
-    .details {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        padding: 0 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        .wrapper {
-            .value {
-                svg {
-                    text-align: center;
-                    overflow: visible;
-
-                    text {
-                        fill: $color--base-80;
-                    }
-                }
-            }
-
-            .percent {
-                position: absolute;
-                top: 5px;
-                right: 15px;
-
-                svg {
-                    text {
-                        fill: $color--base-30;
-                    }
-                }
-            }
-        }
-    }
-
-}
 
 @keyframes linear-progress-bar-stripes {
     from {

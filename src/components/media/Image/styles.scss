@@ -1,0 +1,250 @@
+
+.base {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    vertical-align: top;
+
+    // Wrapper
+    .wrapper {
+        position: static;
+        text-align: center;
+        overflow: hidden;
+        background-color: $color--contrast;
+
+        .image {
+            img {
+                display: inline-block;
+                vertical-align: top;
+                max-width: 100%;
+                min-width: 100%;
+            }
+        }
+
+    }
+
+
+    /* CLICKABLE
+    --------------------------------------------- */
+    &.isClickable {
+        cursor: pointer;
+    }
+
+    /* THUMBNAILS
+    --------------------------------------------- */
+
+    &.thumbnail {
+        .wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: $borderRadius--regular;
+
+            .image {
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-position: 50% 50%;
+            }
+        }
+    }
+
+    &.thumbSmall {
+        width: $size--element-normal;
+        height: $size--element-normal;
+    }
+
+    &.thumbRegular {
+        width: 60px;
+        height: 60px;
+    }
+
+    &.thumbMedium {
+        width: 100px;
+        height: 100px;
+    }
+
+    &.thumbLarge {
+        width: 200px;
+        height: 200px;
+    }
+
+
+    /* SCALE
+    --------------------------------------------- */
+
+    // Fill
+    &.scaleFill {
+        width: 100%;
+        height: 100%;
+
+        .wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            .image {
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-position: 50% 50%;
+            }
+        }
+    }
+
+    // Square
+    &.scaleSquare {
+        display: block;
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+
+        .wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            .image {
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-position: 50% 50%;
+            }
+        }
+    }
+
+    // Aspect 16:9
+    &.scaleA16_9 {
+        display: block;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+
+        .wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            .image {
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-position: 50% 50%;
+            }
+        }
+    }
+
+
+    /* MODS
+    --------------------------------------------- */
+
+    // Rounded
+    &.modRounded {
+        border-radius: $borderRadius--regular;
+
+        .wrapper {
+            border-radius: $borderRadius--regular;
+        }
+    }
+
+    // Oval
+    &.modOval {
+        border-radius: 50%;
+
+        .wrapper {
+            border-radius: 50%;
+        }
+    }
+
+    // Grayscale
+    &.modGray {
+        .wrapper {
+            .image {
+                filter: grayscale(100%);
+            }
+        }
+    }
+
+
+    /* PLACEHOLDER
+    --------------------------------------------- */
+    .placeholder {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: lighten($color--base, 76%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30%;
+        @include m-iconSize(100%);
+
+        &.default {
+            @include m-iconColor($color--base-10);
+        }
+    }
+
+
+    /* BUSY INDICATOR
+    --------------------------------------------- */
+
+    &.isBusy {
+        .wrapper {
+            .image {
+                opacity: 0;
+            }
+        }
+    }
+
+    .busy {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: lighten($color--base, 76%);
+        z-index: 3;
+
+        .spinner {
+            position: relative;
+            width: 50%;
+            max-width: 100px;
+        }
+    }
+
+
+    /* ACTIONS
+    --------------------------------------------- */
+    .actions {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: $spacing--small;
+        transform: translateY(100%);
+        background-color: rgba($color--contrast, 0.2);
+        transition: transform .3s ease-in-out;
+        z-index: 2;
+    }
+
+
+    /* STATE: Hover
+    --------------------------------------------- */
+    &:hover {
+        .actions {
+            transform: translateY(0%);
+        }
+    }
+}
+

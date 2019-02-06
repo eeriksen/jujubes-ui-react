@@ -81,7 +81,7 @@ export default class Popup extends React.Component {
                     {this.props.children}
                 </div>
 
-                <Overlay className={styles.overlay} visible={visible} />
+                <Overlay visible={visible} />
             </div>
         )
     }

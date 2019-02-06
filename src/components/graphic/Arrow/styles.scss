@@ -5,8 +5,10 @@
 
 .base {
     transform-origin: center bottom;
+    width: 0;
 
     svg {
+        transform: translateX(-50%);
         display: block;
         width: 20px;
         height: auto;

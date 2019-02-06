@@ -9,6 +9,7 @@ import AppNav from "../../src/components/layout/AppNav"
 import AppBar from "../../src/components/layout/AppBar"
 import AppContent from "../../src/components/layout/AppContent"
 import Page from "../../src/components/page/Page"
+import { PageActions, Action } from "../../src/components/page/PageActions"
 import PageHeader from "../../src/components/page/PageHeader"
 import Card from "../../src/components/card/Card"
 import CardTitle from "../../src/components/card/CardTitle"
@@ -115,6 +116,11 @@ storiesOf(`${SECTION_TITLE}`, module)
             <AppContent>
                 <Page>
                     <PageHeader title="Articles" subtitle="Create new" />
+                    <PageActions>
+                        <Action icon="plus" onClick={action("CREATE")}>Create a page</Action>
+                        <Action icon="edit" onClick={action("EDIT")}>Edit page</Action>
+                        <Action icon="trash" iconColor="error" onClick={action("DELETE")}>Delete page</Action>
+                    </PageActions>
                     <Card>
                         <CardTitle title="This is the card title">
                             <Badge color="success" fill>Success</Badge>

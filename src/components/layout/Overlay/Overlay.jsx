@@ -31,7 +31,7 @@ export default class Overlay extends React.Component {
         }, className);
 
         return (
-            <Clickable className={baseClasses} onClick={onClick} />
+            <Clickable block className={baseClasses} onClick={onClick} />
         )
     }
 }

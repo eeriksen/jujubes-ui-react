@@ -3,97 +3,10 @@
    USER MENU
    =================================================================== */
 
-$spacing--top: 25px;
-
 .base {
     position: relative;
 
-    .pop {
-
-        // Box
-        .box {
-            position: absolute;
-            left: 50%;
-            bottom: -$spacing--top;
-            transform: translateY(20px);
-            opacity: 0;
-            transition: transform .2s ease-in-out, opacity .2s linear;
-            cursor: default;
-            pointer-events: none;
-
-            .arrow {
-                position: relative;
-                display: block;
-                transform: translateX(-50%) translateY(1px);
-                z-index: 2;
-                padding-left: 1px;
-            }
-
-            .content {
-                position: absolute;
-                width: 300px;
-                background-color: $color--contrast;
-                box-shadow: $boxShadow--large;
-                border-radius: $borderRadius--medium;
-                overflow: hidden;
-                transform: translateX(-50%);
-                text-align: left;
-
-                .frame {
-                    padding: $spacing--normal;
-                }
-            }
-        }
-
-        // Overlay
-        .overlay {
-            display: none;
-        }
-
-        &.visible {
-            .box {
-                transform: translateY(0);
-                opacity: 1;
-                pointer-events: auto;
-            }
-        }
-    }
-
-
-    // RESPONSIVE
-    @include for-phone-only(){
-
-        .pop {
-            position: fixed;
-            pointer-events: none;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: $zIndex--userMenu;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            // Box
-            .box {
-                position: static;
-                transform: translateY(-20px);
-
-                .content {
-                    position: static;
-                    transform: none;
-                }
-
-                .arrow {
-                    display: none;
-                }
-            }
-
-            // Overlay
-            .overlay {
-                display: block;
-            }
-        }
+    .frame {
+        padding: $spacing--normal;
     }
 }

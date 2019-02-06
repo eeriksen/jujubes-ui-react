@@ -8,6 +8,9 @@
     margin-bottom: $spacing--large;
 
     .titles {
+        margin-right: $size--element-big;
+        padding-right: $spacing--medium;
+
         .mainTitle {
             margin: 0;
             font-size: $fontSize--heading-1;

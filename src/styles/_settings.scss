@@ -61,7 +61,9 @@ $zIndex--appBar:                    $zIndex-4;
 $zIndex--appNav:                    $zIndex-5;
 $zIndex--toast:                     $zIndex-5;
 $zIndex--itemList-draggedItem:      $zIndex-6;
-$zIndex--popOver:                   $zIndex-7;
+$zIndex--pageActionButton:          $zIndex-6;
+$zIndex--overlay:                   $zIndex-7;
+$zIndex--popOver:                   $zIndex-8;
 $zIndex--popups:                    $zIndex-9;
 $zIndex--userMenu:                  $zIndex-9;
 
@@ -158,7 +160,7 @@ $boxShadow--large:                  0 1px 30px 1px rgba($color--base, .2);
 /* LAYOUT
 ---------------------------------------------------------------------- */
 
-$appBar--height:                    68px;
+$appBar--height:                    64px;
 $appNav--width:                     260px;
 
 // Grid gutter

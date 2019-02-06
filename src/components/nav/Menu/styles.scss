@@ -60,11 +60,10 @@
     // Icon
     .icon {
         display: inline-block;
-        padding: 0px 5px;
+        padding: 0 5px;
         width: 28px;
         position: relative;
         top: 3px;
-        @include m-iconColor(rgba($color--primary, 0.8));
     }
 
     // Label
@@ -106,10 +105,6 @@
     // STATE: Hover
     &:hover {
         cursor: pointer;
-
-        .icon {
-            @include m-iconColor($color--primary);
-        }
 
         .label {
             color: $color--base;

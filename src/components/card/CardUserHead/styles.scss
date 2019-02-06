@@ -5,7 +5,7 @@
 
 .base {
     position: relative;
-    background: $background--primary;
+    background: linear-gradient(30deg, $color--primary 0%, $color--accent 100%);
     overflow: hidden;
 
     .background {

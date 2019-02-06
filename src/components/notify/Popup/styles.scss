@@ -9,7 +9,6 @@ $popup--width-normal: 450px;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: $zIndex--popups;
     padding: $spacing--normal;
     width: 100%;
     height: 100%;
@@ -29,10 +28,10 @@ $popup--width-normal: 450px;
         opacity: 0;
         margin-top: -50px;
         background: $color--contrast;
-        box-shadow: $boxShadow--large;
+        box-shadow: 0 1px 30px 1px rgba($color--base, .5);
         animation: boxIn .3s forwards;
         transition: border-bottom .3s ease;
-        z-index: 1;
+        z-index: $zIndex--popups;
 
         @keyframes boxIn {
             to {

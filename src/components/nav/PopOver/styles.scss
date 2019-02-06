@@ -1,0 +1,115 @@
+
+/* ===================================================================
+   POP OVER
+   =================================================================== */
+
+.base {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 50%;
+    pointer-events: none;
+
+    .pop {
+        position: absolute;
+        transition: transform .2s  cubic-bezier(0.605, 0.225, 0.290, 1.020), opacity .2s linear;
+        cursor: default;
+        pointer-events: none;
+        opacity: 0;
+        z-index: $zIndex--popOver;
+        width: 300px;
+
+        .arrow {
+            position: absolute;
+            z-index: 2;
+        }
+
+        .content {
+            position: absolute;
+            right: 0;
+            width: 300px;
+            background-color: $color--contrast;
+            box-shadow: 0 1px 30px 1px rgba($color--base, .2);
+            border-radius: $borderRadius--medium;
+            overflow: hidden;
+            text-align: left;
+            padding: $spacing--normal;
+        }
+    }
+
+
+    &.placeTop {
+        .pop {
+            transform: translateY(20px);
+
+            .arrow {
+                top: 2px;
+                transform: translateY(-100%);
+            }
+        }
+    }
+
+    &.placeBottom {
+        .pop {
+            transform: translateY(-20px);
+
+            .arrow {
+                bottom: 2px;
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+
+    &.visible {
+        .pop {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+
+    &.paddingNone {
+        .pop .content {
+            padding: 0;
+        }
+    }
+
+
+    // RESPONSIVE: For phone only
+    @include for-phone-only(){
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .pop {
+            position: static;
+
+            .content {
+                position: static;
+                box-shadow: 0 1px 30px 1px rgba($color--base, .5);
+            }
+
+            .arrow {
+                display: none;
+            }
+        }
+
+        &.visible {
+            position: fixed;
+            z-index: $zIndex--popOver;
+        }
+    }
+}
+
+
+.overlay {
+    display: none;
+
+    @include for-phone-only(){
+        display: block;
+    }
+}

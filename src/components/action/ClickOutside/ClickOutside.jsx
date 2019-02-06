@@ -13,30 +13,56 @@ export default class ClickOutside extends Component {
         this.isTouch = false
     }
 
+    componentDidMount(){
+        this._toggleEnabled(this.props.enabled);
+    }
+
+    componentDidUpdate(prevProps){
+        if(this.props.enabled && !prevProps.enabled){
+            this._toggleEnabled(true);
+        } else if(!this.props.enabled && prevProps.enabled){
+            this._toggleEnabled(false);
+        }
+    }
+
+    /**
+     * Toggle enabled
+     * @param enabled
+     * @private
+     */
+    _toggleEnabled = (enabled) => {
+        if(enabled){
+            document.addEventListener('touchend', this._handle, true);
+            document.addEventListener('click', this._handle, true);
+            document.addEventListener('scroll', this._handle, true);
+        } else {
+            document.removeEventListener('touchend', this._handle, true);
+            document.removeEventListener('click', this._handle, true);
+            document.removeEventListener('scroll', this._handle, true);
+        }
+    };
+
+    /**
+     * Handle
+     * @param e
+     * @private
+     */
+    _handle = (e) => {
+        if (e.type === 'touchend') this.isTouch = true;
+        if (e.type === 'click' && this.isTouch) return;
+        e.stopPropagation();
+        const { onClickOutside } = this.props;
+        const el = this.container;
+        if (el && !el.contains(e.target)) onClickOutside(e)
+    };
+
     getContainer(ref) {
         this.container = ref
     }
 
+
     render() {
-        const { children, onClickOutside, ...props } = this.props;
-        return <div {...props} ref={this.getContainer}>{children}</div>
-    }
-
-    componentDidMount() {
-        document.addEventListener('touchend', this.handle, true);
-        document.addEventListener('click', this.handle, true)
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener('touchend', this.handle, true);
-        document.removeEventListener('click', this.handle, true)
-    }
-
-    handle = e => {
-        if (e.type === 'touchend') this.isTouch = true;
-        if (e.type === 'click' && this.isTouch) return;
-        const { onClickOutside } = this.props;
-        const el = this.container;
-        if (el && !el.contains(e.target)) onClickOutside(e)
+        const { children, enabled, onClickOutside, ...props } = this.props;
+        return <div {...props} ref={this.getContainer}>{children}</div>;
     }
 }

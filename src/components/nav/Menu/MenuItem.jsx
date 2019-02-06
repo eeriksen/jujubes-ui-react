@@ -20,7 +20,7 @@ export default class MenuItem extends React.Component {
     render(){
 
         // Properties
-        const { label, icon, link, selected, count, indicator, cyp } = this.props;
+        const { label, icon, iconColor, link, selected, count, indicator, cyp } = this.props;
 
         // Classes
         const classes = classNames(styles.item, {
@@ -38,7 +38,7 @@ export default class MenuItem extends React.Component {
                 {/* Icon */}
                 {icon ? (
                     <span className={styles.icon}>
-                        <Icon name={icon} />
+                        <Icon color={iconColor || "primary"} name={icon} />
                     </span>
                 ) : null}
 

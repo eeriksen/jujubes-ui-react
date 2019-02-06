@@ -8,7 +8,7 @@ export default class PageHeader extends React.Component {
     render(){
 
         // Properties
-        const { title, subtitle, choices } = this.props;
+        const { title, subtitle } = this.props;
 
         return (
             <div className={styles.base}>
@@ -25,20 +25,6 @@ export default class PageHeader extends React.Component {
                     ) : null}
                 </div>
 
-                {/* Choices */}
-                {choices ? this._renderChoices() : null}
-
-            </div>
-        )
-    }
-
-
-    _renderChoices(){
-        return (
-            <div className={styles.action}>
-                <Clickable label="Actions">
-
-                </Clickable>
             </div>
         )
     }

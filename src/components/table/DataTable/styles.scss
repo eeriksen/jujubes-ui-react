@@ -1,0 +1,183 @@
+
+/* ===================================================================
+   DATA TABLE
+   =================================================================== */
+
+$padding-cell--regular: 9px $spacing--normal;
+$padding-cell--small: 6px $spacing--normal;
+
+.base {
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: auto;
+
+    .loader {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color--contrast, 0.8);
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .heading {
+        text-align: left;
+        padding-bottom: $spacing--normal;
+        font-weight: $fontWeight--medium;
+        font-size: $fontSize--medium;
+        line-height: $lineHeight--medium;
+        max-width: 400px;
+    }
+
+    .wrapper {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+    }
+}
+
+/* TABLE
+----------------------------------------- */
+.table {
+    overflow: hidden;
+    border-spacing: 0;
+    border-collapse: separate;
+    width: 100%;
+    font-size: $fontSize--normal;
+    line-height: $lineHeight--normal;
+
+    // HEAD
+    > thead {
+
+        // Row
+        > tr {
+
+            // Col
+            > th {
+                background-color: $color--base-3;
+                text-align: left;
+                padding: $padding-cell--regular;
+                padding-top: 9px;
+                border-bottom: 1px solid $color--base-15;
+                border-right: 1px solid $color--base-10;
+                font-weight: $fontWeight--medium;
+                color: $color--base;
+                @include m-truncate();
+
+                &:last-child {
+                    border-right: none;
+                }
+            }
+        }
+    }
+
+    // BODY
+    > tbody {
+
+        // Row
+        > .row {
+
+            // Col
+            > .col {
+                padding: 0;
+                background-color: $color--contrast;
+                border-bottom: 1px solid $color--base-10;
+                border-right: 1px solid $color--base-5;
+
+                &:last-child {
+                    border-right: none;
+                }
+
+                &.noBorderBottom {
+                    border-bottom-color: transparent;
+                }
+
+                &.noBorderRight {
+                    border-right-color: transparent;
+                }
+            }
+
+            // Last row
+            &:last-child {
+                > .col {
+                    border-bottom: none;
+                }
+            }
+
+            // MOD: Blinking row
+            @keyframes rowBlink {
+                0% {
+                    background-color: $color--background;
+                }
+                50% {
+                    background-color: rgba($color--warning, .8);
+                }
+                100% {
+                    background-color: $color--background;
+                }
+            }
+            &.blink {
+                > .col {
+                    animation: rowBlink 2s ease-in-out none 20;
+                }
+            }
+
+            // EXPANDED ROW
+            &.expand {
+                > .col {
+                    padding: $spacing--small;
+                    background: transparent;
+
+                    &:hover {
+                        cursor: default;
+                        background-color: $color--base-5;
+                    }
+                }
+            }
+
+        }
+    }
+
+    // CELL
+    .cell {
+        padding: $padding-cell--regular;
+
+        .input {
+            outline: none;
+            resize: none;
+            border: 0;
+            background: transparent;
+            font-size: $fontSize--normal;
+            font-family: $fontFamily--primary;
+            line-height: $lineHeight--normal;
+            padding: $padding-cell--regular;
+        }
+
+        &.alignRight {
+            text-align: right;
+        }
+
+        &.editMode {
+            padding: 0;
+        }
+    }
+
+    // MOD: Clickable
+    &.clickable {
+        > tbody {
+            > .row:not(.unclickable) {
+                cursor: pointer;
+
+                &:hover {
+                    > .col {
+                        background-color: darken($color--contrast, 1%);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+
+/* ===================================================================
+   LOGO
+   =================================================================== */
+
+.base {
+    position: relative;
+    height: 0;
+    width: 100%;
+    padding-top: 100%;
+
+    svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        fill: $color--contrast;
+    }
+
+    &.customHeight {
+        height: auto;
+        width: auto;
+        padding-top: 0;
+
+        svg {
+            height: 100%;
+            width: auto;
+            position: static;
+        }
+    }
+}

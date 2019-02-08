@@ -52,6 +52,7 @@ export default class AppNav extends React.Component {
 
                 {/* Content pane */}
                 <div className={styles.content}>
+                    <ScrollableArea>
 
                     {/* Header */}
                     <div className={styles.header}>
@@ -69,23 +70,19 @@ export default class AppNav extends React.Component {
                         </div>
                     </div>
 
-                    <ScrollableArea>
+                    {/* Menu */}
+                    <div className={styles.menu}>
+                        {children}
+                    </div>
 
-                        {/* Menu */}
-                        <div className={styles.menu}>
-                            {children}
-                        </div>
+                    {/* Fade*/}
+                    <div className={styles.fade} />
 
                     </ScrollableArea>
-                    <div className={styles.fade} />
                 </div>
 
                 {/* Overlay */}
                 <Clickable onClick={() => layoutActions.toggleNav()} className={styles.overlay} />
-
-                {/* Flick */}
-                <div className={styles.flick} />
-
             </div>
         )
     }

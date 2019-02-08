@@ -48,7 +48,7 @@ storiesOf(`${SECTION_TITLE}/Spinner`, module)
     .add('large', () => (
         <Card>
             <CardContent>
-                <Spinner large primary />
+                <Spinner size="large" />
             </CardContent>
         </Card>
     ));

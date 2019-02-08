@@ -61,7 +61,8 @@
             top: 50%;
             margin-top: -8px;
             left: 13px;
-            @include m-iconColor(lighten($color--primary, 10%));
+            z-index: 2;
+            @include m-iconColor($color--primary);
 
             &:after {
                 content: '';

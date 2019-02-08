@@ -34,7 +34,7 @@ export default class Checklist extends React.Component {
                 {/* Loader */}
                 {this.props.busy ? (
                     <div className={styles.loader}>
-                        <Spinner primary className={styles.spinner} />
+                        <Spinner className={styles.spinner} />
                     </div>
                 ) : null}
 

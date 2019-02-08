@@ -31,10 +31,38 @@
         }
     }
 
-    .action {
-        position: absolute;
-        top: 0;
-        right: 0;
+
+    .breadcrumbs {
+        margin: 0 0 $spacing--normal 0;
+        padding: 0;
+        list-style: none;
+        margin-right: $size--element-big;
+        padding-right: $spacing--medium;
+
+        .crumb {
+            display: inline-block;
+            color: $color--base-40;
+
+            .divider {
+                padding: 0 8px;
+                @include m-iconSize(8px);
+                @include m-iconColor($color--accent);
+            }
+
+            &:hover {
+                color: $color--primary;
+                cursor: pointer;
+            }
+
+            &:last-child {
+                color: $color--base-20;
+
+                &:hover {
+                    color: $color--base-20;
+                    cursor: default;
+                }
+            }
+        }
     }
 }
 
@@ -52,6 +80,17 @@
                 line-height: $lineHeight--large;
                 padding: 0 7px;
                 margin-top: 5px;
+            }
+        }
+
+        .breadcrumbs {
+            .crumb {
+                font-size: $fontSize--small;
+                font-weight: $fontWeight--medium;
+
+                .divider {
+                    padding: 0 5px;
+                }
             }
         }
     }

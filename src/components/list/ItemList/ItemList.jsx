@@ -109,7 +109,7 @@ export default class ItemList extends React.Component {
                 {/* Loader */}
                 {busy ? (
                     <div className={styles.loader}>
-                        <Spinner primary className={styles.spinner}/>
+                        <Spinner className={styles.spinner}/>
                     </div>
                 ) : null}
 

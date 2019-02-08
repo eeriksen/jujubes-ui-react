@@ -3,6 +3,8 @@ import React from "react"
 import { storiesOf } from "@storybook/react"
 import { withState } from "@dump247/storybook-state"
 import { action } from "@storybook/addon-actions"
+import { withReadme }  from "storybook-readme"
+import StoryRouter from "storybook-router"
 
 import AppLayout from "../../src/components/layout/AppLayout"
 import AppNav from "../../src/components/layout/AppNav"
@@ -11,6 +13,7 @@ import AppContent from "../../src/components/layout/AppContent"
 import Page from "../../src/components/page/Page"
 import { PageActions, Action } from "../../src/components/page/PageActions"
 import PageHeader from "../../src/components/page/PageHeader"
+import PageLoader from "../../src/components/page/PageLoader"
 import Card from "../../src/components/card/Card"
 import CardTitle from "../../src/components/card/CardTitle"
 import CardContent from "../../src/components/card/CardContent"
@@ -27,23 +30,23 @@ import Badge from "../../src/components/notify/Badge"
 import { Menu, MenuItem } from "../../src/components/nav/Menu"
 import Icon from "../../src/components/graphic/Icon"
 import { Section, SectionTitle } from "../../src/components/layout/Section"
+import { Splash, SplashTitle, SplashContent } from "../../src/components/layout/Splash"
+import Text from "../../src/components/typography/Text"
+import Logo from "../../src/components/graphic/Logo"
+
+import PageLoaderReadme from "../../src/components/page/PageLoader/README.md"
+import SectionReadme from "../../src/components/layout/Section/README.md"
+import SplashReadme from "../../src/components/layout/Splash/README.md"
 
 
 // Section title
 const SECTION_TITLE = "02 - Layout";
 
-// Decorator
-const pageDecorator = (story) => (
-    <Page>
-        {story()}
-    </Page>
-);
 
 /**
  * AUTH
  */
-storiesOf(`${SECTION_TITLE}`, module)
-    .addDecorator(pageDecorator)
+storiesOf(`${SECTION_TITLE}/AppLayout`, module)
     .add('example', withState({
         userMenu: false,
         name: null,
@@ -71,10 +74,9 @@ storiesOf(`${SECTION_TITLE}`, module)
                 </AppBar.Item>
             </AppBar>
             <AppNav
-                logo={<svg fill="#ffffff" style={{display: "inline-block", height: "50px"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 297"><g><polyline points="97.4 235.3 199.5 235.3 199.5 296.9 173.5 266.6 39.3 266.6 97.4 235.3" /><path d="M0.5 295.8C3.4 254 25.1 216.5 59 184.5 79.4 164.9 115.3 138.7 125.1 131.1 134.3 123.8 143.7 115.4 143.7 98.9 143.7 78.5 127.5 62.5 106.8 62.5L106.8 31.2C147.2 31.2 175.4 63.1 175.4 98.5 175.4 125.6 164.3 143.2 129.4 168 89 197.4 80.6 204.9 64.7 223 49.5 240.6 42.3 255.2 39.3 266.6L0.5 295.8Z" /><path d="M8.6 99.4C8.6 42.9 52.6 0.5 106.8 0.5L106.8 31.2C90.5 31.2 55.6 43.8 44.1 78.5L42.7 91.8 8.6 99.4Z" /><polygon points="72.7 99.4 8.6 99.4 44.1 78.5" /></g></svg>}
+                logo={<Logo height={60} />}
                 title="Spesialer"
-                subtitle="Digital historiefortelling"
-            >
+                subtitle="Digital historiefortelling">
                 <AppNav.Menu>
                     <AppNav.MenuHeading>
                         Main
@@ -115,7 +117,18 @@ storiesOf(`${SECTION_TITLE}`, module)
             </AppNav>
             <AppContent>
                 <Page>
-                    <PageHeader title="Articles" subtitle="Create new" />
+                    <PageHeader title="Articles" subtitle="Create new" crumbs={[{
+                        label: "Start",
+                        link: `/`
+                    }, {
+                        label: "Company",
+                        link: `/companies`
+                    }, {
+                        label: "Articles",
+                        link: `/articles`
+                    }, {
+                        label: "Edit article"
+                    }]} />
                     <PageActions>
                         <Action icon="plus" onClick={action("CREATE")}>Create a page</Action>
                         <Action icon="edit" onClick={action("EDIT")}>Edit page</Action>
@@ -188,4 +201,202 @@ storiesOf(`${SECTION_TITLE}`, module)
                 </Page>
             </AppContent>
         </AppLayout>
+    )));
+
+
+
+
+
+/**
+ * PAGE HEADER
+ */
+storiesOf(`${SECTION_TITLE}/PageHeader`, module)
+    .addDecorator(StoryRouter())
+    // .addDecorator(withReadme(PageHeaderReadme))
+    .add('default', () => (
+        <AppLayout>
+            <AppContent>
+                <Page>
+                    <PageHeader title="Page header" subtitle="Sub title" />
+                </Page>
+            </AppContent>
+        </AppLayout>
+    ))
+    .add('with breadcrumbs', () => {
+
+        const crumbs = [{
+            label: "Home",
+            handler: action('home')
+        }, {
+            label: "Section",
+            handler: action('section')
+        }, {
+            label: "Active page"
+        }];
+
+        return (
+            <AppLayout>
+                <AppContent>
+                    <Page>
+                        <PageHeader title="Page header" subtitle="Sub title" crumbs={crumbs} />
+                    </Page>
+                </AppContent>
+            </AppLayout>
+        )
+    });
+
+
+
+/**
+ * PAGE ACTIONS
+ */
+storiesOf(`${SECTION_TITLE}/PageActions`, module)
+    .addDecorator(StoryRouter())
+    // .addDecorator(withReadme(PageHeaderReadme))
+    .add('default', () => (
+        <AppLayout>
+            <AppContent>
+                <Page>
+                    <PageHeader title="Page header" subtitle="Sub title" />
+                    <PageActions>
+                        <Action icon="plus" onClick={action("CREATE")}>Create a page</Action>
+                        <Action icon="edit" onClick={action("EDIT")}>Edit page</Action>
+                        <Action icon="trash" iconColor="error" onClick={action("DELETE")}>Delete page</Action>
+                    </PageActions>
+                </Page>
+            </AppContent>
+        </AppLayout>
+    ));
+
+
+/**
+ * PAGE LOADER
+ */
+storiesOf(`${SECTION_TITLE}/PageLoader`, module)
+    .addDecorator(withReadme(PageLoaderReadme))
+    .add('default', () => (
+        <AppLayout>
+            <AppContent>
+                <PageLoader />
+            </AppContent>
+        </AppLayout>
+    ));
+
+
+
+/**
+ * SECTION
+ */
+storiesOf(`${SECTION_TITLE}/Section`, module)
+    .addDecorator(withReadme(SectionReadme))
+    .add('default', () => (
+        <AppLayout>
+            <AppContent>
+                <Page>
+                    <Card>
+                        <CardContent>
+                            <Section>
+                                Bacon ipsum dolor amet jerky ribeye bacon, hamburger swine cupim strip steak jowl doner
+                                prosciutto meatball ball tip short loin pork belly tail. Shankle cupim boudin,
+                                brisket pork loin venison t-bone filet mignon cow strip steak short loin pork pastrami tongue chuck.
+                                Pancetta tenderloin ham hock, landjaeger sirloin pork belly tongue. Jowl beef turducken,
+                                flank buffalo beef ribs kielbasa prosciutto chuck. Hamburger tongue buffalo ham beef strip
+                                steak doner. Cupim ribeye doner, prosciutto tail meatball turducken drumstick rump.
+                            </Section>
+                            <Section>
+                                Bresaola ball tip shoulder bacon, boudin drumstick ribeye. Porchetta ribeye chuck sausage kielbasa
+                                t-bone rump. Strip steak shankle cow rump. Ribeye tail andouille bacon fatback frankfurter
+                                cupim leberkas meatloaf filet mignon t-bone venison ham spare ribs. Jerky pancetta
+                                spare ribs ground round, porchetta kielbasa short loin. Ground round rump tri-tip
+                                strip steak t-bone meatloaf.
+                            </Section>
+                            <Section>
+                                Filet mignon rump strip steak short loin burgdoggen venison beef jowl pork loin shoulder
+                                pork pig biltong ham hock. Sirloin short ribs pork loin corned beef meatloaf pig, ham cupim.
+                                Turkey beef pastrami filet mignon, pork loin venison beef ribs ribeye short loin.
+                                Landjaeger sirloin chicken doner short ribs.
+                            </Section>
+                        </CardContent>
+                    </Card>
+                </Page>
+            </AppContent>
+        </AppLayout>
+    ))
+    .add('with title', () => (
+        <AppLayout>
+            <AppContent>
+                <Page>
+                    <Card>
+                        <CardContent>
+                            <Section>
+                                <SectionTitle>
+                                    First section title
+                                </SectionTitle>
+
+                                Bacon ipsum dolor amet jerky ribeye bacon, hamburger swine cupim strip steak jowl doner
+                                prosciutto meatball ball tip short loin pork belly tail. Shankle cupim boudin,
+                                brisket pork loin venison t-bone filet mignon cow strip steak short loin pork pastrami tongue chuck.
+                                Pancetta tenderloin ham hock, landjaeger sirloin pork belly tongue. Jowl beef turducken,
+                                flank buffalo beef ribs kielbasa prosciutto chuck. Hamburger tongue buffalo ham beef strip
+                                steak doner. Cupim ribeye doner, prosciutto tail meatball turducken drumstick rump.
+                            </Section>
+                            <Section>
+                                <SectionTitle>
+                                    Second section title
+                                </SectionTitle>
+
+                                Bresaola ball tip shoulder bacon, boudin drumstick ribeye. Porchetta ribeye chuck sausage kielbasa
+                                t-bone rump. Strip steak shankle cow rump. Ribeye tail andouille bacon fatback frankfurter
+                                cupim leberkas meatloaf filet mignon t-bone venison ham spare ribs. Jerky pancetta
+                                spare ribs ground round, porchetta kielbasa short loin. Ground round rump tri-tip
+                                strip steak t-bone meatloaf.
+                            </Section>
+                            <Section>
+                                <SectionTitle>
+                                    Third section title
+                                </SectionTitle>
+
+                                Filet mignon rump strip steak short loin burgdoggen venison beef jowl pork loin shoulder
+                                pork pig biltong ham hock. Sirloin short ribs pork loin corned beef meatloaf pig, ham cupim.
+                                Turkey beef pastrami filet mignon, pork loin venison beef ribs ribeye short loin.
+                                Landjaeger sirloin chicken doner short ribs.
+                            </Section>
+                        </CardContent>
+                    </Card>
+                </Page>
+            </AppContent>
+        </AppLayout>
+    ));
+
+
+/**
+ * SPLASH
+ */
+storiesOf(`${SECTION_TITLE}/Splash`, module)
+    .addDecorator(withReadme(SplashReadme))
+    .add('with login form', withState({
+        username: null,
+        password: null
+    })(({ store }) => (
+        <Splash
+            logo={<svg fill="#ffffff" style={{display: "inline-block", height: "80px"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 297"><g><polyline points="97.4 235.3 199.5 235.3 199.5 296.9 173.5 266.6 39.3 266.6 97.4 235.3" /><path d="M0.5 295.8C3.4 254 25.1 216.5 59 184.5 79.4 164.9 115.3 138.7 125.1 131.1 134.3 123.8 143.7 115.4 143.7 98.9 143.7 78.5 127.5 62.5 106.8 62.5L106.8 31.2C147.2 31.2 175.4 63.1 175.4 98.5 175.4 125.6 164.3 143.2 129.4 168 89 197.4 80.6 204.9 64.7 223 49.5 240.6 42.3 255.2 39.3 266.6L0.5 295.8Z" /><path d="M8.6 99.4C8.6 42.9 52.6 0.5 106.8 0.5L106.8 31.2C90.5 31.2 55.6 43.8 44.1 78.5L42.7 91.8 8.6 99.4Z" /><polygon points="72.7 99.4 8.6 99.4 44.1 78.5" /></g></svg>}
+            footer={<React.Fragment><Text block>TV 2 Labs</Text><Text block opacity=".5">https://www.tv2.no</Text></React.Fragment>}
+        >
+            <SplashTitle title="Sign in" description="Sign in with your company email and password." />
+            <SplashContent>
+                <Form>
+                    <FormItem>
+                        <Input value={store.state.username} onChange={(e) => store.set({username: e.target.value})} icon="user" placeholder="Your email" />
+                    </FormItem>
+                    <FormItem>
+                        <Input value={store.state.password} onChange={(e) => store.set({password: e.target.value})} icon="lock" type="password" placeholder="Your password" />
+                    </FormItem>
+                    <FormButtons>
+                        <Button type="submit" color="primary" block>
+                            Sign in
+                        </Button>
+                    </FormButtons>
+                </Form>
+            </SplashContent>
+        </Splash>
     )));

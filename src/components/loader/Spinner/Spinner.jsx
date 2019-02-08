@@ -7,11 +7,11 @@ export default class Spinner extends React.Component {
     render(){
 
         // Properties
-        const { large, className } = this.props;
+        const { size, className } = this.props;
 
         // Classes
         const classes = classNames(styles.base, {
-            [styles.large]: large
+            [styles.large]: size === "large"
         }, className);
 
         return (

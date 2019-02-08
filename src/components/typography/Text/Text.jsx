@@ -6,7 +6,7 @@ export default class Text extends React.Component {
     render(){
 
         // Properties
-        const { block, truncate, color, weight, size,
+        const { block, truncate, color, weight, size, opacity,
             strikeThrough, lowercase, underline, italic, children } = this.props;
 
         // Classes
@@ -42,7 +42,7 @@ export default class Text extends React.Component {
         }, this.props.className);
 
         return (
-            <span className={classes}>
+            <span className={classes} style={opacity ? {opacity: opacity} : null}>
                 {children}
             </span>
         )

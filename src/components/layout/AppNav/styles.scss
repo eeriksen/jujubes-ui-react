@@ -8,33 +8,33 @@
     position: relative;
     z-index: $zIndex--appNav;
 
-    .header {
-        padding: $spacing--nav-sides $spacing--nav-sides $spacing--large-x;
-
-        .logo {
-            margin-bottom: $spacing--medium;
-        }
-
-        .title {
-            color: $color--contrast;
-            font-size: $fontSize--heading-4;
-            line-height: $lineHeight--heading-4;
-            font-weight: $fontWeight--medium;
-
-            .subtitle {
-                font-size: $fontSize--normal;
-                font-weight: $fontWeight--regular;
-                color: rgba($color--contrast, 0.6);
-                margin-top: -5px;
-            }
-        }
-    }
-
     .content {
         width: $appNav--width;
         height: 100vh;
         background: $background--primary;
         z-index: 2;
+
+        .header {
+            padding: $spacing--nav-sides $spacing--nav-sides $spacing--large-x;
+
+            .logo {
+                margin-bottom: $spacing--medium;
+            }
+
+            .title {
+                color: $color--contrast;
+                font-size: $fontSize--heading-4;
+                line-height: $lineHeight--heading-4;
+                font-weight: $fontWeight--medium;
+
+                .subtitle {
+                    font-size: $fontSize--normal;
+                    font-weight: $fontWeight--regular;
+                    color: rgba($color--contrast, 0.6);
+                    margin-top: -5px;
+                }
+            }
+        }
 
         .fade {
             position: absolute;
@@ -46,10 +46,10 @@
             z-index: 2;
             pointer-events: none;
         }
-    }
 
-    .menu {
-        padding-bottom: 60px;
+        .menu {
+            padding-bottom: 60px;
+        }
     }
 
     .overlay {

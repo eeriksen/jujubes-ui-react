@@ -103,7 +103,7 @@ export default class Image extends React.Component {
                     {/* Loader */}
                     {busy ? (
                         <div className={styles.busy}>
-                            <Spinner base20 className={styles.spinner} />
+                            <Spinner className={styles.spinner} />
                         </div>
                     ) : null}
 

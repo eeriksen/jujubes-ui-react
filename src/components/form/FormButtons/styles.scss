@@ -17,14 +17,16 @@
 
     // RESPONSIVE
     @include for-phone-only(){
+        display: flex;
+
         .button {
-            margin-right: 0;
-            margin-bottom: $spacing--small;
             display: block;
             width: 100%;
+            padding: 0;
+            margin-right: 0;
 
             &:last-child {
-                margin-bottom: 0;
+                margin-left: $spacing--small;
             }
         }
     }

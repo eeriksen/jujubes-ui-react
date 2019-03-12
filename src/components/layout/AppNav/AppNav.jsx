@@ -59,15 +59,17 @@ export default class AppNav extends React.Component {
                         <div className={styles.logo}>
                             {logo}
                         </div>
-                        <div className={styles.title}>
-                            {title}
+                        {title ? (
+                            <div className={styles.title}>
+                                {title}
 
-                            {subtitle ? (
-                                <div className={styles.subtitle}>
-                                    {subtitle}
-                                </div>
-                            ) : null}
-                        </div>
+                                {subtitle ? (
+                                    <div className={styles.subtitle}>
+                                        {subtitle}
+                                    </div>
+                                ) : null}
+                            </div>
+                        ) : null}
                     </div>
 
                     {/* Menu */}

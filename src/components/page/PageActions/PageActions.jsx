@@ -1,63 +1,55 @@
-import React from "react"
+import React, {useState} from "react"
 import styles from "./styles.scss"
 import classNames from "classnames"
 
-import Clickable from "../../button/Clickable"
-import Icon from "../../graphic/Icon"
+import { Clickable } from "../../button/Clickable"
+import { Icon } from "../../graphic/Icon"
 import { Menu, MenuItem } from "../../nav/Menu"
-import PopOver from "../../nav/PopOver"
-
-export default class PageActions extends React.Component {
-
-    state = {
-        visible: false
-    };
+import { PopOver } from "../../nav/PopOver"
 
 
-    _handleActionClick = (e) => {
+export const PageActions = ({children}) => {
+    const [visible, setVisible] = useState(false);
+
+    /**
+     * Action click
+     * @param e
+     */
+    const handleActionClick = (e) => {
         e.stopPropagation();
-        const { visible } = this.state;
-        this.setState({visible: !visible});
+        setVisible(!visible);
     };
 
 
-    render(){
+    // Button classes
+    const buttonClasses = classNames(styles.button, {
+        [styles.active]: visible
+    });
 
-        // Properties
-        const { children } = this.props;
-
-        // Variables
-        const { visible } = this.state;
-
-        // Button classes
-        const buttonClasses = classNames(styles.button, {
-            [styles.active]: visible
-        });
-
-        return (
-            <div className={styles.base}>
-
-                {/* Action button */}
-                <Clickable className={buttonClasses} onClick={this._handleActionClick}>
+    return (
+        <div className={styles.base}>
+            <PopOver visible={visible}
+                     content={renderMenu(children)}
+                     onClose={() => setVisible(false)}>
+                <Clickable className={buttonClasses} onClick={handleActionClick}>
                     <Icon name="lightning" />
                 </Clickable>
+            </PopOver>
+        </div>
+    )
+}
 
-                {/* Action menu */}
-                <PopOver visible={visible} onClose={() => this.setState({visible: false})}>
-                    <Menu>
-                        {children && React.Children.map(children, (child, index) => (
-                            <MenuItem
-                                key={index}
-                                icon={child.props.icon}
-                                label={child.props.children}
-                                {...child.props}
-                            />
-                        ))}
-                    </Menu>
-                </PopOver>
-
-            </div>
-
-        )
-    }
+const renderMenu = (items) => {
+    return (
+        <Menu>
+            {items && React.Children.map(items, (child, index) => (
+                <MenuItem
+                    key={index}
+                    icon={child.props.icon}
+                    label={child.props.children}
+                    {...child.props}
+                />
+            ))}
+        </Menu>
+    )
 }

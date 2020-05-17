@@ -1,44 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800");
 
 /* ===================================================================
    SETTINGS
    =================================================================== */
 
 
-
 /* TYPOGRAPHY
 ---------------------------------------------------------------------- */
 
+// Root size
+$fontSize--root:                     14px;
+
 // Font family
-$fontFamily--primary:               'Catamaran', sans-serif;
-$fontFamily--pixel-adjustment:      2px;
+$fontFamily--primary:                'Nunito Sans', sans-serif;
 
 // Font sizes
-$fontSize--smallest:                 11px;
-$fontSize--small:                    12px;
-$fontSize--normal:                   14px;
-$fontSize--medium:                   16px;
-$fontSize--large:                    18px;
-$fontSize--heading-4:                20px;
-$fontSize--heading-3:                24px;
-$fontSize--heading-2:                32px;
-$fontSize--heading-1:                40px;
+$fontSize--tiny:                     0.785rem;
+$fontSize--small:                    0.857rem;
+$fontSize--normal:                   1rem;
+$fontSize--medium:                   1.142rem;
+$fontSize--large:                    1.285rem;
+$fontSize--heading-4:                1.428rem;
+$fontSize--heading-3:                1.714rem;
+$fontSize--heading-2:                2.285rem;
+$fontSize--heading-1:                2.857rem;
 
 // Line Height
-$lineHeight--smallest:               14px;
-$lineHeight--small:                  16px;
-$lineHeight--normal:                 20px;
-$lineHeight--medium:                 26px;
-$lineHeight--large:                  28px;
-$lineHeight--heading-4:              30px;
-$lineHeight--heading-3:              34px;
-$lineHeight--heading-2:              40px;
-$lineHeight--heading-1:              62px;
+$lineHeight--small:                  1.2;
+$lineHeight--normal:                 1.6;
 
 // Font weight
 $fontWeight--light:                  300;
 $fontWeight--regular:                400;
-$fontWeight--medium:                 500;
-$fontWeight--bold:                   700;
+$fontWeight--medium:                 600;
+$fontWeight--bold:                   800;
 
 
 
@@ -57,12 +52,12 @@ $zIndex-8:                          800;
 $zIndex-9:                          900;
 $zIndex-10:                         1000;
 
-$zIndex--appBar:                    $zIndex-4;
-$zIndex--appNav:                    $zIndex-5;
 $zIndex--toast:                     $zIndex-5;
 $zIndex--itemList-draggedItem:      $zIndex-6;
 $zIndex--pageActionButton:          $zIndex-6;
 $zIndex--overlay:                   $zIndex-7;
+$zIndex--appBar:                    $zIndex-7;
+$zIndex--appNav:                    $zIndex-8;
 $zIndex--popOver:                   $zIndex-8;
 $zIndex--popups:                    $zIndex-9;
 $zIndex--userMenu:                  $zIndex-9;
@@ -72,30 +67,22 @@ $zIndex--userMenu:                  $zIndex-9;
 /* COLORS
 ---------------------------------------------------------------------- */
 
-// Background
-$color--background:                 #E7EBF1;
-
 // Base
 $color--base:                       #2C2E3E;
-$color--base-80:                    rgba($color--base, 0.8);
-$color--base-60:                    rgba($color--base, 0.6);
-$color--base-50:                    rgba($color--base, 0.5);
-$color--base-40:                    rgba($color--base, 0.4);
-$color--base-30:                    rgba($color--base, 0.3);
-$color--base-25:                    rgba($color--base, 0.25);
-$color--base-20:                    rgba($color--base, 0.20);
-$color--base-15:                    rgba($color--base, 0.15);
-$color--base-10:                    rgba($color--base, 0.1);
-$color--base-5:                     rgba($color--base, 0.05);
-$color--base-3:                     rgba($color--base, 0.03);
-$color--base-1:                     rgba($color--base, 0.01);
-
-// Contrast
 $color--contrast:                   #ffffff;
+$color--background:                 #E7EBF1;
+$color--background-cards:           #ffffff;
+$color--background-bar:             #ffffff;
 
-// Main colors
+// Primary color
 $color--primary:                    #408CB7;
-$color--accent:                     #40AFB7;
+$color--primary-accent:             #40AFB7;
+$color--primary-contrast:           #ffffff;
+
+// Secondary color
+$color--secondary:                  #474656;
+$color--secondary-accent:           #71DBFF;
+$color--secondary-contrast:         #ffffff;
 
 // Status colors
 $color--success:                    #34D896;
@@ -103,11 +90,6 @@ $color--error:                      #FF668D;
 $color--warning:                    #E4BB40;
 $color--info:                       #4aa1db;
 $color--status-text:                #ffffff;
-
-// Social media color
-$color--facebook:                   #3B5999;
-
-$background--primary:               linear-gradient(135deg, $color--primary 0%, $color--accent 100%);
 
 
 /* SIZES / DIMENSIONS
@@ -117,6 +99,7 @@ $background--primary:               linear-gradient(135deg, $color--primary 0%, 
 $breakpoint--tablet-portrait:       600px;
 $breakpoint--tablet-landscape:      900px;
 $breakpoint--desktop:               1200px;
+$breakpoint--big-desktop:           1400px;
 
 // Spacings
 $spacing--small:                    5px;
@@ -161,14 +144,14 @@ $boxShadow--large:                  0 1px 30px 1px rgba($color--base, .2);
 ---------------------------------------------------------------------- */
 
 $appBar--height:                    64px;
-$appNav--width:                     260px;
+$appNav--width:                     280px;
 
 // Grid gutter
 $grid--gutter-small:                $spacing--small;
 $grid--gutter-regular:              $spacing--medium;
 
 // Input style
-$input--border:                     1px solid $color--base-20;
+$input--border:                     1px solid rgba($color--base, 0.20);
 $input--border-focus:               1px solid $color--primary;
 $input--border-error:               1px solid $color--error;
 $input--boxShadow-focus:            0 0 0 2px rgba($color--primary, 0.2);

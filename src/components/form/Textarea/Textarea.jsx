@@ -3,7 +3,7 @@ import classNames from "classnames"
 import styles from "./styles.scss"
 
 
-class Textarea extends React.Component {
+export class Textarea extends React.Component {
 
     /**
      * When input changes
@@ -58,6 +58,3 @@ Textarea.defaultProps = {
     maxLength: 2000,
     rows: 3
 };
-
-
-export default Textarea

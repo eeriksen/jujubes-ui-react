@@ -1,113 +1,105 @@
-import React from "react"
-import classNames from "classnames"
-import styles from "./styles.scss"
+import React, {useEffect, useRef, useState} from "react"
+import style from "./styles.scss"
+import classNames from "classnames";
 
-import ClickOutside from "../../action/ClickOutside"
-import Arrow from "../../graphic/Arrow"
-import Overlay from "../../layout/Overlay"
-import ReactDOM from "react-dom";
 
-export default class PopOver extends React.Component {
+export const PopOver = (props) => {
+    const {visible, onClose, children, content, arrowColor, size} = props;
+    const baseRef = useRef(null);
+    const popRef = useRef(null);
+    const [topPos, setTopPos] = useState(0);
+    const [leftPos, setLeftPos] = useState(0);
+    const [arrowLeftPos, setarrowLeftPos] = useState(0);
+    const [position, setPosition] = useState("bottom");
 
-    state = {
-        popStyles: null,
-        arrowStyles: null,
-        place: null
-    };
+    useEffect(() => {
+        _redrawPosition();
+    }, [visible]);
 
-    componentDidMount(){
-        this._calculatePosition();
-    }
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
-    shouldComponentUpdate(nextProps, nextState){
-        return this.props.visible !== nextProps.visible;
-    }
 
     /**
-     * Calculate the position of the pop over
+     * Redraw position
+     * @private
      */
-    _calculatePosition = () => {
-        const { distance } = this.props;
-        const $element = ReactDOM.findDOMNode(this.baseRef);
-        if(!$element){
-            return;
-        }
+    const _redrawPosition = () => {
+        const $base = baseRef.current;
+        const $pop = popRef.current;
+        const baseVal = $base.getBoundingClientRect();
+        const popVal = $pop.getBoundingClientRect();
         const windowWidth = window.innerWidth;
-        const windowHeight= window.innerHeight;
-        const dim = $element.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
 
-        const rightDistance = windowWidth - dim.left - dim.width;
-        const leftDistance = dim.left;
-        const topDistance = dim.top;
-        const bottomDistance = windowHeight - dim.top - dim.height;
+        const distanceFromBottom = windowHeight - (baseVal.y + baseVal.height);
+        const shouldPositionTop = distanceFromBottom <= popVal.height;
+        const shouldPositionLeft = windowWidth - baseVal.x < 300;
 
-        let popStyles = {};
-        let arrowStyles = {};
-        let place = {};
-
-        // Vertical position
-        if(bottomDistance > topDistance){
-            popStyles.top = `${dim.height + distance}px`;
-            place = "top";
+        if(shouldPositionTop){
+            setTopPos(baseVal.y - popVal.height);
+            setPosition("top");
         }else {
-            popStyles.bottom = `${dim.height + distance}px`;
-            place = "bottom";
+            setTopPos(baseVal.y + baseVal.height);
+            setPosition("bottom");
         }
 
-        // Horizontal position
-        if(leftDistance > rightDistance){
-            popStyles.right = `0px`;
-            arrowStyles.right = `${dim.width / 2}px`;
+        if(shouldPositionLeft){
+            setLeftPos(baseVal.x + baseVal.width - popVal.width);
+            setarrowLeftPos(popVal.width - (baseVal.width / 2));
         }else {
-            popStyles.left = `0px`;
-            arrowStyles.left = `${dim.width / 2}px`;
+            setLeftPos(baseVal.x);
+            setarrowLeftPos(baseVal.width / 2);
         }
+    };
 
-        this.setState({
-            popStyles, arrowStyles, place
-        });
+
+    /**
+     * Handle click outside
+     */
+    const handleClickOutside = (e) => {
+        if(!popRef.current.contains(e.target) && !baseRef.current.contains(e.target)){
+            onClose && onClose(e);
+        }
     };
 
 
 
-    render(){
+    const baseClasses = classNames(style.base, {
+        [style.visible]: visible,
+        [style.sizeLarge]: size === "large",
+        [style.onTop]: position === "top"
+    });
 
-        // Properties
-        const { visible, children, padding, onClose, arrowColor } = this.props;
+    return (
+        <div className={baseClasses}>
+            <div ref={baseRef}>
+                {children}
+            </div>
 
-        // Variables
-        const { popStyles, arrowStyles, place } = this.state;
+            <div ref={popRef} className={style.pop} style={{
+                top: `${topPos}px`,
+                left: `${leftPos}px`
+            }}>
 
-        // Classes
-        const baseClasses = classNames(styles.base, {
-            [styles.visible]: visible,
-            [styles.paddingNone]: padding === "none",
-            [styles.placeTop]: place === "top",
-            [styles.placeBottom]: place === "bottom"
-        });
+                {/* Arrow */}
+                <div className={classNames(style.arrow, {
+                    [style.colorPrimary]: arrowColor === "primary",
+                    [style.colorSecondary]: arrowColor === "secondary"
+                })} style={{
+                    left: arrowLeftPos && `${arrowLeftPos}px`
+                }} />
 
-        console.log("Pop visible", visible);
+                {/* Content */}
+                <div className={style.wrapper}>
+                    {content}
+                </div>
 
-        return (
-            <React.Fragment>
-                <ClickOutside enabled={visible} onClickOutside={onClose} className={baseClasses} ref={(r) => this.baseRef = r}>
-
-                    {/* Action menu */}
-                    <div className={styles.pop} style={popStyles}>
-                        <Arrow color={arrowColor || "contrast"} className={styles.arrow} style={arrowStyles} />
-                        <div className={styles.content}>
-                            {children}
-                        </div>
-                    </div>
-
-                </ClickOutside>
-                <Overlay className={styles.overlay} visible={visible} />
-            </React.Fragment>
-        );
-    }
-}
-
-
-PopOver.defaultProps = {
-    distance: 24
+            </div>
+        </div>
+    )
 };

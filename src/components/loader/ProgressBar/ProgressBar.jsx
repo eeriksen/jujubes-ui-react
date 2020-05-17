@@ -2,7 +2,7 @@ import React from "react"
 import classNames from "classnames"
 import styles from "./styles.scss"
 
-export default class Progress extends React.Component {
+export class ProgressBar extends React.Component {
 
     render(){
 
@@ -39,7 +39,6 @@ export default class Progress extends React.Component {
 
 }
 
-
-Progress.defaultProps = {
+ProgressBar.defaultProps = {
     animation: true
 };

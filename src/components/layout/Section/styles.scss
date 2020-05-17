@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    SECTION
@@ -30,7 +31,6 @@
 
 .title {
     font-size: $fontSize--medium;
-    line-height: $lineHeight--medium;
     font-weight: $fontWeight--medium;
     margin-bottom: $spacing--normal;
 }

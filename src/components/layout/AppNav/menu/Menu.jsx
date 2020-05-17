@@ -3,7 +3,7 @@ import classNames from "classnames"
 import styles from "./styles.scss"
 
 
-export default class Menu extends React.Component {
+export class Menu extends React.Component {
     render(){
 
         const { children, className } = this.props;

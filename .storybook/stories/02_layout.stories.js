@@ -1,38 +1,40 @@
 import React from "react"
 
+import { userPictureUrl } from "../constants";
 import { storiesOf } from "@storybook/react"
 import { withState } from "@dump247/storybook-state"
 import { action } from "@storybook/addon-actions"
 import { withReadme }  from "storybook-readme"
-import StoryRouter from "storybook-router"
+import StoryRouter from "storybook-react-router"
 
-import AppLayout from "../../src/components/layout/AppLayout"
-import AppNav from "../../src/components/layout/AppNav"
-import AppBar from "../../src/components/layout/AppBar"
-import AppContent from "../../src/components/layout/AppContent"
-import Page from "../../src/components/page/Page"
+import { AppLayout } from "../../src/components/layout/AppLayout"
+import { AppNav } from "../../src/components/layout/AppNav"
+import { AppBar } from "../../src/components/layout/AppBar"
+import { AppContent } from "../../src/components/layout/AppContent"
+import { Page } from "../../src/components/page/Page"
 import { PageActions, Action } from "../../src/components/page/PageActions"
-import PageHeader from "../../src/components/page/PageHeader"
-import PageLoader from "../../src/components/page/PageLoader"
-import Card from "../../src/components/card/Card"
-import CardTitle from "../../src/components/card/CardTitle"
-import CardContent from "../../src/components/card/CardContent"
-import UserMenu from "../../src/components/user/UserMenu"
-import Form from "../../src/components/form/Form"
-import FormItem from "../../src/components/form/FormItem"
-import Input from "../../src/components/form/Input"
-import Textarea from "../../src/components/form/Textarea"
-import Checkbox from "../../src/components/form/Checkbox"
-import FormButtons from "../../src/components/form/FormButtons"
-import Button from "../../src/components/button/Button"
+import { PageCrumbs, Crumb } from "../../src/components/page/PageCrumbs"
+import { PageHeader } from "../../src/components/page/PageHeader"
+import { PageLoader } from "../../src/components/page/PageLoader"
+import { Card } from "../../src/components/card/Card"
+import { CardTitle } from "../../src/components/card/CardTitle"
+import { CardContent } from "../../src/components/card/CardContent"
+import { UserMenu } from "../../src/components/user/UserMenu"
+import { Form } from "../../src/components/form/Form"
+import { FormItem } from "../../src/components/form/FormItem"
+import { Input } from "../../src/components/form/Input"
+import { Textarea } from "../../src/components/form/Textarea"
+import { Checkbox } from "../../src/components/form/Checkbox"
+import { FormButtons } from "../../src/components/form/FormButtons"
+import { Button } from "../../src/components/button/Button"
 import { Select, Option } from "../../src/components/form/Select"
-import Badge from "../../src/components/notify/Badge"
+import { Badge } from "../../src/components/notify/Badge"
 import { Menu, MenuItem } from "../../src/components/nav/Menu"
-import Icon from "../../src/components/graphic/Icon"
+import { Icon } from "../../src/components/graphic/Icon"
 import { Section, SectionTitle } from "../../src/components/layout/Section"
 import { Splash, SplashTitle, SplashContent } from "../../src/components/layout/Splash"
-import Text from "../../src/components/typography/Text"
-import Logo from "../../src/components/graphic/Logo"
+import { Text } from "../../src/components/typography/Text"
+import { Logo } from "../../src/components/graphic/Logo"
 
 import PageLoaderReadme from "../../src/components/page/PageLoader/README.md"
 import SectionReadme from "../../src/components/layout/Section/README.md"
@@ -61,8 +63,7 @@ storiesOf(`${SECTION_TITLE}/AppLayout`, module)
                     <UserMenu
                         name="Eivind Eriksen"
                         email="mail@eivinderiksen.com"
-                        picture="https://scontent.fosl3-2.fna.fbcdn.net/v/t1.0-9/44859415_10161122646425644_5424185099438522368_n.jpg?_nc_cat=103&_nc_ht=scontent.fosl3-2.fna&oh=98cf4f4abd65962c199c32e62b8d6716&oe=5CF50070"
-                    >
+                        picture={userPictureUrl}>
                         <Menu>
                             <MenuItem selected={store.state.activeMenuItem === 1} onClick={() => store.set({activeMenuItem: 1})} icon="gear" label="First item" count={8} />
                             <MenuItem selected={store.state.activeMenuItem === 2} onClick={() => store.set({activeMenuItem: 2})} icon="eye" label="Second item" indicator={<Icon name="warning" color="info" />} count={23} />
@@ -74,9 +75,12 @@ storiesOf(`${SECTION_TITLE}/AppLayout`, module)
                 </AppBar.Item>
             </AppBar>
             <AppNav
-                logo={<Logo height={60} />}
-                title="Spesialer"
-                subtitle="Digital historiefortelling">
+                logo={<Logo width={100} />}
+                title={(
+                    <React.Fragment>
+                        <Text block size="large" weight="medium">Example page</Text>
+                    </React.Fragment>
+                )}>
                 <AppNav.Menu>
                     <AppNav.MenuHeading>
                         Main
@@ -101,7 +105,7 @@ storiesOf(`${SECTION_TITLE}/AppLayout`, module)
                     <AppNav.MenuItem icon="feather">
                         Buttons
                     </AppNav.MenuItem>
-                    <AppNav.MenuItem icon="image" indicator={<Badge round fill color="error">34</Badge>}>
+                    <AppNav.MenuItem icon="image" indicator={<Badge number fill color="error">34</Badge>}>
                         Icons
                     </AppNav.MenuItem>
                     <AppNav.MenuItem icon="lock">
@@ -117,18 +121,13 @@ storiesOf(`${SECTION_TITLE}/AppLayout`, module)
             </AppNav>
             <AppContent>
                 <Page>
-                    <PageHeader title="Articles" subtitle="Create new" crumbs={[{
-                        label: "Start",
-                        link: `/`
-                    }, {
-                        label: "Company",
-                        link: `/companies`
-                    }, {
-                        label: "Articles",
-                        link: `/articles`
-                    }, {
-                        label: "Edit article"
-                    }]} />
+                    <PageHeader title="Articles" subtitle="Create new" />
+                    <PageCrumbs>
+                        <Crumb label="Start" link="/" />
+                        <Crumb label="Company" link="/companies" />
+                        <Crumb label="Articles" link="/companies/articles" />
+                        <Crumb label="Edit article" current />
+                    </PageCrumbs>
                     <PageActions>
                         <Action icon="plus" onClick={action("CREATE")}>Create a page</Action>
                         <Action icon="edit" onClick={action("EDIT")}>Edit page</Action>
@@ -379,8 +378,8 @@ storiesOf(`${SECTION_TITLE}/Splash`, module)
         password: null
     })(({ store }) => (
         <Splash
-            logo={<svg fill="#ffffff" style={{display: "inline-block", height: "80px"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 297"><g><polyline points="97.4 235.3 199.5 235.3 199.5 296.9 173.5 266.6 39.3 266.6 97.4 235.3" /><path d="M0.5 295.8C3.4 254 25.1 216.5 59 184.5 79.4 164.9 115.3 138.7 125.1 131.1 134.3 123.8 143.7 115.4 143.7 98.9 143.7 78.5 127.5 62.5 106.8 62.5L106.8 31.2C147.2 31.2 175.4 63.1 175.4 98.5 175.4 125.6 164.3 143.2 129.4 168 89 197.4 80.6 204.9 64.7 223 49.5 240.6 42.3 255.2 39.3 266.6L0.5 295.8Z" /><path d="M8.6 99.4C8.6 42.9 52.6 0.5 106.8 0.5L106.8 31.2C90.5 31.2 55.6 43.8 44.1 78.5L42.7 91.8 8.6 99.4Z" /><polygon points="72.7 99.4 8.6 99.4 44.1 78.5" /></g></svg>}
-            footer={<React.Fragment><Text block>TV 2 Labs</Text><Text block opacity=".5">https://www.tv2.no</Text></React.Fragment>}
+            logo={<Logo height={50} />}
+            footer={<React.Fragment><Text block>Kembo UI</Text><Text block opacity=".5">https://www.kembo.app</Text></React.Fragment>}
         >
             <SplashTitle title="Sign in" description="Sign in with your company email and password." />
             <SplashContent>

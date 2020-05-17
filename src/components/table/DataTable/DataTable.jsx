@@ -4,16 +4,16 @@ import ReactDOM from "react-dom"
 import classNames from "classnames"
 import styles from "./styles.scss"
 
-import WindowResizeListener from "../../layout/WindowResizeListener"
-import Spinner from "../../loader/Spinner"
-import Column from "./Column"
-import Cell from "./Cell"
-import Tr from "./Tr"
-import Td from "./Td"
+import { WindowResizeListener } from "../../layout/WindowResizeListener"
+import { Spinner } from "../../loader/Spinner"
+import { Column } from "./Column"
+import { Cell } from "./Cell"
+import { Tr } from "./Tr"
+import { Td } from "./Td"
 
 
 
-export default class DataTable extends React.Component {
+export class DataTable extends React.Component {
 
     constructor(props){
         super(props);

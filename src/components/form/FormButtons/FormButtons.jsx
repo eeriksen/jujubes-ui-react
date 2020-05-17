@@ -1,12 +1,12 @@
 import React from "react"
 import styles from "./styles.scss"
 
-import FormItem from "../FormItem"
-import Button from "../../button/Button"
-import FileSelectButton from "../../button/FileSelectButton"
+import { FormItem } from "../FormItem"
+import { Button } from "../../button/Button"
+import { FileSelectButton } from "../../button/FileSelectButton"
 
 
-export default class FormButtons extends React.Component {
+export class FormButtons extends React.Component {
     render(){
 
         // Only keep buttons

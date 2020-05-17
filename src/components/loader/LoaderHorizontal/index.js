@@ -1,2 +1,1 @@
-import LoaderHorizontal from "./LoaderHorizontal"
-export default LoaderHorizontal
+export * from "./LoaderHorizontal"

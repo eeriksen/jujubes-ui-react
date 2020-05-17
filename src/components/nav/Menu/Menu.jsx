@@ -2,9 +2,9 @@ import React from "react"
 import classNames from "classnames"
 import styles from "./styles.scss"
 
-import MenuItem from "./MenuItem"
+import { MenuItem } from "./MenuItem"
 
-class Menu extends React.Component {
+export class Menu extends React.Component {
     render(){
 
         const { children, onClick, hidden, className } = this.props;
@@ -32,5 +32,3 @@ class Menu extends React.Component {
         ) : null
     }
 }
-
-export default Menu;

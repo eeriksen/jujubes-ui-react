@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    ICON
@@ -19,7 +20,7 @@
     // For presenting icons in a grid
     &.presentation {
         display: block !important;
-        border: 1px solid $color--base-10;
+        border: 1px solid rgba($color--base, 0.10);
         border-radius: $borderRadius--regular;
         text-align: center;
         padding: $spacing--medium $spacing--small;
@@ -35,7 +36,7 @@
         .label {
             margin-top: $spacing--medium;
             display: block;
-            color: $color--base-80;
+            color: rgba($color--base, 0.8);
         }
     }
 
@@ -43,15 +44,15 @@
 
 // Colors
 .base80 {
-    @include m-iconColor($color--base-80);
+    @include m-iconColor(rgba($color--base, 0.8));
 }
 
 .base60 {
-    @include m-iconColor($color--base-60);
+    @include m-iconColor(rgba($color--base, 0.6));
 }
 
 .base40 {
-    @include m-iconColor($color--base-40);
+    @include m-iconColor(rgba($color--base, 0.4));
 }
 
 .contrast {

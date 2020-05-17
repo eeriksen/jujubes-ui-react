@@ -3,7 +3,7 @@ import classNames from "classnames"
 import styles from "./styles.scss"
 
 
-export default class Spinner extends React.Component {
+export class Spinner extends React.Component {
     render(){
 
         // Properties

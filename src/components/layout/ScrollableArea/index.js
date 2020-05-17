@@ -1,2 +1,1 @@
-import ScrollableArea from "./ScrollableArea"
-export default ScrollableArea
+export * from "./ScrollableArea"

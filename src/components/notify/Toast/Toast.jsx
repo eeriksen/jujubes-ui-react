@@ -53,7 +53,7 @@ function notice(content, duration, type, onClose) {
 }
 
 
-export default {
+export const Toast = {
 
     info(content, duration, onClose) {
         return notice(content, duration, 'info', onClose);

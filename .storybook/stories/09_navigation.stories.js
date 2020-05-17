@@ -3,17 +3,17 @@ import React from 'react';
 import { storiesOf } from '@storybook/react'
 import { withReadme }  from 'storybook-readme'
 import { withState } from '@dump247/storybook-state'
-import StoryRouter from 'storybook-router'
+import StoryRouter from 'storybook-react-router'
 
-import Card from "../../src/components/card/Card"
-import CardTitle from "../../src/components/card/CardTitle"
-import CardContent from "../../src/components/card/CardContent"
-import Page from "../../src/components/page/Page/index"
+import { Card } from "../../src/components/card/Card"
+import { CardTitle } from "../../src/components/card/CardTitle"
+import { CardContent } from "../../src/components/card/CardContent"
+import { Page } from "../../src/components/page/Page/index"
 import { Tabs, TabPane } from "../../src/components/nav/Tabs"
 import { Menu, MenuItem, MenuHeading } from "../../src/components/nav/Menu"
-import Row from "../../src/components/grid/Row"
-import Col from "../../src/components/grid/Col"
-import Icon from "../../src/components/graphic/Icon"
+import { Row } from "../../src/components/grid/Row"
+import { Col } from "../../src/components/grid/Col"
+import { Icon } from "../../src/components/graphic/Icon"
 
 import TabsReadme from "../../src/components/nav/Tabs/README.md"
 import MenuReadme from "../../src/components/nav/Menu/README.md"

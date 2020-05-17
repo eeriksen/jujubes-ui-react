@@ -4,15 +4,15 @@ import { storiesOf } from '@storybook/react'
 import { withReadme }  from 'storybook-readme'
 import { withState } from '@dump247/storybook-state'
 
-import Page from "../../src/components/page/Page"
-import Card from "../../src/components/card/Card"
-import CardContent from "../../src/components/card/CardContent"
-import Spinner from "../../src/components/loader/Spinner"
-import ProgressBar from "../../src/components/loader/ProgressBar"
-import ProgressCircle from "../../src/components/loader/ProgressCircle"
-import LoaderHorizontal from "../../src/components/loader/LoaderHorizontal"
-import Row from "../../src/components/grid/Row"
-import Col from "../../src/components/grid/Col"
+import { Page } from "../../src/components/page/Page"
+import { Card } from "../../src/components/card/Card"
+import { CardContent } from "../../src/components/card/CardContent"
+import { Spinner } from "../../src/components/loader/Spinner"
+import { ProgressBar } from "../../src/components/loader/ProgressBar"
+import { ProgressCircle } from "../../src/components/loader/ProgressCircle"
+import { LoaderHorizontal } from "../../src/components/loader/LoaderHorizontal"
+import { Row } from "../../src/components/grid/Row"
+import { Col } from "../../src/components/grid/Col"
 
 import SpinnerReadme from "../../src/components/loader/Spinner/README.md"
 import ProgressBarReadme from "../../src/components/loader/ProgressBar/README.md"

@@ -1,7 +1,12 @@
-import { configure, addDecorator } from '@storybook/react';
-import { setOptions } from '@storybook/addon-options';
+import { configure, addParameters } from '@storybook/react';
+import customTheme from "./customTheme"
 
-
+addParameters({
+    options: {
+        panelPosition: 'right',
+        theme: customTheme
+    }
+});
 
 // automatically import all files ending in *.stories.js
 const req = require.context('./stories', true, /.stories.js$/);
@@ -11,11 +16,3 @@ function loadStories() {
 
 configure(loadStories, module);
 
-// Option defaults:
-addDecorator(
-    setOptions({
-        name: "Kembo UI",
-        url: "https://ui.kembo.app",
-        addonPanelInRight: true
-    })
-);

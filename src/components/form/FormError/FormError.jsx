@@ -2,9 +2,9 @@ import React from "react"
 import classNames from "classnames"
 import styles from "./styles.scss"
 
-import FormItem from "../FormItem"
+import { FormItem } from "../FormItem"
 
-export default class FormError extends React.Component {
+export class FormError extends React.Component {
     render(){
 
         // Properties

@@ -1,9 +1,9 @@
 import React from "react"
 import styles from "./styles.scss"
 
-import Clickable from "../Clickable"
+import { Clickable } from "../Clickable"
 
-export default class MenuButton extends React.Component {
+export class MenuButton extends React.Component {
     render(){
         return (
             <Clickable {...this.props} className={styles.base}>

@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    CALLOUT
@@ -6,9 +7,9 @@
 .base {
     padding: $spacing--normal;
     border-radius: $borderRadius--regular;
-    border: 1px solid $color--base-10;
-    background-color: $color--base-3;
-    color: $color--base-80;
+    border: 1px solid rgba($color--base, 0.10);
+    background-color: rgba($color--base, 0.03);
+    color: rgba($color--base, 0.8);
 
     &.info {
         background-color: rgba($color--info, 0.1);
@@ -36,7 +37,6 @@
 
     .title {
         font-size: $fontSize--medium;
-        line-height: $lineHeight--medium;
-        font-weight: $fontWeight--bold;
+        font-weight: $fontWeight--medium;
     }
 }

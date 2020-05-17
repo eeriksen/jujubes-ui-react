@@ -2,9 +2,9 @@ import React from "react"
 import classNames from "classnames"
 import styles from "./styles.scss"
 
-import Icon from "../../graphic/Icon"
+import { Icon } from "../../graphic/Icon"
 
-export default class Select extends React.Component {
+export class Select extends React.Component {
 
     _handleOnChange = (e) => {
         if(this.props.onChange){

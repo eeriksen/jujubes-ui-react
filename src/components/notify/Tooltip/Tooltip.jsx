@@ -1,12 +1,11 @@
 import React from "react"
 import "./styles.scss"
 
-
 import 'react-tippy/dist/tippy.css'
 import { Tooltip as Tippy } from 'react-tippy'
 
 
-export default class Tooltip extends React.Component {
+export class Tooltip extends React.Component {
     render(){
 
         // Properties

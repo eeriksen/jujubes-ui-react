@@ -1,124 +1,73 @@
 import React from "react"
 import classNames from "classnames"
 import styles from "./styles.scss"
-import { withRouter } from "react-router-dom"
-import ScrollableArea from "../../layout/ScrollableArea"
+import { useHistory, useLocation } from "react-router-dom"
+import { ScrollableArea } from "../../layout/ScrollableArea"
 
 
-import Clickable from "../../button/Clickable"
-import Icon from "../../graphic/Icon"
+import { Clickable } from "../../button/Clickable"
+import { Icon } from "../../graphic/Icon"
 
-class Tabs extends React.Component {
-
-    constructor(props){
-        super(props);
-        this.state = {
-            activeKey: null
-        };
-    }
-
-    componentWillMount(){
-        this._handlePropChanges(this.props);
-    }
-
-    componentWillReceiveProps(nextProps){
-        this._handlePropChanges(nextProps);
-    }
-
-    _handlePropChanges = (props) => {
-        this.setState({
-           activeKey: props.activeKey
-        });
-    };
-
+export const Tabs = ({activeKey, onChange, children}) => {
+    const history = useHistory();
+    const location = useLocation();
 
     /**
      * Handle table click
      */
-    _handleTabClick = (pane) => {
-
+    const handleTabClick = (pane) => {
         if(pane.props.link){
-            this.props.history.replace(pane.props.link);
+            history.replace(pane.props.link);
         }
-
-        if(this.props.onChange){
-            this.props.onChange(parseInt(pane.key, 10));
-        }
+        onChange && onChange(parseInt(pane.key, 10));
     };
 
 
-    /**
-     * RENDER
-     */
-    render(){
 
-        // Variables
-        const { activeKey } = this.state;
+    // Classes
+    const baseClasses = classNames(styles.base);
 
-        // Properties
-        const { history } = this.props;
+    return (
+        <div className={baseClasses}>
 
-        // Current path
-        const url = history.location.pathname;
+            {/* Tabs */}
+            <div className={styles.tabs}>
+                <ScrollableArea>
+                    <div className={styles.wrapper}>
+                        {children && children.map((pane) => {
 
-        // Tab panes
-        let panes = this.props.children;
+                            const tabIsActive = pane.props.link ? pane.props.link === location.pathname : parseInt(pane.key, 10) === activeKey;
 
+                            const tabClasses = classNames(styles.tab, {
+                                [styles.active]: tabIsActive
+                            });
 
-        // If only one element, create an array
-        if(panes.constructor !== Array){
-            let paneArray = [];
-            paneArray.push(panes);
-            panes = paneArray;
-        }
+                            return (
+                                <Clickable key={pane.key} className={tabClasses} onClick={() => handleTabClick(pane)}>
 
-        // Classes
-        const baseClasses = classNames(styles.base);
+                                    {/* Icon */}
+                                    {pane.props.icon ? (
+                                        <Icon name={pane.props.icon} className={styles.icon} />
+                                    ) : null}
 
-        return (
-            <div className={baseClasses}>
-
-                {/* Tabs */}
-                <div className={styles.tabs}>
-                    <ScrollableArea>
-                        <div className={styles.wrapper}>
-                            {panes && panes.map((pane) => {
-
-                                const tabIsActive = pane.props.link ? pane.props.link === url : parseInt(pane.key, 10) === activeKey;
-
-                                const tabClasses = classNames(styles.tab, {
-                                   [styles.active]: tabIsActive
-                                });
-
-                                return (
-                                    <Clickable key={pane.key} className={tabClasses} onClick={() => this._handleTabClick(pane)}>
-
-                                        {/* Icon */}
-                                        {pane.props.icon ? (
-                                            <Icon name={pane.props.icon} className={styles.icon} />
-                                        ) : null}
-
-                                        {/* Label */}
-                                        {pane.props.label ? (
-                                            <span className={styles.label}>
+                                    {/* Label */}
+                                    {pane.props.label ? (
+                                        <span className={styles.label}>
                                                 {pane.props.label}
                                             </span>
-                                        ) : null}
+                                    ) : null}
 
 
-                                    </Clickable>
-                                )
-                            })}
-                        </div>
-                    </ScrollableArea>
-                </div>
-
-                {/* Tab panes */}
-                {panes.filter((pane) => pane.props.link ? pane.props.link === url : parseInt(pane.key, 10) === activeKey)[0]}
-
+                                </Clickable>
+                            )
+                        })}
+                    </div>
+                </ScrollableArea>
             </div>
-        )
-    }
-}
 
-export default withRouter(Tabs);
+            {/* Tab panes */}
+            {children.filter((pane) => pane.props.link ? pane.props.link === location.pathname : parseInt(pane.key, 10) === activeKey)[0]}
+
+        </div>
+    )
+}

@@ -21,30 +21,29 @@
 
 .sizeSmall {
     font-size: $fontSize--small;
-    line-height: $lineHeight--small;
 }
 
 .sizeNormal {
     font-size: $fontSize--normal;
-    line-height: $lineHeight--normal;
 }
 
 .sizeMedium {
     font-size: $fontSize--medium;
-    line-height: $lineHeight--medium;
 }
 
 .sizeLarge {
     font-size: $fontSize--large;
-    line-height: $lineHeight--large;
 }
 
 .sizeXlarge {
     font-size: $fontSize--heading-3;
-    line-height: $lineHeight--heading-3;
 }
 
 // WEIGHTS
+
+.weightLight {
+    font-weight: $fontWeight--light;
+}
 
 .weightMedium {
     font-weight: $fontWeight--medium;
@@ -57,15 +56,15 @@
 // COLORS
 
 .base80 {
-    color: $color--base-80;
+    color: rgba($color--base, 0.8);
 }
 
 .base60 {
-    color: $color--base-60;
+    color: rgba($color--base, 0.6);
 }
 
 .base40 {
-    color: $color--base-40;
+    color: rgba($color--base, 0.4);
 }
 
 .success {

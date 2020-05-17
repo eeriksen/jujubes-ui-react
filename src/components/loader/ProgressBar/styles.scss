@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    PROGRESS BAR
@@ -19,7 +20,7 @@ $color--bar-animation: rgba(0, 0, 0, 0.05);
             .label {
                 display: inline-block;
                 margin-right: $spacing--medium;
-                color: $color--base-60;
+                color: rgba($color--base, 0.6);
             }
 
             .percent {
@@ -33,14 +34,14 @@ $color--bar-animation: rgba(0, 0, 0, 0.05);
             position: relative;
             overflow: hidden;
             height: $height--bar;
-            background-color: $color--base-5;
+            background-color: rgba($color--base, 0.05);
             border-radius: $height--bar;
 
             .indicator {
                 position: relative;
                 height: 100%;
                 border-radius: $height--bar;
-                background: $background--primary;;
+                background: $color--primary;;
                 transition: width 0.2s ease;
 
                 .stripes {

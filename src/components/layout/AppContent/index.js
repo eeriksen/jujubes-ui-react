@@ -1,1 +1,1 @@
-export { default } from "./AppContent"
+export * from "./AppContent"

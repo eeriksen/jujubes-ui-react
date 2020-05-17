@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    ITEM LIST
@@ -16,7 +17,7 @@ $height--item-with-image: 60px;
     display: block;
     position: relative;
     overflow: hidden;
-    background-color: $color--base-3;
+    background-color: rgba($color--base, 0.03);
 
     // Loader
     .loader {
@@ -36,7 +37,7 @@ $height--item-with-image: 60px;
 // Item
 .item {
     display: flex;
-    border-bottom: 1px solid $color--base-5;
+    border-bottom: 1px solid rgba($color--base, 0.05);
     user-select: none;
     overflow: hidden;
     background-color: $color--contrast;
@@ -82,7 +83,7 @@ $height--item-with-image: 60px;
 
         .icon {
             vertical-align: 2px;
-            @include m-iconColor($color--base-15);
+            @include m-iconColor(rgba($color--base, 0.15));
         }
 
     }
@@ -102,7 +103,7 @@ $height--item-with-image: 60px;
     // STATE: Is dragged
     &.isDragged {
         background-color: $color--contrast;
-        border: 1px solid $color--base-20;
+        border: 1px solid rgba($color--base, 0.20);
         box-shadow:$boxShadow--large;
         z-index: $zIndex--itemList-draggedItem;
     }

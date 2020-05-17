@@ -3,7 +3,7 @@ import classNames from "classnames"
 import styles from "./styles.scss"
 
 
-export default class Code extends React.Component {
+export class Code extends React.Component {
     render(){
 
         // Properties

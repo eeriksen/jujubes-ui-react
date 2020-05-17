@@ -3,7 +3,7 @@ import classNames from "classnames"
 import styles from "./styles.scss"
 
 
-export default class Card extends React.Component {
+export class Card extends React.Component {
     render(){
 
         // Properties

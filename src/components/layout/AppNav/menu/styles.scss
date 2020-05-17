@@ -1,3 +1,4 @@
+@import "../../../../styles/base";
 @import "../config";
 
 /* ===================================================================
@@ -21,11 +22,12 @@ $spacing-sides: $spacing--nav-sides;
     text-overflow: ellipsis;
     padding: 0 $spacing-sides;
     font-weight: $fontWeight--bold;
-    color: rgba($color--contrast, .9);
+    color: rgba($color--secondary-accent, 0.8);
     font-size: $fontSize--small;
     text-transform: uppercase;
     text-align: left;
     letter-spacing: 1px;
+    margin-bottom: $spacing--small;
     @include m-truncate();
 }
 
@@ -48,18 +50,17 @@ $spacing-sides: $spacing--nav-sides;
         display: flex;
         align-items: center;
         width: 32px;
-        @include m-iconColor(rgba($color--contrast, .4), true);
+        @include m-iconColor(rgba($color--secondary-contrast, .3), true);
     }
 
     // Label
     .label {
         @include m-truncate();
         text-decoration: none;
-        color: rgba($color--contrast, 0.8);
+        color: rgba($color--secondary-contrast, 0.8);
         flex-grow: 1;
         font-weight: $fontWeight--medium;
         transition: color .2s ease-in-out;
-        padding-top: $fontFamily--pixel-adjustment;
     }
 
     // Indicators
@@ -70,7 +71,7 @@ $spacing-sides: $spacing--nav-sides;
         // Arrow
         .arrow {
             @include m-iconSize(8px);
-            @include m-iconColor(rgba($color--contrast, 0.2), true);
+            @include m-iconColor(rgba($color--secondary-contrast, 0.2), true);
         }
     }
 
@@ -79,15 +80,15 @@ $spacing-sides: $spacing--nav-sides;
         cursor: pointer;
 
         .icon {
-            @include m-iconColor(rgba($color--contrast, .8));
+            @include m-iconColor($color--secondary-contrast);
         }
 
         .label {
-            color: $color--contrast;
+            color: $color--secondary-contrast;
         }
 
         .arrow {
-            @include m-iconColor(rgba($color--contrast, 0.8), true);
+            @include m-iconColor(rgba($color--secondary-contrast, 0.8), true);
         }
     }
 
@@ -97,15 +98,15 @@ $spacing-sides: $spacing--nav-sides;
         cursor: default;
 
         .icon {
-            @include m-iconColor($color--contrast);
+            @include m-iconColor(rgba($color--secondary-accent, 1));
         }
 
         .label {
-            color: $color--contrast;
+            color: $color--secondary-contrast;
         }
 
         .arrow {
-            @include m-iconColor(rgba($color--contrast, 0.8));
+            @include m-iconColor(rgba($color--secondary-contrast, 0.8));
         }
     }
 }

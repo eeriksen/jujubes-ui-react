@@ -5,11 +5,11 @@ import PropTypes from "prop-types"
 import classNames from "classnames"
 import styles from "./styles.scss"
 
-import Icon from "../../graphic/Icon"
-import Clickable from "../../button/Clickable"
+import { Icon } from "../../graphic/Icon"
+import { Clickable } from "../../button/Clickable"
 
 
-class Input extends React.Component {
+export class Input extends React.Component {
 
     constructor(props){
         super(props);
@@ -256,5 +256,3 @@ Input.defaultProps = {
     type: "text",
     maxLength: 255,
 };
-
-export default Input

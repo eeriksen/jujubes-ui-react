@@ -1,12 +1,12 @@
 import React from "react"
 import styles from "./styles.scss"
 
-import Button from "../Button"
-import Row from "../../grid/Row"
-import Col from "../../grid/Col"
+import { Button } from "../Button"
+import { Row } from "../../grid/Row"
+import { Col } from "../../grid/Col"
 
 
-export default class ConfirmActionButton extends React.Component {
+export class ConfirmActionButton extends React.Component {
 
     state = {
         promptConfirm: false
@@ -41,7 +41,7 @@ export default class ConfirmActionButton extends React.Component {
                         </Row>
                     </div>
                 ) : (
-                    <Button size={size} labelColor="error" block onClick={() => this.setState({promptConfirm: true})}>
+                    <Button size={size} labelColor="error" className={styles.button} block onClick={() => this.setState({promptConfirm: true})}>
                         {label}
                     </Button>
                 )}

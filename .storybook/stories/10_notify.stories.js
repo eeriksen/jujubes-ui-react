@@ -1,31 +1,31 @@
 import React from 'react';
 
-import StoryRouter from 'storybook-router'
+import StoryRouter from 'storybook-react-router'
 import { storiesOf } from '@storybook/react'
 import { withReadme }  from 'storybook-readme'
 import { withState } from '@dump247/storybook-state'
 import { action } from '@storybook/addon-actions'
 
-import Page from "../../src/components/page/Page"
-import Card from "../../src/components/card/Card"
-import CardContent from "../../src/components/card/CardContent"
-import Paragraph from "../../src/components/typography/Paragraph"
-import Badge from "../../src/components/notify/Badge"
-import toast from "../../src/components/notify/Toast"
-import Button from "../../src/components/button/Button"
-import ButtonGroup from "../../src/components/button/ButtonGroup"
-import Row from "../../src/components/grid/Row"
-import Col from "../../src/components/grid/Col"
+import { Page } from "../../src/components/page/Page"
+import { Card } from "../../src/components/card/Card"
+import { CardContent } from "../../src/components/card/CardContent"
+import { Paragraph } from "../../src/components/typography/Paragraph"
+import { Badge } from "../../src/components/notify/Badge"
+import { Toast } from "../../src/components/notify/Toast"
+import { Button } from "../../src/components/button/Button"
+import { ButtonGroup } from "../../src/components/button/ButtonGroup"
+import { Row } from "../../src/components/grid/Row"
+import { Col } from "../../src/components/grid/Col"
 import { Popup, PopupTitle, PopupContent, PopupButtons, PopupTabs } from "../../src/components/notify/Popup"
-import PopupYesNo from "../../src/components/notify/PopupYesNo"
-import PopupMessage from "../../src/components/notify/PopupMessage"
-import Text from "../../src/components/typography/Text"
-import Form from "../../src/components/form/Form"
-import FormItem from "../../src/components/form/FormItem"
+import { PopupYesNo } from "../../src/components/notify/PopupYesNo"
+import { PopupMessage } from "../../src/components/notify/PopupMessage"
+import { Text } from "../../src/components/typography/Text"
+import { Form } from "../../src/components/form/Form"
+import { FormItem } from "../../src/components/form/FormItem"
 import { Tabs, TabPane } from "../../src/components/nav/Tabs"
-import Input from "../../src/components/form/Input"
-import Callout from "../../src/components/notify/Callout"
-import Tooltip from "../../src/components/notify/Tooltip"
+import { Input } from "../../src/components/form/Input"
+import { Callout } from "../../src/components/notify/Callout"
+import { Tooltip } from "../../src/components/notify/Tooltip"
 
 import BadgeReadme from "../../src/components/notify/Badge/README.md"
 import PopupReadme from "../../src/components/notify/Popup/README.md"
@@ -128,22 +128,22 @@ storiesOf(`${SECTION_TITLE}/Badge`, module)
     .add('round', () => (
         <React.Fragment>
             <Paragraph>
-                <Badge fill round>1</Badge>
+                <Badge fill number>1</Badge>
             </Paragraph>
             <Paragraph>
-                <Badge fill round color="primary">99</Badge>
+                <Badge fill number color="primary">99</Badge>
             </Paragraph>
             <Paragraph>
-                <Badge fill round color="info">365</Badge>
+                <Badge fill number color="info">365</Badge>
             </Paragraph>
             <Paragraph>
-                <Badge fill round color="success">7253</Badge>
+                <Badge fill number color="success">7253</Badge>
             </Paragraph>
             <Paragraph>
-                <Badge fill round color="warning">98321</Badge>
+                <Badge fill number color="warning">98321</Badge>
             </Paragraph>
             <Paragraph>
-                <Badge fill round color="error">14.58</Badge>
+                <Badge fill number color="error">14.58</Badge>
             </Paragraph>
         </React.Fragment>
     ));
@@ -159,17 +159,17 @@ storiesOf(`${SECTION_TITLE}/Toast`, module)
     .add('default', () => (
         <Row>
             <Col span={8}>
-                <Button block color="primary" onClick={() => toast.info("This is a info toast")}>
+                <Button block color="primary" onClick={() => Toast.info("This is a info toast")}>
                     Info toast
                 </Button>
             </Col>
             <Col span={8}>
-                <Button block color="success" onClick={() => toast.success("This is a success toast")}>
+                <Button block color="success" onClick={() => Toast.success("This is a success toast")}>
                     Success toast
                 </Button>
             </Col>
             <Col span={8}>
-                <Button block color="error" onClick={() => toast.error("This is an error toast")}>
+                <Button block color="error" onClick={() => Toast.error("This is an error toast")}>
                     Error toast
                 </Button>
             </Col>

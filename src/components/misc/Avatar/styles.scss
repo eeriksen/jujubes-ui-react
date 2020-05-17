@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    AVATAR
@@ -6,9 +7,6 @@
 .base {
     height: $size--element-normal;
     width: $size--element-normal;
-    border-radius: $size--element-normal;
-    background-color: $color--base-5;
-    overflow: hidden;
 
     .placeholder {
         width: 100%;
@@ -16,13 +14,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: $color--primary;
-        @include m-iconColor($color--contrast);
+        border-radius: $size--element-normal;
+        background-color: rgba($color--base, 0.08);
+        @include m-iconColor(rgba($color--base, .8));
     }
 
     .image {
         width: 100%;
         height: 100%;
+        overflow: hidden;
+        border-radius: $size--element-normal;
 
         img {
             width: 100%;

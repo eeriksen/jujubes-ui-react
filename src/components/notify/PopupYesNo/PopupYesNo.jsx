@@ -1,11 +1,11 @@
 import React from "react"
 
-import Button from "../../button/Button"
-import Text from "../../typography/Text"
+import { Button } from "../../button/Button"
+import { Text } from "../../typography/Text"
 import { Popup, PopupTitle, PopupButtons, PopupContent } from "../Popup"
 
 
-export default class PopupYesNo extends React.Component {
+export class PopupYesNo extends React.Component {
 
     _onYes = () => {
         if(this.props.onYes){

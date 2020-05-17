@@ -1,3 +1,5 @@
+@import "../../../styles/base";
+
 /* ===================================================================
    KEY VALUE LIST
    =================================================================== */
@@ -15,14 +17,14 @@
             .key {
                 padding: $spacing--normal;
                 border-radius: $borderRadius--regular 0 0 $borderRadius--regular;
-                color: $color--base-60;
-                border-bottom: 1px solid $color--base-5;
+                color: rgba($color--base, 0.6);
+                border-bottom: 1px solid rgba($color--base, 0.05);
             }
 
             .value {
                 padding: $spacing--normal;
                 border-radius: 0 $borderRadius--regular $borderRadius--regular 0;
-                border-bottom: 1px solid $color--base-5;
+                border-bottom: 1px solid rgba($color--base, 0.05);
                 background-color: $color--contrast;
             }
 
@@ -51,12 +53,12 @@
         .item {
             flex-grow: 1;
             flex-basis: 0;
-            border-right: 1px solid $color--base-10;
+            border-right: 1px solid rgba($color--base, 0.10);
             margin-right: $spacing--normal;
             padding: $spacing--small 0;
 
             .label {
-                color: $color--base-60;
+                color: rgba($color--base, 0.6);
             }
 
             .value {

@@ -1,7 +1,7 @@
 import React from "react"
 import styles from "./styles.scss"
 
-export default class Splash extends React.Component {
+export class Splash extends React.Component {
     render(){
 
         // Properties

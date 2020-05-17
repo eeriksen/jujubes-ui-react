@@ -2,7 +2,7 @@ import React from "react"
 import styles from "./styles.scss"
 
 
-export default class Item extends React.Component {
+export class Item extends React.Component {
     render(){
 
         const { label } = this.props;

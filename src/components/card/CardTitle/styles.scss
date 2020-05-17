@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    CARD TITLE
@@ -5,7 +6,7 @@
 
 .base {
     height: $size--element-big;
-    border-bottom: 1px solid $color--base-10;
+    border-bottom: 1px solid rgba($color--base, 0.10);
     display: flex;
 
     .title {
@@ -29,17 +30,17 @@
         .action {
             position: relative;
             width: $size--element-big;
-            border-left: 1px solid $color--base-5;
+            border-left: 1px solid rgba($color--base, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             user-select: none;
-            @include m-iconColor($color--base-80);
+            @include m-iconColor(rgba($color--base, 0.8));
 
             &:hover, &:active {
                 @include m-iconColor($color--base);
-                background-color: $color--base-3;
+                background-color: rgba($color--base, 0.03);
             }
         }
     }

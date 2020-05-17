@@ -88,7 +88,7 @@ const iconList = [
  * https://jakearchibald.github.io/svgomg/
  */
 
-class Icon extends React.Component {
+export class Icon extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -233,7 +233,5 @@ class Icon extends React.Component {
     }
 }
 
-
 Icon.iconList = iconList;
 
-export default Icon;

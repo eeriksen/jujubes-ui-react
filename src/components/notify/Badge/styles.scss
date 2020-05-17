@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    BADGE
@@ -10,15 +11,15 @@ $height--badge-small: 16px;
 .base {
     display: inline-block;
     height: $height--badge;
-    line-height: $height--badge;
+    line-height: $height--badge - 2px;
     padding: 0 7px;
-    font-size: 11px;
+    font-size: $fontSize--tiny;
     box-sizing: border-box;
-    border: $borderWidth--badge solid $color--base-40;
-    font-weight: $fontWeight--medium;
+    border: $borderWidth--badge solid rgba($color--base, 0.4);
+    font-weight: $fontWeight--bold;
     text-transform: uppercase;
     border-radius: $borderRadius--regular;
-    color: $color--base-80;
+    color: rgba($color--base, 0.8);
     letter-spacing: .5px;
 
     /* Filled
@@ -29,9 +30,9 @@ $height--badge-small: 16px;
         color: $color--contrast;
     }
 
-    /* Round edges
+    /* Number
     ---------------------------------------------------------------------- */
-    &.round {
+    &.number {
         border-radius: $height--badge;
     }
 
@@ -49,14 +50,14 @@ $height--badge-small: 16px;
     }
 
     &.silent {
-        border-color: $color--base-10;
+        border-color: rgba($color--base, 0.10);
         background-color: transparent;
-        color: $color--base-40;
+        color: rgba($color--base, 0.4);
 
         &.fill {
             border-color: transparent;
-            background-color: $color--base-10;
-            color: $color--base-40;
+            background-color: rgba($color--base, 0.10);
+            color: rgba($color--base, 0.4);
         }
     }
 
@@ -122,7 +123,7 @@ $height--badge-small: 16px;
         height: $height--badge-small;
         line-height: $height--badge-small;
         border-radius: $borderRadius--small;
-        font-size: 9px;
+        font-size: 0.645rem;
         padding: 0 4px;
     }
 

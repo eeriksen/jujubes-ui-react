@@ -1,8 +1,9 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    APP CONTENT
    =================================================================== */
 
 .base {
-    max-width: $breakpoint--desktop;
+    max-width: $breakpoint--big-desktop;
 }

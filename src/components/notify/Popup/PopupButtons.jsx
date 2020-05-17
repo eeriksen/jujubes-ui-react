@@ -3,7 +3,7 @@ import classNames from "classnames"
 import styles from "./styles.scss"
 
 
-export default class PopupButtons extends React.Component {
+export class PopupButtons extends React.Component {
     render(){
 
         let mainButton = null;

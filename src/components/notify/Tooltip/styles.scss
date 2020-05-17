@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    TOOLTIP
@@ -11,7 +12,7 @@
             color: $color--contrast;
             font-family: $fontFamily--primary;
             font-size: $fontSize--normal;
-            padding: .4rem .7rem .3rem;
+            padding: .3rem .7rem .3rem;
         }
 
         &[x-placement^=bottom] [x-arrow] {

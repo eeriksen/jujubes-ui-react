@@ -3,10 +3,10 @@ import classNames from "classnames"
 import styles from "./styles.scss"
 
 import scrollUtils from "../../../utils/scrollUtils"
-import Clickable from "../../button/Clickable"
+import { Clickable } from "../../button/Clickable"
 
 
-export default class Overlay extends React.Component {
+export class Overlay extends React.Component {
 
     componentDidUpdate(){
         if(this.props.visible){

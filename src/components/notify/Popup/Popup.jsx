@@ -4,12 +4,12 @@ import classNames from "classnames"
 import styles from "./styles.scss"
 
 import scrollUtils from "../../../utils/scrollUtils"
-import Overlay from "../../layout/Overlay"
-import Clickable from "../../button/Clickable"
-import Icon from "../../graphic/Icon"
+import { Overlay } from "../../layout/Overlay"
+import { Clickable } from "../../button/Clickable"
+import { Icon } from "../../graphic/Icon"
 
 
-export default class Popup extends React.Component {
+export class Popup extends React.Component {
 
     componentDidMount(){
 
@@ -80,7 +80,6 @@ export default class Popup extends React.Component {
 
                     {this.props.children}
                 </div>
-
                 <Overlay visible={visible} />
             </div>
         )

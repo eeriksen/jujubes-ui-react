@@ -1,2 +1,1 @@
-import OnOffSwitch from "./OnOffSwitch"
-export default OnOffSwitch
+export * from "./OnOffSwitch"

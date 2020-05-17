@@ -3,7 +3,7 @@ import styles from "./styles.scss"
 
 import { Tabs } from "../../nav/Tabs"
 
-export default class PopupTabs extends React.Component {
+export class PopupTabs extends React.Component {
     render(){
 
         let tabsElement = null;

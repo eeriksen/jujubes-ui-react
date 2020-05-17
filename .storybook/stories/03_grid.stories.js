@@ -3,11 +3,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react'
 import { withReadme }  from 'storybook-readme'
 
-import Page from "../../src/components/page/Page"
-import Card from "../../src/components/card/Card"
-import CardContent from "../../src/components/card/CardContent"
-import Row from "../../src/components/grid/Row"
-import Col from "../../src/components/grid/Col"
+import { Page } from "../../src/components/page/Page"
+import { Card } from "../../src/components/card/Card"
+import { CardContent } from "../../src/components/card/CardContent"
+import { Row } from "../../src/components/grid/Row"
+import { Col } from "../../src/components/grid/Col"
 
 import GridReadme from "../../src/components/grid/README.md"
 

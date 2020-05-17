@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    PAGE HEADER
@@ -14,72 +15,54 @@
         .mainTitle {
             margin: 0;
             font-size: $fontSize--heading-1;
-            line-height: $lineHeight--heading-1;
-            font-weight: $fontWeight--light;
+            font-weight: $fontWeight--bold;
+            line-height: $lineHeight--small;
         }
 
         .subTitle {
             display: inline-block;
-            margin: 0;
             font-size: $fontSize--heading-4;
-            line-height: $lineHeight--heading-4;
-            background-color: darken($color--background, 5%);
-            color: $color--base-80;
+            color: $color--primary-contrast;
             font-weight: $fontWeight--regular;
+            background-color: $color--secondary;
             padding: 0 10px;
-            margin-top: -5px;
+            margin-top: $spacing--normal;
+            border-radius: $borderRadius--regular;
         }
     }
 
-
     .breadcrumbs {
-        margin: 0 0 $spacing--normal 0;
-        padding: 0;
-        list-style: none;
-        margin-right: $size--element-big;
-        padding-right: $spacing--medium;
+        position: absolute;
+        top: -$spacing--large;
+        left: -$spacing--large;
+        right: -$spacing--large;
+        padding: 0 $spacing--large;
+    }
 
-        .crumb {
-            display: inline-block;
-            color: $color--base-40;
-
-            .divider {
-                padding: 0 8px;
-                @include m-iconSize(8px);
-                @include m-iconColor($color--accent);
-            }
-
-            &:hover {
-                color: $color--base-80;
-                cursor: pointer;
-            }
-
-            &:last-child {
-                color: $color--base-20;
-
-                &:hover {
-                    color: $color--base-20;
-                    cursor: default;
-                }
-            }
-        }
+    &.withCrumbs {
+        padding-top: $spacing--large;
     }
 }
 
 
+@include for-tablet-landscape-down(){
+    .base {
+        .titles {
+            margin-right: 0;
+            padding-right: 0;
+        }
+    }
+}
 
 @include for-phone-only(){
     .base {
         .titles {
             .mainTitle {
                 font-size: $fontSize--heading-2;
-                line-height: $lineHeight--heading-2;
             }
             .subTitle {
                 font-size: $fontSize--large;
-                line-height: $lineHeight--large;
                 padding: 0 7px;
-                margin-top: 5px;
             }
         }
 

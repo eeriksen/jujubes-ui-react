@@ -2,13 +2,11 @@ import React from "react"
 import classNames from "classnames"
 import styles from "./styles.scss"
 
-import Item from "./Item"
-
-export default class KeyValueList extends React.Component {
+export class KeyValueList extends React.Component {
     render(){
 
         // Properties
-        const { horizontal, fluid } = this.props;
+        const { horizontal } = this.props;
 
         return horizontal ? this._renderHorizontal() : this._renderVertical();
     }

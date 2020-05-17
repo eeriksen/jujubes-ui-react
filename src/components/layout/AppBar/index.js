@@ -1,6 +1,7 @@
-import AppBar from "./AppBar"
-import Item from "./item/Item"
-
+import { AppBar } from "./AppBar"
+import { Item } from "./item/Item"
 
 AppBar.Item = Item;
-export default AppBar;
+export {
+    AppBar, Item
+}

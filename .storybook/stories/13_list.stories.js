@@ -5,15 +5,15 @@ import { action } from '@storybook/addon-actions'
 import { withReadme }  from 'storybook-readme'
 import { withState } from '@dump247/storybook-state'
 
-import Page from "../../src/components/page/Page"
-import Card from "../../src/components/card/Card"
-import CardContent from "../../src/components/card/CardContent"
+import { Page } from "../../src/components/page/Page"
+import { Card } from "../../src/components/card/Card"
+import { CardContent } from "../../src/components/card/CardContent"
 import { ItemList, Item } from "../../src/components/list/ItemList"
-import Text from "../../src/components/typography/Text"
-import Badge from "../../src/components/notify/Badge"
-import Image from "../../src/components/media/Image"
-import KeyValueList from "../../src/components/list/KeyValueList"
-import Checklist from "../../src/components/list/Checklist"
+import { Text } from "../../src/components/typography/Text"
+import { Badge } from "../../src/components/notify/Badge"
+import { Image } from "../../src/components/media/Image"
+import { KeyValueList } from "../../src/components/list/KeyValueList"
+import { Checklist } from "../../src/components/list/Checklist"
 
 import ItemListReadme from "../../src/components/list/ItemList/README.md"
 import KeyValueListReadme from "../../src/components/list/KeyValueList/README.md"
@@ -170,16 +170,16 @@ storiesOf(`${SECTION_TITLE}/KeyValueList`, module)
     .add('horizontal', () => (
         <KeyValueList horizontal>
             <KeyValueList.Item label="Men">
-                <Text size="large">456</Text>
+                <Text size="large" weight="medium">456</Text>
             </KeyValueList.Item>
             <KeyValueList.Item label="Women">
-                <Text size="large">873</Text>
+                <Text size="large" weight="medium">873</Text>
             </KeyValueList.Item>
             <KeyValueList.Item label="Total">
-                <Text size="large">456</Text>
+                <Text size="large" weight="medium">456</Text>
             </KeyValueList.Item>
             <KeyValueList.Item label="Churn">
-                <Text size="large">6.5%</Text>
+                <Text size="large" weight="medium" color="error">-6.5%</Text>
             </KeyValueList.Item>
         </KeyValueList>
     ));

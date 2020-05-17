@@ -5,7 +5,7 @@
    =================================================================== */
 
 $width--spinner: $size--element-normal;
-$color--spinner: $color--base-60;
+$color--spinner: rgba($color--base, 0.6);
 
 .base {
     position: relative;
@@ -73,6 +73,6 @@ $color--spinner: $color--base-60;
         stroke: $color--primary;
     }
     50% {
-        stroke: $color--accent;
+        stroke: $color--primary-accent;
     }
 }

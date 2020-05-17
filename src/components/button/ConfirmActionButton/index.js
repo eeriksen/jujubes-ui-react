@@ -1,2 +1,1 @@
-import ConfirmActionButton from "./ConfirmActionButton"
-export default ConfirmActionButton
+export * from "./ConfirmActionButton"

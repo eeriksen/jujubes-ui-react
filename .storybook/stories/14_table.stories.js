@@ -4,11 +4,11 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { withReadme }  from 'storybook-readme'
 
-import Page from "../../src/components/page/Page"
-import Card from "../../src/components/card/Card"
-import CardContent from "../../src/components/card/CardContent"
+import { Page } from "../../src/components/page/Page"
+import { Card } from "../../src/components/card/Card"
+import { CardContent } from "../../src/components/card/CardContent"
 import { DataTable, Column, Cell } from "../../src/components/table/DataTable"
-import Badge from "../../src/components/notify/Badge"
+import { Badge } from "../../src/components/notify/Badge"
 
 import DataTableReadme from "../../src/components/table/DataTable/README.md"
 

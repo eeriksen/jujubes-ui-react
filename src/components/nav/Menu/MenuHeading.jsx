@@ -3,7 +3,7 @@ import styles from "./styles.scss"
 
 
 
-export default class MenuHeading extends React.Component {
+export class MenuHeading extends React.Component {
     render(){
         return (
             <span className={styles.heading}>

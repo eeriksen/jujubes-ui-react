@@ -3,14 +3,14 @@ import PropTypes from "prop-types"
 import classNames from "classnames"
 import styles from "./styles.scss"
 
-import Filler from "../Filler"
+import { Filler } from "../Filler"
 
 const stringOrNumber = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);
 const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
 
 
 
-export default class Col extends React.Component {
+export class Col extends React.Component {
 
     render() {
 

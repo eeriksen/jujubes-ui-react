@@ -1,2 +1,1 @@
-import FormError from "./FormError"
-export default FormError
+export * from "./FormError"

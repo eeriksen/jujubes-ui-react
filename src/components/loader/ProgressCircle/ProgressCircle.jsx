@@ -5,7 +5,7 @@ import styles from "./styles.scss"
 import { Circle } from 'rc-progress'
 
 
-export default class ProgressCircle extends React.Component {
+export class ProgressCircle extends React.Component {
 
     render(){
 

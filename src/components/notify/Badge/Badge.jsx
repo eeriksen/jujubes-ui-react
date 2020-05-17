@@ -3,10 +3,10 @@ import classNames from "classnames"
 import styles from "./styles.scss"
 
 
-export default class Badge extends React.Component {
+export class Badge extends React.Component {
     render(){
 
-        const { fill, small, leftSpacing, rightSpacing, color, round } = this.props;
+        const { fill, small, leftSpacing, rightSpacing, color, number } = this.props;
 
         const classes = classNames(styles.base, {
             [styles.primary]: color === "primary",
@@ -23,7 +23,7 @@ export default class Badge extends React.Component {
             [styles.rightSpacing]: rightSpacing,
 
             [styles.fill]: fill,
-            [styles.round]: round
+            [styles.number]: number
         });
 
         return (

@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    PAGE ACTIONS
@@ -12,12 +13,12 @@
     .button {
         width: $size--element-big;
         height: $size--element-big;
-        background: $color--accent;
+        background: $color--primary;
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: $borderRadius--regular;
-        box-shadow: $boxShadow--regular;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .1);
         transition: transform .2s cubic-bezier(0.620, 0.055, 0.240, 1.305), background-color .2s ease-in-out, box-shadow .2s ease-in-out;
         user-select: none;
         @include m-iconColor($color--contrast);
@@ -25,25 +26,39 @@
 
         &:hover {
             cursor: pointer;
-            transform: scale(1.1);
         }
 
         &.active {
-            background-color: darken($color--background, 10%);
-            box-shadow: none;
+            background-color: $color--primary-accent;
             transform: scale(0.9);
+            box-shadow: none;
+        }
+    }
+
+    @include for-tablet-landscape-down(){
+        position: fixed;
+        top: auto;
+        bottom: $spacing--medium;
+        right: $spacing--medium;
+        z-index: $zIndex--pageActionButton;
+
+        .button {
+            box-shadow: 0 3px 10px 0 rgba(0, 0, 0, .2);
+
+            &.active {
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
+                transform: scale(1);
+            }
         }
     }
 
     @include for-tablet-portrait-down(){
-        right: $spacing--phone-edge;
-        top: $spacing--medium;
+        bottom: $spacing--medium;
+        right: $spacing--medium;
 
         .button {
-            box-shadow: $boxShadow--large;
             width: $size--element-big - 10px;
             height: $size--element-big - 10px;
-            @include m-iconSize($iconSize--normal);
         }
     }
 }

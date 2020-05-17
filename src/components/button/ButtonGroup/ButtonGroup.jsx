@@ -2,10 +2,10 @@ import React from "react"
 import classNames from "classnames"
 import styles from "./styles.scss"
 
-import Button from "../Button"
+import { Button } from "../Button"
 
 
-export default class ButtonGroup extends React.Component {
+export class ButtonGroup extends React.Component {
     render(){
 
         // Properties

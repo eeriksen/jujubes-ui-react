@@ -3,11 +3,10 @@ import classNames from "classnames"
 import styles from "./styles.scss"
 import Dropzone from "react-dropzone"
 
-import Icon from "../../graphic/Icon"
-import Spinner from "../../loader/Spinner"
-import Clickable from "../../button/Clickable"
+import { Icon } from "../../graphic/Icon"
+import { Spinner } from "../../loader/Spinner"
 
-export default class Image extends React.Component {
+export class Image extends React.Component {
 
     /**
      *  Handle click action

@@ -1,0 +1,74 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   PAGE CRUMBS
+   =================================================================== */
+
+.base {
+    background: $color--background;
+
+    .leftFade {
+        display: none;
+    }
+
+    .rightFade {
+        display: none;
+    }
+
+    .container {
+        position: relative;
+        display: flex;
+        white-space: nowrap;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        overflow: hidden;
+    }
+
+    @for $i from 1 through 10 {
+        .item:nth-child(#{$i}){
+            position: relative;
+            background-color: darken($color--background, ($i - 1) * 3.5);
+            box-shadow: -3px 0 3px 0 rgba(0, 0, 0, 0.05);
+            z-index: 10 - $i;
+        }
+    }
+}
+
+
+// ITEM
+.item {
+    display: flex;
+    align-items: center;
+    height: $size--element-small;
+    user-select: none;
+    transition: all .2s linear;
+
+    .label {
+        color: rgba($color--base, 0.8);
+        padding: 4px 18px;
+        transition: all .2s linear;
+    }
+
+    // STATE: Hover
+    &:hover:not(.current) {
+        cursor: pointer;
+        background-color: $color--primary;
+
+        .label {
+            color: $color--primary-contrast;
+        }
+    }
+
+    // STATE: Current
+    &.current {
+        .label {
+            color: rgba($color--base, 0.4);
+
+            &:hover {
+                color: rgba($color--base, 0.4);
+            }
+        }
+    }
+
+
+}

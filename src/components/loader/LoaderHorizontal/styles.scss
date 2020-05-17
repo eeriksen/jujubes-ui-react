@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    LOADER HORIZONTAL
@@ -9,7 +10,7 @@ $loader--height: 6px;
     width: 100%;
     height: $loader--height;
     overflow: hidden;
-    background: $background--primary;
+    background: $color--primary;
     margin: auto;
     border-radius: $loader--height;
 

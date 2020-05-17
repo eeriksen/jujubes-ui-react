@@ -4,10 +4,10 @@ import styles from "./styles.scss"
 
 import layoutActions from "../../../utils/layoutActions"
 
-import Clickable from "../../button/Clickable"
-import ScrollableArea from "../ScrollableArea"
+import { Clickable } from "../../button/Clickable"
+import { ScrollableArea } from "../ScrollableArea"
 
-export default class AppNav extends React.Component {
+export class AppNav extends React.Component {
 
     constructor(props){
         super(props);
@@ -49,38 +49,36 @@ export default class AppNav extends React.Component {
 
         return (
             <div className={baseClasses}>
-
-                {/* Content pane */}
                 <div className={styles.content}>
-                    <ScrollableArea>
 
-                    {/* Header */}
-                    <div className={styles.header}>
-                        <div className={styles.logo}>
+                    {/* Logo */}
+                    <div className={styles.logo}>
+                        <div className={styles.wrapper}>
                             {logo}
                         </div>
-                        {title ? (
-                            <div className={styles.title}>
-                                {title}
+                    </div>
 
-                                {subtitle ? (
-                                    <div className={styles.subtitle}>
-                                        {subtitle}
-                                    </div>
-                                ) : null}
+                    {/* Menu content */}
+                    <ScrollableArea>
+
+                        {/* Header */}
+                        {title ? (
+                            <div className={styles.header}>
+                                <div className={styles.title}>
+                                    {title}
+                                </div>
                             </div>
                         ) : null}
-                    </div>
 
-                    {/* Menu */}
-                    <div className={styles.menu}>
-                        {children}
-                    </div>
+                        {/* Menu */}
+                        <div className={styles.menu}>
+                            {children}
+                        </div>
+
+                    </ScrollableArea>
 
                     {/* Fade*/}
                     <div className={styles.fade} />
-
-                    </ScrollableArea>
                 </div>
 
                 {/* Overlay */}

@@ -3,7 +3,7 @@ import classNames from "classnames"
 import styles from "./styles.scss"
 
 
-export default class Arrow extends React.Component {
+export class Arrow extends React.Component {
     render(){
 
         // Properties

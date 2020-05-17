@@ -1,2 +1,1 @@
-import FileSelectButton from "./FileSelectButton"
-export default FileSelectButton
+export * from "./FileSelectButton"

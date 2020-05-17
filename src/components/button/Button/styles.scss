@@ -14,7 +14,7 @@ $height--button-small: $size--element-small;
     outline: none;
     background: none;
     height: $height--button;
-    line-height: $height--button + 1px;
+    line-height: $height--button - 2px;
     font-family: $fontFamily--primary;
     font-size: $fontSize--normal;
     font-weight: $fontWeight--medium;
@@ -39,16 +39,16 @@ $height--button-small: $size--element-small;
 // Disabled
 .base[disabled], .base[disabled]:hover, .base[disabled]:active {
     border-color: transparent;
-    background-color: $color--base-3;
-    color: $color--base-30;
+    background-color: rgba($color--base, 0.03);
+    color: rgba($color--base, 0.3);
     cursor: default;
 
     .icon {
-        @include m-iconColor($color--base-20 !important);
+        @include m-iconColor(rgba($color--base, 0.20) !important);
     }
 
     &:hover {
-        color: $color--base-30;
+        color: rgba($color--base, 0.3);
     }
 }
 
@@ -150,8 +150,8 @@ $height--button-small: $size--element-small;
    =================================================================== */
 
 .default {
-    color: $color--base-80;
-    border-color: $color--base-20;
+    color: rgba($color--base, 0.8);
+    border-color: rgba($color--base, 0.20);
     background-color: $color--contrast;
 
     .icon {
@@ -160,12 +160,12 @@ $height--button-small: $size--element-small;
 
     &:hover {
         color: $color--base;
-        border-color: $color--base-20;
+        border-color: rgba($color--base, 0.20);
         background-color: darken($color--contrast, 2%);
     }
 
     &:active, &.active {
-        background-color: $color--base-10;
+        background-color: rgba($color--base, 0.10);
     }
 }
 
@@ -232,21 +232,21 @@ $height--button-small: $size--element-small;
 
 
 .silent {
-    color: $color--base-80;
-    border-color: $color--base-5;
+    color: rgba($color--base, 0.8);
+    border-color: rgba($color--base, 0.05);
     background-color: $color--contrast;
 
     .icon {
-        @include m-iconColor($color--base-80);
+        @include m-iconColor(rgba($color--base, 0.8));
     }
 
     &:hover {
-        border-color: $color--base-20;
-        color: $color--base-80;
+        border-color: rgba($color--base, 0.20);
+        color: rgba($color--base, 0.8);
     }
 
     &:active, &.active {
-        border-color: $color--base-30;
+        border-color: rgba($color--base, 0.3);
     }
 }
 

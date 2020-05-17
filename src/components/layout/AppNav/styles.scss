@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 @import "config";
 
 /* ===================================================================
@@ -9,30 +10,32 @@
     z-index: $zIndex--appNav;
 
     .content {
+        position: relative;
         width: $appNav--width;
         height: 100vh;
-        background: $background--primary;
         z-index: 2;
+        background: $color--secondary;
+
+        .logo {
+            height: $appBar--height;
+            background: rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            display: flex;
+            justify-content: left;
+
+            .wrapper {
+                margin: 0 $spacing--nav-sides;
+                svg {
+                    height: 100%;
+                }
+            }
+        }
 
         .header {
             padding: $spacing--nav-sides $spacing--nav-sides $spacing--large-x;
 
-            .logo {
-                margin-bottom: $spacing--large;
-            }
-
             .title {
-                color: $color--contrast;
-                font-size: $fontSize--heading-4;
-                line-height: $lineHeight--heading-4;
-                font-weight: $fontWeight--medium;
-
-                .subtitle {
-                    font-size: $fontSize--normal;
-                    font-weight: $fontWeight--regular;
-                    color: rgba($color--contrast, 0.6);
-                    margin-top: -5px;
-                }
+                color: $color--secondary-contrast;
             }
         }
 
@@ -42,19 +45,20 @@
             left: 0;
             right: 0;
             height: 60px;
-            background: linear-gradient(to top, rgba($color--accent,1) 0%,rgba($color--accent,0) 100%);
+            background: linear-gradient(to top, rgba($color--secondary,1) 0%,rgba($color--secondary,0) 100%);
             z-index: 2;
             pointer-events: none;
         }
 
         .menu {
-            padding-bottom: 60px;
+            padding-bottom: 100px;
         }
     }
 
     .overlay {
         display: none;
         z-index: 1;
+        backdrop-filter: blur(1px);
     }
 }
 
@@ -63,11 +67,10 @@
 ---------------------------------------------------------------------- */
 @include for-tablet-landscape-down(){
     .base {
-
         .content {
             position: fixed;
             left: - $appNav--width;
-            transition: left .3s ease-in-out, box-shadow .3s linear;
+            transition: left .2s ease-in-out, box-shadow .3s linear;
         }
 
         .overlay {

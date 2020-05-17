@@ -4,7 +4,7 @@ import styles from "./styles.scss"
 
 
 
-export default class Callout extends React.Component {
+export class Callout extends React.Component {
 
     render(){
 

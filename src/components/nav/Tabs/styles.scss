@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    TABS
@@ -16,7 +17,7 @@ $height-tabs: $size--element-normal + 4px;
             left: 0;
             display: flex;
             height: 100%;
-            border-bottom: 1px solid $color--base-10;
+            border-bottom: 1px solid rgba($color--base, 0.10);
             min-width: 100%;
 
             .tab {
@@ -28,7 +29,8 @@ $height-tabs: $size--element-normal + 4px;
                 white-space: nowrap;
 
                 .label {
-                    color: $color--base-60;
+                    color: rgba($color--base, 0.6);
+                    font-weight: $fontWeight--medium;
                     transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
                 }
 
@@ -36,16 +38,16 @@ $height-tabs: $size--element-normal + 4px;
                     position: relative;
                     top: 3px;
                     margin-right: 6px;
-                    @include m-iconColor($color--base-20, true);
+                    @include m-iconColor(rgba($color--base, 0.20), true);
                 }
 
                 &:hover {
                     .label {
-                        color: $color--base-80;
+                        color: rgba($color--base, 0.8);
                     }
 
                     .icon {
-                        @include m-iconColor($color--base-30, true);
+                        @include m-iconColor(rgba($color--base, 0.3), true);
                     }
                 }
 

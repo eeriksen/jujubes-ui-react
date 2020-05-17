@@ -1,50 +1,46 @@
-import React from "react"
+import React, {useState} from "react"
 import styles from "./styles.scss"
 
-import Avatar from "../../misc/Avatar"
-import CardUserHead from "../../card/CardUserHead"
-import PopOver from "../../nav/PopOver"
+import { Clickable } from "../../button/Clickable"
+import { CardUserHead } from "../../card/CardUserHead"
+import { PopOver } from "../../nav/PopOver"
+import { Icon } from "../../graphic/Icon"
 
 
-export default class UserMenu extends React.Component {
+export const UserMenu = (props) => {
+    const { picture, alt } = props;
+    const [visible, setVisible] = useState(false);
+    return (
+        <div className={styles.base}>
+            <PopOver
+                visible={visible}
+                content={renderContent(props)}
+                arrowColor="primary"
+                size="large"
+                onClose={() => setVisible(false)}>
 
-    constructor(props){
-        super(props);
-        this.state = {
-            showPop: false
-        };
-    }
+                <Clickable block className={styles.picture} onClick={() => setVisible(!visible)}>
+                    {picture ? (
+                        <img alt={alt} src={picture} />
+                    ) : (
+                        <div className={styles.placeholder}>
+                            <Icon name="user" />
+                        </div>
+                    )}
+                </Clickable>
+            </PopOver>
+        </div>
+    )
+};
 
 
-    render(){
-
-        // Properties
-        const { name, email, picture, children } = this.props;
-
-        // Variables
-        const { showPop } = this.state;
-
-        return (
-            <div className={styles.base}>
-
-                {/* Avatar */}
-                <Avatar onClick={() => this.setState({showPop: !showPop})} imageUrl={picture} />
-
-                {/* Pop over */}
-                <PopOver
-                    distance={18}
-                    visible={showPop}
-                    onClose={() => this.setState({showPop: false})}
-                    padding="none"
-                    arrowColor="accent"
-                >
-                    <CardUserHead picture={picture} name={name} email={email} />
-                    <div className={styles.frame}>
-                        {children}
-                    </div>
-                </PopOver>
-
+const renderContent = ({picture, email, name, children}) => {
+    return (
+        <React.Fragment>
+            <CardUserHead picture={picture} name={name} email={email} />
+            <div className={styles.frame}>
+                {children}
             </div>
-        )
-    }
-}
+        </React.Fragment>
+    )
+};

@@ -4,7 +4,7 @@ import styles from "./styles.scss"
 import classNames from "classnames"
 
 
-export default class FormItem extends React.Component {
+export class FormItem extends React.Component {
     render(){
 
         // Properties

@@ -1,0 +1,1 @@
+export const userPictureUrl = "https://scontent.fosl4-1.fna.fbcdn.net/v/t1.0-9/66987298_10162177390540644_6827141904753229824_n.jpg?_nc_cat=103&_nc_sid=09cbfe&_nc_oc=AQmLF-Ittks2iM_XIBiWmRF8y7Q8TMM0DhR4KPpgRs_OxxqVVd4IcTpsqvuIiVjDfz4&_nc_ht=scontent.fosl4-1.fna&oh=f1fda99df92effb0dc81b725ff053370&oe=5EE45AC3";

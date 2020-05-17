@@ -3,9 +3,9 @@ import PropTypes from "prop-types"
 import styles from "./styles.scss"
 
 
-import Clickable from "../../../button/Clickable/index"
+import { Clickable } from "../../../button/Clickable/index"
 
-export default class Item extends React.Component {
+export class Item extends React.Component {
     render(){
         return (
             <Clickable {...this.props} className={styles.item}>

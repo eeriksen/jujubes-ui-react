@@ -4,14 +4,14 @@ import {storiesOf} from '@storybook/react'
 import {withReadme} from 'storybook-readme'
 import { action } from '@storybook/addon-actions'
 
-import Page from "../../src/components/page/Page"
-import Card from "../../src/components/card/Card"
-import CardContent from "../../src/components/card/CardContent"
-import Row from "../../src/components/grid/Row"
-import Col from "../../src/components/grid/Col"
-import Image from "../../src/components/media/Image"
-import Icon from "../../src/components/graphic/Icon"
-import Button from "../../src/components/button/Button"
+import { Page } from "../../src/components/page/Page"
+import { Card } from "../../src/components/card/Card"
+import { CardContent } from "../../src/components/card/CardContent"
+import { Row } from "../../src/components/grid/Row"
+import { Col } from "../../src/components/grid/Col"
+import { Image } from "../../src/components/media/Image"
+import { Icon } from "../../src/components/graphic/Icon"
+import { Button } from "../../src/components/button/Button"
 
 import ImageReadme from "../../src/components/media/Image/README.md"
 

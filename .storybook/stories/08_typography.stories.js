@@ -3,12 +3,16 @@ import React from 'react';
 import { storiesOf } from '@storybook/react'
 import { withReadme }  from 'storybook-readme'
 
-import Card from "../../src/components/card/Card"
-import CardContent from "../../src/components/card/CardContent"
-import Page from "../../src/components/page/Page/index"
-import Text from "../../src/components/typography/Text/index"
-import Paragraph from "../../src/components/typography/Paragraph/Paragraph"
-import Code from "../../src/components/typography/Code"
+import { Card } from "../../src/components/card/Card"
+import { CardContent } from "../../src/components/card/CardContent"
+import { Page } from "../../src/components/page/Page/index"
+import { Text } from "../../src/components/typography/Text/index"
+import { Paragraph } from "../../src/components/typography/Paragraph"
+import { Code } from "../../src/components/typography/Code"
+import { H1 } from "../../src/components/typography/H1"
+import { H2 } from "../../src/components/typography/H2"
+import { H3 } from "../../src/components/typography/H3"
+import { H4 } from "../../src/components/typography/H4"
 
 import TextReadme from "../../src/components/typography/Text/README.md"
 import ParagraphReadme from "../../src/components/typography/Paragraph/README.md"
@@ -27,6 +31,48 @@ const pageDecorator = (story) => (
 
 // Section title
 const SECTION_TITLE = "08 - Typography";
+
+
+
+
+/**
+ * HEADINGS
+ */
+storiesOf(`${SECTION_TITLE}/Headings`, module)
+    .addDecorator(pageDecorator)
+    .addDecorator(withReadme(ParagraphReadme))
+    .add('default', () => (
+        <React.Fragment>
+            <H1>
+                H1 - This is a heading
+            </H1>
+            <Paragraph>
+                This is smal text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra short loin bresaola drumstick ham hock.
+                Sirloin venison biltong swine pig. Fatback jerky shoulder drumstick pancetta beef ribs turkey porchetta.
+            </Paragraph>
+            <H2>
+                H2 - This is a heading
+            </H2>
+            <Paragraph>
+                This is smal text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra short loin bresaola drumstick ham hock.
+                Sirloin venison biltong swine pig. Fatback jerky shoulder drumstick pancetta beef ribs turkey porchetta.
+            </Paragraph>
+            <H3>
+                H3 - This is a heading
+            </H3>
+            <Paragraph>
+                This is smal text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra short loin bresaola drumstick ham hock.
+                Sirloin venison biltong swine pig. Fatback jerky shoulder drumstick pancetta beef ribs turkey porchetta.
+            </Paragraph>
+            <H4>
+                H4 - This is a heading
+            </H4>
+            <Paragraph>
+                This is smal text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra short loin bresaola drumstick ham hock.
+                Sirloin venison biltong swine pig. Fatback jerky shoulder drumstick pancetta beef ribs turkey porchetta.
+            </Paragraph>
+        </React.Fragment>
+    ));
 
 
 /**

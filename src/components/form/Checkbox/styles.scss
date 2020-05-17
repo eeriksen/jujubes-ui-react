@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    CHECKBOX
@@ -40,7 +41,7 @@ $checkbox--size: 28px;
     .label {
         margin-left: $checkbox--size;
         padding: 1px 0 0 $spacing--normal;
-        color: $color--base-80;
+        color: rgba($color--base, 0.8);
         transition: all 0.2s ease;
         min-height: $checkbox--size;
         display: flex;

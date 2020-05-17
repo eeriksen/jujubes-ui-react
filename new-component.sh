@@ -27,12 +27,13 @@ capital_name="$(echo "$name" | sed 's/\([A-Z]\)/ \1/g' | xargs | awk '{print tou
 
 # index.js
 cat >index.js <<EOL
-export { default } from "./${name}"
+export * from "./${name}";
 EOL
 
 
-# style.scss
-cat >"styles.scss" <<EOL
+# styles.scss
+cat >styles.scss <<EOL
+@import "../../../styles/base";
 
 /* ===================================================================
    ${capital_name}
@@ -44,21 +45,19 @@ cat >"styles.scss" <<EOL
 EOL
 
 
-#Component.jsx
-cat >"$name.jsx" <<EOL
+#Component.js
+cat >"$name.js" <<EOL
 import React from "react"
 import styles from "./styles.scss"
 
 
-export default class ${name} extends React.Component {
-    render(){
-        return (
-            <div className={styles.base}>
-                {this.props.children}
-            </div>
-        )
-    }
-}
+export const ${name} = ({children}) => {
+    return (
+        <div className={styles.base}>
+            {children}
+        </div>
+    )
+};
 EOL
 
 

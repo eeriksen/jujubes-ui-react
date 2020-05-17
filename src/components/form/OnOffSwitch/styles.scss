@@ -39,7 +39,7 @@ $switch--width: 56px;
             transition: left 0.3s ease-in-out;
             text-align: center;
             padding-top: 1px;
-            @include m-iconColor($color--base-25);
+            @include m-iconColor(rgba($color--base, 0.25));
         }
 
         .onIcon {
@@ -66,7 +66,7 @@ $switch--width: 56px;
     .label {
         margin-left: $switch--width;
         padding: 1px 0 0 $spacing--normal;
-        color: $color--base-80;
+        color: rgba($color--base, 0.8);
         transition: all 0.2s ease;
         min-height: $switch--height;
         display: flex;
@@ -92,7 +92,7 @@ $switch--width: 56px;
         }
 
         .label {
-            color: $color--base-60;
+            color: rgba($color--base, 0.6);
         }
     }
 
@@ -113,12 +113,12 @@ $switch--width: 56px;
 
         &:hover {
             .label {
-                color: $color--base-60;
+                color: rgba($color--base, 0.6);
             }
         }
 
         .switch {
-            background-color: $color--base-20;
+            background-color: rgba($color--base, 0.20);
         }
     }
 }

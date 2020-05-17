@@ -1,6 +1,6 @@
 import React from "react"
 
-export default class Clickable extends React.Component {
+export class Clickable extends React.Component {
     render(){
 
         // Properties

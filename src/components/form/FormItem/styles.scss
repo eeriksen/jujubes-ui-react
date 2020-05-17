@@ -17,7 +17,6 @@
             display: block;
             font-size: $fontSize--normal;
             font-weight: $fontWeight--medium;
-            line-height: $lineHeight--normal;
             color: $color--base;
             padding: 0 0 4px 0;
 
@@ -34,7 +33,7 @@
 
     .infoText {
         font-size: $fontSize--small;
-        color: $color--base-60;
+        color: rgba($color--base, 0.6);
         padding-top: $spacing--small;
     }
 

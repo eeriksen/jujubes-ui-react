@@ -1,2 +1,1 @@
-import WindowResizeListener from "./WindowResizeListener"
-export default WindowResizeListener
+export * from "./WindowResizeListener"

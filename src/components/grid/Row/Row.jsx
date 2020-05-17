@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import styles from "./styles.scss"
 
 
-export default class Row extends React.Component {
+export class Row extends React.Component {
     render() {
 
         let { className, gutter, spacing, children } = this.props;

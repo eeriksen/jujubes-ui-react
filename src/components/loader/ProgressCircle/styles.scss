@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    PROGRESS CIRCLE
@@ -21,7 +22,7 @@
 
         :global {
             .rc-progress-circle-trail {
-                stroke: $color--base-5 !important;
+                stroke: rgba($color--base, 0.05) !important;
                 stroke-width: 5;
             }
 
@@ -41,6 +42,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        padding-top: 5%;
         z-index: 1;
 
         .wrapper {
@@ -51,19 +53,19 @@
                 text-align: center;
                 line-height: 1;
                 font-weight: $fontWeight--bold;
-                font-size: 22px;
-                color: $color--base-80;
+                font-size: $fontSize--heading-3;
+                color: rgba($color--base, 0.8);
                 margin: 0 5px;
 
                 .annotation {
                     position: absolute;
                     font-size: 50%;
-                    color: $color--base-60;
+                    color: rgba($color--base, 0.6);
                 }
             }
 
             .label {
-                color: $color--base-60;
+                color: rgba($color--base, 0.6);
                 text-align: center;
                 @include m-truncate();
                 padding: 0 10px;
@@ -116,7 +118,7 @@
         .details {
             .wrapper {
                 .value {
-                    font-size: 18px;
+                    font-size: $fontSize--large;
 
                     .annotation {
                         display: none;
@@ -140,7 +142,7 @@
         .details {
             .wrapper {
                 .value {
-                    font-size: 40px;
+                    font-size: $fontSize--heading-1;
                 }
                 .label {
 

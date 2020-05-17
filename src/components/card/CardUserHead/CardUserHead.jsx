@@ -1,18 +1,24 @@
 import React from "react"
 import styles from "./styles.scss"
+import { Icon } from "../../graphic/Icon"
 
-
-export default class CardUserHead extends React.Component {
+export class CardUserHead extends React.Component {
     render(){
 
         // Properties
-        const { picture, name, email } = this.props;
+        const { picture, name, email, alt } = this.props;
 
         return (
             <div className={styles.base}>
                 <div className={styles.content}>
                     <div className={styles.image}>
-                        <img src={picture} />
+                        {picture ? (
+                            <img alt={alt} src={picture} />
+                        ) : (
+                            <div className={styles.placeholder}>
+                                <Icon name="user" />
+                            </div>
+                        )}
                     </div>
                     <div className={styles.details}>
                         <div className={styles.name}>
@@ -24,7 +30,7 @@ export default class CardUserHead extends React.Component {
                     </div>
                 </div>
                 <div className={styles.background}>
-                    <img src={picture} />
+                    <img alt={alt} src={picture} />
                 </div>
             </div>
         )

@@ -1,2 +1,1 @@
-import FormButtons from "./FormButtons"
-export default FormButtons
+export * from "./FormButtons"

@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    OVERLAY
@@ -13,7 +14,8 @@
     transition: opacity .2s linear;
     pointer-events: none;
     z-index: $zIndex--overlay;
-    @include m-stripedBackground(rgba($color--base, 0.79), rgba($color--base, 0.8), 20px);
+    backdrop-filter: blur(2px);
+    background: rgba($color--base, 0.8);
 
     &.visible {
         pointer-events: auto;

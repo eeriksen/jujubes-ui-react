@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    APP BAR
@@ -10,7 +11,7 @@
 
     .mainBar {
         position: relative;
-        background: $background--primary;
+        background: $color--secondary;
         box-shadow: $boxShadow--regular;
         height: $appBar--height;
         display: flex;
@@ -29,7 +30,7 @@
                 text-align: center;
                 font-size: $fontSize--heading-4;
                 font-weight: $fontWeight--medium;
-                color: $color--contrast;
+                color: $color--secondary-contrast;
                 padding: 0 $spacing--normal;
                 @include m-truncate();
             }
@@ -41,7 +42,7 @@
         top: 0;
         width: 100%;
         height: $appBar--height;
-        background-color: $color--contrast;
+        background-color: $color--background-bar;
         transition: top .2s cubic-bezier(0.550, 0.055, 0.675, 0.190), box-shadow .2s linear;
         box-shadow: $boxShadow--regular;
         display: flex;

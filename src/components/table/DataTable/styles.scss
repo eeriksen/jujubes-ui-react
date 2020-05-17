@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    DATA TABLE
@@ -27,7 +28,6 @@ $padding-cell--small: 6px $spacing--normal;
         padding-bottom: $spacing--normal;
         font-weight: $fontWeight--medium;
         font-size: $fontSize--medium;
-        line-height: $lineHeight--medium;
         max-width: 400px;
     }
 
@@ -48,7 +48,6 @@ $padding-cell--small: 6px $spacing--normal;
     border-collapse: separate;
     width: 100%;
     font-size: $fontSize--normal;
-    line-height: $lineHeight--normal;
 
     // HEAD
     > thead {
@@ -58,12 +57,12 @@ $padding-cell--small: 6px $spacing--normal;
 
             // Col
             > th {
-                background-color: $color--base-3;
+                background-color: rgba($color--base, 0.03);
                 text-align: left;
                 padding: $padding-cell--regular;
-                padding-top: 9px;
-                border-bottom: 1px solid $color--base-15;
-                border-right: 1px solid $color--base-10;
+                border-bottom: 1px solid rgba($color--base, 0.15);
+                border-right: 1px solid rgba($color--base, 0.10);
+                border-top: 1px solid rgba($color--base, 0.10);
                 font-weight: $fontWeight--medium;
                 color: $color--base;
                 @include m-truncate();
@@ -85,8 +84,8 @@ $padding-cell--small: 6px $spacing--normal;
             > .col {
                 padding: 0;
                 background-color: $color--contrast;
-                border-bottom: 1px solid $color--base-10;
-                border-right: 1px solid $color--base-5;
+                border-bottom: 1px solid rgba($color--base, 0.10);
+                border-right: 1px solid rgba($color--base, 0.05);
 
                 &:last-child {
                     border-right: none;
@@ -134,7 +133,7 @@ $padding-cell--small: 6px $spacing--normal;
 
                     &:hover {
                         cursor: default;
-                        background-color: $color--base-5;
+                        background-color: rgba($color--base, 0.05);
                     }
                 }
             }
@@ -153,7 +152,6 @@ $padding-cell--small: 6px $spacing--normal;
             background: transparent;
             font-size: $fontSize--normal;
             font-family: $fontFamily--primary;
-            line-height: $lineHeight--normal;
             padding: $padding-cell--regular;
         }
 

@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    INPUT
@@ -18,7 +19,7 @@
         border: $input--border;
         font-family: $fontFamily--primary;
         font-size: $fontSize--normal;
-        color: $color--base-80;
+        color: rgba($color--base, 0.8);
         transition: border-color .3s ease, box-shadow .3s ease;
         background-color: $color--contrast;
         border-radius: $borderRadius--regular;
@@ -41,9 +42,9 @@
         }
 
         &[disabled] {
-            background-color: $color--base-3;
-            border-color: $color--base-10;
-            color: $color--base-40;
+            background-color: rgba($color--base, 0.03);
+            border-color: rgba($color--base, 0.10);
+            color: rgba($color--base, 0.4);
             cursor: not-allowed;
         }
     }
@@ -71,9 +72,9 @@
                 top: -4px;
                 bottom: -4px;
                 width: 1px;
-                background-color: rgba($color--base-5, 0);
-                background-image: -webkit-linear-gradient(bottom, rgba($color--base-15, 0) 0, $color--base-15 30%, $color--base-15 70%, rgba($color--base-15, 0) 100%);
-                background-image: linear-gradient(to top, rgba($color--base-15, 0) 0, $color--base-15 30%, $color--base-15 70%, rgba($color--base-15, 0) 100%);
+                background-color: rgba(rgba($color--base, 0.05), 0);
+                background-image: -webkit-linear-gradient(bottom, rgba(rgba($color--base, 0.15), 0) 0, rgba($color--base, 0.15) 30%, rgba($color--base, 0.15) 70%, rgba(rgba($color--base, 0.15), 0) 100%);
+                background-image: linear-gradient(to top, rgba(rgba($color--base, 0.15), 0) 0, rgba($color--base, 0.15) 30%, rgba($color--base, 0.15) 70%, rgba(rgba($color--base, 0.15), 0) 100%);
             }
         }
 
@@ -110,7 +111,7 @@
             border: $input--border;
             border-right: none;
             border-radius: $borderRadius--regular 0 0 $borderRadius--regular;
-            background-color: $color--base-3;
+            background-color: rgba($color--base, 0.03);
             padding: 0 $spacing--normal;
             min-width: $size--element-normal;
             align-items: center;
@@ -124,13 +125,13 @@
                 cursor: pointer;
 
                 &:hover {
-                    background-color: $color--base-5;
+                    background-color: rgba($color--base, 0.05);
                 }
 
             }
 
             &.disabled {
-                border-color: $color--base-10;
+                border-color: rgba($color--base, 0.10);
             }
 
         }
@@ -154,7 +155,7 @@
             border: $input--border;
             border-left: none;
             border-radius: 0 $borderRadius--regular $borderRadius--regular 0;
-            background-color: $color--base-3;
+            background-color: rgba($color--base, 0.03);
             padding: 0 $spacing--normal;
             min-width: $size--element-normal;
             align-items: center;
@@ -168,7 +169,7 @@
                 cursor: pointer;
 
                 &:hover {
-                    background-color: $color--base-5;
+                    background-color: rgba($color--base, 0.05);
                 }
 
             }
@@ -182,7 +183,7 @@
         right: -$spacing--medium;
         top: 50%;
         transform: translateY(-50%);
-        color: $color--base-40;
+        color: rgba($color--base, 0.4);
         font-size: $fontSize--small;
     }
 
@@ -221,19 +222,19 @@
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color: $color--base-40;
+    color: rgba($color--base, 0.4);
 }
 
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: $color--base-40;
+    color: rgba($color--base, 0.4);
     opacity: 1;
 }
 
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: $color--base-40;
+    color: rgba($color--base, 0.4);
     opacity: 1;
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: $color--base-40;
+    color: rgba($color--base, 0.4);
 }

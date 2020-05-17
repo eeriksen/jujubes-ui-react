@@ -6,7 +6,7 @@ import styles from "./styles.scss"
 import Textarea from 'react-textarea-autosize'
 
 
-export default class Cell extends React.Component {
+export class Cell extends React.Component {
 
     constructor(props){
         super(props);

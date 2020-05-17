@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    SPLASH
@@ -14,7 +15,7 @@ $height--bar: 60px;
     left: 0;
     right: 0;
     bottom: 0;
-    background: $background--primary;
+    background: $color--secondary;
 
     .center {
         position: relative;
@@ -28,20 +29,19 @@ $height--bar: 60px;
             padding: $spacing--large-x 0;
 
             .logo {
-                display: inline-block;
+
             }
 
             .name {
                 margin-top: $spacing--medium;
                 font-size: $fontSize--large;
-                line-height: $lineHeight--large;
                 font-weight: $fontWeight--medium;
-                color: $color--contrast;
+                color: $color--secondary-contrast;
             }
         }
 
         .box {
-            background-color: $color--contrast;
+            background-color: $color--secondary-contrast;
             overflow: hidden;
             box-shadow: $boxShadow--large;
             min-width: 400px;
@@ -51,15 +51,12 @@ $height--bar: 60px;
             .title {
                 padding: $spacing--large $spacing--large 0;
                 font-size: $fontSize--heading-2;
-                line-height: $lineHeight--heading-2;
-                font-weight: $fontWeight--light;
-                color: $color--primary;
+                font-weight: $fontWeight--bold;
 
                 .description {
                     margin-top: $spacing--normal;
                     font-size: $fontSize--medium;
-                    line-height: $lineHeight--medium;
-                    color: $color--base-60;
+                    color: rgba($color--base, 0.6);
                     max-width: 80%;
                     font-weight: $fontWeight--regular;
                 }
@@ -79,7 +76,7 @@ $height--bar: 60px;
         position: absolute;
         bottom: $spacing--medium;
         width: 100%;
-        color: rgba($color--contrast, 0.7);
+        color: rgba($color--secondary-contrast, 0.7);
         margin: 0 auto;
         text-align: center;
         padding: 0 $spacing--phone-edge;

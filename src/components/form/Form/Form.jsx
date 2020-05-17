@@ -1,9 +1,9 @@
 import React from "react"
 import classNames from "classnames"
-import FormItem from "../FormItem"
 import styles from "./styles.scss"
+import { FormItem } from "../FormItem"
 
-class Form extends React.Component {
+export class Form extends React.Component {
 
 
     /**
@@ -57,5 +57,3 @@ class Form extends React.Component {
     }
 
 }
-
-export default Form

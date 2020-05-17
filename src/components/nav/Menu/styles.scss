@@ -25,7 +25,7 @@
     line-height: $size--element-small;
     padding: 0 10px;
     font-weight: $fontWeight--bold;
-    color: $color--base-40;
+    color: rgba($color--base, 0.4);
     font-size: $fontSize--small;
     text-transform: uppercase;
     text-align: left;
@@ -39,7 +39,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
-    border-bottom: 1px solid $color--base-5;
+    border-bottom: 1px solid rgba($color--base, 0.05);
     border-right: none;
     height: $size--element-normal;
     line-height: $size--element-normal;
@@ -68,7 +68,7 @@
 
     // Label
     .label {
-        color: $color--base-80;
+        color: rgba($color--base, 0.8);
         padding: 0 5px;
         flex-grow: 1;
     }
@@ -88,10 +88,12 @@
         padding: 0 5px;
 
         .counterIndicator {
+            display: flex;
+            align-items: center;
             min-width: $size--counter;
             text-align: center;
             font-weight: $fontWeight--medium;
-            font-size: $fontSize--smallest;
+            font-size: $fontSize--tiny;
             color: $color--status-text;
             background-color: $color--error;
             height: $size--counter;
@@ -116,16 +118,16 @@
         cursor: default;
 
         .icon {
-            @include m-iconColor($color--base-30);
+            @include m-iconColor(rgba($color--base, 0.3));
         }
 
         .label {
-            color: $color--base-60;
+            color: rgba($color--base, 0.6);
         }
 
         .counter {
             .counterIndicator {
-                background-color: $color--base-10;
+                background-color: rgba($color--base, 0.10);
             }
         }
 

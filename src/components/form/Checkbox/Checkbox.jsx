@@ -2,10 +2,10 @@ import React from "react"
 import classNames from "classnames"
 import styles from "./styles.scss"
 
-import Icon from "../../graphic/Icon"
+import { Icon } from "../../graphic/Icon"
 
 
-export default class Checkbox extends React.Component {
+export class Checkbox extends React.Component {
 
     state = {
         uniqueId: `cb-${Math.round(Math.random() * 100000)}`

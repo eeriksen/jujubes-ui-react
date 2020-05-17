@@ -3,12 +3,12 @@ import classNames from "classnames"
 import styles from "./styles.scss"
 import { SortableContainer, SortableElement, SortableHandle } from "react-sortable-hoc"
 
-import Clickable from "../../button/Clickable/Clickable.jsx"
-import Icon from "../../graphic/Icon"
-import Spinner from "../../loader/Spinner"
-import Text from "../../typography/Text"
+import { Clickable } from "../../button/Clickable/Clickable.jsx"
+import { Icon } from "../../graphic/Icon"
+import { Spinner } from "../../loader/Spinner"
+import { Text } from "../../typography/Text"
 
-export default class ItemList extends React.Component {
+export class ItemList extends React.Component {
 
     /**
      * Handle item dropped when sorting

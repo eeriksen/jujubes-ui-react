@@ -10,7 +10,7 @@
     &:hover {
         .arrow {
             .icon {
-                @include m-iconColor($color--base-60, true);
+                @include m-iconColor(rgba($color--base, 0.6), true);
             }
         }
     }
@@ -28,13 +28,13 @@
 
         .icon {
             @include m-iconSize(10px);
-            @include m-iconColor($color--base-20, true);
+            @include m-iconColor(rgba($color--base, 0.20), true);
         }
     }
 
     &.placeholder {
         .select {
-            color: $color--base-40;
+            color: rgba($color--base, 0.4);
         }
     }
 
@@ -48,7 +48,7 @@
         border: $input--border;
         font-family: $fontFamily--primary;
         font-size: $fontSize--normal;
-        color: $color--base-80;
+        color: rgba($color--base, 0.8);
         border-radius: $borderRadius--regular;
         transition: border-color 0.3s ease;
         background-color: $color--contrast;
@@ -83,15 +83,15 @@
 
         .arrow {
             .icon {
-                @include m-iconColor($color--base-10);
+                @include m-iconColor(rgba($color--base, 0.10));
             }
         }
 
         .select {
             cursor: not-allowed;
-            background-color: $color--base-3;
-            border-color: $color--base-10;
-            color: $color--base-40;
+            background-color: rgba($color--base, 0.03);
+            border-color: rgba($color--base, 0.10);
+            color: rgba($color--base, 0.4);
         }
     }
 

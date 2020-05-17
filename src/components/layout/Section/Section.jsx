@@ -3,7 +3,7 @@ import classNames from "classnames"
 import styles from "./styles.scss"
 
 
-export default class Section extends React.Component {
+export class Section extends React.Component {
     render(){
 
         // Properties

@@ -1,3 +1,8 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   IMAGE
+   =================================================================== */
 
 .base {
     position: relative;
@@ -188,7 +193,7 @@
         @include m-iconSize(100%);
 
         &.default {
-            @include m-iconColor($color--base-10);
+            @include m-iconColor(rgba($color--base, 0.10));
         }
     }
 

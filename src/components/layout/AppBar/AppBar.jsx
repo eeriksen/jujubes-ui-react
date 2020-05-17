@@ -4,11 +4,11 @@ import styles from "./styles.scss"
 
 import layoutActions from "../../../utils/layoutActions"
 
-import MenuButton from "../../button/MenuButton"
-import DotsButton from "../../button/DotsButton"
+import { MenuButton } from "../../button/MenuButton"
+import { DotsButton } from "../../button/DotsButton"
 
 
-export default class AppBar extends React.Component {
+export class AppBar extends React.Component {
 
     constructor(props){
         super(props);

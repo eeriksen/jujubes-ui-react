@@ -2,40 +2,52 @@
     "name": "kembo-ui-react",
     "version": "1.0.0",
     "description": "Kembo UI - React",
-    "main": "index.js",
-    "scripts": {
-        "start": "start-storybook -p 9001 -c .storybook"
+    "homepage": "https://github.com/eeriksen/kembo-ui-react#readme",
+    "bugs": {
+        "url": "https://github.com/eeriksen/kembo-ui-react/issues"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/eeriksen/kembo-ui-react.git"
     },
-    "author": "Eivind Eriksen (mail@eivinderiksen.com)",
     "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/eeriksen/kembo-ui-react/issues"
+    "author": "Eivind Eriksen (mail@eivinderiksen.com)",
+    "main": "index.js",
+    "scripts": {
+        "start": "start-storybook -p 9001 -c .storybook"
     },
-    "homepage": "https://github.com/eeriksen/kembo-ui-react#readme",
     "dependencies": {
-        "prop-types": "^15.6.2",
-        "react": "^16.6.1",
-        "react-dom": "^16.6.3",
-        "react-router-dom": "^4.3.1"
+        "prop-types": "^15.7.2",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-router-dom": "^5.1.2"
     },
     "devDependencies": {
-        "@babel/core": "^7.1.5",
-        "@babel/preset-env": "^7.1.5",
-        "@dump247/storybook-state": "^1.5.1",
-        "@storybook/addon-actions": "^4.0.12",
-        "@storybook/addon-options": "^4.0.4",
-        "@storybook/addon-viewport": "^4.0.4",
-        "@storybook/react": "^4.0.4",
+        "@babel/core": "^7.9.0",
+        "@babel/plugin-proposal-class-properties": "^7.8.3",
+        "@babel/preset-env": "^7.9.0",
+        "@babel/preset-react": "^7.9.4",
+        "@dump247/storybook-state": "^1.6.1",
+        "@storybook/addon-actions": "^5.3.18",
+        "@storybook/addon-options": "^5.3.18",
+        "@storybook/addon-viewport": "^5.3.18",
+        "@storybook/react": "^5.3.18",
+        "@storybook/theming": "^5.3.18",
         "autoprefixer": "^9.4.7",
+        "babel-eslint": "^7.2.3",
         "babel-loader": "^8.0.4",
         "classnames": "^2.2.6",
         "css-loader": "^1.0.1",
         "cssnano": "^4.1.8",
-        "node-sass": "^4.10.0",
+        "eslint": "^4.19.1",
+        "eslint-config-react-app": "^2.1.0",
+        "eslint-loader": "^2.1.1",
+        "eslint-plugin-flowtype": "^2.50.3",
+        "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-jsx-a11y": "^5.1.1",
+        "eslint-plugin-react": "^7.19.0",
+        "fast-sass-loader": "^1.5.0",
+        "node-sass": "^4.14.1",
         "object-hash": "^1.3.1",
         "postcss-loader": "^3.0.0",
         "postcss-url": "^8.0.0",
@@ -52,9 +64,9 @@
         "rollup-plugin-node-resolve": "^4.0.0",
         "rollup-plugin-postcss": "^2.0.3",
         "sass-loader": "^7.1.0",
-        "storybook-readme": "^4.0.2",
-        "storybook-router": "^0.3.4",
+        "storybook-react-router": "^1.0.8",
+        "storybook-readme": "^5.0.8",
         "style-loader": "^0.23.1",
-        "webpack": "^4.25.1"
+        "webpack": "^4.43.0"
     }
 }

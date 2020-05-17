@@ -1,12 +1,12 @@
 import React from "react"
 import classNames from "classnames"
 import styles from "./styles.scss"
-import Icon from "../../graphic/Icon"
+import { Icon } from "../../graphic/Icon"
 
-import LoaderHorizontal from "../../loader/LoaderHorizontal"
+import { LoaderHorizontal } from "../../loader/LoaderHorizontal"
 
 
-export default class extends React.Component {
+export class Button extends React.Component {
 
     /**
      * Handle on click

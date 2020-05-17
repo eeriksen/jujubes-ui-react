@@ -4,7 +4,7 @@ import classNames from "classnames"
 import styles from "./styles.scss"
 
 import Dropzone from "react-dropzone"
-import Button from "../Button"
+import { Button } from "../Button"
 
 const fileTypeMimes = {
     images:         "image/*",
@@ -14,7 +14,7 @@ const fileTypeMimes = {
 };
 
 
-export default class FileSelectButton extends React.Component {
+export class FileSelectButton extends React.Component {
 
     /**
      * Callback when files are selected

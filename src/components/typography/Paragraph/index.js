@@ -1,2 +1,1 @@
-import Paragraph from "./Paragraph"
-export default Paragraph
+export * from "./Paragraph"

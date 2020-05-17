@@ -5,14 +5,14 @@ import { action } from '@storybook/addon-actions'
 import { withReadme }  from 'storybook-readme'
 import { withState } from '@dump247/storybook-state'
 
-import Page from "../../src/components/page/Page/index"
-import Card from "../../src/components/card/Card"
-import CardContent from "../../src/components/card/CardContent"
-import Button from "../../src/components/button/Button"
-import ButtonGroup from "../../src/components/button/ButtonGroup"
-import Clickable from "../../src/components/button/Clickable"
-import FileSelectButton from "../../src/components/button/FileSelectButton/index"
-import ConfirmActionButton from "../../src/components/button/ConfirmActionButton"
+import { Page } from "../../src/components/page/Page/index"
+import { Card } from "../../src/components/card/Card"
+import { CardContent } from "../../src/components/card/CardContent"
+import { Button } from "../../src/components/button/Button"
+import { ButtonGroup } from "../../src/components/button/ButtonGroup"
+import { Clickable } from "../../src/components/button/Clickable"
+import { FileSelectButton } from "../../src/components/button/FileSelectButton/index"
+import { ConfirmActionButton } from "../../src/components/button/ConfirmActionButton"
 
 import ButtonReadme from "../../src/components/button/Button/README.md"
 import ClickableReadme from "../../src/components/button/Clickable/README.md"

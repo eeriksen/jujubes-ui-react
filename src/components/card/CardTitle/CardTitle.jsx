@@ -1,10 +1,10 @@
 import React from "react"
 import styles from "./styles.scss"
 
-import Clickable from "../../button/Clickable"
-import Icon from "../../graphic/Icon"
+import { Clickable } from "../../button/Clickable"
+import { Icon } from "../../graphic/Icon"
 
-export default class CardTitle extends React.Component {
+export class CardTitle extends React.Component {
     render(){
 
         // Properties

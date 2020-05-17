@@ -1,3 +1,4 @@
+@import "../../../styles/base";
 
 /* ===================================================================
    TOAST
@@ -24,7 +25,7 @@
 
     &.loading {
         .icon {
-            @include m-iconColor($color--base-60);
+            @include m-iconColor(rgba($color--base, 0.6));
         }
     }
 

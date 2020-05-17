@@ -2,9 +2,9 @@ import React from "react"
 import classNames from "classnames"
 import styles from "./styles.scss"
 
-import Checkbox from "../../form/Checkbox"
+import { Checkbox } from "../../form/Checkbox"
 
-export default class Item extends React.Component {
+export class Item extends React.Component {
 
 
     _handleOnChange = () => {

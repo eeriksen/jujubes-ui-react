@@ -2,10 +2,10 @@ import React from "react"
 import classNames from "classnames"
 import styles from "./styles.scss"
 
-import Clickable from "../Clickable"
-import Icon from "../../graphic/Icon"
+import { Clickable } from "../Clickable"
+import { Icon } from "../../graphic/Icon"
 
-export default class DotsButton extends React.Component {
+export class DotsButton extends React.Component {
     render(){
 
         // Properties

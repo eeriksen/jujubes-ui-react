@@ -2,7 +2,7 @@ import React from "react"
 import classNames from "classnames"
 import styles from "./styles.scss"
 
-export default class Text extends React.Component {
+export class Text extends React.Component {
     render(){
 
         // Properties
@@ -14,6 +14,7 @@ export default class Text extends React.Component {
             [styles.block]: block,
             [styles.truncate]: truncate,
 
+            [styles.weightLight]: weight === "light",
             [styles.weightMedium]: weight === "medium",
             [styles.weightBold]: weight === "bold",
 

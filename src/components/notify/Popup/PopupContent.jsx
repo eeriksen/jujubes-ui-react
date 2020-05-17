@@ -2,10 +2,10 @@ import React from "react"
 import classNames from "classnames"
 import styles from "./styles.scss"
 
-import ScrollableArea from "../../layout/ScrollableArea"
+import { ScrollableArea } from "../../layout/ScrollableArea"
 
 
-export default class PopupContent extends React.Component {
+export class PopupContent extends React.Component {
     render(){
 
         // Properties

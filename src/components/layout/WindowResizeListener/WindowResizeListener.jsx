@@ -1,24 +1,12 @@
 import React from "react"
 
 
-export default class extends React.Component {
-    constructor() {
-        super();
-        this.handleResize = this.handleResize.bind(this);
-        this.state = {
-            style: {
-                display: 'none',
-                visibility: 'hidden'
-            }
-        };
-    }
+export class WindowResizeListener extends React.Component {
 
     componentDidMount() {
-
         if( typeof window !== 'undefined' ) {
             window.addEventListener('resize', this.handleResize, false);
         }
-
     }
 
     componentWillUnmount() {
@@ -35,7 +23,10 @@ export default class extends React.Component {
 
     render() {
         return (
-            <div style={this.state.style} />
+            <div style={{
+                display: 'none',
+                visibility: 'hidden'
+            }} />
         );
     }
 }

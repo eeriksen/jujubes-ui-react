@@ -1,11 +1,11 @@
 import React from "react"
 
-import Button from "../../button/Button/index"
+import { Button } from "../../button/Button/index"
 import { Popup, PopupTitle, PopupContent, PopupButtons } from "../Popup"
-import Text from "../../typography/Text/index"
+import { Text } from "../../typography/Text/index"
 
 
-export default class PopupMessage extends React.Component {
+export class PopupMessage extends React.Component {
 
     constructor(props){
         super(props);
@@ -35,7 +35,7 @@ export default class PopupMessage extends React.Component {
                     </Text>
                 </PopupContent>
                 <PopupButtons>
-                    <Button size="big" kind={type || "primary"} icon="check" onClick={this._onOk}>
+                    <Button kind={type || "primary"} icon="check" onClick={this._onOk}>
                         {label || 'Ok, got it!'}
                     </Button>
                 </PopupButtons>

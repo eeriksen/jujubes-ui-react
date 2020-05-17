@@ -12,12 +12,13 @@
     border: $input--border;
     font-family: $fontFamily--primary;
     font-size: $fontSize--normal;
-    color: $color--base-80;
+    color: rgba($color--base, 0.8);
     transition: border-color 0.3s ease;
     appearance: none;
     border-radius: $borderRadius--regular;
     resize: none;
     vertical-align: top; // To compensate for space under textarea in misc browsers
+    background: transparent;
 
     &:focus {
         border: $input--border-focus;
@@ -26,9 +27,9 @@
     }
 
     &[disabled] {
-        background-color: $color--base-3;
-        border-color: $color--base-10;
-        color: $color--base-40;
+        background-color: rgba($color--base, 0.03);
+        border-color: rgba($color--base, 0.10);
+        color: rgba($color--base, 0.4);
         cursor: not-allowed;
     }
 

@@ -2,9 +2,9 @@ import React from "react"
 import classNames from "classnames"
 import styles from "./styles.scss"
 
-import Spinner from "../../loader/Spinner"
+import { Spinner } from "../../loader/Spinner"
 
-export default class Checklist extends React.Component {
+export class Checklist extends React.Component {
 
 
     _handleItemToggle = (item) => {

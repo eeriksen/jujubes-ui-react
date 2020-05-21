@@ -37,7 +37,6 @@ export class PopupYesNo extends React.Component {
                 </PopupContent>
                 <PopupButtons>
                     <Button
-                        size="big"
                         icon="check"
                         iconColor="success"
                         onClick={this._onYes}
@@ -45,7 +44,6 @@ export class PopupYesNo extends React.Component {
                         Ja
                     </Button>
                     <Button
-                        size="big"
                         icon="close"
                         iconColor="error"
                         onClick={this._onNo}>

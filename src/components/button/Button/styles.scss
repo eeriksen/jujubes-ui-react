@@ -9,17 +9,18 @@ $height--button-big: $size--element-big;
 $height--button-small: $size--element-small;
 
 .base {
+    display: block;
+    width: 100%;
     position: relative;
-    display: inline-block;
     outline: none;
-    background: none;
+    background: $color--contrast;
     height: $height--button;
     line-height: $height--button - 2px;
     font-family: $fontFamily--primary;
     font-size: $fontSize--normal;
     font-weight: $fontWeight--medium;
-    padding: 0 30px 0;
-    border: 1px solid transparent;
+    border: 1px solid rgba($color--base, 0.20);
+    color: $color--base;
     cursor: pointer;
     border-radius: $borderRadius--regular;
     text-decoration: none;
@@ -27,12 +28,15 @@ $height--button-small: $size--element-small;
     transition: border-color 0.3s linear, color .3s linear, background-color .3s linear;
     @include m-truncate();
 
-    &:active {
-        transition: background-color 0s ease;
+    &:hover {
+        color: $color--base;
+        border-color: rgba($color--base, 0.20);
+        background-color: darken($color--contrast, 2%);
     }
 
-    &.active {
-        cursor: default;
+    &:active, &.active {
+        background-color: rgba($color--base, 0.10);
+        transition: background-color 0s ease;
     }
 }
 
@@ -77,15 +81,16 @@ $height--button-small: $size--element-small;
 .base {
     .icon {
         vertical-align: -3px;
-        margin-right: 6px;
+        margin-right: 8px;
         margin-left: -7px;
+        @include m-iconColor($color--primary);
     }
 
     // Icon on the right side of label
     &.iconRight {
         .icon {
             margin-right: -7px;
-            margin-left: 6px;
+            margin-left: 8px;
         }
     }
 
@@ -149,38 +154,18 @@ $height--button-small: $size--element-small;
    BUTTON COLORS
    =================================================================== */
 
-.default {
-    color: rgba($color--base, 0.8);
-    border-color: rgba($color--base, 0.20);
-    background-color: $color--contrast;
-
-    .icon {
-        @include m-iconColor($color--primary);
-    }
-
-    &:hover {
-        color: $color--base;
-        border-color: rgba($color--base, 0.20);
-        background-color: darken($color--contrast, 2%);
-    }
-
-    &:active, &.active {
-        background-color: rgba($color--base, 0.10);
-    }
-}
-
-.primary {
-    color: $color--contrast;
+.colorPrimary {
+    color: $color--primary-contrast;
     border: none;
     background: $color--primary;
 
     .icon {
-        @include m-iconColor($color--contrast);
+        @include m-iconColor($color--primary-contrast);
     }
 
     &:hover {
         background-color: $color--primary;
-        color: $color--contrast;
+        color: $color--primary-contrast;
     }
 
     &:active, &.active {
@@ -188,8 +173,26 @@ $height--button-small: $size--element-small;
     }
 }
 
+.colorSecondary {
+    color: $color--secondary-contrast;
+    border: none;
+    background: $color--secondary;
 
-.success {
+    .icon {
+        @include m-iconColor($color--secondary-contrast);
+    }
+
+    &:hover {
+        background-color: $color--secondary;
+        color: $color--secondary-contrast;
+    }
+
+    &:active, &.active {
+        background-color: darken($color--secondary, 5%);
+    }
+}
+
+.colorSuccess {
     color: $color--status-text;
     border-color: transparent;
     background-color: $color--success;
@@ -209,8 +212,27 @@ $height--button-small: $size--element-small;
     }
 }
 
+.colorWarning {
+    color: $color--status-text;
+    border-color: transparent;
+    background-color: $color--warning;
 
-.error {
+    .icon {
+        @include m-iconColor($color--status-text);
+    }
+
+    &:hover {
+        border-color: $color--warning;
+        background-color: $color--warning;
+        color: $color--status-text;
+    }
+
+    &:active, &.active {
+        background-color: darken($color--warning, 5%);
+    }
+}
+
+.colorError {
     color: $color--status-text;
     border-color: transparent;
     background-color: $color--error;
@@ -230,6 +252,25 @@ $height--button-small: $size--element-small;
     }
 }
 
+.colorInfo {
+    color: $color--status-text;
+    border-color: transparent;
+    background-color: $color--info;
+
+    .icon {
+        @include m-iconColor($color--status-text);
+    }
+
+    &:hover {
+        border-color: transparent;
+        background-color: $color--info;
+        color: $color--status-text;
+    }
+
+    &:active, &.active {
+        background-color: darken($color--info, 5%);
+    }
+}
 
 .silent {
     color: rgba($color--base, 0.8);
@@ -256,24 +297,21 @@ $height--button-small: $size--element-small;
    BUTTON SIZES
    =================================================================== */
 
-.big {
+.sizeBig {
     height: $height--button-big;
-    line-height: $height--button-big + 1px;
+    line-height: $height--button-big - 1px;
     font-size: $fontSize--medium;
-    padding: 0 50px;
 
     .icon {
         vertical-align: -4px;
-        margin-right: 8px;
+        margin-right: 10px;
         @include m-iconSize($iconSize--medium);
     }
 }
 
-.small {
-    padding-left: 20px;
-    padding-right: 20px;
+.sizeSmall {
     height: $height--button-small;
-    line-height: $height--button-small + 1px;
+    line-height: $height--button-small - 2px;
 
     .icon {
         @include m-iconSize($iconSize--small);
@@ -285,29 +323,21 @@ $height--button-small: $size--element-small;
    BUTTON MUTTATORS
    =================================================================== */
 
-.block {
-    display: block;
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.compact {
-    padding-left: $spacing--small;
-    padding-right: $spacing--small;
-}
-
 .circle {
     padding-left: 0;
     padding-right: 0;
-    border-radius: 50%;
+    border-radius: 100px;
     width: $height--button;
 
     .icon {
         margin: 0;
     }
 
-    &.big {
+    &.sizeSmall {
+        width: $height--button-small;
+    }
+
+    &.sizeBig {
         width: $height--button-big;
     }
 }
@@ -321,11 +351,11 @@ $height--button-small: $size--element-small;
         margin: 0;
     }
 
-    &.small {
+    &.sizeSmall {
         width: $height--button-small;
     }
 
-    &.big {
+    &.sizeBig {
         width: $height--button-big;
     }
 }

@@ -1,0 +1,199 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Button } from './Button';
+import { Row } from "../../grid/Row"
+import { Col } from "../../grid/Col"
+
+<Meta title="Button/Button" component={Button} />
+
+# Button
+
+Buttons are core components in every user interface.
+Use a careful combination of colored buttons where needed.
+
+<Preview>
+    <Story name="basic" >
+        <Button>
+            Basic button
+        </Button>
+    </Story>
+</Preview>
+
+## Color
+<Preview>
+    <Story name="color">
+        <Row>
+            <Col span={6}>
+                <Button color="primary">
+                    Primary button
+                </Button>
+            </Col>
+            <Col span={6}>
+                <Button color="secondary">
+                    Secondary button
+                </Button>
+            </Col>
+            <Col span={6}>
+                <Button color="success">
+                    Success button
+                </Button>
+            </Col>
+            <Col span={6}>
+                <Button color="warning">
+                    Warning button
+                </Button>
+            </Col>
+            <Col span={6}>
+                <Button color="error">
+                    Error button
+                </Button>
+            </Col>
+            <Col span={6}>
+                <Button color="info">
+                    Info button
+                </Button>
+            </Col>
+        </Row>
+    </Story>
+</Preview>
+
+## Size
+<Preview>
+    <Story name="size">
+        <Row>
+            <Col span={8}>
+                <Button size="small">
+                    Small button
+                </Button>
+            </Col>
+            <Col span={8}>
+                <Button>
+                    Regular button
+                </Button>
+            </Col>
+            <Col span={8}>
+                <Button size="big">
+                    Big button
+                </Button>
+            </Col>
+        </Row>
+    </Story>
+</Preview>
+
+## Active
+<Preview>
+    <Story name="active">
+        <Button active>
+            Active button
+        </Button>
+    </Story>
+</Preview>
+
+## Busy
+<Preview>
+    <Story name="busy">
+        <Button busy>
+            Active button
+        </Button>
+    </Story>
+</Preview>
+
+
+## Icon
+<Preview>
+    <Story name="icon">
+        <Row>
+            <Col span={8}>
+                <Button icon="devices" size="small">
+                    Small icon button
+                </Button>
+            </Col>
+            <Col circle span={8}>
+                <Button icon="devices">
+                    Regular icon button
+                </Button>
+            </Col>
+            <Col circle span={8}>
+                <Button icon="devices" size="big">
+                    Big icon button
+                </Button>
+            </Col>
+            <Col span={8}>
+                <Button icon="devices" color="primary" size="small">
+                    Small icon button
+                </Button>
+            </Col>
+            <Col circle span={8}>
+                <Button icon="devices" color="primary">
+                    Regular icon button
+                </Button>
+            </Col>
+            <Col circle span={8}>
+                <Button icon="devices" color="primary" size="big">
+                    Big icon button
+                </Button>
+            </Col>
+        </Row>
+    </Story>
+</Preview>
+
+## Icon right
+<Preview>
+    <Story name="icon right">
+        <Row>
+            <Col span={8}>
+                <Button icon="arrow-right" iconRight color="error" size="small">
+                    Small icon button
+                </Button>
+            </Col>
+            <Col circle span={8}>
+                <Button icon="arrow-right" iconRight color="error">
+                    Regular icon button
+                </Button>
+            </Col>
+            <Col circle span={8}>
+                <Button icon="arrow-right" iconRight color="error" size="big">
+                    Big icon button
+                </Button>
+            </Col>
+        </Row>
+    </Story>
+</Preview>
+
+## Circle
+<Preview>
+    <Story name="circle">
+        <Row>
+            <Col span={8}>
+                <Button circle icon="gear" size="small" />
+            </Col>
+            <Col circle span={8}>
+                <Button circle icon="gear" />
+            </Col>
+            <Col circle span={8}>
+                <Button circle icon="gear" size="big" />
+            </Col>
+        </Row>
+    </Story>
+</Preview>
+
+## Square
+<Preview>
+    <Story name="square">
+        <Row>
+            <Col span={8}>
+                <Button square icon="gear" size="small" />
+            </Col>
+            <Col circle span={8}>
+                <Button square icon="gear" />
+            </Col>
+            <Col circle span={8}>
+                <Button square icon="gear" size="big" />
+            </Col>
+        </Row>
+    </Story>
+</Preview>
+
+
+
+## Properties
+<Props of={Button} />

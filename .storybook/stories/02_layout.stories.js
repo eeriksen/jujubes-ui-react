@@ -1,6 +1,6 @@
 import React from "react"
 
-import { userPictureUrl } from "../constants";
+import { userPictureUrl } from "./constants";
 import { storiesOf } from "@storybook/react"
 import { withState } from "@dump247/storybook-state"
 import { action } from "@storybook/addon-actions"

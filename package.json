@@ -12,9 +12,12 @@
     },
     "license": "ISC",
     "author": "Eivind Eriksen (mail@eivinderiksen.com)",
-    "main": "index.js",
+    "main": "dist/tv2no-ui-react.js",
+    "module": "dist/tv2no-ui-react.es.js",
     "scripts": {
-        "start": "start-storybook -p 9001 -c .storybook"
+        "start": "start-storybook -p 9001 -c .storybook",
+        "build": "rollup -c",
+        "build-storybook": "build-storybook -c .storybook -o .out"
     },
     "dependencies": {
         "prop-types": "^15.7.2",
@@ -29,8 +32,8 @@
         "@babel/preset-react": "^7.9.4",
         "@dump247/storybook-state": "^1.6.1",
         "@storybook/addon-actions": "^5.3.18",
-        "@storybook/addon-options": "^5.3.18",
-        "@storybook/addon-viewport": "^5.3.18",
+        "@storybook/addon-docs": "^5.3.18",
+        "@storybook/addons": "^3.4.12",
         "@storybook/react": "^5.3.18",
         "@storybook/theming": "^5.3.18",
         "autoprefixer": "^9.4.7",
@@ -58,6 +61,8 @@
         "react-perfect-scrollbar": "^1.4.2",
         "react-sortable-hoc": "^1.5.3",
         "react-tippy": "^1.2.3",
+        "rollup": "^2.10.5",
+        "rollup-plugin-auto-external": "^2.0.0",
         "rollup-plugin-babel": "^4.3.2",
         "rollup-plugin-clear": "^2.0.7",
         "rollup-plugin-commonjs": "^9.2.0",

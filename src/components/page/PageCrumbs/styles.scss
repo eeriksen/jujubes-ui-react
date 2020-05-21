@@ -52,10 +52,10 @@
     // STATE: Hover
     &:hover:not(.current) {
         cursor: pointer;
-        background-color: $color--primary;
+        background-color: $color--background;
 
         .label {
-            color: $color--primary-contrast;
+            color: $color--base;
         }
     }
 

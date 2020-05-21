@@ -78,7 +78,7 @@
   @media (min-width: $breakpoint--tablet-landscape) { @content; }
 }
 @mixin for-tablet-landscape-down {
-  @media (max-width: $breakpoint--tablet-landscape) { @content; }
+  @media (max-width: $breakpoint--tablet-landscape - 1px) { @content; }
 }
 @mixin for-tablet-landscape-only {
   @media (min-width: $breakpoint--tablet-landscape) and (max-width: $breakpoint--desktop - 1px) { @content; }

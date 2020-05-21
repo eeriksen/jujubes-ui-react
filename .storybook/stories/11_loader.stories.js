@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react'
-import { withReadme }  from 'storybook-readme'
 import { withState } from '@dump247/storybook-state'
 
 import { Page } from "../../src/components/page/Page"
@@ -20,13 +19,6 @@ import ProgressCircleReadme from "../../src/components/loader/ProgressCircle/REA
 
 
 
-// Decorator
-const pageDecorator = (story) => (
-    <Page>
-        {story()}
-    </Page>
-);
-
 
 // Section title
 const SECTION_TITLE = "12 - Loader";
@@ -36,21 +28,11 @@ const SECTION_TITLE = "12 - Loader";
  * SPINNER
  */
 storiesOf(`${SECTION_TITLE}/Spinner`, module)
-    .addDecorator(pageDecorator)
-    .addDecorator(withReadme(SpinnerReadme))
     .add('default', () => (
-        <Card>
-            <CardContent>
-                <Spinner />
-            </CardContent>
-        </Card>
+        <Spinner />
     ))
     .add('large', () => (
-        <Card>
-            <CardContent>
-                <Spinner size="large" />
-            </CardContent>
-        </Card>
+        <Spinner size="large" />
     ));
 
 
@@ -58,7 +40,6 @@ storiesOf(`${SECTION_TITLE}/Spinner`, module)
  * LOADER HORIZONTAL
  */
 storiesOf(`${SECTION_TITLE}/LoaderHorizontal`, module)
-    .addDecorator(pageDecorator)
     .add('default', () => (
         <Card>
             <CardContent>
@@ -76,24 +57,23 @@ storiesOf(`${SECTION_TITLE}/LoaderHorizontal`, module)
 /**
  * PROGRESS BAR
  */
-storiesOf(`${SECTION_TITLE}/ProgressBar`, module)
-    .addDecorator(pageDecorator)
-    .addDecorator(withReadme(ProgressBarReadme))
-    .add('default', withState({
-        barPercent: 89
-    }, (store) => (
-        <Card>
-            <CardContent>
-                <Row>
-                    <Col span={24}>
-                        <ProgressBar percent={store.state.barPercent}>
-                            Uploading file...
-                        </ProgressBar>
-                    </Col>
-                </Row>
-            </CardContent>
-        </Card>
-    )));
+// storiesOf(`${SECTION_TITLE}/ProgressBar`, module)
+//     .addDecorator(pageDecorator)
+//     .add('default', withState({
+//         barPercent: 89
+//     })((store) => (
+//         <Card>
+//             <CardContent>
+//                 <Row>
+//                     <Col span={24}>
+//                         <ProgressBar percent={store.state.barPercent}>
+//                             Uploading file...
+//                         </ProgressBar>
+//                     </Col>
+//                 </Row>
+//             </CardContent>
+//         </Card>
+//     )));
 
 
 
@@ -101,8 +81,6 @@ storiesOf(`${SECTION_TITLE}/ProgressBar`, module)
  * PROGRESS CIRCLE
  */
 storiesOf(`${SECTION_TITLE}/ProgressCircle`, module)
-    .addDecorator(pageDecorator)
-    .addDecorator(withReadme(ProgressCircleReadme))
     .add('types', () => (
         <React.Fragment>
             <Card>

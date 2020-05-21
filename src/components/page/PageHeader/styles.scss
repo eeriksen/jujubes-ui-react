@@ -10,12 +10,13 @@
 
     .titles {
         margin-right: $size--element-big;
+        margin-top: -5px;
         padding-right: $spacing--medium;
 
         .mainTitle {
             margin: 0;
             font-size: $fontSize--heading-1;
-            font-weight: $fontWeight--bold;
+            font-weight: $fontWeight--light;
             line-height: $lineHeight--small;
         }
 
@@ -57,6 +58,8 @@
 @include for-phone-only(){
     .base {
         .titles {
+            margin-top: 0;
+
             .mainTitle {
                 font-size: $fontSize--heading-2;
             }

@@ -1,0 +1,23 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Row } from "./Row";
+import { Col } from "./Col";
+
+<Meta
+    title="Grid/grid"
+    component={Row}
+/>
+
+# Grid
+
+This grid is used when you want to utilize the size of a desktop sized screen, but needs to break
+that same content on mobile devices. The grid is a flexible 24-unit system where you can define sizes and offsets
+of content blocks that can break into separate rows on three different breakpoints, small (sm), medium (md) and large (lg).
+
+## Rows
+<Preview>
+  <Story name="color">
+    <Row>
+        <Col span={24} />
+    </Row>
+  </Story>
+</Preview>

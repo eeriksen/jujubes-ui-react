@@ -1,36 +1,9 @@
 @import "../../../styles/base";
+@import "../../../styles/main";
 
 /* ===================================================================
    APP LAYOUT
    =================================================================== */
-
-
-/* GLOBALS
----------------------------------------------------------------------- */
-
-:global {
-    * {
-        box-sizing: border-box;
-    }
-
-    html {
-        height: 100%;
-        background-color: darken($color--background, 10%);
-        font-size: $fontSize--root;
-    }
-
-    body {
-        min-height: 100vh;
-        margin: 0;
-        font-family: $fontFamily--primary;
-        line-height: $lineHeight--normal;
-        color: $color--base;
-        background-color: $color--background;
-    }
-}
-
-
-
 
 .base {
     position: fixed;

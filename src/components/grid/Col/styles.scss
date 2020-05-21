@@ -19,11 +19,7 @@ $grid-columns: 24;
             min-height: 1px;
             padding-left: ($grid--gutter-regular / 2);
             padding-right: ($grid--gutter-regular / 2);
-
-            &.gutterSmall {
-                padding-left: ($grid--gutter-small / 2);
-                padding-right: ($grid--gutter-small / 2);
-            }
+            margin-top: $grid--gutter-regular;
         }
     }
 }
@@ -37,24 +33,6 @@ $grid-columns: 24;
     @include col(1);
 }
 
-// Spacing
-.grid_col_spacing_bottom {
-    margin-bottom: $grid--gutter-regular;
-
-    &.gutterSmall {
-        margin-bottom: $grid--gutter-small;
-    }
-}
-
-// Align content right
-.grid_col_align_right {
-    text-align: right;
-}
-
-// Align content right
-.grid_col_align_center {
-    text-align: center;
-}
 
 // MAKE FLOAT GRID COLUMNS
 // ----------------------------------------------------------
@@ -144,10 +122,6 @@ $grid-columns: 24;
     @include loop-grid-columns($grid-columns, $class);
 }
 
-.grid_col {
-    position: relative;
-    display: block;
-}
 
 @include make-grid-columns();
 @include make-grid();

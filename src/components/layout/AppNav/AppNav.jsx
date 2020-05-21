@@ -37,7 +37,7 @@ export class AppNav extends React.Component {
     render(){
 
         // Properties
-        const { logo, title, subtitle, children } = this.props;
+        const { logo, title, children } = this.props;
 
         // Variables
         const { active } = this.state;

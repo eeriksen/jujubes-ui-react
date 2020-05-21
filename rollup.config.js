@@ -1,8 +1,9 @@
 import resolve from 'rollup-plugin-node-resolve'
-import babelPlugin from 'rollup-plugin-babel'
+import babel from 'rollup-plugin-babel'
 import commonjsPlugin from 'rollup-plugin-commonjs'
 import postcssPlugin from 'rollup-plugin-postcss'
 import clearPlugin from 'rollup-plugin-clear'
+import autoExternal from 'rollup-plugin-auto-external'
 import autoprefixer from 'autoprefixer'
 import url from 'postcss-url'
 import cssnano from "cssnano"
@@ -27,24 +28,13 @@ export default {
             format: 'es'
         }
     ],
-    external: [
-        'react',
-        'react-dom',
-        'react-router-dom',
-        'prop-types',
-        'moment'
-    ],
     plugins: [
+        autoExternal(),
         clearPlugin({
             targets: [DIST_DIR]
         }),
         resolve({
             extensions: [".js", ".jsx", ".scss"]
-        }),
-        commonjsPlugin({
-            namedExports: {
-                'node_modules/react-tippy/dist/react-tippy.js': [ 'Tooltip' ]
-            }
         }),
         postcssPlugin({
             modules: {
@@ -61,8 +51,14 @@ export default {
                 url: "inline"
             }), autoprefixer, cssnano]
         }),
-        babelPlugin({
-            exclude: 'node_modules/**'
+        babel({
+            exclude: 'node_modules/**',
+
+        }),
+        commonjsPlugin({
+            namedExports: {
+                'node_modules/react-tippy/dist/react-tippy.js': [ 'Tooltip' ]
+            }
         })
     ]
 }

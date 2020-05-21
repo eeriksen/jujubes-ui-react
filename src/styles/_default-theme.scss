@@ -75,14 +75,14 @@ $color--background-cards:           #ffffff;
 $color--background-bar:             #ffffff;
 
 // Primary color
-$color--primary:                    #408CB7;
-$color--primary-accent:             #40AFB7;
+$color--primary:                    #3fb6a8;
+$color--primary-accent:             #3fa8b6;
 $color--primary-contrast:           #ffffff;
 
 // Secondary color
 $color--secondary:                  #474656;
-$color--secondary-accent:           #71DBFF;
-$color--secondary-contrast:         #ffffff;
+$color--secondary-accent:           #3fb6a8;
+$color--secondary-contrast: #e8fffa;
 
 // Status colors
 $color--success:                    #34D896;
@@ -136,8 +136,8 @@ $borderRadius--medium:              8px;
 
 // Box shadows
 $boxShadow--regular:                0 1px 10px 1px rgba($color--base, .08);
-$boxShadow--medium:                 0 1px 15px 1px rgba($color--base, .2);
-$boxShadow--large:                  0 1px 30px 1px rgba($color--base, .2);
+$boxShadow--medium:                 0 1px 15px 1px rgba($color--base, .3);
+$boxShadow--large:                  0 1px 25px 1px rgba($color--base, .3);
 
 
 /* LAYOUT

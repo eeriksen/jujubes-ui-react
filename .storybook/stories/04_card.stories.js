@@ -8,7 +8,7 @@ import { CardTitle } from "../../src/components/card/CardTitle"
 import { CardContent } from "../../src/components/card/CardContent"
 import { CardUserHead } from "../../src/components/card/CardUserHead"
 import { Badge } from "../../src/components/notify/Badge"
-import {userPictureUrl} from "../constants";
+import {userPictureUrl} from "./constants";
 
 
 // Section title

@@ -41,15 +41,17 @@ export const PageActions = ({children}) => {
 
 const renderMenu = (items) => {
     return (
-        <Menu>
-            {items && React.Children.map(items, (child, index) => (
-                <MenuItem
-                    key={index}
-                    icon={child.props.icon}
-                    label={child.props.children}
-                    {...child.props}
-                />
-            ))}
-        </Menu>
+        <div className={styles.menu}>
+            <Menu>
+                {items && React.Children.map(items, (child, index) => (
+                    <MenuItem
+                        key={index}
+                        icon={child.props.icon}
+                        label={child.props.children}
+                        {...child.props}
+                    />
+                ))}
+            </Menu>
+        </div>
     )
 }

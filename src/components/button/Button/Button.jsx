@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import classNames from "classnames"
 import styles from "./styles.scss"
 import { Icon } from "../../graphic/Icon"
@@ -48,24 +49,26 @@ export class Button extends React.Component {
     render(){
 
         // Properties
-        const { color, size, active, compact, block, circle, square, iconRight, icon, iconColor, labelColor,
+        const { color, size, active, circle, square, icon, iconRight, iconColor, labelColor,
             hideIcon, hideLabel, className, type, disabled, children, onMouseOver, onMouseOut, title, busy
         } = this.props;
 
         // Classnames
         const buttonClasses = classNames(styles.base, {
-            [styles.default]: !color,
-            [styles.primary]: color === "primary",
-            [styles.success]: color === "success",
-            [styles.error]: color === "error",
+
+            [styles.colorPrimary]: color === "primary",
+            [styles.colorSecondary]: color === "secondary",
+            [styles.colorSuccess]: color === "success",
+            [styles.colorWarning]: color === "warning",
+            [styles.colorError]: color === "error",
+            [styles.colorInfo]: color === "info",
+
+            [styles.sizeSmall]: size === "small",
+            [styles.sizeBig]: size === "big",
+
             [styles.silent]: color === "silent",
 
-            [styles.small]: size === "small",
-            [styles.big]: size === "big",
-
             [styles.active]: active,
-            [styles.compact]: compact,
-            [styles.block]: block,
             [styles.circle]: circle,
             [styles.square]: square,
 
@@ -114,4 +117,15 @@ export class Button extends React.Component {
             </button>
         )
     }
+}
+
+Button.propTypes = {
+    onClick: PropTypes.func,
+    color: PropTypes.oneOf(['primary', 'success', 'error', 'silent']),
+    size: PropTypes.oneOf(['small', 'big']),
+    active: PropTypes.bool,
+    busy: PropTypes.bool,
+    circle: PropTypes.bool,
+    square: PropTypes.bool,
+    icon: PropTypes.string
 }

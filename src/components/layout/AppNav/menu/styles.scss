@@ -50,7 +50,7 @@ $spacing-sides: $spacing--nav-sides;
         display: flex;
         align-items: center;
         width: 32px;
-        @include m-iconColor(rgba($color--secondary-contrast, .3), true);
+        @include m-iconColor(rgba(desaturate($color--secondary-accent, 50%), .5), true);
     }
 
     // Label
@@ -80,7 +80,7 @@ $spacing-sides: $spacing--nav-sides;
         cursor: pointer;
 
         .icon {
-            @include m-iconColor($color--secondary-contrast);
+            @include m-iconColor($color--secondary-accent);
         }
 
         .label {

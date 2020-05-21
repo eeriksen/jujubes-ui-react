@@ -28,10 +28,10 @@ $popup--width-normal: 450px;
         max-width: $popup--width-normal;
         opacity: 0;
         margin-top: -50px;
-        background: $color--contrast;
-        box-shadow: 0 1px 30px 1px rgba($color--base, .5);
+        box-shadow: $boxShadow--large;
         animation: boxIn .3s forwards;
         transition: border-bottom .3s ease;
+        border-radius: $borderRadius--regular;
         z-index: $zIndex--popups;
 
         @keyframes boxIn {
@@ -56,7 +56,7 @@ $popup--width-normal: 450px;
             background: $color--contrast;
             border-radius: 50%;
             transform: translateY(-50%);
-            box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: $boxShadow--medium;
 
             .icon {
                 @include m-iconColor($color--primary, true);
@@ -76,6 +76,7 @@ $popup--width-normal: 450px;
             text-align: left;
             overflow: hidden;
             transition: color .3s ease;
+            border-radius: $borderRadius--regular $borderRadius--regular 0 0;
             @include m-truncate();
 
             .text {
@@ -97,9 +98,10 @@ $popup--width-normal: 450px;
 
         // CONTENT
         .content {
+            background: $color--contrast;
+
             .frame {
                 max-height: 62vh;
-
 
                 .wrapper {
                     padding: $spacing--medium;
@@ -111,6 +113,8 @@ $popup--width-normal: 450px;
         .buttons {
             padding: $spacing--medium;
             border-top: 1px solid rgba($color--base, 0.10);
+            background: $color--contrast;
+            border-radius: 0 0 $borderRadius--regular $borderRadius--regular;
 
             .mainButton {
                 vertical-align: top;
@@ -127,8 +131,7 @@ $popup--width-normal: 450px;
 
         // TABS
         .tabs {
-            //border-top: 1px solid rgba($color--base, 0.10);;
-            //margin-top: $spacing--medium;
+            background: $color--contrast;
         }
 
     }

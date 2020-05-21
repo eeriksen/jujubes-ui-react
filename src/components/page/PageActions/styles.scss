@@ -17,8 +17,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: $borderRadius--regular;
-        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .1);
+        border-radius: 50%;
+        box-shadow: $boxShadow--regular;
         transition: transform .2s cubic-bezier(0.620, 0.055, 0.240, 1.305), background-color .2s ease-in-out, box-shadow .2s ease-in-out;
         user-select: none;
         @include m-iconColor($color--contrast);
@@ -30,9 +30,13 @@
 
         &.active {
             background-color: $color--primary-accent;
-            transform: scale(0.9);
+            transform: scale(0.95);
             box-shadow: none;
         }
+    }
+
+    .menu {
+        padding: $spacing--small;
     }
 
     @include for-tablet-landscape-down(){
@@ -43,11 +47,10 @@
         z-index: $zIndex--pageActionButton;
 
         .button {
-            box-shadow: 0 3px 10px 0 rgba(0, 0, 0, .2);
+            box-shadow: $boxShadow--medium;
 
             &.active {
-                box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
-                transform: scale(1);
+                box-shadow: $boxShadow--medium;
             }
         }
     }

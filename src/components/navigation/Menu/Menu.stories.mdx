@@ -1,0 +1,189 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Menu } from "./Menu";
+import { MenuItem } from "./MenuItem";
+import { MenuHeading } from "./MenuHeading";
+import { Icon } from "../../graphic/Icon";
+
+<Meta title="Components/Navigation/Menu" component={Menu} />
+
+# Menu
+<Props of={Menu} />
+
+# MenuItem
+<Props of={MenuItem} />
+
+# MenuHeading
+<Props of={MenuHeading} />
+
+### Basic
+
+<Preview>
+    <Story name="basic">
+        {() => {
+            const [active, setActive] = useState(null);
+            return (
+                <Menu>
+                    <MenuItem
+                        selected={active === 1}
+                        onClick={() => setActive(1)}
+                        label="First item"
+                    />
+                    <MenuItem
+                        selected={active === 2}
+                        onClick={() => setActive(2)}
+                        label="Second item"
+                    />
+                    <MenuItem
+                        selected={active === 3}
+                        onClick={() => setActive(3)}
+                        label="Third item"
+                    />
+                    <MenuItem
+                        selected={active === 4}
+                        onClick={() => setActive(4)}
+                        label="Fourth item"
+                    />
+                    <MenuItem
+                        selected={active === 5}
+                        onClick={() => setActive(5)}
+                        label="Fifth item"
+                    />
+                </Menu>
+            );
+        }}
+    </Story>
+</Preview>
+
+### Heading
+
+<Preview>
+    <Story name="with heading">
+        {() => {
+            const [active, setActive] = useState(null);
+            return (
+                <Menu>
+                    <MenuHeading label="Menu heading" />
+                    <MenuItem
+                        selected={active === 1}
+                        onClick={() => setActive(1)}
+                        label="First item"
+                    />
+                    <MenuItem
+                        selected={active === 2}
+                        onClick={() => setActive(2)}
+                        label="Second item"
+                    />
+                    <MenuItem
+                        selected={active === 3}
+                        onClick={() => setActive(3)}
+                        label="Third item"
+                    />
+                    <MenuItem
+                        selected={active === 4}
+                        onClick={() => setActive(4)}
+                        label="Fourth item"
+                    />
+                    <MenuItem
+                        selected={active === 5}
+                        onClick={() => setActive(5)}
+                        label="Fifth item"
+                    />
+                </Menu>
+            );
+        }}
+    </Story>
+</Preview>
+
+### Icon
+
+<Preview>
+    <Story name="with icon">
+        {() => {
+            const [active, setActive] = useState(null);
+            return (
+                <Menu>
+                    <MenuItem
+                        selected={active === 1}
+                        onClick={() => setActive(1)}
+                        icon="gear"
+                        label="First item"
+                    />
+                    <MenuItem
+                        selected={active === 2}
+                        onClick={() => setActive(2)}
+                        icon="eye"
+                        label="Second item"
+                    />
+                    <MenuItem
+                        selected={active === 3}
+                        onClick={() => setActive(3)}
+                        icon="nodes"
+                        label="Third item"
+                    />
+                    <MenuItem
+                        selected={active === 4}
+                        onClick={() => setActive(4)}
+                        icon="palette"
+                        label="Fourth item"
+                    />
+                    <MenuItem
+                        selected={active === 5}
+                        onClick={() => setActive(5)}
+                        icon="user"
+                        label="Fifth item"
+                    />
+                </Menu>
+            );
+        }}
+    </Story>
+</Preview>
+
+### Counter
+
+<Preview>
+    <Story name="with counter">
+        {() => {
+            const [active, setActive] = useState(null);
+            return (
+                <Menu>
+                    <MenuItem
+                        selected={active === 1}
+                        onClick={() => setActive(1)}
+                        icon="gear"
+                        label="First item"
+                        count={8}
+                    />
+                    <MenuItem
+                        selected={active === 2}
+                        onClick={() => setActive(2)}
+                        icon="eye"
+                        label="Second item"
+                        count={243}
+                    />
+                    <MenuItem
+                        selected={active === 3}
+                        onClick={() => setActive(3)}
+                        icon="nodes"
+                        label="Third item"
+                        count={15}
+                    />
+                    <MenuItem
+                        selected={active === 4}
+                        onClick={() => setActive(4)}
+                        icon="palette"
+                        label="Fourth item"
+                        count={90}
+                    />
+                    <MenuItem
+                        selected={active === 5}
+                        onClick={() => setActive(5)}
+                        icon="user"
+                        label="Fifth item"
+                        count={6}
+                    />
+                </Menu>
+            );
+        }}
+    </Story>
+</Preview>

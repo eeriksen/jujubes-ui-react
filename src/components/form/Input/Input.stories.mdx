@@ -1,0 +1,138 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Form } from "../Form";
+import { FormItem } from "../FormItem";
+import { Input } from './Input';
+import { Text } from "../../typography/Text";
+
+<Meta title="Components/Forms/Input" component={Input} />
+
+# Input
+
+The `<Input />` component is a very flexible text input component.
+
+<Props of={Input} />
+
+### Basic
+<Preview>
+    <Story name="basic" >
+        {() => {
+            const [value, setValue] = useState(null);
+            return (
+                <Form>
+                    <FormItem>
+                        <Input value={value} onChange={setValue} placeholder="Basic input" />
+                    </FormItem>
+                </Form>
+            )
+        }}
+    </Story>
+</Preview>
+
+
+### Size
+<Preview>
+    <Story name="size" >
+        {() => {
+            const [value, setValue] = useState(null);
+            return (
+                <Form>
+                    <FormItem>
+                        <Input size="small" value={value} onChange={setValue} placeholder="Small input" />
+                    </FormItem>
+                    <FormItem>
+                        <Input value={value} onChange={setValue} placeholder="Regular input" />
+                    </FormItem>
+                    <FormItem>
+                        <Input size="big" value={value} onChange={setValue} placeholder="Big input" />
+                    </FormItem>
+                </Form>
+            )
+        }}
+    </Story>
+</Preview>
+
+
+### Icon
+<Preview>
+    <Story name="icon" >
+        {() => {
+            const [value, setValue] = useState(null);
+            return (
+                <Form>
+                    <FormItem>
+                        <Input size="small" icon="link" value={value} onChange={setValue} placeholder="Big input with icon" />
+                    </FormItem>
+                    <FormItem>
+                        <Input icon="link" value={value} onChange={setValue} placeholder="Big input with icon" />
+                    </FormItem>
+                    <FormItem>
+                        <Input size="big" icon="link" value={value} onChange={setValue} placeholder="Big input with icon" />
+                    </FormItem>
+                </Form>
+            )
+        }}
+    </Story>
+</Preview>
+
+
+### Prepend
+<Preview>
+    <Story name="prepend" >
+        {() => {
+            const [value, setValue] = useState(null);
+            return (
+                <Form>
+                    <FormItem>
+                        <Input
+                            value={value}
+                            onChange={setValue}
+                            placeholder="Input with prepend"
+                            prepend={<Text color="base60">http://</Text>}
+                        />
+                    </FormItem>
+                </Form>
+            )
+        }}
+    </Story>
+</Preview>
+
+
+### Append
+<Preview>
+    <Story name="append" >
+        {() => {
+            const [value, setValue] = useState(null);
+            return (
+                <Form>
+                    <FormItem>
+                        <Input
+                            value={value}
+                            onChange={setValue}
+                            placeholder="Input with append"
+                            append={<Text color="base60">.com</Text>}
+                        />
+                    </FormItem>
+                </Form>
+            )
+        }}
+    </Story>
+</Preview>
+
+
+### Disabled
+<Preview>
+    <Story name="disabled" >
+        {() => {
+            const [value, setValue] = useState(null);
+            return (
+                <Form>
+                    <FormItem>
+                        <Input value={value} onChange={setValue} placeholder="Disabled input" disabled />
+                    </FormItem>
+                </Form>
+            )
+        }}
+    </Story>
+</Preview>
+

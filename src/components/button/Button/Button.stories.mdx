@@ -1,0 +1,272 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Button } from './Button';
+import { Row } from "../../grid/Row"
+import { Col } from "../../grid/Col"
+
+<Meta title="Components/Buttons/Button" component={Button} />
+
+# Button
+
+Buttons are core components in every user interface.
+Use a careful combination of colored buttons where needed.
+
+<ArgsTable of={Button} />
+
+### Basic
+<Canvas>
+    <Story name="basic" >
+        <Button>
+            Basic button
+        </Button>
+    </Story>
+</Canvas>
+
+### Color
+<Canvas>
+    <Story name="color">
+        <Row>
+            <Col span={6}>
+                <Button color="primary">
+                    Primary button
+                </Button>
+            </Col>
+            <Col span={6}>
+                <Button color="secondary">
+                    Secondary button
+                </Button>
+            </Col>
+            <Col span={6}>
+                <Button color="success">
+                    Success button
+                </Button>
+            </Col>
+            <Col span={6}>
+                <Button color="warning">
+                    Warning button
+                </Button>
+            </Col>
+            <Col span={6}>
+                <Button color="error">
+                    Error button
+                </Button>
+            </Col>
+            <Col span={6}>
+                <Button color="info">
+                    Info button
+                </Button>
+            </Col>
+        </Row>
+    </Story>
+</Canvas>
+
+### Size
+<Canvas>
+    <Story name="size">
+        <Row>
+            <Col span={8}>
+                <Button size="small">
+                    Small button
+                </Button>
+            </Col>
+            <Col span={8}>
+                <Button>
+                    Regular button
+                </Button>
+            </Col>
+            <Col span={8}>
+                <Button size="big">
+                    Big button
+                </Button>
+            </Col>
+        </Row>
+    </Story>
+</Canvas>
+
+### Icon
+<Canvas>
+    <Story name="icon">
+        <Row>
+            <Col span={8}>
+                <Button icon="devices" size="small">
+                    Small icon button
+                </Button>
+            </Col>
+            <Col circle span={8}>
+                <Button icon="devices">
+                    Regular icon button
+                </Button>
+            </Col>
+            <Col circle span={8}>
+                <Button icon="devices" size="big">
+                    Big icon button
+                </Button>
+            </Col>
+            <Col span={8}>
+                <Button icon="devices" color="primary" size="small">
+                    Small icon button
+                </Button>
+            </Col>
+            <Col circle span={8}>
+                <Button icon="devices" color="primary">
+                    Regular icon button
+                </Button>
+            </Col>
+            <Col circle span={8}>
+                <Button icon="devices" color="primary" size="big">
+                    Big icon button
+                </Button>
+            </Col>
+        </Row>
+    </Story>
+</Canvas>
+
+### Icon color
+<Canvas>
+    <Story name="icon color">
+        <Row>
+            <Col span={8}>
+                <Button icon="devices">
+                    Icon color default
+                </Button>
+            </Col>
+            <Col span={8}>
+                <Button icon="devices" iconColor="primary">
+                    Icon color primary
+                </Button>
+            </Col>
+            <Col circle span={8}>
+                <Button icon="devices" iconColor="secondary">
+                    Icon color secondary
+                </Button>
+            </Col>
+            <Col circle span={8}>
+                <Button icon="devices" iconColor="info">
+                    Icon color info
+                </Button>
+            </Col>
+            <Col circle span={8}>
+                <Button icon="devices" iconColor="success">
+                    Icon color success
+                </Button>
+            </Col>
+            <Col circle span={8}>
+                <Button icon="devices" iconColor="warning">
+                    Icon color warning
+                </Button>
+            </Col>
+            <Col circle span={8}>
+                <Button icon="devices" iconColor="error">
+                    Icon color error
+                </Button>
+            </Col>
+        </Row>
+    </Story>
+</Canvas>
+
+### Icon right
+<Canvas>
+    <Story name="icon right">
+        <Row>
+            <Col span={8}>
+                <Button icon="arrow-right" iconRight color="error" size="small">
+                    Icon positioned right
+                </Button>
+            </Col>
+            <Col circle span={8}>
+                <Button icon="arrow-right" iconRight color="error">
+                    Icon positioned right
+                </Button>
+            </Col>
+            <Col circle span={8}>
+                <Button icon="arrow-right" iconRight color="error" size="big">
+                    Icon positioned right
+                </Button>
+            </Col>
+        </Row>
+    </Story>
+</Canvas>
+
+### Label color
+<Canvas>
+    <Story name="label color">
+        <Row>
+            <Col span={8}>
+                <Button labelColor="success">
+                    Label color success
+                </Button>
+            </Col>
+            <Col span={8}>
+                <Button labelColor="warning">
+                    Label color warning
+                </Button>
+            </Col>
+            <Col span={8}>
+                <Button labelColor="error">
+                    Label color error
+                </Button>
+            </Col>
+        </Row>
+    </Story>
+</Canvas>
+
+### Active
+<Canvas>
+    <Story name="active">
+        <Button active>
+            Active button
+        </Button>
+    </Story>
+</Canvas>
+
+### Disabled
+<Canvas>
+    <Story name="disabled">
+        <Button disabled>
+            Disabled button
+        </Button>
+    </Story>
+</Canvas>
+
+### Busy
+<Canvas>
+    <Story name="busy">
+        <Button busy>
+            Active button
+        </Button>
+    </Story>
+</Canvas>
+
+### Circle
+<Canvas>
+    <Story name="circle">
+        <Row>
+            <Col span={8}>
+                <Button circle icon="gear" size="small" />
+            </Col>
+            <Col circle span={8}>
+                <Button circle icon="gear" />
+            </Col>
+            <Col circle span={8}>
+                <Button circle icon="gear" size="big" />
+            </Col>
+        </Row>
+    </Story>
+</Canvas>
+
+### Square
+<Canvas>
+    <Story name="square">
+        <Row>
+            <Col span={8}>
+                <Button square icon="gear" size="small" />
+            </Col>
+            <Col circle span={8}>
+                <Button square icon="gear" />
+            </Col>
+            <Col circle span={8}>
+                <Button square icon="gear" size="big" />
+            </Col>
+        </Row>
+    </Story>
+</Canvas>
+

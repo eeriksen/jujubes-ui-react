@@ -1,0 +1,41 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { OnOffSwitch } from './OnOffSwitch';
+
+<Meta title="Components/Forms/OnOffSwitch" component={OnOffSwitch} />
+
+# OnOffSwitch
+
+The `<OnOffSwitch />` should be used when you have an option flag that does something important and
+perhaps is not part of a regular form, where you probably would use a `<Checkbox />` instead.
+
+<Props of={OnOffSwitch} />
+
+### Basic
+<Preview>
+    <Story name="basic" >
+        {() => {
+            const [active, setActive] = useState(true);
+            return (
+                <OnOffSwitch value={active} onChange={setActive}>
+                    Turn me on or off
+                </OnOffSwitch>
+            )
+        }}
+    </Story>
+</Preview>
+
+
+### Disabled
+<Preview>
+    <Story name="disabled" >
+        {() => {
+            const [active, setActive] = useState(true);
+            return (
+                <OnOffSwitch disabled value={active} onChange={setActive}>
+                    Turn me on or off
+                </OnOffSwitch>
+            )
+        }}
+    </Story>
+</Preview>

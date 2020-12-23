@@ -7,7 +7,6 @@
 $color--prompt-frame: rgba($color--error, 1);
 
 .base {
-    max-width: 500px;
 
     .button {
         border: 1px solid rgba($color--error, 0.5);
@@ -19,11 +18,11 @@ $color--prompt-frame: rgba($color--error, 1);
         background-size: 5px 1px, 5px 1px, 1px 5px, 1px 5px;
         background-position: left top, right bottom, left bottom, right   top;
         animation: border-dance .5s infinite linear;
-        padding: $spacing--normal;
+        padding: $spacing--medium;
         border-radius: $borderRadius--regular;
 
         .question {
-            padding: $spacing--small $spacing--normal $spacing--normal;
+            padding: $spacing--small $spacing--medium $spacing--medium;
             text-align: center;
             font-weight: $fontWeight--medium;
             color: $color--error;

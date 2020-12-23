@@ -5,12 +5,12 @@
    =================================================================== */
 
 $height--bar: 16px;
-$color--bar-animation: rgba(0, 0, 0, 0.05);
+$color--bar-animation: rgba(0, 0, 0, 0.1);
 
 
 .base {
     display: block;
-    margin: $spacing--normal 0;
+    margin: $spacing--medium 0;
 
     .bar {
 
@@ -20,13 +20,13 @@ $color--bar-animation: rgba(0, 0, 0, 0.05);
             .label {
                 display: inline-block;
                 margin-right: $spacing--medium;
-                color: rgba($color--base, 0.6);
             }
 
             .percent {
                 vertical-align: top;
                 float: right;
                 font-weight: $fontWeight--medium;
+                color: rgba($color--base, 0.6);
             }
         }
 
@@ -55,6 +55,18 @@ $color--bar-animation: rgba(0, 0, 0, 0.05);
                     mix-blend-mode: overlay;
                 }
             }
+        }
+    }
+
+    &.colorSuccess {
+        .bar .trail .indicator {
+            background: $color--success;
+        }
+    }
+
+    &.colorError {
+        .bar .trail .indicator {
+            background: $color--error;
         }
     }
 

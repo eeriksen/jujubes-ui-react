@@ -1,0 +1,35 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Card } from '../Card'
+import { CardContent } from "../CardContent"
+import { CardTitle } from "../CardTitle"
+import { CardUserHead } from "./CardUserHead"
+import { Badge } from "../../notify/Badge"
+import { user } from "../../../../.storybook/constants"
+
+<Meta title="Components/Cards/CardUserHead" component={CardUserHead} />
+
+# CardUserHead
+
+A `<CardUserHead />` is used to display a user profile with name, emal and picture.
+
+<Props of={CardUserHead} />
+
+### Basic
+<Preview>
+    <Story name="basic">
+        <Card>
+            <CardUserHead
+                picture={user.pictureUrl}
+                name={user.name}
+                email={user.email}
+            />
+            <CardContent>
+                Lorem ipsum dolor sit amet, mel aliquip consetetur ea, postulant salutandi et ius.
+                Quas semper dissentiunt ad mel, in putent minimum ius, ne doctus audiam menandri mel.
+                In amet utroque facilisi quo, mei ad mutat graeci evertitur, natum fastidii no mel.
+                Etiam praesent moderatius an vis, vim velit tollit cu.
+            </CardContent>
+        </Card>
+    </Story>
+</Preview>

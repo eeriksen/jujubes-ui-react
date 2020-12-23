@@ -1,0 +1,46 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Callout } from "./Callout";
+
+<Meta title="Components/Notify/Callout" component={Callout} />
+
+# Callout
+
+Write something here.
+
+<Props of={Callout} />
+
+### Basic
+
+<Preview>
+    <Story name="basic">
+        <Callout>Write a message here</Callout>
+    </Story>
+</Preview>
+
+### Color
+
+<Preview>
+    <Story name="color">
+        <React.Fragment>
+            <Callout title="Default">
+                This is a default callout where you can write something.
+            </Callout><br />
+            <Callout title="Info!" color="info">
+                This is an info callout where you can write something.
+            </Callout><br />
+            <Callout title="Success!" color="success">
+                This is a success callout where you can write something.
+            </Callout><br />
+            <Callout title="Warning!" color="warning">
+                This is a warning callout where you can write something.
+            </Callout><br />
+            <Callout title="Error!" color="error">
+                This is an error callout where you can write something.
+            </Callout>
+        </React.Fragment>
+    </Story>
+</Preview>
+
+
+

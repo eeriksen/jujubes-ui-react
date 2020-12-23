@@ -1,0 +1,146 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Badge } from "./Badge";
+import { Paragraph } from "../../typography/Paragraph";
+
+<Meta title="Components/Notify/Badge" component={Badge} />
+
+# Badge
+
+<Props of={Badge} />
+
+### Basic
+
+<Preview>
+    <Story name="basic">
+        <Badge>I'M A BADGE</Badge>
+    </Story>
+</Preview>
+
+### Color
+
+<Preview>
+    <Story name="color">
+        <React.Fragment>
+            <Paragraph>
+                <Badge>Default badge</Badge>
+            </Paragraph>
+            <Paragraph>
+                <Badge color="silent">Silent badge</Badge>
+            </Paragraph>
+            <Paragraph>
+                <Badge color="primary">Primary badge</Badge>
+            </Paragraph>
+            <Paragraph>
+                <Badge color="info">Info badge</Badge>
+            </Paragraph>
+            <Paragraph>
+                <Badge color="success">Success badge</Badge>
+            </Paragraph>
+            <Paragraph>
+                <Badge color="warning">Warning badge</Badge>
+            </Paragraph>
+            <Paragraph spacing="none">
+                <Badge color="error">Error badge</Badge>
+            </Paragraph>
+        </React.Fragment>
+    </Story>
+</Preview>
+
+### Fill
+
+<Preview>
+    <Story name="fill">
+        <React.Fragment>
+            <Paragraph>
+                <Badge fill>Default badge</Badge>
+            </Paragraph>
+            <Paragraph>
+                <Badge fill color="silent">
+                    Silent badge
+                </Badge>
+            </Paragraph>
+            <Paragraph>
+                <Badge fill color="primary">
+                    Primary badge
+                </Badge>
+            </Paragraph>
+            <Paragraph>
+                <Badge fill color="info">
+                    Info badge
+                </Badge>
+            </Paragraph>
+            <Paragraph>
+                <Badge fill color="success">
+                    Success badge
+                </Badge>
+            </Paragraph>
+            <Paragraph>
+                <Badge fill color="warning">
+                    Warning badge
+                </Badge>
+            </Paragraph>
+            <Paragraph spacing="none">
+                <Badge fill color="error">
+                    Error badge
+                </Badge>
+            </Paragraph>
+        </React.Fragment>
+    </Story>
+</Preview>
+
+### Size
+
+<Preview>
+    <Story name="size">
+        <React.Fragment>
+            <Paragraph>
+                <Badge size="small">Small badge</Badge>
+            </Paragraph>
+            <Paragraph spacing="none">
+                <Badge fill size="small">
+                    Small badge
+                </Badge>
+            </Paragraph>
+        </React.Fragment>
+    </Story>
+</Preview>
+
+### Number
+
+<Preview>
+    <Story name="number">
+        <React.Fragment>
+            <Paragraph>
+                <Badge fill number>
+                    1
+                </Badge>
+            </Paragraph>
+            <Paragraph>
+                <Badge fill number color="primary">
+                    99
+                </Badge>
+            </Paragraph>
+            <Paragraph>
+                <Badge fill number color="info">
+                    365
+                </Badge>
+            </Paragraph>
+            <Paragraph>
+                <Badge fill number color="success">
+                    7253
+                </Badge>
+            </Paragraph>
+            <Paragraph>
+                <Badge fill number color="warning">
+                    98321
+                </Badge>
+            </Paragraph>
+            <Paragraph>
+                <Badge fill number color="error">
+                    14.58
+                </Badge>
+            </Paragraph>
+        </React.Fragment>
+    </Story>
+</Preview>

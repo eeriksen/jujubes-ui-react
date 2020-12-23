@@ -39,16 +39,18 @@ export const Col = (props) => {
 
     });
 
-    const classes = classNames({
+    const colClasses = classNames({
         [styles[`grid_col_${span}`]]: span !== undefined,
         [styles[`grid_col_order_${order}`]]: order,
         [styles[`grid_col_offset_${offset}`]]: offset,
         [styles[`grid_col_push_${push}`]]: push,
-        [styles[`grid_col_pull_${pull}`]]: pull
+        [styles[`grid_col_pull_${pull}`]]: pull,
+        [styles[`gutter_ver_${gutter[0]}`]]: gutter[0],
+        [styles[`gutter_hor_${gutter[1]}`]]: gutter[1]
     }, className, sizeClassObj);
 
     return (
-        <div  className={classes}>
+        <div className={colClasses}>
             {children ? children : (
                 <Filler>{spanLabel}</Filler>
             )}
@@ -59,16 +61,56 @@ export const Col = (props) => {
 const stringOrNumber = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);
 const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
 
+
 Col.propTypes = {
+
+    /**
+     * Span units of given column.
+     */
     span: stringOrNumber,
+
+    /**
+     * Order of columns if flex
+     */
     order: stringOrNumber,
+
+    /**
+     * Left offset units of given column.
+     */
     offset: stringOrNumber,
+
+    /**
+     * Push the column number of units to the right.
+     */
     push: stringOrNumber,
+
+    /**
+     * Pull the column number of units to the left.
+     */
     pull: stringOrNumber,
+
+    /**
+     * Add custom class name
+     */
     className: PropTypes.string,
-    children: PropTypes.node,
+
+    /**
+     * Define span and offset for extra small screens.
+     */
     xs: objectOrNumber,
+
+    /**
+     * Define span and offset for small screens.
+     */
     sm: objectOrNumber,
+
+    /**
+     * Define span and offset for medium screens.
+     */
     md: objectOrNumber,
-    lg: objectOrNumber,
+
+    /**
+     * Define span and offset for large screens.
+     */
+    lg: objectOrNumber
 };

@@ -4,7 +4,7 @@
    BUTTON
    =================================================================== */
 
-$height--button: $size--element-normal;
+$height--button: $size--element-regular;
 $height--button-big: $size--element-big;
 $height--button-small: $size--element-small;
 
@@ -17,7 +17,7 @@ $height--button-small: $size--element-small;
     height: $height--button;
     line-height: $height--button - 2px;
     font-family: $fontFamily--primary;
-    font-size: $fontSize--normal;
+    font-size: $fontSize--regular;
     font-weight: $fontWeight--medium;
     border: 1px solid rgba($color--base, 0.20);
     color: $color--base;
@@ -83,7 +83,7 @@ $height--button-small: $size--element-small;
         vertical-align: -3px;
         margin-right: 8px;
         margin-left: -7px;
-        @include m-iconColor($color--primary);
+        @include m-iconColor($color--base);
     }
 
     // Icon on the right side of label
@@ -108,11 +108,17 @@ $height--button-small: $size--element-small;
         }
     }
 
-
     // Success colored icon
     &.iconSuccess {
         .icon {
             @include m-iconColor($color--success);
+        }
+    }
+
+    // Warning colored icon
+    &.iconWarning {
+        .icon {
+            @include m-iconColor($color--warning);
         }
     }
 
@@ -137,15 +143,26 @@ $height--button-small: $size--element-small;
    =================================================================== */
 
 .base {
+    &.labelSuccess {
+        color: $color--success;
+        &:hover {
+            color: $color--success;
+        }
+    }
+
+    &.labelWarning {
+        color: $color--warning;
+        &:hover {
+            color: $color--warning;
+        }
+    }
 
     &.labelError {
         color: $color--error;
-
         &:hover {
             color: $color--error;
         }
     }
-
 }
 
 
@@ -170,25 +187,6 @@ $height--button-small: $size--element-small;
 
     &:active, &.active {
         background-color: darken($color--primary, 5%);
-    }
-}
-
-.colorSecondary {
-    color: $color--secondary-contrast;
-    border: none;
-    background: $color--secondary;
-
-    .icon {
-        @include m-iconColor($color--secondary-contrast);
-    }
-
-    &:hover {
-        background-color: $color--secondary;
-        color: $color--secondary-contrast;
-    }
-
-    &:active, &.active {
-        background-color: darken($color--secondary, 5%);
     }
 }
 

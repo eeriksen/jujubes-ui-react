@@ -1,0 +1,106 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Popup } from "./Popup";
+import { PopupTitle } from "./PopupTitle";
+import { PopupContent } from "./PopupContent";
+import { PopupFooter } from "./PopupFooter";
+import { PopupTabs } from "./PopupTabs";
+import { ComponentWrapper } from "../../layout/ComponentWrapper";
+import { Button } from "../../button/Button";
+import { Tabs, TabPane } from "../../navigation/Tabs";
+import { Row } from "../../grid/Row";
+import { Col } from "../../grid/Col";
+
+<Meta title="Components/Notify/Popup" component={Popup} />
+
+# Popup
+
+Use the `<Popup/>` component to overlay content to the user without leaving context.
+<ArgsTable of={Popup} />
+
+# PopupTitle
+
+The `<PopupTitle/>` component displays a title and description in the popup.
+<ArgsTable of={PopupTitle} />
+
+# PopupContent
+
+Wrap all regular content of the popup inside the `<PopupContent/>` component.
+<ArgsTable of={PopupContent} />
+
+# PopupFooter
+
+The `<PopupFooter />` is where you place any navigation and form buttons. Layout multiple elements with `<Row/>` and `<Col/>`.
+<ArgsTable of={PopupFooter} />
+
+# PopupTabs
+
+If you want to use tabs inside a popup, wrap the `<Tabs/>` component inside the `<PopupTabs/>` component.
+<ArgsTable of={PopupTabs} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        <ComponentWrapper>
+            <Popup onClose={() => console.log("CLOSE")}>
+                <PopupTitle description="Write your description here">Basic popup</PopupTitle>
+                <PopupContent>
+                    Filet mignon rump strip steak short loin burgdoggen venison beef jowl pork loin
+                    shoulder pork pig biltong ham hock. Sirloin short ribs pork loin corned beef
+                    meatloaf pig, ham cupim. Turkey beef pastrami filet mignon, pork loin venison
+                    beef ribs ribeye short loin. Landjaeger sirloin chicken doner short ribs. Bacon
+                    ipsum dolor amet bresaola pork hamburger cupim meatball beef ribs.
+                </PopupContent>
+                <PopupFooter>
+                    <Button color="primary" type="submit">
+                        Ok, got it!
+                    </Button>
+                </PopupFooter>
+            </Popup>
+        </ComponentWrapper>
+    </Story>
+</Canvas>
+
+### With tabs
+
+<Canvas>
+    <Story name="with tabs">
+        {() => {
+            const [activeKey, setActiveKey] = useState(1);
+            return (
+                <ComponentWrapper>
+                    <Popup onClose={() => console.log("CLOSE")}>
+                        <PopupTitle>Tabbed content</PopupTitle>
+                        <PopupTabs>
+                            <Tabs activeKey={activeKey} onChange={setActiveKey}>
+                                <TabPane tabKey={1} label="First tab">
+                                    <PopupContent>First tab pane content</PopupContent>
+                                </TabPane>
+                                <TabPane tabKey={2} label="Second tab">
+                                    <PopupContent>Second tab pane content</PopupContent>
+                                </TabPane>
+                                <TabPane tabKey={3} label="Third tab">
+                                    <PopupContent>Third tab pane content</PopupContent>
+                                </TabPane>
+                                <TabPane tabKey={4} label="Fourth tab">
+                                    <PopupContent>Fourth tab pane content</PopupContent>
+                                </TabPane>
+                            </Tabs>
+                        </PopupTabs>
+                        <PopupFooter>
+                            <Row gutter={["small", "small"]}>
+                                <Col span={12}>
+                                    <Button color="success">Save changes</Button>
+                                </Col>
+                                <Col span={12}>
+                                    <Button>Cancel</Button>
+                                </Col>
+                            </Row>
+                        </PopupFooter>
+                    </Popup>
+                </ComponentWrapper>
+            );
+        }}
+    </Story>
+</Canvas>

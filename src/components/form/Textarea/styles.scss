@@ -8,10 +8,10 @@
     display: inline-block;
     width: 100%;
     outline: none;
-    padding: 10px 10px 0;
+    padding: 10px;
     border: $input--border;
     font-family: $fontFamily--primary;
-    font-size: $fontSize--normal;
+    font-size: $fontSize--regular;
     color: rgba($color--base, 0.8);
     transition: border-color 0.3s ease;
     appearance: none;

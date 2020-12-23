@@ -1,0 +1,102 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { PopOver } from "./PopOver";
+import { Button } from "../../button/Button";
+import { Menu, MenuItem } from "../Menu";
+import { Row } from "../../grid/Row";
+import { Col } from "../../grid/Col";
+
+export const PopOverContent = () => {
+    const [active, setActive] = useState(null);
+    return (
+        <Menu>
+            <MenuItem selected={active === 1} onClick={() => setActive(1)} label="First item" />
+            <MenuItem selected={active === 2} onClick={() => setActive(2)} label="Second item" />
+            <MenuItem selected={active === 3} onClick={() => setActive(3)} label="Third item" />
+            <MenuItem selected={active === 4} onClick={() => setActive(4)} label="Fourth item" />
+            <MenuItem selected={active === 5} onClick={() => setActive(5)} label="Fifth item" />
+        </Menu>
+    );
+};
+
+<Meta title="Components/Navigation/PopOver" component={PopOver} />
+
+# PopOver
+
+Write something here.
+
+<Props of={PopOver} />
+
+### Basic
+
+<Preview>
+    <Story name="basic">
+        {() => {
+            const [visible, setVisible] = useState(null);
+            return (
+                <Row>
+                    <Col span={8}>
+                        <PopOver
+                            visible={visible === 1}
+                            content={<PopOverContent />}
+                            onClose={() => setVisible(null)}
+                        >
+                            <Button
+                                icon="list"
+                                iconColor="primary"
+                                onClick={() => setVisible(visible === 1 ? null : 1)}
+                            >
+                                Left
+                            </Button>
+                        </PopOver>
+                    </Col>
+                    <Col span={8}>
+                        <PopOver
+                            visible={visible === 2}
+                            content={<PopOverContent />}
+                            onClose={() => setVisible(null)}
+                        >
+                            <Button
+                                icon="list"
+                                iconColor="primary"
+                                onClick={() => setVisible(visible === 2 ? null : 2)}
+                            >
+                                Middle
+                            </Button>
+                        </PopOver>
+                    </Col>
+                    <Col span={8}>
+                        <PopOver
+                            visible={visible === 3}
+                            content={<PopOverContent />}
+                            onClose={() => setVisible(null)}
+                        >
+                            <Button
+                                icon="list"
+                                iconColor="primary"
+                                onClick={() => setVisible(visible === 3 ? null : 3)}
+                            >
+                                Right
+                            </Button>
+                        </PopOver>
+                    </Col>
+                    <Col span={24}>
+                        <PopOver
+                            visible={visible === 4}
+                            content={<PopOverContent />}
+                            onClose={() => setVisible(null)}
+                        >
+                            <Button
+                                icon="list"
+                                iconColor="primary"
+                                onClick={() => setVisible(visible === 4 ? null : 4)}
+                            >
+                                Full
+                            </Button>
+                        </PopOver>
+                    </Col>
+                </Row>
+            );
+        }}
+    </Story>
+</Preview>

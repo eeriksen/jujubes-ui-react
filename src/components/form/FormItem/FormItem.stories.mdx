@@ -1,0 +1,75 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Form } from "../Form";
+import { FormItem } from './FormItem';
+import { Input } from "../Input";
+
+<Meta title="Components/Forms/FormItem" component={FormItem} />
+
+# FormItem
+The `<FormItem />` represents one input element in a form.
+A form component should __always__ be wrapped in a `<FormItem />` component.
+
+<Props of={FormItem} />
+
+### Basic
+<Preview>
+    <Story name="basic" >
+        {() => {
+            const [value, setValue] = useState(null);
+            return (
+                <Form>
+                    <FormItem label="Your name">
+                        <Input
+                            value={value}
+                            onChange={setValue}
+                            placeholder="Write here..."
+                        />
+                    </FormItem>
+                </Form>
+            )
+        }}
+    </Story>
+</Preview>
+
+
+### Info
+<Preview>
+    <Story name="info" >
+        {() => {
+            const [value, setValue] = useState(null);
+            return (
+                <Form>
+                    <FormItem label="Your name" info="Some error message here">
+                        <Input
+                            value={value}
+                            onChange={setValue}
+                            placeholder="Write here..."
+                        />
+                    </FormItem>
+                </Form>
+            )
+        }}
+    </Story>
+</Preview>
+
+
+### Error
+<Preview>
+    <Story name="error" >
+        {() => {
+            const [value, setValue] = useState(null);
+            return (
+                <Form>
+                    <FormItem label="Your name" error info="Some error message here">
+                        <Input
+                            value={value}
+                            onChange={setValue}
+                            placeholder="Write here..."
+                        />
+                    </FormItem>
+                </Form>
+            )
+        }}
+    </Story>
+</Preview>

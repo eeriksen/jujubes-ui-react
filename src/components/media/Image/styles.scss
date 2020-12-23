@@ -8,7 +8,6 @@
     position: relative;
     display: block;
     overflow: hidden;
-    vertical-align: top;
 
     // Wrapper
     .wrapper {
@@ -25,9 +24,7 @@
                 min-width: 100%;
             }
         }
-
     }
-
 
     /* CLICKABLE
     --------------------------------------------- */
@@ -45,20 +42,24 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border-radius: $borderRadius--regular;
 
             .image {
                 width: 100%;
                 height: 100%;
-                background-size: cover;
-                background-position: 50% 50%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: 50% 50%;
+                }
             }
         }
     }
 
     &.thumbSmall {
-        width: $size--element-normal;
-        height: $size--element-normal;
+        width: $size--element-regular;
+        height: $size--element-regular;
     }
 
     &.thumbRegular {
@@ -75,7 +76,6 @@
         width: 200px;
         height: 200px;
     }
-
 
     /* SCALE
     --------------------------------------------- */
@@ -95,8 +95,13 @@
             .image {
                 width: 100%;
                 height: 100%;
-                background-size: cover;
-                background-position: 50% 50%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: 50% 50%;
+                }
             }
         }
     }
@@ -118,8 +123,13 @@
             .image {
                 width: 100%;
                 height: 100%;
-                background-size: cover;
-                background-position: 50% 50%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: 50% 50%;
+                }
             }
         }
     }
@@ -141,12 +151,16 @@
             .image {
                 width: 100%;
                 height: 100%;
-                background-size: cover;
-                background-position: 50% 50%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: 50% 50%;
+                }
             }
         }
     }
-
 
     /* MODS
     --------------------------------------------- */
@@ -178,14 +192,13 @@
         }
     }
 
-
     /* PLACEHOLDER
     --------------------------------------------- */
     .placeholder {
         position: absolute;
         width: 100%;
         height: 100%;
-        background-color: lighten($color--base, 76%);
+        background-color: rgba($color--base, 0.05);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -193,41 +206,29 @@
         @include m-iconSize(100%);
 
         &.default {
-            @include m-iconColor(rgba($color--base, 0.10));
+            @include m-iconColor(rgba($color--base, 0.8));
         }
     }
-
 
     /* BUSY INDICATOR
     --------------------------------------------- */
 
-    &.isBusy {
-        .wrapper {
-            .image {
-                opacity: 0;
-            }
-        }
-    }
-
-    .busy {
+    .progress {
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        width: 100%;
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: lighten($color--base, 76%);
+        background-color: rgba($color--base, 0.05);
         z-index: 3;
+        padding: $spacing--regular;
 
-        .spinner {
-            position: relative;
-            width: 50%;
+        .progressBox {
             max-width: 100px;
+            width: 80%;
         }
     }
-
 
     /* ACTIONS
     --------------------------------------------- */
@@ -238,11 +239,10 @@
         right: 0;
         padding: $spacing--small;
         transform: translateY(100%);
-        background-color: rgba($color--contrast, 0.2);
-        transition: transform .3s ease-in-out;
+        background-color: rgba($color--contrast, 0.3);
+        transition: transform 0.3s ease-in-out;
         z-index: 2;
     }
-
 
     /* STATE: Hover
     --------------------------------------------- */
@@ -252,4 +252,3 @@
         }
     }
 }
-

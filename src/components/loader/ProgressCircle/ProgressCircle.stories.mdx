@@ -1,0 +1,65 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { ProgressCircle } from "./ProgressCircle";
+import { Row } from "../../grid/Row";
+import { Col } from "../../grid/Col";
+
+<Meta title="Components/Loaders/ProgressCircle" component={ProgressCircle} />
+
+# ProgressCircle
+
+Circular progress indicator.
+
+<Props of={ProgressCircle} />
+
+### Basic
+
+<Preview>
+    <Story name="basic">
+        <Row>
+            <Col span={6}>
+                <ProgressCircle percent={8}>Primary</ProgressCircle>
+            </Col>
+        </Row>
+    </Story>
+</Preview>
+
+### Color
+
+<Preview>
+    <Story name="color">
+        <Row>
+            <Col span={8}>
+                <ProgressCircle color="success" percent={74}>
+                    Success
+                </ProgressCircle>
+            </Col>
+            <Col span={8}>
+                <ProgressCircle color="warning" percent={43}>
+                    Warning
+                </ProgressCircle>
+            </Col>
+            <Col span={8}>
+                <ProgressCircle color="error" percent={21}>
+                    Error
+                </ProgressCircle>
+            </Col>
+        </Row>
+    </Story>
+</Preview>
+
+### Value
+
+<Preview>
+    <Story name="value">
+        <Row>
+            <Col span={8}>
+                <ProgressCircle percent={74} value="1200" annotation>
+                    RPM
+                </ProgressCircle>
+            </Col>
+        </Row>
+    </Story>
+</Preview>
+
+

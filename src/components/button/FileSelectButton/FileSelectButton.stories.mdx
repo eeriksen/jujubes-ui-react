@@ -1,0 +1,21 @@
+import { useState } from "react";
+import StoryRouter from "storybook-react-router";
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { FileSelectButton } from './FileSelectButton';
+
+<Meta title="Components/Buttons/FileSelectButton" component={FileSelectButton} />
+
+# FileSelectButton
+
+Use the `<FileSelectButton />` when you want the user to select one or more files to upload.
+
+<Props of={FileSelectButton} />
+
+### Basic
+<Preview>
+    <Story name="basic" >
+        <FileSelectButton icon="upload" iconColor="primary" onSelect={(file) => console.log(file)}>
+            Upload something
+        </FileSelectButton>
+    </Story>
+</Preview>

@@ -1,0 +1,69 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Card } from '../Card'
+import { CardContent } from "../CardContent"
+import { CardTitle } from "./CardTitle"
+import { CardUserHead } from "../CardUserHead"
+import { Badge } from "../../notify/Badge"
+
+<Meta title="Components/Cards/CardTitle" component={CardTitle} />
+
+
+# CardTitle
+
+Add a title to the card.
+
+<Props of={CardTitle} />
+
+### Basic
+<Preview>
+    <Story name="basic" >
+        <Card>
+            <CardTitle title={"This is the card title"} />
+            <CardContent>
+                Lorem ipsum dolor sit amet, mel aliquip consetetur ea, postulant salutandi et ius.
+                Quas semper dissentiunt ad mel, in putent minimum ius, ne doctus audiam menandri mel.
+                In amet utroque facilisi quo, mei ad mutat graeci evertitur, natum fastidii no mel.
+                Etiam praesent moderatius an vis, vim velit tollit cu.
+            </CardContent>
+        </Card>
+    </Story>
+</Preview>
+
+
+### With addon
+<Preview>
+    <Story name="with addon" >
+        <Card>
+            <CardTitle title={"This is the card title"}>
+                <Badge color="primary" fill>New feature</Badge>
+            </CardTitle>
+            <CardContent>
+                Lorem ipsum dolor sit amet, mel aliquip consetetur ea, postulant salutandi et ius.
+                Quas semper dissentiunt ad mel, in putent minimum ius, ne doctus audiam menandri mel.
+                In amet utroque facilisi quo, mei ad mutat graeci evertitur, natum fastidii no mel.
+                Etiam praesent moderatius an vis, vim velit tollit cu.
+            </CardContent>
+        </Card>
+    </Story>
+</Preview>
+
+
+### With actions
+<Preview>
+    <Story name="with actions" >
+        <Card>
+            <CardTitle title={"This is the card title"} actions={[{
+                icon: "gear",
+                onClick: () => console.log("CLICK")
+            }]} />
+            <CardContent>
+                Lorem ipsum dolor sit amet, mel aliquip consetetur ea, postulant salutandi et ius.
+                Quas semper dissentiunt ad mel, in putent minimum ius, ne doctus audiam menandri mel.
+                In amet utroque facilisi quo, mei ad mutat graeci evertitur, natum fastidii no mel.
+                Etiam praesent moderatius an vis, vim velit tollit cu.
+            </CardContent>
+        </Card>
+    </Story>
+</Preview>
+

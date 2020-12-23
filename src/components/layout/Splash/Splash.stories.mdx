@@ -1,0 +1,70 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Splash, SplashTitle, SplashContent, SplashActions } from ".";
+import { Form } from "../../form/Form";
+import { FormItem } from "../../form/FormItem";
+import { Input } from "../../form/Input";
+import { Button } from "../../button/Button";
+import { Logo } from "../../graphic/Logo";
+import { ComponentWrapper } from "../../layout/ComponentWrapper";
+
+<Meta title="Components/Layout/Splash" component={Splash} />
+
+# Splash
+
+The `<Splash />` is used for login forms and other messages/forms that should take
+all the focus of the user. It's typically used for on-boarding pages where the user has
+a limited set of choices.
+
+<Props of={Splash} />
+
+### Basic
+
+<Preview>
+    <Story name="basic">
+        {() => {
+            const [username, setUsername] = useState(null);
+            const [password, setPassword] = useState(null);
+            return (
+                <ComponentWrapper>
+                    <Splash
+                        logo={<Logo width={180} />}
+                        footer={`Kembo UI © ${new Date().getFullYear()}`}
+                    >
+                        <SplashTitle description="Sign in with your company email and password.">
+                            Sign in
+                        </SplashTitle>
+                        <SplashContent>
+                            <Form>
+                                <FormItem>
+                                    <Input
+                                        value={username}
+                                        onChange={setUsername}
+                                        big
+                                        icon="user"
+                                        placeholder="Your email"
+                                    />
+                                </FormItem>
+                                <FormItem>
+                                    <Input
+                                        value={password}
+                                        onChange={setPassword}
+                                        big
+                                        icon="lock"
+                                        type="password"
+                                        placeholder="Your password"
+                                    />
+                                </FormItem>
+                                <FormItem>
+                                    <Button type="submit" color="primary" size="big" block>
+                                        Sign in
+                                    </Button>
+                                </FormItem>
+                            </Form>
+                        </SplashContent>
+                    </Splash>
+                </ComponentWrapper>
+            );
+        }}
+    </Story>
+</Preview>

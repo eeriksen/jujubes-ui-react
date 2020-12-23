@@ -17,9 +17,7 @@ $grid-columns: 24;
         #{$list} {
             position: relative;
             min-height: 1px;
-            padding-left: ($grid--gutter-regular / 2);
-            padding-right: ($grid--gutter-regular / 2);
-            margin-top: $grid--gutter-regular;
+            width: 100%;
         }
     }
 }
@@ -37,26 +35,25 @@ $grid-columns: 24;
 // MAKE FLOAT GRID COLUMNS
 // ----------------------------------------------------------
 
-@mixin floatColList($index, $list, $class) {
-    @if ($index <= $grid-columns) {
-        $item: ".grid_col#{$class}_#{$index}";
-        @include floatColList(($index + 1), "#{$list}, #{$item}", $class);
-    } @else if ($index > $grid-columns) {
-        #{$list} {
-            float: left;
-            flex: 0 0 auto;
-        }
-    }
-}
+//@mixin floatColList($index, $list, $class) {
+//    @if ($index <= $grid-columns) {
+//        $item: ".grid_col#{$class}_#{$index}";
+//        @include floatColList(($index + 1), "#{$list}, #{$item}", $class);
+//    } @else if ($index > $grid-columns) {
+//        #{$list} {
+//            flex: 0 0 auto;
+//        }
+//    }
+//}
 
-@mixin floatCol($index, $class) {
-    $item: ".grid_col#{$class}_#{$index}";
-    @include floatColList(($index + 1), $item, $class);
-}
-
-@mixin float-grid-columns($class) {
-    @include floatCol(1, $class);
-}
+//@mixin floatCol($index, $class) {
+//    $item: ".grid_col#{$class}_#{$index}";
+//    @include floatColList(($index + 1), $item, $class);
+//}
+//
+//@mixin float-grid-columns($class) {
+//    @include floatCol(1, $class);
+//}
 
 // MAKE LOOP GRID COLUMNS
 // ----------------------------------------------------------
@@ -118,9 +115,41 @@ $grid-columns: 24;
 }
 
 @mixin make-grid($class: '') {
-    @include float-grid-columns($class);
+    //@include float-grid-columns($class);
     @include loop-grid-columns($grid-columns, $class);
 }
+
+
+// GRID GUTTER
+// ----------------------------------------------------------
+
+.gutter_ver_small {
+    padding-left: ($grid--gutter-small / 2);
+    padding-right: ($grid--gutter-small / 2);
+}
+
+.gutter_hor_small {
+    margin-top: $grid--gutter-small;
+}
+
+.gutter_ver_regular {
+    padding-left: ($grid--gutter-regular / 2);
+    padding-right: ($grid--gutter-regular / 2);
+}
+
+.gutter_hor_regular {
+    margin-top: $grid--gutter-regular;
+}
+
+.gutter_ver_large {
+    padding-left: ($grid--gutter-large / 2);
+    padding-right: ($grid--gutter-large / 2);
+}
+
+.gutter_hor_large {
+    margin-top: $grid--gutter-large;
+}
+
 
 
 @include make-grid-columns();

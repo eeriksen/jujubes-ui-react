@@ -1,0 +1,209 @@
+import { useState, useEffect } from "react";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Image } from "./Image";
+import { Row } from "../../grid/Row";
+import { Col } from "../../grid/Col";
+import { Icon } from "../../graphic/Icon";
+import { Button } from "../../button/Button";
+export const IMAGE_SRC = "https://pbs.twimg.com/media/DMDIKcyWsAEsKDj.jpg";
+
+<Meta title="Components/Media/Image" component={Image} />
+
+# Image
+
+Write something here.
+
+<Props of={Image} />
+
+### Basic
+
+<Preview>
+    <Story name="basic">
+        <Image src={IMAGE_SRC} />
+    </Story>
+</Preview>
+
+### Thumbnail
+
+<Preview>
+    <Story name="thumbnail">
+        <Row spacing="regular">
+            <Col sm={8}>Small</Col>
+            <Col sm={16}>
+                <Image src={IMAGE_SRC} thumbnail="small" />
+            </Col>
+        </Row>
+        <Row spacing="regular">
+            <Col sm={8}>Regular</Col>
+            <Col sm={16}>
+                <Image src={IMAGE_SRC} thumbnail="regular" />
+            </Col>
+        </Row>
+        <Row spacing="regular">
+            <Col sm={8}>Medium</Col>
+            <Col sm={16}>
+                <Image src={IMAGE_SRC} thumbnail="medium" />
+            </Col>
+        </Row>
+        <Row>
+            <Col sm={8}>Large</Col>
+            <Col sm={16}>
+                <Image src={IMAGE_SRC} thumbnail="large" />
+            </Col>
+        </Row>
+    </Story>
+</Preview>
+
+### Scale
+
+<Preview>
+    <Story name="scale">
+        <Row spacing="regular">
+            <Col sm={8}>Fill</Col>
+            <Col sm={16}>
+                <div style={{ position: "relative", height: "150px" }}>
+                    <Image src={IMAGE_SRC} scale="fill" />
+                </div>
+            </Col>
+        </Row>
+        <Row spacing="regular">
+            <Col sm={8}>Square</Col>
+            <Col sm={16}>
+                <Image src={IMAGE_SRC} scale="square" />
+            </Col>
+        </Row>
+        <Row spacing="regular">
+            <Col sm={8}>Aspect (16:9)</Col>
+            <Col sm={16} style={{ height: "200px" }}>
+                <Image src={IMAGE_SRC} scale="16:9" />
+            </Col>
+        </Row>
+    </Story>
+</Preview>
+
+### Mod
+
+<Preview>
+    <Story name="mod">
+        <Row spacing="regular">
+            <Col sm={8}>Rounded</Col>
+            <Col sm={16}>
+                <Image src={IMAGE_SRC} mod="rounded" />
+            </Col>
+        </Row>
+        <Row spacing="regular">
+            <Col sm={8}>Oval</Col>
+            <Col sm={16}>
+                <Image src={IMAGE_SRC} mod="oval" />
+            </Col>
+        </Row>
+        <Row>
+            <Col sm={8}>Grayscale</Col>
+            <Col sm={16}>
+                <Image src={IMAGE_SRC} mod="gray" />
+            </Col>
+        </Row>
+    </Story>
+</Preview>
+
+### Placeholder
+
+<Preview>
+    <Story name="placeholder">
+        <Row spacing="regular">
+            <Col sm={8}>Default</Col>
+            <Col sm={16}>
+                <Image scale="square" />
+            </Col>
+        </Row>
+        <Row spacing="regular">
+            <Col sm={8}>Thumbnail</Col>
+            <Col sm={16}>
+                <Image thumbnail="regular" />
+            </Col>
+        </Row>
+        <Row spacing="regular">
+            <Col sm={8}>Custom</Col>
+            <Col sm={16}>
+                <Image thumbnail="regular" placeholder={<Icon color="primary" name="devices" />} />
+            </Col>
+        </Row>
+    </Story>
+</Preview>
+
+### Upload
+
+<Preview>
+    <Story name="upload">
+        <Image
+            thumbnail="large"
+            onFileSelect={(file) => console.log("FILE", file)}
+            placeholder={<Icon color="primary" name="upload" />}
+        />
+    </Story>
+</Preview>
+
+### Percent
+
+<Preview>
+    <Story name="percent">
+        {() => {
+            const [percent, setPercent] = useState(0);
+            useEffect(() => {
+                setTimeout(() => {
+                    setPercent((p) => (p >= 100 ? 0 : p + 1));
+                }, 100);
+            }, [percent]);
+            return (
+                <React.Fragment>
+                    <Row spacing="regular">
+                        <Col span={3}>
+                            <Image percent={percent} scale="square" mod="oval" src={IMAGE_SRC} />
+                        </Col>
+                        <Col span={6}>
+                            <Image percent={percent} scale="square" />
+                        </Col>
+                        <Col span={9}>
+                            <Image percent={percent} scale="square" />
+                        </Col>
+                    </Row>
+                    <Image src={IMAGE_SRC} percent={percent} />
+                </React.Fragment>
+            );
+        }}
+    </Story>
+</Preview>
+
+### Actions
+
+<Preview>
+    <Story name="actions">
+        <Row spacing="regular">
+            <Col span={4}>
+                <Image
+                    scale="square"
+                    src={IMAGE_SRC}
+                    actions={<Button square size="small" color="error" icon="close" />}
+                />
+            </Col>
+            <Col span={8}>
+                <Image
+                    scale="square"
+                    src={IMAGE_SRC}
+                    actions={<Button square size="small" color="error" icon="close" />}
+                />
+            </Col>
+            <Col span={12}>
+                <Image
+                    scale="square"
+                    src={IMAGE_SRC}
+                    actions={<Button square size="small" color="error" icon="close" />}
+                />
+            </Col>
+        </Row>
+        <Image
+            src={IMAGE_SRC}
+            actions={<Button square size="small" color="error" icon="close" />}
+        />
+    </Story>
+</Preview>

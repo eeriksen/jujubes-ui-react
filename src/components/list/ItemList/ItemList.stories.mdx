@@ -1,0 +1,199 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { ItemList } from "./ItemList";
+import { Item } from "./Item";
+import { Text } from "../../typography/Text";
+import { Card } from "../../card/Card";
+import { CardContent } from "../../card/CardContent";
+import { Image } from "../../media/Image";
+import { Badge } from "../../notify/Badge";
+
+<Meta title="Components/Lists/ItemList" component={ItemList} />
+
+# ItemList
+<Props of={ItemList} />
+
+# Item
+<Props of={Item} />
+
+
+### Basic
+<Preview>
+    <Story name="basic">
+        <Card>
+            <CardContent>
+                <ItemList
+                    onItemClick={(item) => console.log("ITEM CLICKED", item)}
+                    onSort={(data) => console.log("SORT", data)}
+                >
+                    <Item
+                        index={1}
+                        value={1}
+                    >
+                        <Text block>Elon Musk</Text>
+                        <Text size="small" color="base40">
+                            Founder of SpaceX and Tesla Motor Company
+                        </Text>
+                    </Item>
+                    <Item
+                        index={2}
+                        value={2}
+                    >
+                        <Text block>Chris Sacca</Text>
+                        <Text size="small" color="base40">
+                            American venture investor, company advisor, entrepreneur, and lawyer
+                        </Text>
+                    </Item>
+                    <Item
+                        index={3}
+                        value={3}
+                    >
+                        <Text block>Mark Zuckerberg</Text>
+                        <Text size="small" color="base40">
+                            American media magnate, internet entrepreneur, and philanthropist
+                        </Text>
+                    </Item>
+                </ItemList>
+            </CardContent>
+        </Card>
+    </Story>
+</Preview>
+
+### Prepend / append
+<Preview>
+    <Story name="prepend/append">
+        <Card>
+            <CardContent>
+                <ItemList
+                    onItemClick={(item) => console.log("ITEM CLICKED", item)}
+                    onSort={(data) => console.log("SORT", data)}
+                >
+                    <Item
+                        index={1}
+                        value={1}
+                        prepend={
+                            <Image
+                                thumbnail="regular"
+                                src="https://static.theceomagazine.net/wp-content/uploads/2018/10/15093202/elon-musk.jpg"
+                            />
+                        }
+                        append={<Badge color="success">Active</Badge>}
+                    >
+                        <Text block>Elon Musk</Text>
+                        <Text size="small" color="base40">
+                            Founder of SpaceX and Tesla Motor Company
+                        </Text>
+                    </Item>
+                    <Item
+                        index={2}
+                        value={2}
+                        prepend={
+                            <Image
+                                thumbnail="regular"
+                                src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5e88db50bfe9e50007a040b8%2F0x0.jpg"
+                            />
+                        }
+                        append={<Badge color="error">Inactive</Badge>}
+                    >
+                        <Text block>Chris Sacca</Text>
+                        <Text size="small" color="base40">
+                            American venture investor, company advisor, entrepreneur, and lawyer
+                        </Text>
+                    </Item>
+                    <Item
+                        index={3}
+                        value={3}
+                        prepend={
+                            <Image
+                                thumbnail="regular"
+                                src="https://res-4.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_170,w_170,f_auto,g_faces,z_0.7,b_white,q_auto:eco/v1448830269/gzcifut4c2xah95x0ewd.jpg"
+                            />
+                        }
+                        append={<Badge color="warning">Waiting</Badge>}
+                    >
+                        <Text block>Mark Zuckerberg</Text>
+                        <Text size="small" color="base40">
+                            American media magnate, internet entrepreneur, and philanthropist
+                        </Text>
+                    </Item>
+                </ItemList>
+            </CardContent>
+        </Card>
+    </Story>
+</Preview>
+
+
+### Busy
+<Preview>
+    <Story name="busy">
+        <Card>
+            <CardContent>
+                <ItemList
+                    busy
+                >
+                    <Item
+                        index={1}
+                        value={1}
+                        prepend={
+                            <Image
+                                thumbnail="regular"
+                                src="https://static.theceomagazine.net/wp-content/uploads/2018/10/15093202/elon-musk.jpg"
+                            />
+                        }
+                        append={<Badge color="success">Active</Badge>}
+                    >
+                        <Text block>Elon Musk</Text>
+                        <Text size="small" color="base40">
+                            Founder of SpaceX and Tesla Motor Company
+                        </Text>
+                    </Item>
+                    <Item
+                        index={2}
+                        value={2}
+                        prepend={
+                            <Image
+                                thumbnail="regular"
+                                src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5e88db50bfe9e50007a040b8%2F0x0.jpg"
+                            />
+                        }
+                        append={<Badge color="error">Inactive</Badge>}
+                    >
+                        <Text block>Chris Sacca</Text>
+                        <Text size="small" color="base40">
+                            American venture investor, company advisor, entrepreneur, and lawyer
+                        </Text>
+                    </Item>
+                    <Item
+                        index={3}
+                        value={3}
+                        prepend={
+                            <Image
+                                thumbnail="regular"
+                                src="https://res-4.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_170,w_170,f_auto,g_faces,z_0.7,b_white,q_auto:eco/v1448830269/gzcifut4c2xah95x0ewd.jpg"
+                            />
+                        }
+                        append={<Badge color="warning">Waiting</Badge>}
+                    >
+                        <Text block>Mark Zuckerberg</Text>
+                        <Text size="small" color="base40">
+                            American media magnate, internet entrepreneur, and philanthropist
+                        </Text>
+                    </Item>
+                </ItemList>
+            </CardContent>
+        </Card>
+    </Story>
+</Preview>
+
+### Empty list
+<Preview>
+    <Story name="empty list">
+        <Card>
+            <CardContent>
+                <ItemList
+                    emptyMessage={"Empty list"}
+                />
+            </CardContent>
+        </Card>
+    </Story>
+</Preview>

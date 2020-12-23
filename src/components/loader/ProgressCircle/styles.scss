@@ -10,8 +10,8 @@
     justify-content: center;
 
     .content {
-        width: 90px;
-        min-width: 90px;
+        width: 100%;
+        min-width: 50px;
         position: relative;
     }
 
@@ -23,12 +23,10 @@
         :global {
             .rc-progress-circle-trail {
                 stroke: rgba($color--base, 0.05) !important;
-                stroke-width: 5;
             }
 
             .rc-progress-circle-path {
                 stroke: $color--primary !important;
-                stroke-width: 5;
             }
         }
     }
@@ -107,49 +105,14 @@
         }
     }
 
-
-    // Size small
-    &.sizeSmall {
-        .content {
-            width: 50px;
-            min-width: 50px;
-        }
-
-        .details {
-            .wrapper {
-                .value {
-                    font-size: $fontSize--large;
-
-                    .annotation {
-                        display: none;
-                    }
-                }
-                .label {
-                    display: none;
+    // Strong
+    &.strong {
+        .circle {
+            :global {
+                .rc-progress-circle-trail {
+                    stroke: $color--contrast !important;
                 }
             }
         }
     }
-
-
-    // large small
-    &.sizeLarge {
-        .content {
-            width: 150px;
-            min-width: 150px;
-        }
-
-        .details {
-            .wrapper {
-                .value {
-                    font-size: $fontSize--heading-1;
-                }
-                .label {
-
-                }
-            }
-        }
-    }
-
-
 }

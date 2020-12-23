@@ -6,7 +6,7 @@
 
 $borderWidth--badge: 1px;
 $height--badge: 21px;
-$height--badge-small: 16px;
+$height--badge-small: 17px;
 
 .base {
     display: inline-block;
@@ -49,7 +49,7 @@ $height--badge-small: 16px;
         }
     }
 
-    &.silent {
+    &.muted {
         border-color: rgba($color--base, 0.10);
         background-color: transparent;
         color: rgba($color--base, 0.4);
@@ -124,7 +124,7 @@ $height--badge-small: 16px;
         line-height: $height--badge-small;
         border-radius: $borderRadius--small;
         font-size: 0.645rem;
-        padding: 0 4px;
+        padding: 0 5px;
     }
 
     /* Spacing

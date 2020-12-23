@@ -21,7 +21,7 @@
         top: 0;
         bottom: 0;
         width: 10px;
-        right: $spacing--normal;
+        right: $spacing--regular;
         pointer-events: none;
         display: flex;
         align-items: center;
@@ -41,13 +41,13 @@
     // SELECT
     .select {
         display: inline-block;
-        height: $size--element-normal;
+        height: $size--element-regular;
         width: 100%;
         outline: none;
-        padding: 0 $size--element-normal 0 10px;
+        padding: 0 $size--element-regular 0 10px;
         border: $input--border;
         font-family: $fontFamily--primary;
-        font-size: $fontSize--normal;
+        font-size: $fontSize--regular;
         color: rgba($color--base, 0.8);
         border-radius: $borderRadius--regular;
         transition: border-color 0.3s ease;
@@ -98,7 +98,7 @@
 
 
     // SIZE: Small
-    &.small {
+    &.sizeSmall {
         .select {
             height: $size--element-small;
             font-size: $fontSize--small;
@@ -107,7 +107,7 @@
     }
 
     // SIZE: Big
-    &.big {
+    &.sizeBig {
         .select {
             height: $size--element-big;
             font-size: $fontSize--medium;

@@ -8,11 +8,11 @@
     font-family: $fontFamily--primary;
     margin: 0 0 $spacing--medium 0;
 
-    &.centerAlign {
+    &.alignCenter {
         text-align: center;
     }
 
-    &.noMargin {
+    &.spacingNone {
         margin-bottom: 0;
     }
 }

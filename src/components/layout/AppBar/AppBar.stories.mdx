@@ -1,0 +1,96 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { AppLayout } from "../AppLayout";
+import { AppBar, Item } from ".";
+import { Button } from "../../button/Button";
+import { Input } from "../../form/Input";
+import { Row } from "../../grid/Row";
+import { Col } from "../../grid/Col";
+import { UserMenu } from "../../user/UserMenu";
+import { Menu, MenuItem } from "../../navigation/Menu";
+import { ComponentWrapper } from "../ComponentWrapper";
+import { Icon } from "../../graphic/Icon";
+
+import { user } from "../../../../.storybook/constants";
+
+<Meta title="Components/Layout/AppBar" component={AppBar} />
+
+# AppBar
+
+Write something here.
+
+<ArgsTable of={AppBar} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        {() => {
+            const [value, setValue] = useState(null);
+            const [activeMenuItem, setActiveMenuItem] = useState(1);
+            return (
+                <ComponentWrapper>
+                    <AppLayout>
+                        <AppBar>
+                            <AppBar.Item placeLeft>
+                                <Input
+                                    value={value}
+                                    size="small"
+                                    icon="search"
+                                    onChange={setValue}
+                                    placeholder="Search"
+                                />
+                            </AppBar.Item>
+                            <AppBar.Item placeRight>
+                                <UserMenu
+                                    name={user.name}
+                                    email={user.email}
+                                    picture={user.pictureUrl}
+                                >
+                                    <Menu>
+                                        <MenuItem
+                                            selected={activeMenuItem === 1}
+                                            onClick={() => setActiveMenuItem(1)}
+                                            icon="gear"
+                                            label="First item"
+                                            count={8}
+                                        />
+                                        <MenuItem
+                                            selected={activeMenuItem === 2}
+                                            onClick={() => setActiveMenuItem(2)}
+                                            icon="eye"
+                                            label="Second item"
+                                            indicator={<Icon name="warning" color="warning" />}
+                                            count={23}
+                                        />
+                                        <MenuItem
+                                            selected={activeMenuItem === 3}
+                                            onClick={() => setActiveMenuItem(3)}
+                                            icon="nodes"
+                                            label="Third item"
+                                            count={376}
+                                        />
+                                        <MenuItem
+                                            selected={activeMenuItem === 4}
+                                            onClick={() => setActiveMenuItem(4)}
+                                            icon="palette"
+                                            label="Fourth item"
+                                            count={1}
+                                        />
+                                        <MenuItem
+                                            selected={activeMenuItem === 5}
+                                            onClick={() => setActiveMenuItem(5)}
+                                            icon="user"
+                                            label="Fifth item"
+                                            count={6}
+                                        />
+                                    </Menu>
+                                </UserMenu>
+                            </AppBar.Item>
+                        </AppBar>
+                    </AppLayout>
+                </ComponentWrapper>
+            );
+        }}
+    </Story>
+</Canvas>

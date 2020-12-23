@@ -17,7 +17,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 50%;
+        border-radius: $borderRadius--regular;
         box-shadow: $boxShadow--regular;
         transition: transform .2s cubic-bezier(0.620, 0.055, 0.240, 1.305), background-color .2s ease-in-out, box-shadow .2s ease-in-out;
         user-select: none;

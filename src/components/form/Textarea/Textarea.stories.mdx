@@ -1,0 +1,30 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Textarea } from './Textarea';
+
+<Meta title="Components/Forms/Textarea" component={Textarea} />
+
+# Textarea
+
+Use the `<Textarea />` when users should input a longer text.
+
+<Props of={Textarea} />
+
+### Basic
+<Preview>
+    <Story name="basic" >
+        {() => {
+            const [value, setValue] = useState(null);
+            return (
+                <Textarea value={value} onChange={setValue} placeholder="Write something..." />
+            )
+        }}
+    </Story>
+</Preview>
+
+### Disabled
+<Preview>
+    <Story name="disabled" >
+        <Textarea placeholder="Disabled textarea..." disabled />
+    </Story>
+</Preview>

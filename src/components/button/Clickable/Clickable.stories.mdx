@@ -1,0 +1,22 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Clickable } from './Clickable';
+
+<Meta title="Components/Buttons/Clickable" component={Clickable} />
+
+# Clickable
+
+This component should be used as a wrapper whenever you are creating a custom clickable component.
+This way we can bind events to all "clickable" components in one place, if say we would like to
+add haptic feedback (vibration) on all click events on mobile.
+
+<Props of={Clickable} />
+
+### Basic
+<Preview>
+    <Story name="basic" >
+        <Clickable>
+            Clickable element
+        </Clickable>
+    </Story>
+</Preview>

@@ -5,7 +5,8 @@
    =================================================================== */
 
 .base {
-    background: $color--background;
+    background: darken($color--background, 0%);
+    height: $size--element-small;
 
     .leftFade {
         display: none;
@@ -16,7 +17,7 @@
     }
 
     .container {
-        position: relative;
+        position: absolute;
         display: flex;
         white-space: nowrap;
         flex-direction: row-reverse;
@@ -44,15 +45,14 @@
     transition: all .2s linear;
 
     .label {
-        color: rgba($color--base, 0.8);
+        color: rgba($color--base, 0.7);
         padding: 4px 18px;
-        transition: all .2s linear;
+        text-decoration: none;
     }
 
     // STATE: Hover
     &:hover:not(.current) {
         cursor: pointer;
-        background-color: $color--background;
 
         .label {
             color: $color--base;
@@ -69,6 +69,4 @@
             }
         }
     }
-
-
 }

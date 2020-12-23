@@ -42,7 +42,6 @@ export * from "./components/layout/AppLayout"
 export * from "./components/layout/AppNav"
 export * from "./components/layout/Overlay"
 export * from "./components/layout/ScrollableArea"
-export * from "./components/layout/Section"
 export * from "./components/layout/Splash"
 export * from "./components/layout/WindowResizeListener"
 
@@ -57,11 +56,11 @@ export * from "./components/loader/Spinner"
 
 export * from "./components/media/Image"
 
-export * from "./components/nav/Menu"
-export * from "./components/nav/Menu/MenuItem"
-export * from "./components/nav/Menu/MenuHeading"
-export * from "./components/nav/Tabs"
-export * from "./components/nav/Tabs/TabPane"
+export * from "./components/navigation/Menu"
+export * from "./components/navigation/Menu/MenuItem"
+export * from "./components/navigation/Menu/MenuHeading"
+export * from "./components/navigation/Tabs"
+export * from "./components/navigation/Tabs/TabPane"
 
 export * from "./components/notify/Badge"
 export * from "./components/notify/Callout"
@@ -72,7 +71,6 @@ export * from "./components/notify/Tooltip"
 
 export * from "./components/page/Page"
 export * from "./components/page/PageHeader"
-export * from "./components/page/PageLoader"
 
 export * from "./components/table/DataTable"
 

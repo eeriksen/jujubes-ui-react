@@ -6,28 +6,29 @@
 
 // Base
 .base {
-    display: inline-block;
+    display: none;
     line-height: 1;
 
     svg {
         display: block;
         fill: $color--base;
         vertical-align: top;
-        width: $iconSize--normal;
-        height: $iconSize--normal;
+        width: $iconSize--regular;
+        height: $iconSize--regular;
     }
 
     // For presenting icons in a grid
     &.presentation {
-        display: block !important;
+        width: 100%;
         border: 1px solid rgba($color--base, 0.10);
         border-radius: $borderRadius--regular;
         text-align: center;
-        padding: $spacing--medium $spacing--small;
+        padding: $spacing--large $spacing--small;
         @include m-iconColor($color--primary);
         @include m-iconSize($iconSize--large);
-        margin-bottom: $spacing--normal;
+        margin-bottom: $spacing--regular;
         min-height: 120px;
+        background: $color--contrast;
 
         svg {
             display: inline-block;
@@ -40,76 +41,67 @@
         }
     }
 
+    // Loaded
+    &.loaded {
+        display: inline-block;
+    }
 }
 
 // Colors
-.base80 {
-    @include m-iconColor(rgba($color--base, 0.8));
+.colorContrast {
+    @include m-iconColor($color--contrast, true);
 }
 
-.base60 {
-    @include m-iconColor(rgba($color--base, 0.6));
+.colorInfo {
+    @include m-iconColor($color--info, true);
 }
 
-.base40 {
-    @include m-iconColor(rgba($color--base, 0.4));
+.colorPrimary {
+    @include m-iconColor($color--primary, true);
 }
 
-.contrast {
-    @include m-iconColor($color--contrast);
+.colorSuccess {
+    @include m-iconColor($color--success, true);
 }
 
-.info {
-    @include m-iconColor($color--info);
+.colorWarning {
+    @include m-iconColor($color--warning, true);
 }
 
-.primary {
-    @include m-iconColor($color--primary);
-}
-
-.success {
-    @include m-iconColor($color--success);
-}
-
-.warning {
-    @include m-iconColor($color--warning);
-}
-
-.error {
-    @include m-iconColor($color--error);
+.colorError {
+    @include m-iconColor($color--error, true);
 }
 
 // Sizes
-
-.small {
+.sizeSmall {
     svg {
         width: $iconSize--small;
         height: $iconSize--small;
     }
 }
 
-.medium {
+.sizeMedium {
     svg {
         width: $iconSize--medium;
         height: $iconSize--medium;
     }
 }
 
-.large {
+.sizeLarge {
     svg {
         width: $iconSize--large;
         height: $iconSize--large;
     }
 }
 
-.xLarge {
+.sizeXLarge {
     svg {
         width: $iconSize--large-x;
         height: $iconSize--large-x;
     }
 }
 
-.xxLarge {
+.sizeXXLarge {
     svg {
         width: $iconSize--large-xx;
         height: $iconSize--large-xx;
@@ -121,10 +113,13 @@
     margin-right: $spacing--small;
 }
 
+.marginLeft {
+    margin-left: $spacing--small;
+}
+
 // Animation
 .rotate {
     animation: rotate 1.5s infinite linear;
-
     @keyframes rotate {
         from {
             transform: rotate(0deg);

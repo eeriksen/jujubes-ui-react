@@ -1,0 +1,12 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   COMPONENT WRAPPER
+   =================================================================== */
+
+.base {
+    position: relative;
+    transform: scale(1);
+    height: 100vh;
+    overflow: hidden;
+}

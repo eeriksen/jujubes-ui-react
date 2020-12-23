@@ -5,12 +5,14 @@ import styles from "./styles.scss"
 
 
 export const Row = (props) => {
-    const { className, children, gutter } = props;
-    const rowClasses = classNames(styles.row, {
+    const { className, children, gutter, spacing } = props;
 
-    }, className);
     return (
-        <div className={rowClasses}>
+        <div className={classNames(styles.row, {
+            [styles[`gutter_ver_${gutter[0]}`]]: gutter[0],
+            [styles[`gutter_hor_${gutter[1]}`]]: gutter[1],
+            [styles[`spacing_${spacing}`]]: spacing
+        }, className)}>
             {React.Children.map(children, child =>
                 React.cloneElement(child, {
                     gutter
@@ -20,7 +22,25 @@ export const Row = (props) => {
     )
 };
 
+Row.defaultProps = {
+    spacing: null,
+    gutter: ["regular", "regular"]
+}
+
 Row.propTypes = {
-    className:              PropTypes.string,
-    children:               PropTypes.node
+
+    /**
+     * Define vertical/horizontal gutter
+     */
+    gutter: PropTypes.array,
+
+    /**
+     * Bottom spacing on the row
+     */
+    spacing: PropTypes.oneOf([null, "small", "regular", "large"]),
+
+    /**
+     * Custom class name
+     */
+    className: PropTypes.string
 };

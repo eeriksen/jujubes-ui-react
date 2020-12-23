@@ -12,6 +12,7 @@
     padding: 10px 20px 9px;
     background-color: $color--info;
     border-radius: $borderRadius--regular;
+    box-shadow: $boxShadow--regular;
 
     &.success {
         background-color: $color--success;
@@ -43,7 +44,7 @@
         &-notice {
             width: 100%;
             text-align: center;
-            margin-bottom: $spacing--normal;
+            margin-bottom: $spacing--regular;
         }
 
         &-notice-content {

@@ -1,0 +1,26 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { AppLayout } from "../AppLayout";
+import { AppNav } from "./AppNav";
+import { ComponentWrapper } from "../ComponentWrapper";
+
+<Meta title="Components/Layout/AppNav" component={AppNav} />
+
+# AppNav
+
+The `<AppNav />` component renders a navigation sidebar that is always visible on large screens
+and togglable from the `<AppBar />` component on mobile devices.
+
+<Props of={AppNav} />
+
+### Basic
+
+<Preview>
+    <Story name="basic">
+        <ComponentWrapper>
+            <AppLayout>
+                <AppNav></AppNav>
+            </AppLayout>
+        </ComponentWrapper>
+    </Story>
+</Preview>

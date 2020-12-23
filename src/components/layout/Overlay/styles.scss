@@ -5,7 +5,7 @@
    =================================================================== */
 
 .base {
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 0;
     width: 100%;
@@ -13,7 +13,6 @@
     opacity: 0;
     transition: opacity .2s linear;
     pointer-events: none;
-    z-index: $zIndex--overlay;
     backdrop-filter: blur(2px);
     background: rgba($color--base, 0.8);
 

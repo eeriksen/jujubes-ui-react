@@ -15,37 +15,27 @@ $height--bar: 60px;
     left: 0;
     right: 0;
     bottom: 0;
-    background: $color--secondary;
+    background: $color--primary;
 
     .center {
         position: relative;
 
-        .header {
+        .logo {
             position: absolute;
             top: 0;
             width: 100%;
             transform: translateY(-100%);
             text-align: center;
             padding: $spacing--large-x 0;
-
-            .logo {
-
-            }
-
-            .name {
-                margin-top: $spacing--medium;
-                font-size: $fontSize--large;
-                font-weight: $fontWeight--medium;
-                color: $color--secondary-contrast;
-            }
         }
 
         .box {
-            background-color: $color--secondary-contrast;
+            background-color: $color--primary-contrast;
             overflow: hidden;
             box-shadow: $boxShadow--large;
             min-width: 400px;
             animation: boxShow .3s ease-in-out;
+            border-radius: $borderRadius--regular;
 
             // Title
             .title {
@@ -54,7 +44,7 @@ $height--bar: 60px;
                 font-weight: $fontWeight--bold;
 
                 .description {
-                    margin-top: $spacing--normal;
+                    margin-top: $spacing--regular;
                     font-size: $fontSize--medium;
                     color: rgba($color--base, 0.6);
                     max-width: 80%;
@@ -71,12 +61,12 @@ $height--bar: 60px;
 
     }
 
-
+    // Footer
     .footer {
         position: absolute;
         bottom: $spacing--medium;
         width: 100%;
-        color: rgba($color--secondary-contrast, 0.7);
+        color: rgba($color--primary-contrast, 0.5);
         margin: 0 auto;
         text-align: center;
         padding: 0 $spacing--phone-edge;
@@ -90,7 +80,7 @@ $height--bar: 60px;
         min-height: 100vh;
 
         .center {
-            .header {
+            .logo {
                 position: static;
                 transform: none;
                 padding: $spacing--large-x $spacing--phone-edge;
@@ -98,10 +88,15 @@ $height--bar: 60px;
             .box {
                 min-width: auto;
                 margin: 0 $spacing--phone-edge;
-                padding: $spacing--normal 0;
+                padding: $spacing--regular 0;
 
                 .title {
-                    padding: $spacing--medium $spacing--medium 0;
+                    padding: $spacing--regular $spacing--medium 0;
+                    font-size: $fontSize--heading-3;
+
+                    .description {
+                        font-size: $fontSize--regular;
+                    }
                 }
 
                 .content {

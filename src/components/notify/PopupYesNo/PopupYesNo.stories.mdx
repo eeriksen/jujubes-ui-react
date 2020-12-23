@@ -1,0 +1,30 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { PopupYesNo } from "./PopupYesNo";
+import { ComponentWrapper } from "../../layout/ComponentWrapper";
+
+<Meta title="Components/Notify/PopupYesNo" component={PopupYesNo} />
+
+# PopupYesNo
+
+Often, you would want the user to confirm a critical action. This might be when the user
+is about to delete something. The `<PopupYesNo />` component let's you prompt the user
+with a question, where the user can answer either yes or no.
+
+<ArgsTable of={PopupYesNo} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        <ComponentWrapper>
+            <PopupYesNo
+                title="Are you sure?"
+                onYes={() => console.log("YES")}
+                onNo={() => console.log("NO")}
+            >
+                This is to make sure that you really want to perform some kind of action?
+            </PopupYesNo>
+        </ComponentWrapper>
+    </Story>
+</Canvas>

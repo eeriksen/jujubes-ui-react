@@ -1,0 +1,135 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Form } from "../Form";
+import { FormItem } from "../FormItem";
+import { Select } from './Select';
+import { Option } from "./Option";
+
+<Meta title="Components/Forms/Select" component={Select} />
+
+# Select
+
+Use the `<Select />` when the user should choose from a list of alternatives.
+
+<Props of={Select} />
+
+### Basic
+<Preview>
+    <Story name="basic" >
+        {() => {
+            const [value, setValue] = useState(null);
+            return (
+                <Form>
+                    <FormItem>
+                        <Select placeholder="Choose one" value={value} onChange={setValue}>
+                            <Option value={0}>
+                                First choice
+                            </Option>
+                            <Option value={1}>
+                                Second choice
+                            </Option>
+                            <Option value={2}>
+                                Third choice
+                            </Option>
+                            <Option value={3}>
+                                Fourth choice
+                            </Option>
+                        </Select>
+                    </FormItem>
+                </Form>
+            )
+        }}
+    </Story>
+</Preview>
+
+
+### Size
+<Preview>
+    <Story name="size" >
+        {() => {
+            const [value, setValue] = useState(null);
+            return (
+                <Form>
+                    <FormItem>
+                        <Select size="small" placeholder="Small select" value={value} onChange={setValue}>
+                            <Option value={0}>
+                                First choice
+                            </Option>
+                            <Option value={1}>
+                                Second choice
+                            </Option>
+                            <Option value={2}>
+                                Third choice
+                            </Option>
+                            <Option value={3}>
+                                Fourth choice
+                            </Option>
+                        </Select>
+                    </FormItem>
+                    <FormItem>
+                        <Select placeholder="Regular select" value={value} onChange={setValue}>
+                            <Option value={0}>
+                                First choice
+                            </Option>
+                            <Option value={1}>
+                                Second choice
+                            </Option>
+                            <Option value={2}>
+                                Third choice
+                            </Option>
+                            <Option value={3}>
+                                Fourth choice
+                            </Option>
+                        </Select>
+                    </FormItem>
+                    <FormItem>
+                        <Select size="big" placeholder="Big select" value={value} onChange={setValue}>
+                            <Option value={0}>
+                                First choice
+                            </Option>
+                            <Option value={1}>
+                                Second choice
+                            </Option>
+                            <Option value={2}>
+                                Third choice
+                            </Option>
+                            <Option value={3}>
+                                Fourth choice
+                            </Option>
+                        </Select>
+                    </FormItem>
+                </Form>
+            )
+        }}
+    </Story>
+</Preview>
+
+
+### Disabled
+<Preview>
+    <Story name="disabled" >
+        {() => {
+            const [value, setValue] = useState(null);
+            return (
+                <Form>
+                    <FormItem>
+                        <Select placeholder="Choose one" value={value} onChange={setValue} disabled>
+                            <Option value={0}>
+                                First choice
+                            </Option>
+                            <Option value={1}>
+                                Second choice
+                            </Option>
+                            <Option value={2}>
+                                Third choice
+                            </Option>
+                            <Option value={3}>
+                                Fourth choice
+                            </Option>
+                        </Select>
+                    </FormItem>
+                </Form>
+            )
+        }}
+    </Story>
+</Preview>

@@ -1,0 +1,58 @@
+import { useState, useEffect } from "react";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { ProgressBar } from "./ProgressBar";
+
+<Meta title="Components/Loaders/ProgressBar" component={ProgressBar} />
+
+# ProgressBar
+
+A simple progress indicator.
+
+<Props of={ProgressBar} />
+
+### Basic
+
+<Preview>
+    <Story name="basic">
+        {() => {
+            const [percent, setPercent] = useState(0);
+            useEffect(() => {
+                setTimeout(() => {
+                    setPercent((p) => (p >= 100 ? 0 : p + 1));
+                }, 100);
+            }, [percent]);
+            return <ProgressBar percent={percent}>Uploading file...</ProgressBar>;
+        }}
+    </Story>
+</Preview>
+
+### Color
+
+<Preview>
+    <Story name="color">
+        {() => {
+            const [percentSuccess, setPercentSuccess] = useState(20);
+            const [percentError, setPercentError] = useState(50);
+            useEffect(() => {
+                setTimeout(() => {
+                    setPercentSuccess((p) => (p >= 100 ? 0 : p + 1));
+                }, 100);
+            }, [percentSuccess]);
+            useEffect(() => {
+                setTimeout(() => {
+                    setPercentError((p) => (p >= 100 ? 0 : p + 1));
+                }, 100);
+            }, [percentError]);
+            return (
+                <React.Fragment>
+                    <ProgressBar percent={percentSuccess} color="success">
+                        Uploading file...
+                    </ProgressBar>
+                    <ProgressBar percent={percentError} color="error">
+                        Uploading file...
+                    </ProgressBar>
+                </React.Fragment>
+            );
+        }}
+    </Story>
+</Preview>

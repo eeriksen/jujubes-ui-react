@@ -6,19 +6,17 @@
 
 
 .base {
-    display: block;
     margin-bottom: $spacing--medium;
 
     // LABEL
     .label {
-        text-align: left;
-
         label {
             display: block;
-            font-size: $fontSize--normal;
+            font-size: $fontSize--regular;
             font-weight: $fontWeight--medium;
             color: $color--base;
-            padding: 0 0 4px 0;
+            margin-bottom: $spacing--small;
+            @include m-truncate();
 
             .colon {
                 padding: 0 $spacing--small 0 2px;
@@ -44,8 +42,25 @@
 
     // ERROR
     &.error {
+        .label label {
+            color: $color--error;
+        }
+
         .infoText {
             color: $color--error;
+        }
+    }
+
+    // RESPONSIVE
+    @include for-desktop-up() {
+        &.responsive {
+            .label {
+                label {
+                    text-align: right;
+                    line-height: $size--element-regular;
+                    margin-bottom: 0;
+                }
+            }
         }
     }
 }

@@ -1,0 +1,35 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { AppLayout } from "./AppLayout";
+import { AppBar } from "../AppBar";
+import { AppNav } from "../AppNav";
+import { AppContent } from "../AppContent";
+import { Page } from "../../page/Page";
+import { PageHeader } from "../../page/PageHeader";
+import { ComponentWrapper } from "../ComponentWrapper";
+
+<Meta title="Components/Layout/AppLayout" component={AppLayout} />
+
+# AppLayout
+
+The `<AppLayout />` component is the root element of your entire layout.
+
+<Props of={AppLayout} />
+
+### Basic
+
+<Preview>
+    <Story name="basic">
+        <ComponentWrapper>
+            <AppLayout>
+                <AppBar />
+                <AppNav />
+                <AppContent>
+                    <Page>
+                        <PageHeader title="Page" />
+                    </Page>
+                </AppContent>
+            </AppLayout>
+        </ComponentWrapper>
+    </Story>
+</Preview>

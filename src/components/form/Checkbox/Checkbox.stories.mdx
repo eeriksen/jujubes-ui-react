@@ -1,0 +1,25 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Checkbox } from './Checkbox';
+
+<Meta title="Components/Forms/Checkbox" component={Checkbox} />
+
+# Checkbox
+
+A regular checkbox.
+
+<Props of={Checkbox} />
+
+### Basic
+<Preview>
+    <Story name="basic" >
+        {() => {
+            const [checked, setChecked] = useState(true);
+            return (
+                <Checkbox checked={checked} onChange={setChecked}>
+                    Something to check
+                </Checkbox>
+            )
+        }}
+    </Story>
+</Preview>

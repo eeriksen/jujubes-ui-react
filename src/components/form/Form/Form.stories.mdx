@@ -1,0 +1,56 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Form } from './Form';
+import { FormItem } from "../FormItem";
+import { Input } from "../Input";
+import { Textarea } from "../Textarea";
+import { Checkbox } from "../Checkbox";
+import { Button } from "../../button/Button";
+import { Row } from "../../grid/Row";
+import { Col } from "../../grid/Col";
+
+<Meta title="Components/Forms/Form" component={Form} />
+
+# Form
+
+The `<Form/>` component is used to wrap one or more `<FormItem/>` components.
+
+<Props of={Form} />
+
+### Example
+<Preview>
+    <Story name="basic" >
+        {() => {
+            const [data, setData] = useState({});
+            return (
+                <Form responsive onSubmit={() => console.log("SUBMIT")}>
+                    <FormItem label="Your name">
+                        <Input value={data.name} onChange={(val) => setData({...data, name: val})} placeholder="Write here..." />
+                    </FormItem>
+                    <FormItem label="Your comment">
+                        <Textarea value={data.comment} onChange={(val) => setData({...data, comment: val})} placeholder="Write here..." />
+                    </FormItem>
+                    <FormItem>
+                        <Checkbox checked={data.checked} onChange={(val) => setData({...data, checked: val})}>
+                            Send to everyone
+                        </Checkbox>
+                    </FormItem>
+                    <FormItem>
+                        <Row>
+                            <Col span={14}>
+                                <Button type="submit" color="primary">
+                                    Submit comment
+                                </Button>
+                            </Col>
+                            <Col span={10}>
+                                <Button onClick={() => setData({})}>
+                                    Clear form
+                                </Button>
+                            </Col>
+                        </Row>
+                    </FormItem>
+                </Form>
+            )
+        }}
+    </Story>
+</Preview>

@@ -5,13 +5,13 @@
    APP NAV - MENU
    =================================================================== */
 
+$menuItem-size: 42px;
 $spacing-sides: $spacing--nav-sides;
 
 .base {
     display: block;
     margin-bottom: $spacing--large;
 }
-
 
 /* HEADING
 ---------------------------------------------------------------------- */
@@ -21,8 +21,8 @@ $spacing-sides: $spacing--nav-sides;
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 0 $spacing-sides;
-    font-weight: $fontWeight--bold;
-    color: rgba($color--secondary-accent, 0.8);
+    font-weight: $fontWeight--medium;
+    color: rgba($color--nav-text, 0.2);
     font-size: $fontSize--small;
     text-transform: uppercase;
     text-align: left;
@@ -31,36 +31,35 @@ $spacing-sides: $spacing--nav-sides;
     @include m-truncate();
 }
 
-
 /* ITEM
 ---------------------------------------------------------------------- */
 .item {
     position: relative;
     display: flex;
     width: 100%;
-    height: $size--element-normal;
+    height: $menuItem-size;
     padding: 0 $spacing-sides 0 $spacing-sides;
     outline: none;
     user-select: none;
-    transition: background-color .2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
     align-items: center;
+    text-decoration: none;
 
     // Icon
     .icon {
         display: flex;
         align-items: center;
         width: 32px;
-        @include m-iconColor(rgba(desaturate($color--secondary-accent, 50%), .5), true);
+        @include m-iconColor(rgba(desaturate($color--nav-accent, 50%), 0.5), true);
     }
 
     // Label
     .label {
         @include m-truncate();
         text-decoration: none;
-        color: rgba($color--secondary-contrast, 0.8);
+        color: rgba($color--nav-text, 0.4);
         flex-grow: 1;
-        font-weight: $fontWeight--medium;
-        transition: color .2s ease-in-out;
+        transition: color 0.2s ease-in-out;
     }
 
     // Indicators
@@ -71,42 +70,31 @@ $spacing-sides: $spacing--nav-sides;
         // Arrow
         .arrow {
             @include m-iconSize(8px);
-            @include m-iconColor(rgba($color--secondary-contrast, 0.2), true);
-        }
-    }
-
-    // STATE: Hover
-    &:hover {
-        cursor: pointer;
-
-        .icon {
-            @include m-iconColor($color--secondary-accent);
-        }
-
-        .label {
-            color: $color--secondary-contrast;
-        }
-
-        .arrow {
-            @include m-iconColor(rgba($color--secondary-contrast, 0.8), true);
+            @include m-iconColor(rgba($color--nav-text, 0.2), true);
         }
     }
 
     // STATE: Selected
-    &.selected {
-        background-color: rgba(0, 0, 0, 0.05);
-        cursor: default;
+    &.selected,
+    &:hover {
+        background-color: darken($color--nav-sidebar-background, 3%);
+        cursor: pointer;
 
         .icon {
-            @include m-iconColor(rgba($color--secondary-accent, 1));
+            @include m-iconColor(rgba($color--nav-accent, 1));
         }
 
         .label {
-            color: $color--secondary-contrast;
+            color: $color--nav-text;
         }
 
         .arrow {
-            @include m-iconColor(rgba($color--secondary-contrast, 0.8));
+            @include m-iconColor($color--nav-text);
         }
+    }
+
+    // STATE: Hover
+    &.selected {
+        cursor: default;
     }
 }

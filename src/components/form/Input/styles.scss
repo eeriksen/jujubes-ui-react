@@ -12,13 +12,13 @@
     .input {
         position: relative;
         display: inline-block;
-        height: $size--element-normal;
+        height: $size--element-regular;
         width: 100%;
         outline: none;
         padding: 0 10px 0;
         border: $input--border;
         font-family: $fontFamily--primary;
-        font-size: $fontSize--normal;
+        font-size: $fontSize--regular;
         color: rgba($color--base, 0.8);
         transition: border-color .3s ease, box-shadow .3s ease;
         background-color: $color--contrast;
@@ -78,7 +78,22 @@
             }
         }
 
-        &.big {
+        &.sizeSmall {
+            .input {
+                padding-left: 48px;
+            }
+
+            .icon {
+                @include m-iconSize($iconSize--small);
+                left: 11px;
+
+                &:after {
+                    right: -11px;
+                }
+            }
+        }
+
+        &.sizeBig {
             .input {
                 padding-left: 65px;
             }
@@ -112,8 +127,8 @@
             border-right: none;
             border-radius: $borderRadius--regular 0 0 $borderRadius--regular;
             background-color: rgba($color--base, 0.03);
-            padding: 0 $spacing--normal;
-            min-width: $size--element-normal;
+            padding: 0 $spacing--regular;
+            min-width: $size--element-regular;
             align-items: center;
             justify-content: center;
 
@@ -156,8 +171,8 @@
             border-left: none;
             border-radius: 0 $borderRadius--regular $borderRadius--regular 0;
             background-color: rgba($color--base, 0.03);
-            padding: 0 $spacing--normal;
-            min-width: $size--element-normal;
+            padding: 0 $spacing--regular;
+            min-width: $size--element-regular;
             align-items: center;
             justify-content: center;
 
@@ -188,7 +203,7 @@
     }
 
     // SIZE: Small
-    &.small {
+    &.sizeSmall {
         .input {
             height: $size--element-small;
             font-size: $fontSize--small;
@@ -196,7 +211,7 @@
     }
 
     // SIZE: Big
-    &.big {
+    &.sizeBig {
         .input {
             height: $size--element-big;
             font-size: $fontSize--medium;

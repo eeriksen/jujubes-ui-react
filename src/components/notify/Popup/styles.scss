@@ -5,19 +5,30 @@
    =================================================================== */
 
 $popup--width-normal: 450px;
+$popup--width-medium: 600px;
 
 .base {
     position: fixed;
     top: 0;
     left: 0;
-    padding: $spacing--normal;
+    padding: $spacing--regular;
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     user-select: none;
+    z-index: $zIndex--popups;
 
+    // OVERLAY
+    > .overlay {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 
     // BOX
     > .box {
@@ -27,12 +38,13 @@ $popup--width-normal: 450px;
         min-width: 400px;
         max-width: $popup--width-normal;
         opacity: 0;
+        animation: boxIn 0.3s forwards;
         margin-top: -50px;
         box-shadow: $boxShadow--large;
-        animation: boxIn .3s forwards;
-        transition: border-bottom .3s ease;
-        border-radius: $borderRadius--regular;
-        z-index: $zIndex--popups;
+        transition: border-bottom 0.3s ease;
+        background: $content--backgroundColor;
+        border-radius: $content--borderRadius;
+        z-index: 2;
 
         @keyframes boxIn {
             to {
@@ -40,130 +52,7 @@ $popup--width-normal: 450px;
                 opacity: 1;
             }
         }
-
-        // CLOSE
-        .close {
-            position: absolute;
-            top: 0;
-            right: $spacing--normal;
-            z-index: 2;
-            cursor: pointer;
-            width: $size--element-normal;
-            height: $size--element-normal;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: $color--contrast;
-            border-radius: 50%;
-            transform: translateY(-50%);
-            box-shadow: $boxShadow--medium;
-
-            .icon {
-                @include m-iconColor($color--primary, true);
-            }
-
-            &:active {
-                .icon {
-                    @include m-iconColor($color--base);
-                }
-            }
-        }
-
-        // TITLE
-        .title {
-            padding: $spacing--medium;
-            background: $color--primary;
-            text-align: left;
-            overflow: hidden;
-            transition: color .3s ease;
-            border-radius: $borderRadius--regular $borderRadius--regular 0 0;
-            @include m-truncate();
-
-            .text {
-                font-size: $fontSize--heading-4;
-                font-weight: $fontWeight--medium;
-                color: $color--contrast;
-            }
-
-            .subtitle {
-                font-size: $fontSize--normal;
-                color: rgba($color--contrast, 0.8);
-                font-weight: $fontWeight--regular;
-            }
-
-            &.alignCenter {
-                text-align: center;
-            }
-        }
-
-        // CONTENT
-        .content {
-            background: $color--contrast;
-
-            .frame {
-                max-height: 62vh;
-
-                .wrapper {
-                    padding: $spacing--medium;
-                }
-            }
-        }
-
-        // BUTTONS
-        .buttons {
-            padding: $spacing--medium;
-            border-top: 1px solid rgba($color--base, 0.10);
-            background: $color--contrast;
-            border-radius: 0 0 $borderRadius--regular $borderRadius--regular;
-
-            .mainButton {
-                vertical-align: top;
-                display: inline-block;
-            }
-
-            .extraButton {
-                vertical-align: top;
-                margin-left: $spacing--small;
-                display: inline-block;
-            }
-        }
-
-
-        // TABS
-        .tabs {
-            background: $color--contrast;
-        }
-
     }
-
-
-    // Types
-    &.successType {
-        > .box {
-            .title {
-                background: linear-gradient(135deg, darken($color--success, 10%) 0%, $color--success 100%);
-            }
-            .close {
-                .icon {
-                    @include m-iconColor($color--success, true);
-                }
-            }
-        }
-    }
-
-    &.errorType {
-        > .box {
-            .title {
-                background: linear-gradient(135deg, darken($color--error, 5%) 0%, $color--error 100%);
-            }
-            .close {
-                .icon {
-                    @include m-iconColor($color--error, true);
-                }
-            }
-        }
-    }
-
 
     // Sizes
     &.sizeAuto {
@@ -173,7 +62,11 @@ $popup--width-normal: 450px;
         }
     }
 
-
+    &.sizeMedium {
+        > .box {
+            max-width: $popup--width-medium;
+        }
+    }
 
     // RESPONSIVE: For phone only
     @include for-phone-only() {
@@ -183,34 +76,92 @@ $popup--width-normal: 450px;
         .box {
             display: block;
             min-width: 100%;
+        }
+    }
+}
 
-            .buttons.twoButtons {
-                display: flex;
+// CLOSE
+.close {
+    position: absolute;
+    top: 0;
+    right: $spacing--regular;
+    z-index: 2;
+    cursor: pointer;
+    width: $size--element-regular;
+    height: $size--element-regular;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $color--background;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    box-shadow: inset $boxShadow--regular;
 
-                .mainButton {
-                    width: 50%;
+    .icon {
+        @include m-iconColor(rgba($color--base, 0.7), true);
+    }
 
-                    .buttonElement {
-                        display: block;
-                        width: 100%;
-                        padding: 0;
-                    }
-                }
+    &:hover {
+        background: $color--primary;
+        box-shadow: $boxShadow--regular;
+        transition: background-color 0.2s linear;
 
-                .extraButton {
-                    width: 50%;
-
-                    .buttonElement {
-                        display: block;
-                        width: 100%;
-                        padding: 0;
-                    }
-                }
-
-            }
+        .icon {
+            @include m-iconColor($color--primary-contrast);
         }
     }
 
+    &:active{
+        background: $color--primary;
+
+        .icon {
+            @include m-iconColor($color--primary-contrast);
+        }
+    }
 }
 
+// TITLE
+.title {
+    padding: $spacing--medium;
+    text-align: left;
+    overflow: hidden;
+    transition: color 0.3s ease;
+    border-radius: $borderRadius--regular $borderRadius--regular 0 0;
+    border-bottom: 1px solid rgba($color--base, 0.1);
+    @include m-truncate();
 
+    .text {
+        font-size: $fontSize--heading-4;
+        font-weight: $fontWeight--medium;
+        color: $color--base;
+    }
+
+    .description {
+        font-size: $fontSize--regular;
+        color: rgba($color--base, 0.6);
+        font-weight: $fontWeight--regular;
+    }
+}
+
+// CONTENT
+.content {
+    .frame {
+        max-height: 62vh;
+        user-select: all;
+
+        .wrapper {
+            padding: $spacing--medium;
+        }
+    }
+}
+
+// FOOTER
+.footer {
+    padding: $spacing--medium;
+    border-top: 1px solid rgba($color--base, 0.1);
+}
+
+// TABS
+.tabs {
+    background: $color--contrast;
+}

@@ -1,0 +1,80 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Tabs } from "./Tabs";
+import { TabPane } from "./TabPane";
+import { Card } from "../../card/Card";
+import { CardTitle } from "../../card/CardTitle";
+import { CardContent } from "../../card/CardContent";
+
+<Meta title="Components/Navigation/Tabs" component={Tabs} />
+
+# Tabs
+
+Use tabs to pane content sections.
+
+<Props of={Tabs} />
+
+# TabPane
+
+<Props of={TabPane} />
+
+### Basic
+
+<Preview>
+    <Story name="basic">
+        {() => {
+            const [activeKey, setActiveKey] = useState(1);
+            return (
+                <Card>
+                    <CardTitle title="Card with tabs" />
+                    <Tabs activeKey={activeKey} onChange={setActiveKey}>
+                        <TabPane tabKey={1} label="First tab">
+                            <CardContent>First tab pane</CardContent>
+                        </TabPane>
+                        <TabPane tabKey={2} label="Second tab">
+                            <CardContent>Second tab pane</CardContent>
+                        </TabPane>
+                        <TabPane tabKey={3} label="Third tab">
+                            <CardContent>Third tab pane</CardContent>
+                        </TabPane>
+                        <TabPane tabKey={4} label="Fourth tab">
+                            <CardContent>Fourth tab pane</CardContent>
+                        </TabPane>
+                    </Tabs>
+                </Card>
+            );
+        }}
+    </Story>
+</Preview>
+
+### Icon
+
+<Preview>
+    <Story name="icon">
+        {() => {
+            const [activeKey, setActiveKey] = useState(1);
+            return (
+                <Card>
+                    <CardTitle title="Card with icon tabs" />
+                    <Tabs
+                        activeKey={activeKey}
+                        onChange={setActiveKey}
+                    >
+                        <TabPane tabKey={1} label="First tab" icon="rocket">
+                            <CardContent>First tab pane</CardContent>
+                        </TabPane>
+                        <TabPane tabKey={2} label="Second tab" icon="feather">
+                            <CardContent>Second tab pane</CardContent>
+                        </TabPane>
+                        <TabPane tabKey={3} label="Third tab" icon="clock">
+                            <CardContent>Third tab pane</CardContent>
+                        </TabPane>
+                        <TabPane tabKey={4} label="Fourth tab" icon="palette">
+                            <CardContent>Fourth tab pane</CardContent>
+                        </TabPane>
+                    </Tabs>
+                </Card>
+            );
+        }}
+    </Story>
+</Preview>

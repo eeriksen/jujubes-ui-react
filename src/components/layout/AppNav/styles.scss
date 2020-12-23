@@ -14,11 +14,11 @@
         width: $appNav--width;
         height: 100vh;
         z-index: 2;
-        background: $color--secondary;
+        background: $color--nav-sidebar-background;
 
         .logo {
             height: $appBar--height;
-            background: rgba(0, 0, 0, 0.15);
+            background: $color--nav-accent;
             overflow: hidden;
             display: flex;
             justify-content: left;
@@ -35,7 +35,7 @@
             padding: $spacing--nav-sides $spacing--nav-sides $spacing--large-x;
 
             .title {
-                color: $color--secondary-contrast;
+                color: $color--nav-text;
             }
         }
 
@@ -45,7 +45,7 @@
             left: 0;
             right: 0;
             height: 60px;
-            background: linear-gradient(to top, rgba($color--secondary,1) 0%,rgba($color--secondary,0) 100%);
+            background: $color--nav-sidebar-background;
             z-index: 2;
             pointer-events: none;
         }
@@ -62,15 +62,14 @@
     }
 }
 
-
 /* RESPONSIVE: Table landscape down
 ---------------------------------------------------------------------- */
-@include for-tablet-landscape-down(){
+@include for-tablet-landscape-down() {
     .base {
         .content {
             position: fixed;
-            left: - $appNav--width;
-            transition: left .2s ease-in-out, box-shadow .3s linear;
+            left: -$appNav--width;
+            transition: left 0.2s ease-in-out, box-shadow 0.3s linear;
         }
 
         .overlay {
@@ -80,10 +79,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba($color--contrast, 0.8);
+            background: rgba($color--contrast, 0.9);
             pointer-events: none;
             opacity: 0;
-            transition: opacity .3s linear;
+            transition: opacity 0.3s linear;
         }
 
         &.isActive {

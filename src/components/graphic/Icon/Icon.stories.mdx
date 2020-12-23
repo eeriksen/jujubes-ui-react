@@ -1,0 +1,94 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Icon, iconList } from './Icon';
+import { Row } from "../../grid/Row";
+import { Col } from "../../grid/Col";
+
+<Meta title="Components/Graphic/Icon" component={Icon} />
+
+# Icon
+
+In order to keep a consistent look across all application utlizing this UI Toolkit,
+we limit the usage of icons to the icons provided by the toolkit.
+All icons are flat and minimalistic SVG icons.
+
+<Props of={Icon} />
+
+### Basic
+<Preview>
+    <Story name="basic" >
+        <Row>
+            {iconList.map((icon, index) => (
+                <Col key={index} sm={{span: 4}}>
+                    <Icon name={icon} presentation />
+                </Col>
+            ))}
+        </Row>
+    </Story>
+</Preview>
+
+### Color
+<Preview>
+    <Story name="color" >
+        <Row>
+            <Col span={4}>
+                <Icon name="star" color="primary" size="large" />
+            </Col>
+            <Col span={4}>
+                <Icon name="star" color="info" size="large" />
+            </Col>
+            <Col span={4}>
+                <Icon name="star" color="success" size="large" />
+            </Col>
+            <Col span={4}>
+                <Icon name="star" color="warning" size="large" />
+            </Col>
+            <Col span={4}>
+                <Icon name="star" color="error" size="large" />
+            </Col>
+        </Row>
+    </Story>
+</Preview>
+
+### Size
+<Preview>
+    <Story name="size" >
+        <Row>
+            <Col span={4}>
+                <Icon name="info" size="small" />
+            </Col>
+            <Col span={4}>
+                <Icon name="info" />
+            </Col>
+            <Col span={4}>
+                <Icon name="info" size="medium" />
+            </Col>
+            <Col span={4}>
+                <Icon name="info" size="large" />
+            </Col>
+            <Col span={4}>
+                <Icon name="info" size="xLarge" />
+            </Col>
+            <Col span={4}>
+                <Icon name="info" size="xxLarge" />
+            </Col>
+        </Row>
+    </Story>
+</Preview>
+
+### Rotate
+<Preview>
+    <Story name="rotate" >
+        <Row>
+            <Col span={4}>
+                <Icon name="refresh" rotate />
+            </Col>
+            <Col span={4}>
+                <Icon name="repeat" rotate />
+            </Col>
+            <Col span={4}>
+                <Icon name="gear" rotate />
+            </Col>
+        </Row>
+    </Story>
+</Preview>

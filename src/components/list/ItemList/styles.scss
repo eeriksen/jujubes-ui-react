@@ -7,17 +7,9 @@
 $height--item-with-image: 60px;
 
 .base {
-
     &.hidden {
         display: none;
     }
-}
-
-.list {
-    display: block;
-    position: relative;
-    overflow: hidden;
-    background-color: rgba($color--base, 0.03);
 
     // Loader
     .loader {
@@ -30,7 +22,13 @@ $height--item-with-image: 60px;
         align-items: center;
         justify-content: center;
     }
+}
 
+.list {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba($color--base, 0.03);
 }
 
 
@@ -41,7 +39,7 @@ $height--item-with-image: 60px;
     user-select: none;
     overflow: hidden;
     background-color: $color--contrast;
-    min-height: $size--element-normal;
+    min-height: $size--element-regular;
     padding: 5px;
 
     // Content
@@ -54,6 +52,7 @@ $height--item-with-image: 60px;
 
         .wrapper {
             max-width: 100%;
+            line-height: $lineHeight--small;
             @include m-truncate();
         }
 
@@ -63,20 +62,20 @@ $height--item-with-image: 60px;
     .prepend {
         display: flex;
         align-items: center;
-        margin-right: $spacing--normal;
+        margin-right: $spacing--regular;
     }
 
     // Append
     .append {
         display: flex;
         align-items: center;
-        margin-left: $spacing--normal;
+        margin-left: $spacing--regular;
     }
 
     // Handle
     .handle {
         min-height: 100%;
-        padding: 0 $spacing--normal;
+        padding: 0 $spacing--regular;
         cursor: ns-resize;
         display: flex;
         align-items: center;
@@ -103,7 +102,6 @@ $height--item-with-image: 60px;
     // STATE: Is dragged
     &.isDragged {
         background-color: $color--contrast;
-        border: 1px solid rgba($color--base, 0.20);
         box-shadow:$boxShadow--large;
         z-index: $zIndex--itemList-draggedItem;
     }

@@ -1,0 +1,31 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Tooltip } from "./Tooltip";
+import { Row } from "../../grid/Row";
+import { Col } from "../../grid/Col";
+
+<Meta title="Components/Notify/Tooltip" component={Tooltip} />
+
+# Tooltip
+
+The `<Tooltip />` is used when you want to display a short popup message on hovering or clicking an element.
+Wrap the element that should trigger the tooltip, with the `<Tooltip />` tag.
+
+<ArgsTable of={Tooltip} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        <Row>
+            <Col span={12}>
+                <Tooltip title="This is a regular tooltip">Hover to show tooltip</Tooltip>
+            </Col>
+            <Col span={12}>
+                <Tooltip title="This is a regular tooltip" trigger="click">
+                    Click to show another tooltip
+                </Tooltip>
+            </Col>
+        </Row>
+    </Story>
+</Canvas>

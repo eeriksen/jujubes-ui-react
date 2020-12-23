@@ -14,7 +14,7 @@ $checkbox--size: 28px;
     vertical-align: top;
     position: relative;
 
-    $topBottom-margin: ($size--element-normal - $checkbox--size) / 2;
+    $topBottom-margin: ($size--element-regular - $checkbox--size) / 2;
     margin: $topBottom-margin $spacing--medium $topBottom-margin 0;
 
     .check {
@@ -40,7 +40,7 @@ $checkbox--size: 28px;
 
     .label {
         margin-left: $checkbox--size;
-        padding: 1px 0 0 $spacing--normal;
+        padding: 1px 0 0 $spacing--regular;
         color: rgba($color--base, 0.8);
         transition: all 0.2s ease;
         min-height: $checkbox--size;
@@ -56,11 +56,6 @@ $checkbox--size: 28px;
         .label {
             color: $color--base;
         }
-    }
-
-    // No margin
-    &.noMargin {
-        margin: 0;
     }
 
     // Embedded

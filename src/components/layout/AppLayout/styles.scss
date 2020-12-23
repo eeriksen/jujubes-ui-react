@@ -12,6 +12,7 @@
     right: 0;
     bottom: 0;
     display: flex;
+    background-color: $color--background;
 
     .left {
         position: relative;
@@ -31,5 +32,9 @@
             flex-grow: 1;
             overflow-y: auto;
         }
+    }
+
+    &.presentation {
+        position: relative;
     }
 }

@@ -1,0 +1,41 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Toast } from "./Toast";
+import { Row } from "../../grid/Row";
+import { Col } from "../../grid/Col";
+import { Button } from "../../button/Button";
+
+<Meta title="Components/Notify/Toast" component={Toast} />
+
+# Toast
+
+A `Toast`can be used to display a quick message to the user.
+`Toast` is not a React component, but contains functions for three different types of messages, `info`, `success` and `error`.
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        <Row>
+            <Col span={8}>
+                <Button block color="info" onClick={() => Toast.info("This is a info toast")}>
+                    Info toast
+                </Button>
+            </Col>
+            <Col span={8}>
+                <Button
+                    block
+                    color="success"
+                    onClick={() => Toast.success("This is a success toast")}
+                >
+                    Success toast
+                </Button>
+            </Col>
+            <Col span={8}>
+                <Button block color="error" onClick={() => Toast.error("This is an error toast")}>
+                    Error toast
+                </Button>
+            </Col>
+        </Row>
+    </Story>
+</Canvas>

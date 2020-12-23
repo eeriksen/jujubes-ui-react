@@ -1,0 +1,50 @@
+import { useState } from "react";
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { ConfirmActionButton } from './ConfirmActionButton';
+import { Row } from "../../grid/Row";
+import { Col } from "../../grid/Col";
+
+<Meta title="Components/Buttons/ConfirmActionButton" component={ConfirmActionButton} />
+
+# ConfirmActionButton
+
+Use the `<ConfirmActionButton />` when you want to provide the option to delete something,
+and also have the user confirm that they want to confirm the action.
+It's compact size makes it fit snuggly in the bottom of a popup aswell.
+
+<Props of={ConfirmActionButton} />
+
+### Basic
+<Preview>
+    <Story name="basic" >
+        <ConfirmActionButton
+            label="Delete something"
+            question="Are you sure you want to delete something?"
+            onConfirm={() => console.log("Delete something")}
+        />
+    </Story>
+</Preview>
+
+### Size
+<Preview>
+    <Story name="size" >
+        <Row>
+            <Col span={12}>
+                <ConfirmActionButton
+                    size="small"
+                    label="Delete something"
+                    question="Are you sure you want to delete something?"
+                    onConfirm={() => console.log("Delete something")}
+                />
+            </Col>
+            <Col span={12}>
+                <ConfirmActionButton
+                    size="big"
+                    label="Delete something"
+                    question="Are you sure you want to delete something?"
+                    onConfirm={() => console.log("Delete something")}
+                />
+            </Col>
+        </Row>
+    </Story>
+</Preview>

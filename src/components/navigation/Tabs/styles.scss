@@ -1,0 +1,73 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   TABS
+   =================================================================== */
+
+$height-tabs: $size--element-regular + 4px;
+
+.base {
+
+    .tabs {
+        height: $height-tabs;
+
+        .wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            height: 100%;
+            border-bottom: 1px solid rgba($color--base, 0.10);
+            min-width: 100%;
+
+            .tab {
+                cursor: pointer;
+                height: $height-tabs;
+                line-height: $height-tabs;
+                padding: 0 $spacing--medium;
+                user-select: none;
+                white-space: nowrap;
+
+                .label {
+                    color: rgba($color--base, 0.6);
+                    font-weight: $fontWeight--medium;
+                    transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+                }
+
+                .icon {
+                    position: relative;
+                    top: 3px;
+                    margin-right: 6px;
+                    @include m-iconColor(rgba($color--base, 0.20), true);
+                }
+
+                &:hover {
+                    .label {
+                        color: rgba($color--base, 0.8);
+                    }
+
+                    .icon {
+                        @include m-iconColor(rgba($color--base, 0.3), true);
+                    }
+                }
+
+                &.active {
+                    cursor: default;
+                    box-shadow: inset 0 -2px 0 0 lighten($color--primary, 10%);
+
+                    .label {
+                        color: $color--primary;
+                    }
+
+                    .icon {
+                        @include m-iconColor($color--primary, true);
+                    }
+                }
+            }
+        }
+    }
+
+    .pane {
+
+    }
+}

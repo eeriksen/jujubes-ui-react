@@ -6,8 +6,7 @@
 
 .base {
     position: relative;
-    margin-bottom: $spacing--medium;
-    background-color: $color--background-cards;
+    background-color: $content--backgroundColor;
     box-shadow: $boxShadow--regular;
-    border-radius: $borderRadius--regular;
+    border-radius: $content--borderRadius;
 }

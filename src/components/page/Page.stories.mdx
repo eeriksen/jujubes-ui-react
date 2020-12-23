@@ -1,0 +1,80 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Page } from "./Page";
+import { PageHeader } from "./PageHeader";
+import { PageCrumbs, Crumb } from "./PageCrumbs";
+import { PageActions, Action } from "./PageActions";
+import { ComponentWrapper } from "../layout/ComponentWrapper";
+import { AppLayout } from "../layout/AppLayout";
+import { AppContent } from "../layout/AppContent";
+
+<Meta title="Components/Layout/Page" component={Page} />
+
+# Page
+
+Every logical page should be wrapped inside the `<Page/>` component.
+
+# PageHeader
+
+Component to display a page title with optional subtitle and icon.
+<ArgsTable of={PageHeader} />
+
+# PageCrumbs
+
+The page crumbs are used to create a link trail up the page tree.
+<ArgsTable of={PageCrumbs} />
+
+## Crumb
+
+<ArgsTable of={Crumb} />
+
+# PageActions
+
+Add `<PageActions />` to a page to give the user a context menu of actions to perform to perform while on the respective page.
+<ArgsTable of={PageActions} />
+
+## Action
+
+Same properties as `<MenuItem />`
+
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        <ComponentWrapper>
+            <AppLayout>
+                <AppContent>
+                    <Page>
+                        <PageHeader
+                            title="Edit profile"
+                            subtitle="Change your user profile details"
+                            icon="gear"
+                        />
+                        <PageCrumbs>
+                            <Crumb label="Start" link="/" />
+                            <Crumb label="Users" link="/users" />
+                            <Crumb label="Edit profile" link="/users/1" />
+                            <Crumb current />
+                        </PageCrumbs>
+                        <PageActions>
+                            <Action icon="plus" onClick={() => console.log("CLICK")}>
+                                Create a page
+                            </Action>
+                            <Action icon="edit" onClick={() => console.log("CLICK")}>
+                                Edit page
+                            </Action>
+                            <Action
+                                icon="trash"
+                                iconColor="error"
+                                onClick={() => console.log("CLICK")}
+                            >
+                                Delete page
+                            </Action>
+                        </PageActions>
+                    </Page>
+                </AppContent>
+            </AppLayout>
+        </ComponentWrapper>
+    </Story>
+</Canvas>

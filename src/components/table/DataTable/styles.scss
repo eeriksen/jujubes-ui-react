@@ -4,8 +4,8 @@
    DATA TABLE
    =================================================================== */
 
-$padding-cell--regular: 9px $spacing--normal;
-$padding-cell--small: 6px $spacing--normal;
+$padding-cell--regular: 9px $spacing--regular;
+$padding-cell--small: 6px $spacing--regular;
 
 .base {
     position: relative;
@@ -25,7 +25,7 @@ $padding-cell--small: 6px $spacing--normal;
 
     .heading {
         text-align: left;
-        padding-bottom: $spacing--normal;
+        padding-bottom: $spacing--regular;
         font-weight: $fontWeight--medium;
         font-size: $fontSize--medium;
         max-width: 400px;
@@ -47,7 +47,7 @@ $padding-cell--small: 6px $spacing--normal;
     border-spacing: 0;
     border-collapse: separate;
     width: 100%;
-    font-size: $fontSize--normal;
+    font-size: $fontSize--regular;
 
     // HEAD
     > thead {
@@ -57,12 +57,8 @@ $padding-cell--small: 6px $spacing--normal;
 
             // Col
             > th {
-                background-color: rgba($color--base, 0.03);
                 text-align: left;
                 padding: $padding-cell--regular;
-                border-bottom: 1px solid rgba($color--base, 0.15);
-                border-right: 1px solid rgba($color--base, 0.10);
-                border-top: 1px solid rgba($color--base, 0.10);
                 font-weight: $fontWeight--medium;
                 color: $color--base;
                 @include m-truncate();
@@ -84,19 +80,9 @@ $padding-cell--small: 6px $spacing--normal;
             > .col {
                 padding: 0;
                 background-color: $color--contrast;
-                border-bottom: 1px solid rgba($color--base, 0.10);
-                border-right: 1px solid rgba($color--base, 0.05);
 
                 &:last-child {
                     border-right: none;
-                }
-
-                &.noBorderBottom {
-                    border-bottom-color: transparent;
-                }
-
-                &.noBorderRight {
-                    border-right-color: transparent;
                 }
             }
 
@@ -107,34 +93,28 @@ $padding-cell--small: 6px $spacing--normal;
                 }
             }
 
+            &:nth-child(odd){
+                > .col {
+                    background-color: rgba($color--background, 0.4);
+                }
+            }
+
             // MOD: Blinking row
             @keyframes rowBlink {
                 0% {
-                    background-color: $color--background;
+                    background-color: rgba($color--attention, .2);
                 }
                 50% {
-                    background-color: rgba($color--warning, .8);
+                    background-color: rgba($color--attention, .6);
                 }
                 100% {
-                    background-color: $color--background;
+                    background-color: rgba($color--attention, .2);
                 }
             }
+
             &.blink {
                 > .col {
-                    animation: rowBlink 2s ease-in-out none 20;
-                }
-            }
-
-            // EXPANDED ROW
-            &.expand {
-                > .col {
-                    padding: $spacing--small;
-                    background: transparent;
-
-                    &:hover {
-                        cursor: default;
-                        background-color: rgba($color--base, 0.05);
-                    }
+                    animation: rowBlink 2s ease-in-out none infinite;
                 }
             }
 
@@ -150,7 +130,7 @@ $padding-cell--small: 6px $spacing--normal;
             resize: none;
             border: 0;
             background: transparent;
-            font-size: $fontSize--normal;
+            font-size: $fontSize--regular;
             font-family: $fontFamily--primary;
             padding: $padding-cell--regular;
         }
@@ -167,12 +147,12 @@ $padding-cell--small: 6px $spacing--normal;
     // MOD: Clickable
     &.clickable {
         > tbody {
-            > .row:not(.unclickable) {
+            > .row:not(.disabled) {
                 cursor: pointer;
 
                 &:hover {
                     > .col {
-                        background-color: darken($color--contrast, 1%);
+                        background-color: $color--background !important;
                     }
                 }
             }

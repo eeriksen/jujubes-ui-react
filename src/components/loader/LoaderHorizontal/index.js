@@ -1,1 +1,1 @@
-export * from "./LoaderHorizontal"
+export * from "./LoaderHorizontal";

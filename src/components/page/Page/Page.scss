@@ -4,17 +4,25 @@
    PAGE
    =================================================================== */
 
-.topBox {
+.base {
+    .topBox {
+        position: relative;
+    }
 
-}
+    .mainBox {
+        position: relative;
+        display: block;
+        padding: $spacing--large;
+        max-width: $breakpoint--big-desktop;
+        margin: 0 auto;
 
-.mainBox {
-    position: relative;
-    display: block;
-    padding: $spacing--large;
+        @include for-tablet-portrait-down(){
+            padding: $spacing--medium $spacing--phone-edge;
+        }
 
-    @include for-tablet-portrait-down(){
-        padding: $spacing--medium $spacing--phone-edge;
+        @include for-phone-only(){
+            padding: $spacing--medium 0;
+        }
     }
 }
 

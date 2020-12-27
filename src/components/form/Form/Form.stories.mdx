@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import { Form } from './Form';
 import { FormItem } from "../FormItem";
 import { Input } from "../Input";
@@ -15,10 +15,10 @@ import { Col } from "../../grid/Col";
 
 The `<Form/>` component is used to wrap one or more `<FormItem/>` components.
 
-<Props of={Form} />
+<ArgsTable of={Form} />
 
 ### Example
-<Preview>
+<Canvas>
     <Story name="basic" >
         {() => {
             const [data, setData] = useState({});
@@ -53,4 +53,4 @@ The `<Form/>` component is used to wrap one or more `<FormItem/>` components.
             )
         }}
     </Story>
-</Preview>
+</Canvas>

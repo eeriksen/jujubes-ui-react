@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { Card } from '../Card'
 import { CardContent } from "../CardContent"
 import { CardTitle } from "./CardTitle"
@@ -13,10 +13,10 @@ import { Badge } from "../../notify/Badge"
 
 Add a title to the card.
 
-<Props of={CardTitle} />
+<ArgsTable of={CardTitle} />
 
 ### Basic
-<Preview>
+<Canvas>
     <Story name="basic" >
         <Card>
             <CardTitle title={"This is the card title"} />
@@ -28,11 +28,11 @@ Add a title to the card.
             </CardContent>
         </Card>
     </Story>
-</Preview>
+</Canvas>
 
 
 ### With addon
-<Preview>
+<Canvas>
     <Story name="with addon" >
         <Card>
             <CardTitle title={"This is the card title"}>
@@ -46,11 +46,11 @@ Add a title to the card.
             </CardContent>
         </Card>
     </Story>
-</Preview>
+</Canvas>
 
 
 ### With actions
-<Preview>
+<Canvas>
     <Story name="with actions" >
         <Card>
             <CardTitle title={"This is the card title"} actions={[{
@@ -65,5 +65,5 @@ Add a title to the card.
             </CardContent>
         </Card>
     </Story>
-</Preview>
+</Canvas>
 

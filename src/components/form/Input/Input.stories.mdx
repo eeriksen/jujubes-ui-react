@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import { Form } from "../Form";
 import { FormItem } from "../FormItem";
 import { Input } from './Input';
@@ -11,10 +11,10 @@ import { Text } from "../../typography/Text";
 
 The `<Input />` component is a very flexible text input component.
 
-<Props of={Input} />
+<ArgsTable of={Input} />
 
 ### Basic
-<Preview>
+<Canvas>
     <Story name="basic" >
         {() => {
             const [value, setValue] = useState(null);
@@ -27,11 +27,11 @@ The `<Input />` component is a very flexible text input component.
             )
         }}
     </Story>
-</Preview>
+</Canvas>
 
 
 ### Size
-<Preview>
+<Canvas>
     <Story name="size" >
         {() => {
             const [value, setValue] = useState(null);
@@ -50,11 +50,11 @@ The `<Input />` component is a very flexible text input component.
             )
         }}
     </Story>
-</Preview>
+</Canvas>
 
 
 ### Icon
-<Preview>
+<Canvas>
     <Story name="icon" >
         {() => {
             const [value, setValue] = useState(null);
@@ -73,11 +73,11 @@ The `<Input />` component is a very flexible text input component.
             )
         }}
     </Story>
-</Preview>
+</Canvas>
 
 
 ### Prepend
-<Preview>
+<Canvas>
     <Story name="prepend" >
         {() => {
             const [value, setValue] = useState(null);
@@ -95,11 +95,11 @@ The `<Input />` component is a very flexible text input component.
             )
         }}
     </Story>
-</Preview>
+</Canvas>
 
 
 ### Append
-<Preview>
+<Canvas>
     <Story name="append" >
         {() => {
             const [value, setValue] = useState(null);
@@ -117,11 +117,11 @@ The `<Input />` component is a very flexible text input component.
             )
         }}
     </Story>
-</Preview>
+</Canvas>
 
 
 ### Disabled
-<Preview>
+<Canvas>
     <Story name="disabled" >
         {() => {
             const [value, setValue] = useState(null);
@@ -134,5 +134,5 @@ The `<Input />` component is a very flexible text input component.
             )
         }}
     </Story>
-</Preview>
+</Canvas>
 

@@ -1,0 +1,38 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Paragraph } from "../Paragraph";
+import { Text } from "../Text";
+
+<Meta title="Components/Typography/Paragraph" />
+
+# Paragraph
+
+Use `<Paragraph />` the same way you would use the `<p />` element.
+It's nice for visually separating blocks of text.
+
+<ArgsTable of={Paragraph} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        <React.Fragment>
+            <Paragraph>
+                <Text>
+                    Bacon ipsum dolor amet chicken tongue strip steak, alcatra short loin bresaola
+                    drumstick ham hock. Sirloin venison biltong swine pig. Fatback jerky shoulder
+                    drumstick pancetta beef ribs turkey porchetta. Porchetta filet mignon tail
+                    tongue landjaeger. Pork belly landjaeger swine.
+                </Text>
+            </Paragraph>
+            <Paragraph spacing="none">
+                <Text>
+                    Bacon ipsum dolor amet chicken tongue strip steak, alcatra short loin bresaola
+                    drumstick ham hock. Sirloin venison biltong swine pig. Fatback jerky shoulder
+                    drumstick pancetta beef ribs turkey porchetta. Porchetta filet mignon tail
+                    tongue landjaeger. Pork belly landjaeger swine.
+                </Text>
+            </Paragraph>
+        </React.Fragment>
+    </Story>
+</Canvas>

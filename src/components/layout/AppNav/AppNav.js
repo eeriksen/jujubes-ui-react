@@ -4,10 +4,10 @@ import styles from "./styles.scss";
 
 import { Clickable } from "../../button/Clickable";
 import { ScrollableArea } from "../ScrollableArea";
-import { LayoutContext } from "../AppLayout";
+import { AppContext } from "../AppContext";
 
 export const AppNav = ({ logo, title, children }) => {
-    const layout = useContext(LayoutContext);
+    const layout = useContext(AppContext);
 
     // Classes
     const baseClasses = classNames(styles.base, {

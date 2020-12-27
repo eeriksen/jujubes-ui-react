@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import { Icon, iconList } from './Icon';
 import { Row } from "../../grid/Row";
 import { Col } from "../../grid/Col";
@@ -12,10 +12,10 @@ In order to keep a consistent look across all application utlizing this UI Toolk
 we limit the usage of icons to the icons provided by the toolkit.
 All icons are flat and minimalistic SVG icons.
 
-<Props of={Icon} />
+<ArgsTable of={Icon} />
 
 ### Basic
-<Preview>
+<Canvas>
     <Story name="basic" >
         <Row>
             {iconList.map((icon, index) => (
@@ -25,10 +25,10 @@ All icons are flat and minimalistic SVG icons.
             ))}
         </Row>
     </Story>
-</Preview>
+</Canvas>
 
 ### Color
-<Preview>
+<Canvas>
     <Story name="color" >
         <Row>
             <Col span={4}>
@@ -48,10 +48,10 @@ All icons are flat and minimalistic SVG icons.
             </Col>
         </Row>
     </Story>
-</Preview>
+</Canvas>
 
 ### Size
-<Preview>
+<Canvas>
     <Story name="size" >
         <Row>
             <Col span={4}>
@@ -74,10 +74,10 @@ All icons are flat and minimalistic SVG icons.
             </Col>
         </Row>
     </Story>
-</Preview>
+</Canvas>
 
 ### Rotate
-<Preview>
+<Canvas>
     <Story name="rotate" >
         <Row>
             <Col span={4}>
@@ -91,4 +91,4 @@ All icons are flat and minimalistic SVG icons.
             </Col>
         </Row>
     </Story>
-</Preview>
+</Canvas>

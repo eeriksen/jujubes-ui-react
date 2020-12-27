@@ -5,11 +5,60 @@ import { Column } from "./Column";
 import { Cell } from "./Cell";
 import { Badge } from "../../notify/Badge";
 
+export const tableRows = [
+    {
+        id: 1,
+        firstName: "Otto",
+        lastName: "Berman",
+        email: "otto@berman.com",
+        status: true
+    },
+    {
+        id: 2,
+        firstName: "Artichoke",
+        lastName: "King",
+        email: "artie@king.com",
+        status: true
+    },
+    {
+        id: 3,
+        firstName: "Agostino",
+        lastName: "Camancho",
+        email: "ago@camancho.com",
+        status: false
+    },
+    {
+        id: 4,
+        firstName: "Baldassare",
+        lastName: "Amato",
+        email: "baldy@amato.com",
+        status: false
+    },
+    {
+        id: 5,
+        firstName: "Albert",
+        lastName: "Barone",
+        email: "albie@barone.com",
+        status: true
+    },
+    {
+        id: 6,
+        firstName: "Paul",
+        lastName: "Castellano",
+        email: "paul@castellano.com",
+        status: false
+    }
+];
+
 <Meta title="Components/Table/DataTable" component={DataTable} />
 
 # DataTable
 
-Write something here.
+The `<DataTable />` can be used to display data, static or dynamic, in a table.
+Each table consist of multiple `<Column />` components. The `<Column />` takes a "cell"-property
+that should return a function returning a `<Cell />` component. The function will receive one object containing
+`row` which is the respective rows data and `rowIndex`. This way you can manipulate the table data on a cell
+basis if you need to.
 
 <ArgsTable of={DataTable} />
 
@@ -17,78 +66,87 @@ Write something here.
 
 <Canvas>
     <Story name="basic">
-        {() => {
-            const [tableRows] = useState([
-                {
-                    id: 1,
-                    firstName: "Otto",
-                    lastName: "Berman",
-                    email: "otto@berman.com",
-                    status: true
-                },
-                {
-                    id: 2,
-                    firstName: "Artichoke",
-                    lastName: "King",
-                    email: "artie@king.com",
-                    status: true
-                },
-                {
-                    id: 3,
-                    firstName: "Agostino",
-                    lastName: "Camancho",
-                    email: "ago@camancho.com",
-                    status: false
-                },
-                {
-                    id: 4,
-                    firstName: "Baldassare",
-                    lastName: "Amato",
-                    email: "baldy@amato.com",
-                    status: false
-                },
-                {
-                    id: 5,
-                    firstName: "Albert",
-                    lastName: "Barone",
-                    email: "albie@barone.com",
-                    status: true
-                },
-                {
-                    id: 6,
-                    firstName: "Paul",
-                    lastName: "Castellano",
-                    email: "paul@castellano.com",
-                    status: false
-                }
-            ]);
-            return (
-                <DataTable
-                    rows={tableRows}
-                    onRowClick={(data) => console.log("CLICK", data)}
-                    rowModifiers={{
-                        blink: (row) => row.id === 3000,
-                        disabled: (row) => row.id === 5000
-                    }}
-                >
-                    <Column label="ID" cell={({ row }) => <Cell>{row.id}</Cell>} />
-                    <Column label="First name" cell={({ row }) => <Cell>{row.firstName}</Cell>} />
-                    <Column label="Last name" cell={({ row }) => <Cell>{row.lastName}</Cell>} />
-                    <Column label="E-mail" cell={({ row }) => <Cell>{row.email}</Cell>} />
-                    <Column
-                        label="Status"
-                        cell={({ row }) => (
-                            <Cell>
-                                {row.status ? (
-                                    <Badge color="success">Active</Badge>
-                                ) : (
-                                    <Badge color="error">Inactive</Badge>
-                                )}
-                            </Cell>
+        <DataTable
+            rows={tableRows}
+            onRowClick={(data) => console.log("CLICK", data)}
+        >
+            <Column label="ID" cell={({ row }) => <Cell>{row.id}</Cell>} />
+            <Column label="First name" cell={({ row }) => <Cell>{row.firstName}</Cell>} />
+            <Column label="Last name" cell={({ row }) => <Cell>{row.lastName}</Cell>} />
+            <Column label="E-mail" cell={({ row }) => <Cell>{row.email}</Cell>} />
+            <Column
+                label="Status"
+                cell={({ row }) => (
+                    <Cell>
+                        {row.status ? (
+                            <Badge color="success">Active</Badge>
+                        ) : (
+                            <Badge color="error">Inactive</Badge>
                         )}
-                    />
-                </DataTable>
-            );
-        }}
+                    </Cell>
+                )}
+            />
+        </DataTable>
+    </Story>
+</Canvas>
+
+### Busy
+
+<Canvas>
+    <Story name="busy">
+        <DataTable
+            busy
+            rows={tableRows}
+            onRowClick={(data) => console.log("CLICK", data)}
+        >
+            <Column label="ID" cell={({ row }) => <Cell>{row.id}</Cell>} />
+            <Column label="First name" cell={({ row }) => <Cell>{row.firstName}</Cell>} />
+            <Column label="Last name" cell={({ row }) => <Cell>{row.lastName}</Cell>} />
+            <Column label="E-mail" cell={({ row }) => <Cell>{row.email}</Cell>} />
+            <Column
+                label="Status"
+                cell={({ row }) => (
+                    <Cell>
+                        {row.status ? (
+                            <Badge color="success">Active</Badge>
+                        ) : (
+                            <Badge color="error">Inactive</Badge>
+                        )}
+                    </Cell>
+                )}
+            />
+        </DataTable>
+    </Story>
+</Canvas>
+
+### Row modifiers
+
+<Canvas>
+    <Story name="row modifiers">
+        <DataTable
+            rows={tableRows}
+            onRowClick={(data) => console.log("CLICK", data)}
+            rowModifiers={{
+                blink: (row) => row.id === 2,
+                disabled: (row) => row.id === 5
+            }}
+        >
+            <Column label="ID" cell={({ row }) => <Cell>{row.id}</Cell>} />
+            <Column label="First name" cell={({ row }) => <Cell>{row.firstName}</Cell>} />
+            <Column label="Last name" cell={({ row }) => <Cell>{row.lastName}</Cell>} />
+            <Column label="E-mail" cell={({ row }) => <Cell>{row.email}</Cell>} />
+            <Column
+                label="Status"
+                cell={({ row }) => (
+                    <Cell>
+                        {row.status ? (
+                            <Badge color="success">Active</Badge>
+                        ) : (
+                            <Badge color="error">Inactive</Badge>
+                        )}
+                    </Cell>
+                )}
+            />
+        </DataTable>
     </Story>
 </Canvas>

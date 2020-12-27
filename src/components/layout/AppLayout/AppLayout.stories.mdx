@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
 import { AppLayout } from "./AppLayout";
 import { AppBar } from "../AppBar";
 import { AppNav } from "../AppNav";
@@ -14,11 +14,11 @@ import { ComponentWrapper } from "../ComponentWrapper";
 
 The `<AppLayout />` component is the root element of your entire layout.
 
-<Props of={AppLayout} />
+<ArgsTable of={AppLayout} />
 
 ### Basic
 
-<Preview>
+<Canvas>
     <Story name="basic">
         <ComponentWrapper>
             <AppLayout>
@@ -32,4 +32,4 @@ The `<AppLayout />` component is the root element of your entire layout.
             </AppLayout>
         </ComponentWrapper>
     </Story>
-</Preview>
+</Canvas>

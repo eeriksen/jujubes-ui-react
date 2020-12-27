@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import { Form } from "../Form";
 import { FormItem } from "../FormItem";
 import { Select } from './Select';
@@ -11,10 +11,10 @@ import { Option } from "./Option";
 
 Use the `<Select />` when the user should choose from a list of alternatives.
 
-<Props of={Select} />
+<ArgsTable of={Select} />
 
 ### Basic
-<Preview>
+<Canvas>
     <Story name="basic" >
         {() => {
             const [value, setValue] = useState(null);
@@ -40,11 +40,11 @@ Use the `<Select />` when the user should choose from a list of alternatives.
             )
         }}
     </Story>
-</Preview>
+</Canvas>
 
 
 ### Size
-<Preview>
+<Canvas>
     <Story name="size" >
         {() => {
             const [value, setValue] = useState(null);
@@ -102,11 +102,11 @@ Use the `<Select />` when the user should choose from a list of alternatives.
             )
         }}
     </Story>
-</Preview>
+</Canvas>
 
 
 ### Disabled
-<Preview>
+<Canvas>
     <Story name="disabled" >
         {() => {
             const [value, setValue] = useState(null);
@@ -132,4 +132,4 @@ Use the `<Select />` when the user should choose from a list of alternatives.
             )
         }}
     </Story>
-</Preview>
+</Canvas>

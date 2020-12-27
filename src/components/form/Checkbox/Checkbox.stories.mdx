@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import { Checkbox } from './Checkbox';
 
 <Meta title="Components/Forms/Checkbox" component={Checkbox} />
@@ -8,10 +8,10 @@ import { Checkbox } from './Checkbox';
 
 A regular checkbox.
 
-<Props of={Checkbox} />
+<ArgsTable of={Checkbox} />
 
 ### Basic
-<Preview>
+<Canvas>
     <Story name="basic" >
         {() => {
             const [checked, setChecked] = useState(true);
@@ -22,4 +22,4 @@ A regular checkbox.
             )
         }}
     </Story>
-</Preview>
+</Canvas>

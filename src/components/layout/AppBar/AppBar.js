@@ -5,10 +5,10 @@ import styles from "./styles.scss";
 
 import { MenuButton } from "../../button/MenuButton";
 import { DotsButton } from "../../button/DotsButton";
-import { LayoutContext } from "../AppLayout";
+import { AppContext } from "../AppContext";
 
 export const AppBar = ({ title, children }) => {
-    const layout = useContext(LayoutContext);
+    const layout = useContext(AppContext);
 
     // Classes
     const baseClasses = classNames(styles.base, {
@@ -48,4 +48,4 @@ AppBar.propTypes = {
      * Title displayed on mobile devices
      */
     title: PropTypes.string
-}
+};

@@ -1,31 +1,32 @@
-import React from "react"
-import classNames from "classnames"
-import styles from "./styles.scss"
-import Notification from "rc-notification"
+import React from "react";
+import classNames from "classnames";
+import styles from "./styles.scss";
+import Notification from "rc-notification";
 
 let defaultDuration = 3;
 let messageInstance;
 let key = 1;
 
 function getMessageInstance() {
-    if(!messageInstance){
-        Notification.newInstance({
-            transitionName: 'fade',
-            style: {
-                top: "auto",
-                bottom: "20px"
+    if (!messageInstance) {
+        Notification.newInstance(
+            {
+                transitionName: "fade",
+                style: {
+                    top: "auto",
+                    bottom: "20px"
+                }
+            },
+            (notification) => {
+                messageInstance = notification;
             }
-        }, notification => {
-            messageInstance = notification;
-        });
+        );
     }
 
     return messageInstance;
 }
 
-
 function notice(content, duration, type, onClose) {
-
     const classes = classNames(styles.base, styles[type]);
 
     let instance = getMessageInstance();
@@ -35,9 +36,7 @@ function notice(content, duration, type, onClose) {
         style: {},
         content: (
             <div className={classes}>
-                <span className={styles.content}>
-                    {content}
-                </span>
+                <span className={styles.content}>{content}</span>
             </div>
         ),
         onClose
@@ -48,23 +47,20 @@ function notice(content, duration, type, onClose) {
         return function () {
             instance.removeNotice(target);
         };
-    }());
-
+    })();
 }
 
-
 export const Toast = {
-
     info(content, duration, onClose) {
-        return notice(content, duration, 'info', onClose);
+        return notice(content, duration, "info", onClose);
     },
 
     success(content, duration, onClose) {
-        return notice(content, duration, 'success', onClose);
+        return notice(content, duration, "success", onClose);
     },
 
     error(content, duration, onClose) {
-        return notice(content, duration, 'error', onClose);
+        return notice(content, duration, "error", onClose);
     },
 
     config(options) {
@@ -79,5 +75,4 @@ export const Toast = {
             messageInstance = null;
         }
     }
-
 };

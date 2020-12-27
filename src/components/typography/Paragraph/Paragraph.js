@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./styles.scss";
 
@@ -13,4 +14,15 @@ export const Paragraph = ({ spacing, align, children }) => {
             {children}
         </p>
     );
+};
+
+Paragraph.propTypes = {
+    /**
+     * Align content inside paragraph
+     */
+    align: PropTypes.oneOf(["center"]),
+    /**
+     * Remove spacing from bottom
+     */
+    spacing: PropTypes.oneOf(["none"])
 };

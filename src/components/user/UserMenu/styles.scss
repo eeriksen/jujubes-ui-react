@@ -5,6 +5,7 @@
    =================================================================== */
 
 .base {
+    display: inline-block;
     position: relative;
 
     .frame {
@@ -18,6 +19,7 @@
         object-fit: cover;
         object-position: 50% 50%;
         overflow: hidden;
+        cursor: pointer;
 
         img {
             width: 100%;

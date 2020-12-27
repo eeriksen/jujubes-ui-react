@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
 import { Image } from "./Image";
 import { Row } from "../../grid/Row";
 import { Col } from "../../grid/Col";
@@ -13,19 +13,19 @@ export const IMAGE_SRC = "https://pbs.twimg.com/media/DMDIKcyWsAEsKDj.jpg";
 
 Write something here.
 
-<Props of={Image} />
+<ArgsTable of={Image} />
 
 ### Basic
 
-<Preview>
+<Canvas>
     <Story name="basic">
         <Image src={IMAGE_SRC} />
     </Story>
-</Preview>
+</Canvas>
 
 ### Thumbnail
 
-<Preview>
+<Canvas>
     <Story name="thumbnail">
         <Row spacing="regular">
             <Col sm={8}>Small</Col>
@@ -52,11 +52,11 @@ Write something here.
             </Col>
         </Row>
     </Story>
-</Preview>
+</Canvas>
 
 ### Scale
 
-<Preview>
+<Canvas>
     <Story name="scale">
         <Row spacing="regular">
             <Col sm={8}>Fill</Col>
@@ -79,11 +79,11 @@ Write something here.
             </Col>
         </Row>
     </Story>
-</Preview>
+</Canvas>
 
 ### Mod
 
-<Preview>
+<Canvas>
     <Story name="mod">
         <Row spacing="regular">
             <Col sm={8}>Rounded</Col>
@@ -104,11 +104,11 @@ Write something here.
             </Col>
         </Row>
     </Story>
-</Preview>
+</Canvas>
 
 ### Placeholder
 
-<Preview>
+<Canvas>
     <Story name="placeholder">
         <Row spacing="regular">
             <Col sm={8}>Default</Col>
@@ -129,11 +129,11 @@ Write something here.
             </Col>
         </Row>
     </Story>
-</Preview>
+</Canvas>
 
 ### Upload
 
-<Preview>
+<Canvas>
     <Story name="upload">
         <Image
             thumbnail="large"
@@ -141,11 +141,11 @@ Write something here.
             placeholder={<Icon color="primary" name="upload" />}
         />
     </Story>
-</Preview>
+</Canvas>
 
 ### Percent
 
-<Preview>
+<Canvas>
     <Story name="percent">
         {() => {
             const [percent, setPercent] = useState(0);
@@ -172,11 +172,11 @@ Write something here.
             );
         }}
     </Story>
-</Preview>
+</Canvas>
 
 ### Actions
 
-<Preview>
+<Canvas>
     <Story name="actions">
         <Row spacing="regular">
             <Col span={4}>
@@ -206,4 +206,4 @@ Write something here.
             actions={<Button square size="small" color="error" icon="close" />}
         />
     </Story>
-</Preview>
+</Canvas>

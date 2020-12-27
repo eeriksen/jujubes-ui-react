@@ -1,0 +1,71 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { UserMenu } from "./UserMenu";
+import { Menu, MenuItem } from "../../navigation/Menu";
+import { Icon } from "../../graphic/Icon";
+
+<Meta title="Components/User/UserMenu" component={UserMenu} />
+
+# UserMenu
+
+Write something here.
+
+<ArgsTable of={UserMenu} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        {() => {
+            const [activeMenuItem, setActiveMenuItem] = useState(1);
+            const user = {
+                name: "Elon Musk",
+                email: "elon.musk@spacex.com",
+                pictureUrl:
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO9j06wVMu70BwNftuEj_HWPf9zVrsjuHarg&usqp=CAU"
+            };
+            return (
+                <UserMenu name={user.name} email={user.email} picture={user.pictureUrl}>
+                    <Menu>
+                        <MenuItem
+                            selected={activeMenuItem === 1}
+                            onClick={() => setActiveMenuItem(1)}
+                            icon="gear"
+                            label="First item"
+                            count={8}
+                        />
+                        <MenuItem
+                            selected={activeMenuItem === 2}
+                            onClick={() => setActiveMenuItem(2)}
+                            icon="eye"
+                            label="Second item"
+                            indicator={<Icon name="warning" color="info" />}
+                            count={23}
+                        />
+                        <MenuItem
+                            selected={activeMenuItem === 3}
+                            onClick={() => setActiveMenuItem(3)}
+                            icon="nodes"
+                            label="Third item"
+                            count={376}
+                        />
+                        <MenuItem
+                            selected={activeMenuItem === 4}
+                            onClick={() => setActiveMenuItem(4)}
+                            icon="palette"
+                            label="Fourth item"
+                            count={1}
+                        />
+                        <MenuItem
+                            selected={activeMenuItem === 5}
+                            onClick={() => setActiveMenuItem(5)}
+                            icon="user"
+                            label="Fifth item"
+                            count={6}
+                        />
+                    </Menu>
+                </UserMenu>
+            );
+        }}
+    </Story>
+</Canvas>

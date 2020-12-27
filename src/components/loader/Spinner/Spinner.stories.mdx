@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
 import { Spinner } from "./Spinner";
 
 <Meta title="Components/Loaders/Spinner" component={Spinner} />
@@ -8,20 +8,20 @@ import { Spinner } from "./Spinner";
 
 The `<Spinner />` component is great for showing the user that something is happening.
 
-<Props of={Spinner} />
+<ArgsTable of={Spinner} />
 
 ### Basic
 
-<Preview>
+<Canvas>
     <Story name="basic">
         <Spinner />
     </Story>
-</Preview>
+</Canvas>
 
 ### Size
 
-<Preview>
+<Canvas>
     <Story name="size">
         <Spinner size="large" />
     </Story>
-</Preview>
+</Canvas>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
 import { Badge } from "./Badge";
 import { Paragraph } from "../../typography/Paragraph";
 
@@ -7,19 +7,19 @@ import { Paragraph } from "../../typography/Paragraph";
 
 # Badge
 
-<Props of={Badge} />
+<ArgsTable of={Badge} />
 
 ### Basic
 
-<Preview>
+<Canvas>
     <Story name="basic">
         <Badge>I'M A BADGE</Badge>
     </Story>
-</Preview>
+</Canvas>
 
 ### Color
 
-<Preview>
+<Canvas>
     <Story name="color">
         <React.Fragment>
             <Paragraph>
@@ -45,11 +45,11 @@ import { Paragraph } from "../../typography/Paragraph";
             </Paragraph>
         </React.Fragment>
     </Story>
-</Preview>
+</Canvas>
 
 ### Fill
 
-<Preview>
+<Canvas>
     <Story name="fill">
         <React.Fragment>
             <Paragraph>
@@ -87,11 +87,11 @@ import { Paragraph } from "../../typography/Paragraph";
             </Paragraph>
         </React.Fragment>
     </Story>
-</Preview>
+</Canvas>
 
 ### Size
 
-<Preview>
+<Canvas>
     <Story name="size">
         <React.Fragment>
             <Paragraph>
@@ -104,11 +104,11 @@ import { Paragraph } from "../../typography/Paragraph";
             </Paragraph>
         </React.Fragment>
     </Story>
-</Preview>
+</Canvas>
 
 ### Number
 
-<Preview>
+<Canvas>
     <Story name="number">
         <React.Fragment>
             <Paragraph>
@@ -143,4 +143,4 @@ import { Paragraph } from "../../typography/Paragraph";
             </Paragraph>
         </React.Fragment>
     </Story>
-</Preview>
+</Canvas>

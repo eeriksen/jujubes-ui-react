@@ -1,4 +1,4 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import { Row } from "../Row";
 import { Col } from "./Col";
 
@@ -13,10 +13,10 @@ This grid is used when you want to utilize the size of a desktop sized screen, b
 that same content on mobile devices. The grid is a flexible 24-unit system where you can define sizes and offsets
 of content blocks that can break into separate rows on three different breakpoints, small (sm), medium (md) and large (lg).
 
-<Props of={Col} />
+<ArgsTable of={Col} />
 
 ### Span
-<Preview>
+<Canvas>
     <Story name="span">
         <Row>
             <Col span={24} />
@@ -81,10 +81,10 @@ of content blocks that can break into separate rows on three different breakpoin
             <Col span={1} />
         </Row>
     </Story>
-</Preview>
+</Canvas>
 
 ### Offset
-<Preview>
+<Canvas>
     <Story name="offset">
         <div>
             <Row>
@@ -99,10 +99,10 @@ of content blocks that can break into separate rows on three different breakpoin
             </Row>
         </div>
     </Story>
-</Preview>
+</Canvas>
 
 ### Push / pull
-<Preview>
+<Canvas>
     <Story name="push/pull">
         <div>
             <Row>
@@ -111,10 +111,10 @@ of content blocks that can break into separate rows on three different breakpoin
             </Row>
         </div>
     </Story>
-</Preview>
+</Canvas>
 
 ### Order
-<Preview>
+<Canvas>
     <Story name="order">
         <div>
             <Row>
@@ -123,10 +123,10 @@ of content blocks that can break into separate rows on three different breakpoin
             </Row>
         </div>
     </Story>
-</Preview>
+</Canvas>
 
 ### Responsive
-<Preview>
+<Canvas>
     <Story name="responsive">
         <div>
             <Row>
@@ -143,4 +143,4 @@ of content blocks that can break into separate rows on three different breakpoin
             </Row>
         </div>
     </Story>
-</Preview>
+</Canvas>

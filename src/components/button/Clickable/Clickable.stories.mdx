@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import { Clickable } from './Clickable';
 
 <Meta title="Components/Buttons/Clickable" component={Clickable} />
@@ -10,13 +10,13 @@ This component should be used as a wrapper whenever you are creating a custom cl
 This way we can bind events to all "clickable" components in one place, if say we would like to
 add haptic feedback (vibration) on all click events on mobile.
 
-<Props of={Clickable} />
+<ArgsTable of={Clickable} />
 
 ### Basic
-<Preview>
+<Canvas>
     <Story name="basic" >
         <Clickable>
             Clickable element
         </Clickable>
     </Story>
-</Preview>
+</Canvas>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
 import { ProgressBar } from "./ProgressBar";
 
 <Meta title="Components/Loaders/ProgressBar" component={ProgressBar} />
@@ -8,11 +8,11 @@ import { ProgressBar } from "./ProgressBar";
 
 A simple progress indicator.
 
-<Props of={ProgressBar} />
+<ArgsTable of={ProgressBar} />
 
 ### Basic
 
-<Preview>
+<Canvas>
     <Story name="basic">
         {() => {
             const [percent, setPercent] = useState(0);
@@ -24,11 +24,11 @@ A simple progress indicator.
             return <ProgressBar percent={percent}>Uploading file...</ProgressBar>;
         }}
     </Story>
-</Preview>
+</Canvas>
 
 ### Color
 
-<Preview>
+<Canvas>
     <Story name="color">
         {() => {
             const [percentSuccess, setPercentSuccess] = useState(20);
@@ -55,4 +55,4 @@ A simple progress indicator.
             );
         }}
     </Story>
-</Preview>
+</Canvas>

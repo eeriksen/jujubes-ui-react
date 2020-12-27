@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import { Textarea } from './Textarea';
 
 <Meta title="Components/Forms/Textarea" component={Textarea} />
@@ -8,10 +8,10 @@ import { Textarea } from './Textarea';
 
 Use the `<Textarea />` when users should input a longer text.
 
-<Props of={Textarea} />
+<ArgsTable of={Textarea} />
 
 ### Basic
-<Preview>
+<Canvas>
     <Story name="basic" >
         {() => {
             const [value, setValue] = useState(null);
@@ -20,11 +20,11 @@ Use the `<Textarea />` when users should input a longer text.
             )
         }}
     </Story>
-</Preview>
+</Canvas>
 
 ### Disabled
-<Preview>
+<Canvas>
     <Story name="disabled" >
         <Textarea placeholder="Disabled textarea..." disabled />
     </Story>
-</Preview>
+</Canvas>

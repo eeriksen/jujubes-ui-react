@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
 import { Splash, SplashTitle, SplashContent, SplashActions } from ".";
 import { Form } from "../../form/Form";
 import { FormItem } from "../../form/FormItem";
@@ -16,11 +16,11 @@ The `<Splash />` is used for login forms and other messages/forms that should ta
 all the focus of the user. It's typically used for on-boarding pages where the user has
 a limited set of choices.
 
-<Props of={Splash} />
+<ArgsTable of={Splash} />
 
 ### Basic
 
-<Preview>
+<Canvas>
     <Story name="basic">
         {() => {
             const [username, setUsername] = useState(null);
@@ -67,4 +67,4 @@ a limited set of choices.
             );
         }}
     </Story>
-</Preview>
+</Canvas>

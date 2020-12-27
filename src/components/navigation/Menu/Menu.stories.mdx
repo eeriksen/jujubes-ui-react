@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
 import { Menu } from "./Menu";
 import { MenuItem } from "./MenuItem";
 import { MenuHeading } from "./MenuHeading";
@@ -8,17 +8,17 @@ import { Icon } from "../../graphic/Icon";
 <Meta title="Components/Navigation/Menu" component={Menu} />
 
 # Menu
-<Props of={Menu} />
+<ArgsTable of={Menu} />
 
 # MenuItem
-<Props of={MenuItem} />
+<ArgsTable of={MenuItem} />
 
 # MenuHeading
-<Props of={MenuHeading} />
+<ArgsTable of={MenuHeading} />
 
 ### Basic
 
-<Preview>
+<Canvas>
     <Story name="basic">
         {() => {
             const [active, setActive] = useState(null);
@@ -53,11 +53,11 @@ import { Icon } from "../../graphic/Icon";
             );
         }}
     </Story>
-</Preview>
+</Canvas>
 
 ### Heading
 
-<Preview>
+<Canvas>
     <Story name="with heading">
         {() => {
             const [active, setActive] = useState(null);
@@ -93,11 +93,11 @@ import { Icon } from "../../graphic/Icon";
             );
         }}
     </Story>
-</Preview>
+</Canvas>
 
 ### Icon
 
-<Preview>
+<Canvas>
     <Story name="with icon">
         {() => {
             const [active, setActive] = useState(null);
@@ -137,11 +137,11 @@ import { Icon } from "../../graphic/Icon";
             );
         }}
     </Story>
-</Preview>
+</Canvas>
 
 ### Counter
 
-<Preview>
+<Canvas>
     <Story name="with counter">
         {() => {
             const [active, setActive] = useState(null);
@@ -186,4 +186,4 @@ import { Icon } from "../../graphic/Icon";
             );
         }}
     </Story>
-</Preview>
+</Canvas>

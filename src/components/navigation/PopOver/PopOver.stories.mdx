@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
 import { PopOver } from "./PopOver";
 import { Button } from "../../button/Button";
 import { Menu, MenuItem } from "../Menu";
@@ -25,11 +25,11 @@ export const PopOverContent = () => {
 
 Write something here.
 
-<Props of={PopOver} />
+<ArgsTable of={PopOver} />
 
 ### Basic
 
-<Preview>
+<Canvas>
     <Story name="basic">
         {() => {
             const [visible, setVisible] = useState(null);
@@ -99,4 +99,4 @@ Write something here.
             );
         }}
     </Story>
-</Preview>
+</Canvas>

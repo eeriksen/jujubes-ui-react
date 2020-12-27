@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
 import { AppLayout } from "../AppLayout";
 import { AppNav } from "./AppNav";
 import { ComponentWrapper } from "../ComponentWrapper";
@@ -11,11 +11,11 @@ import { ComponentWrapper } from "../ComponentWrapper";
 The `<AppNav />` component renders a navigation sidebar that is always visible on large screens
 and togglable from the `<AppBar />` component on mobile devices.
 
-<Props of={AppNav} />
+<ArgsTable of={AppNav} />
 
 ### Basic
 
-<Preview>
+<Canvas>
     <Story name="basic">
         <ComponentWrapper>
             <AppLayout>
@@ -23,4 +23,4 @@ and togglable from the `<AppBar />` component on mobile devices.
             </AppLayout>
         </ComponentWrapper>
     </Story>
-</Preview>
+</Canvas>

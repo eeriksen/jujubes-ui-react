@@ -12,20 +12,20 @@
     },
     "license": "ISC",
     "author": "Eivind Eriksen (mail@eivinderiksen.com)",
-    "main": "dist/tv2no-ui-react.js",
-    "module": "dist/tv2no-ui-react.es.js",
+    "main": "dist/kembo-ui-react.js",
+    "module": "dist/kembo-ui-react.es.js",
     "scripts": {
         "start": "start-storybook -p 9001 -c .storybook",
         "build": "rollup -c",
         "build-storybook": "build-storybook -c .storybook -o .out"
     },
-    "dependencies": {
+    "peerDependencies": {
         "prop-types": "^15.7.2",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-router-dom": "^5.1.2"
     },
-    "devDependencies": {
+    "dependencies": {
         "@babel/core": "^7.12.9",
         "@babel/plugin-proposal-class-properties": "^7.12.1",
         "@babel/preset-env": "^7.12.7",
@@ -55,24 +55,30 @@
         "postcss-loader": "^3.0.0",
         "postcss-url": "^8.0.0",
         "prettier": "^2.0.5",
-        "rc-notification": "^3.3.0",
-        "rc-progress": "^2.3.0",
-        "react-click-outside": "github:tj/react-click-outside",
-        "react-dropzone": "^11.2.4",
-        "react-perfect-scrollbar": "^1.4.2",
-        "react-sortable-hoc": "^1.5.3",
-        "react-tippy": "^1.2.3",
-        "rollup": "^2.10.5",
+        "prop-types": "^15.7.2",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "react-router-dom": "^5.2.0",
+        "rollup": "^2.35.1",
         "rollup-plugin-auto-external": "^2.0.0",
-        "rollup-plugin-babel": "^4.3.2",
+        "rollup-plugin-babel": "^4.4.0",
         "rollup-plugin-clear": "^2.0.7",
-        "rollup-plugin-commonjs": "^9.2.0",
-        "rollup-plugin-node-resolve": "^4.0.0",
-        "rollup-plugin-postcss": "^2.0.3",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-postcss": "^4.0.0",
         "sass-loader": "^7.1.0",
         "storybook-react-router": "^1.0.8",
         "storybook-readme": "^5.0.9",
         "style-loader": "^0.23.1",
         "webpack": "^4.43.0"
+    },
+    "devDependencies": {
+        "rc-notification": "^3.3.0",
+        "rc-progress": "^2.3.0",
+        "react-dropzone": "^11.2.4",
+        "react-perfect-scrollbar": "^1.4.2",
+        "react-sortable-hoc": "^1.5.3",
+        "react-tippy": "^1.2.3",
+        "rollup-plugin-analyzer": "^4.0.0"
     }
 }

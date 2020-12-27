@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import { ButtonGroup } from './ButtonGroup';
 import { Button } from "../Button";
 import { Row } from "../../grid/Row";
@@ -11,10 +11,10 @@ import { Col } from "../../grid/Col";
 
 Use a `<ButtonGroup />` when you want to group two or more buttons nicely together.
 
-<Props of={ButtonGroup} />
+<ArgsTable of={ButtonGroup} />
 
 ### Basic
-<Preview>
+<Canvas>
     <Story name="basic">
     {() => {
         const [index, setIndex] = useState(0);
@@ -27,11 +27,11 @@ Use a `<ButtonGroup />` when you want to group two or more buttons nicely togeth
         )
     }}
     </Story>
-</Preview>
+</Canvas>
 
 
 ### With icons
-<Preview>
+<Canvas>
     <Story name="with icons">
     {() => {
         const [index, setIndex] = useState(0);
@@ -61,4 +61,4 @@ Use a `<ButtonGroup />` when you want to group two or more buttons nicely togeth
         )
     }}
     </Story>
-</Preview>
+</Canvas>

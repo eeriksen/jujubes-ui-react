@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import { Row } from './Row';
 import { Col } from "../Col";
 
@@ -9,10 +9,10 @@ import { Col } from "../Col";
 
 A `<Row/>` is the root component of a grid and wraps one or more `<Col/>` components.
 
-<Props of={Row} />
+<ArgsTable of={Row} />
 
 ### Gutter
-<Preview>
+<Canvas>
     <Story name="gutter" >
         <Row gutter={["large", "large"]}>
             <Col span={24} />
@@ -33,11 +33,11 @@ A `<Row/>` is the root component of a grid and wraps one or more `<Col/>` compon
             <Col span={4} />
         </Row>
     </Story>
-</Preview>
+</Canvas>
 
 
 ### Spacing
-<Preview>
+<Canvas>
     <Story name="spacing" >
         <div>
             <Row spacing="small">
@@ -54,4 +54,4 @@ A `<Row/>` is the root component of a grid and wraps one or more `<Col/>` compon
             </Row>
         </div>
     </Story>
-</Preview>
+</Canvas>

@@ -21,7 +21,7 @@
         }
 
         @include for-phone-only(){
-            padding: $spacing--medium 0;
+            padding: $spacing--medium 2px;
         }
     }
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import { Form } from "../Form";
 import { FormItem } from './FormItem';
 import { Input } from "../Input";
@@ -10,10 +10,10 @@ import { Input } from "../Input";
 The `<FormItem />` represents one input element in a form.
 A form component should __always__ be wrapped in a `<FormItem />` component.
 
-<Props of={FormItem} />
+<ArgsTable of={FormItem} />
 
 ### Basic
-<Preview>
+<Canvas>
     <Story name="basic" >
         {() => {
             const [value, setValue] = useState(null);
@@ -30,11 +30,11 @@ A form component should __always__ be wrapped in a `<FormItem />` component.
             )
         }}
     </Story>
-</Preview>
+</Canvas>
 
 
 ### Info
-<Preview>
+<Canvas>
     <Story name="info" >
         {() => {
             const [value, setValue] = useState(null);
@@ -51,11 +51,11 @@ A form component should __always__ be wrapped in a `<FormItem />` component.
             )
         }}
     </Story>
-</Preview>
+</Canvas>
 
 
 ### Error
-<Preview>
+<Canvas>
     <Story name="error" >
         {() => {
             const [value, setValue] = useState(null);
@@ -72,4 +72,4 @@ A form component should __always__ be wrapped in a `<FormItem />` component.
             )
         }}
     </Story>
-</Preview>
+</Canvas>

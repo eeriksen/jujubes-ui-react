@@ -1,0 +1,144 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Paragraph } from "../Paragraph";
+import { Text } from "../Text";
+
+<Meta title="Components/Typography/Text" />
+
+# Text
+
+Use `<Text />` to wrap text that should have static formatting other than the default.
+
+<ArgsTable of={Text} />
+
+### Size
+
+<Canvas>
+    <Story name="size">
+        <React.Fragment>
+            <Paragraph>
+                <Text size="small">
+                    This is small text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra
+                    short loin bresaola drumstick ham hock. Sirloin venison biltong swine pig.
+                    Fatback jerky shoulder drumstick pancetta beef ribs turkey porchetta. Porchetta
+                    filet mignon tail tongue landjaeger. Pork belly landjaeger swine.
+                </Text>
+            </Paragraph>
+            <Paragraph>
+                <Text>
+                    This is regular text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra
+                    short loin bresaola drumstick ham hock. Sirloin venison biltong swine pig.
+                    Fatback jerky shoulder drumstick pancetta beef ribs turkey porchetta. Porchetta
+                    filet mignon tail tongue landjaeger. Pork belly landjaeger swine.
+                </Text>
+            </Paragraph>
+            <Paragraph>
+                <Text size="medium">
+                    This is medium text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra
+                    short loin bresaola drumstick ham hock. Sirloin venison biltong swine pig.
+                    Fatback jerky shoulder drumstick pancetta beef ribs turkey porchetta. Porchetta
+                    filet mignon tail tongue landjaeger. Pork belly landjaeger swine.
+                </Text>
+            </Paragraph>
+            <Paragraph spacing="none">
+                <Text size="large">
+                    This is large text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra
+                    short loin bresaola drumstick ham hock. Sirloin venison biltong swine pig.
+                    Fatback jerky shoulder drumstick pancetta beef ribs turkey porchetta. Porchetta
+                    filet mignon tail tongue landjaeger. Pork belly landjaeger swine.
+                </Text>
+            </Paragraph>
+        </React.Fragment>
+    </Story>
+</Canvas>
+
+### Weight
+
+<Canvas>
+    <Story name="weight">
+        <React.Fragment>
+            <Paragraph>
+                <Text size="large">This is regular text.</Text>
+            </Paragraph>
+            <Paragraph>
+                <Text weight="medium" size="large">
+                    This is medium text.
+                </Text>
+            </Paragraph>
+            <Paragraph spacing="none">
+                <Text weight="bold" size="large">
+                    This is bold text.
+                </Text>
+            </Paragraph>
+        </React.Fragment>
+    </Story>
+</Canvas>
+
+### Color
+
+<Canvas>
+    <Story name="color">
+        <React.Fragment>
+            <Paragraph>
+                <Text>
+                    This is regular text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra
+                    short loin bresaola drumstick ham hock. Sirloin venison biltong swine pig.
+                </Text>
+            </Paragraph>
+            <Paragraph>
+                <Text color="base80">
+                    This is base80 text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra
+                    short loin bresaola drumstick ham hock. Sirloin venison biltong swine pig.
+                </Text>
+            </Paragraph>
+            <Paragraph>
+                <Text color="base60">
+                    This is base60 text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra
+                    short loin bresaola drumstick ham hock. Sirloin venison biltong swine pig.
+                </Text>
+            </Paragraph>
+            <Paragraph>
+                <Text color="base40">
+                    This is base40 text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra
+                    short loin bresaola drumstick ham hock. Sirloin venison biltong swine pig.
+                </Text>
+            </Paragraph>
+            <Paragraph>
+                <Text color="contrast">
+                    This is base40 text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra
+                    short loin bresaola drumstick ham hock. Sirloin venison biltong swine pig.
+                </Text>
+            </Paragraph>
+            <Paragraph>
+                <Text color="primary">
+                    This is primary text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra
+                    short loin bresaola drumstick ham hock. Sirloin venison biltong swine pig.
+                </Text>
+            </Paragraph>
+            <Paragraph>
+                <Text color="info">
+                    This is info text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra
+                    short loin bresaola drumstick ham hock. Sirloin venison biltong swine pig.
+                </Text>
+            </Paragraph>
+            <Paragraph>
+                <Text color="success">
+                    This is success text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra
+                    short loin bresaola drumstick ham hock. Sirloin venison biltong swine pig.
+                </Text>
+            </Paragraph>
+            <Paragraph>
+                <Text color="warning">
+                    This is warning text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra
+                    short loin bresaola drumstick ham hock. Sirloin venison biltong swine pig.
+                </Text>
+            </Paragraph>
+            <Paragraph>
+                <Text color="error">
+                    This is error text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra
+                    short loin bresaola drumstick ham hock. Sirloin venison biltong swine pig.
+                </Text>
+            </Paragraph>
+        </React.Fragment>
+    </Story>
+</Canvas>

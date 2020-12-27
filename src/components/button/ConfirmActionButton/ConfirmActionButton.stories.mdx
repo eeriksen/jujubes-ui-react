@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import { ConfirmActionButton } from './ConfirmActionButton';
 import { Row } from "../../grid/Row";
 import { Col } from "../../grid/Col";
@@ -12,10 +12,10 @@ Use the `<ConfirmActionButton />` when you want to provide the option to delete 
 and also have the user confirm that they want to confirm the action.
 It's compact size makes it fit snuggly in the bottom of a popup aswell.
 
-<Props of={ConfirmActionButton} />
+<ArgsTable of={ConfirmActionButton} />
 
 ### Basic
-<Preview>
+<Canvas>
     <Story name="basic" >
         <ConfirmActionButton
             label="Delete something"
@@ -23,10 +23,10 @@ It's compact size makes it fit snuggly in the bottom of a popup aswell.
             onConfirm={() => console.log("Delete something")}
         />
     </Story>
-</Preview>
+</Canvas>
 
 ### Size
-<Preview>
+<Canvas>
     <Story name="size" >
         <Row>
             <Col span={12}>
@@ -47,4 +47,4 @@ It's compact size makes it fit snuggly in the bottom of a popup aswell.
             </Col>
         </Row>
     </Story>
-</Preview>
+</Canvas>

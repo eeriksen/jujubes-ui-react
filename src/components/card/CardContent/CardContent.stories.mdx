@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { Card } from '../Card'
 import { CardContent } from "./CardContent"
 
@@ -9,10 +9,10 @@ import { CardContent } from "./CardContent"
 
 Wrap regular content inside a `<CardContent/>` component.
 
-<Props of={CardContent} />
+<ArgsTable of={CardContent} />
 
 ### Basic
-<Preview>
+<Canvas>
     <Story name="basic" >
         <Card>
             <CardContent>
@@ -35,4 +35,4 @@ Wrap regular content inside a `<CardContent/>` component.
             </CardContent>
         </Card>
     </Story>
-</Preview>
+</Canvas>

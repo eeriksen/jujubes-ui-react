@@ -3,5 +3,5 @@ import { Item } from "./item/Item"
 
 AppBar.Item = Item;
 export {
-    AppBar, Item
+    AppBar
 }

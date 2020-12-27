@@ -1,2 +1,1 @@
-# kembo-ui-react
-Kembo UI - React
+# Kembo UI React

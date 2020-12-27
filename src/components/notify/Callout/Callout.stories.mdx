@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
 import { Callout } from "./Callout";
 
 <Meta title="Components/Notify/Callout" component={Callout} />
@@ -8,19 +8,19 @@ import { Callout } from "./Callout";
 
 Write something here.
 
-<Props of={Callout} />
+<ArgsTable of={Callout} />
 
 ### Basic
 
-<Preview>
+<Canvas>
     <Story name="basic">
         <Callout>Write a message here</Callout>
     </Story>
-</Preview>
+</Canvas>
 
 ### Color
 
-<Preview>
+<Canvas>
     <Story name="color">
         <React.Fragment>
             <Callout title="Default">
@@ -40,7 +40,7 @@ Write something here.
             </Callout>
         </React.Fragment>
     </Story>
-</Preview>
+</Canvas>
 
 
 

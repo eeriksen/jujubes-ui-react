@@ -8,7 +8,7 @@ import { Spinner } from "../../loader/Spinner";
 import { TableHead } from "./parts/TableHead";
 import { TableBody } from "./parts/TableBody";
 
-export const DataTable = ({ rows, children, onRowClick, busy, heading, rowModifiers }) => {
+export const DataTable = ({ rows, children, onRowClick, busy, rowModifiers }) => {
     const redrawTimeout = useRef();
     const wrapperRef = useRef();
     const [tableHeight, setTableHeight] = useState(0);
@@ -22,7 +22,6 @@ export const DataTable = ({ rows, children, onRowClick, busy, heading, rowModifi
 
     const updateHeight = () => {
         const wrapperHeight = wrapperRef.current.getBoundingClientRect().height;
-        console.log(wrapperHeight);
         setTableHeight(wrapperHeight + 2);
     };
 
@@ -42,9 +41,6 @@ export const DataTable = ({ rows, children, onRowClick, busy, heading, rowModifi
 
             {/* Table */}
             <div ref={wrapperRef} className={styles.wrapper}>
-                {/* Heading */}
-                <div className={styles.heading}>{heading}</div>
-
                 <table
                     className={classNames(styles.table, {
                         [styles.clickable]: onRowClick
@@ -63,6 +59,24 @@ export const DataTable = ({ rows, children, onRowClick, busy, heading, rowModifi
 };
 
 DataTable.propTypes = {
+    /**
+     * Array of data to list in table
+     */
     rows: PropTypes.array,
-    onRowClick: PropTypes.func
+    /**
+     * Callback for when a row is clicked. Returns the respective rows data
+     */
+    onRowClick: PropTypes.func,
+    /**
+     * Apply modifiers to rows.
+     */
+    rowModifiers: PropTypes.object,
+    /**
+     * Disable table interaction and show spinner
+     */
+    busy: PropTypes.bool,
+    /**
+     * Content of table. Consists of "Column" or "Tr" elements.
+     */
+    children: PropTypes.any
 };

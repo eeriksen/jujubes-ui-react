@@ -4,8 +4,7 @@ import styles from "./styles.scss";
 import { AppNav } from "../AppNav";
 import { AppBar } from "../AppBar";
 import { AppContent } from "../AppContent";
-
-export const LayoutContext = React.createContext(null);
+import { AppContext } from "../AppContext";
 
 export const AppLayout = ({ children }) => {
     const [navActive, setNavActive] = useState(false);
@@ -33,7 +32,7 @@ export const AppLayout = ({ children }) => {
     });
 
     return (
-        <LayoutContext.Provider
+        <AppContext.Provider
             value={{
                 navActive,
                 setNavActive,
@@ -53,6 +52,6 @@ export const AppLayout = ({ children }) => {
                     {content ? <div className={styles.content}>{content}</div> : null}
                 </div>
             </div>
-        </LayoutContext.Provider>
+        </AppContext.Provider>
     );
 };

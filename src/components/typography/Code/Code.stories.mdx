@@ -1,0 +1,41 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Code } from "./Code";
+
+<Meta title="Components/Typography/Code" component={Code} />
+
+# Code
+
+Write something here.
+
+<ArgsTable of={Code} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        <Code>
+            const fullName = "Jane Doe";
+        </Code>
+    </Story>
+</Canvas>
+
+### Inverted
+
+<Canvas>
+    <Story name="inverted">
+        <Code inverted>
+            const fullName = "Jane Doe";
+        </Code>
+    </Story>
+</Canvas>
+
+### Block
+
+<Canvas>
+    <Story name="block">
+        <Code inverted block>
+            const fullName = "Jane Doe";
+        </Code>
+    </Story>
+</Canvas>

@@ -4,7 +4,6 @@ import commonjsPlugin from "rollup-plugin-commonjs";
 import postcssPlugin from "rollup-plugin-postcss";
 import clearPlugin from "rollup-plugin-clear";
 import autoExternalPlugin from "rollup-plugin-auto-external";
-import analyzePlugin from "rollup-plugin-analyzer";
 import autoprefixer from "autoprefixer";
 import url from "postcss-url";
 import cssnano from "cssnano";
@@ -62,12 +61,6 @@ export default {
         commonjsPlugin({
             namedExports: {
                 "node_modules/react-tippy/dist/react-tippy.js": ["Tooltip"]
-            }
-        }),
-        analyzePlugin({
-            summaryOnly: true,
-            filter: (file) => {
-                return file.size > 10000
             }
         })
     ]

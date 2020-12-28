@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
-import { ItemList } from "./ItemList";
+import { ItemList } from "./index";
 import { Text } from "../../typography/Text";
 import { Card } from "../../card/Card";
 import { CardContent } from "../../card/CardContent";
@@ -18,7 +18,7 @@ With the item list you can sort items and display a simple thumbnail, title, des
 
 # Item
 
-<ArgsTable of={Item} />
+<ArgsTable of={ItemList.Item} />
 
 ### Basic
 

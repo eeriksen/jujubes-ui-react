@@ -1,6 +1,6 @@
 {
     "name": "kembo-ui-react",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Kembo UI - React",
     "homepage": "https://github.com/eeriksen/kembo-ui-react#readme",
     "bugs": {
@@ -23,7 +23,6 @@
         "build-storybook": "build-storybook -c .storybook -o .out"
     },
     "peerDependencies": {
-        "prop-types": "^15.7.2",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
         "react-router-dom": "^5.2.0"

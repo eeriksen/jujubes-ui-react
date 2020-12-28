@@ -1,5 +1,5 @@
 import React from "react";
-import { PropTypes } from "prop-types";
+import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./ItemList.scss";
 import { SortableContainer } from "react-sortable-hoc";

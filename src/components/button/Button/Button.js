@@ -7,31 +7,29 @@ import { Icon } from "../../graphic/Icon";
 
 import { LoaderHorizontal } from "../../loader/LoaderHorizontal";
 
-export const Button = (props) => {
+export const Button = ({
+    color,
+    size,
+    active,
+    circle,
+    square,
+    icon,
+    iconRight,
+    iconColor,
+    labelColor,
+    hideIcon,
+    hideLabel,
+    type,
+    disabled,
+    children,
+    title,
+    busy,
+    propagate,
+    link,
+    href,
+    onClick
+}) => {
     const history = useHistory();
-    const {
-        color,
-        size,
-        active,
-        circle,
-        square,
-        icon,
-        iconRight,
-        iconColor,
-        labelColor,
-        hideIcon,
-        hideLabel,
-        className,
-        type,
-        disabled,
-        children,
-        title,
-        busy,
-        propagate,
-        link,
-        href,
-        onClick
-    } = props;
 
     /**
      * Handle on click
@@ -61,40 +59,36 @@ export const Button = (props) => {
     };
 
     // Classnames
-    const buttonClasses = classNames(
-        styles.base,
-        {
-            [styles.colorPrimary]: color === "primary",
-            [styles.colorSuccess]: color === "success",
-            [styles.colorWarning]: color === "warning",
-            [styles.colorError]: color === "error",
-            [styles.colorInfo]: color === "info",
+    const buttonClasses = classNames(styles.base, {
+        [styles.colorPrimary]: color === "primary",
+        [styles.colorSuccess]: color === "success",
+        [styles.colorWarning]: color === "warning",
+        [styles.colorError]: color === "error",
+        [styles.colorInfo]: color === "info",
 
-            [styles.sizeSmall]: size === "small",
-            [styles.sizeBig]: size === "big",
+        [styles.sizeSmall]: size === "small",
+        [styles.sizeBig]: size === "big",
 
-            [styles.silent]: color === "silent",
+        [styles.silent]: color === "silent",
 
-            [styles.active]: active,
-            [styles.circle]: circle,
-            [styles.square]: square,
+        [styles.active]: active,
+        [styles.circle]: circle,
+        [styles.square]: square,
 
-            [styles.iconRight]: iconRight,
-            [styles.hideIcon]: hideIcon || busy,
-            [styles.hideLabel]: hideLabel || busy,
+        [styles.iconRight]: iconRight,
+        [styles.hideIcon]: hideIcon || busy,
+        [styles.hideLabel]: hideLabel || busy,
 
-            [styles.iconPrimary]: iconColor === "primary",
-            [styles.iconInfo]: iconColor === "info",
-            [styles.iconSuccess]: iconColor === "success",
-            [styles.iconWarning]: iconColor === "warning",
-            [styles.iconError]: iconColor === "error",
+        [styles.iconPrimary]: iconColor === "primary",
+        [styles.iconInfo]: iconColor === "info",
+        [styles.iconSuccess]: iconColor === "success",
+        [styles.iconWarning]: iconColor === "warning",
+        [styles.iconError]: iconColor === "error",
 
-            [styles.labelSuccess]: labelColor === "success",
-            [styles.labelWarning]: labelColor === "warning",
-            [styles.labelError]: labelColor === "error"
-        },
-        className
-    );
+        [styles.labelSuccess]: labelColor === "success",
+        [styles.labelWarning]: labelColor === "warning",
+        [styles.labelError]: labelColor === "error"
+    });
 
     // Properties
     const properties = {

@@ -3,7 +3,6 @@ import babelPlugin from "rollup-plugin-babel";
 import commonjsPlugin from "rollup-plugin-commonjs";
 import postcssPlugin from "rollup-plugin-postcss";
 import clearPlugin from "rollup-plugin-clear";
-import autoExternalPlugin from "rollup-plugin-auto-external";
 import { terser } from "rollup-plugin-terser";
 import autoprefixer from "autoprefixer";
 import url from "postcss-url";
@@ -28,8 +27,8 @@ export default {
             format: "es"
         }
     ],
+    external: ['react', 'react-dom', 'react-router-dom'],
     plugins: [
-        autoExternalPlugin(),
         clearPlugin({
             targets: [DIST_DIR]
         }),
@@ -61,9 +60,7 @@ export default {
                 cssnano
             ]
         }),
-        babelPlugin({
-            exclude: "node_modules/**"
-        }),
+        babelPlugin(),
         commonjsPlugin({
             namedExports: {
                 "node_modules/react-tippy/dist/react-tippy.js": ["Tooltip"]

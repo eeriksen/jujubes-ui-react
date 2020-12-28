@@ -1,0 +1,28 @@
+@import "../../../styles/base";
+@import "./config";
+
+/* ===================================================================
+   CELL
+   =================================================================== */
+
+.cell {
+    padding: $padding-cell--regular;
+
+    .input {
+        outline: none;
+        resize: none;
+        border: 0;
+        background: transparent;
+        font-size: $fontSize--regular;
+        font-family: $fontFamily--primary;
+        padding: $padding-cell--regular;
+    }
+
+    &.alignRight {
+        text-align: right;
+    }
+
+    &.editMode {
+        padding: 0;
+    }
+}

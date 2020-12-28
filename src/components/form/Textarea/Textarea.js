@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import styles from "./styles.scss";
+import styles from "./Textarea.scss";
 
 export const Textarea = (props) => {
     const { value, onChange, maxLength, placeholder, error, className, disabled, rows } = props;
@@ -41,7 +41,6 @@ Textarea.defaultProps = {
 };
 
 Textarea.propTypes = {
-
     /**
      * Field value
      */
@@ -81,4 +80,4 @@ Textarea.propTypes = {
      * Custom class name
      */
     className: PropTypes.string
-}
+};

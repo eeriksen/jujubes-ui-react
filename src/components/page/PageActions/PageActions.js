@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import styles from "./styles.scss"
+import styles from "./PageActions.scss"
 import classNames from "classnames"
 
 import { Clickable } from "../../button/Clickable"

@@ -1,0 +1,39 @@
+@import "../../../styles/base";
+@import "./config";
+
+/* ===================================================================
+   DATA TABLE
+   =================================================================== */
+
+.base {
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: auto;
+
+    .loader {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color--contrast, 0.8);
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .wrapper {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+    }
+}
+
+.table {
+    overflow: hidden;
+    border-spacing: 0;
+    border-collapse: separate;
+    width: 100%;
+    font-size: $fontSize--regular;
+}

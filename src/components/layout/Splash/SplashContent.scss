@@ -1,0 +1,13 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   SPLASH CONTENT
+   =================================================================== */
+
+.content {
+    padding: $spacing--large;
+
+    @include for-phone-only() {
+        padding: $spacing--medium;
+    }
+}

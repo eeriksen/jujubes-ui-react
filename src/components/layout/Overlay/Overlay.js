@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import classNames from "classnames";
-import styles from "./styles.scss";
+import styles from "./Overlay.scss";
 
 import scrollUtils from "../../../utils/scrollUtils";
 import { Clickable } from "../../button/Clickable";

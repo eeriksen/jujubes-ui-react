@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import styles from "./styles.scss";
+import styles from "./Crumb.scss";
 
 import { Clickable } from "../../button/Clickable";
 
 export const Crumb = ({ link, label, current }) => {
     return (
         <div
-            className={classNames(styles.item, {
+            className={classNames(styles.crumb, {
                 [styles.current]: current
             })}
         >

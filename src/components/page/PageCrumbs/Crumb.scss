@@ -4,40 +4,7 @@
    PAGE CRUMBS
    =================================================================== */
 
-.base {
-    background: darken($color--background, 0%);
-    height: $size--element-small;
-
-    .leftFade {
-        display: none;
-    }
-
-    .rightFade {
-        display: none;
-    }
-
-    .container {
-        position: absolute;
-        display: flex;
-        white-space: nowrap;
-        flex-direction: row-reverse;
-        justify-content: flex-end;
-        overflow: hidden;
-    }
-
-    @for $i from 1 through 10 {
-        .item:nth-child(#{$i}){
-            position: relative;
-            background-color: darken($color--background, ($i - 1) * 3.5);
-            box-shadow: -3px 0 3px 0 rgba(0, 0, 0, 0.05);
-            z-index: 10 - $i;
-        }
-    }
-}
-
-
-// ITEM
-.item {
+.crumb {
     display: flex;
     align-items: center;
     height: $size--element-small;
@@ -67,6 +34,15 @@
             &:hover {
                 color: rgba($color--base, 0.4);
             }
+        }
+    }
+
+    @for $i from 1 through 10 {
+        &:nth-child(#{$i}){
+            position: relative;
+            background-color: darken($color--background, ($i - 1) * 3.5);
+            box-shadow: -3px 0 3px 0 rgba(0, 0, 0, 0.05);
+            z-index: 10 - $i;
         }
     }
 }

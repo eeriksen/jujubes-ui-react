@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from "./styles.scss";
+import styles from "./PageCrumbs.scss";
 import { ScrollableArea } from "../../layout/ScrollableArea";
 import { Crumb } from "./Crumb";
 

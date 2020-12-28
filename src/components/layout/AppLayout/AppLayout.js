@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./styles.scss";
+import styles from "./AppLayout.scss";
 
 import { AppNav } from "../AppNav";
 import { AppBar } from "../AppBar";

@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import styles from "./styles.scss";
+import styles from "./Cell.scss";
 
 export const Cell = ({ align, children }) => {
     return (

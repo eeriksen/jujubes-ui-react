@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
-import styles from "./styles.scss";
+import styles from "./TabPane.scss";
 import { Icon, iconList } from "../../graphic/Icon/Icon";
 import { Clickable } from "../../button/Clickable";
 import { useHistory, useLocation } from "react-router-dom";
@@ -21,20 +21,18 @@ export const TabPane = ({ label, icon, link, tabKey, children, onChange, activeK
     };
 
     return children ? (
-        <div className={styles.pane}>
-            <Clickable
-                className={classNames(styles.tab, {
-                    [styles.active]: link ? link === location.pathname : tabKey === activeKey
-                })}
-                onClick={handleTabClick}
-            >
-                {/* Icon */}
-                {icon ? <Icon name={icon} className={styles.icon} /> : null}
+        <Clickable
+            className={classNames(styles.tab, {
+                [styles.active]: link ? link === location.pathname : tabKey === activeKey
+            })}
+            onClick={handleTabClick}
+        >
+            {/* Icon */}
+            {icon ? <Icon name={icon} className={styles.icon} /> : null}
 
-                {/* Label */}
-                {label ? <span className={styles.label}>{label}</span> : null}
-            </Clickable>
-        </div>
+            {/* Label */}
+            {label ? <span className={styles.label}>{label}</span> : null}
+        </Clickable>
     ) : null;
 };
 

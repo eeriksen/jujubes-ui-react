@@ -1,0 +1,58 @@
+@import "../../../styles/base";
+@import "./config";
+
+/* ===================================================================
+   TABLE ROW
+   =================================================================== */
+
+.row {
+    // Col
+    > .col {
+        padding: 0;
+        border-top: 1px solid rgba($color--base, 0.05);
+    }
+
+    // Clickable
+    &.clickable {
+        cursor: pointer;
+
+        &:not(.disabled) {
+            &:hover {
+                > .col {
+                    background-color: rgba($color--background, 0.5) !important;
+                    border-top-color: transparent;
+                }
+            }
+        }
+    }
+
+    // MOD: Blink
+    &.blink {
+        > .col {
+            animation: rowBlink 2s ease-in-out none infinite;
+        }
+    }
+
+    // MOD: Disabled
+    &.disabled {
+        cursor: default;
+
+        > .col {
+            background-color: rgba($color--background, 0.35);
+            opacity: 0.6;
+        }
+    }
+}
+
+// MOD: Blinking row
+@keyframes rowBlink {
+    0% {
+        background-color: rgba($color--attention, 0.2);
+    }
+    50% {
+        background-color: rgba($color--attention, 0.6);
+    }
+    100% {
+        background-color: rgba($color--attention, 0.2);
+    }
+}

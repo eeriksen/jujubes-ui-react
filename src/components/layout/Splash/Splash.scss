@@ -36,27 +36,6 @@ $height--bar: 60px;
             min-width: 400px;
             animation: boxShow .3s ease-in-out;
             border-radius: $borderRadius--regular;
-
-            // Title
-            .title {
-                padding: $spacing--large $spacing--large 0;
-                font-size: $fontSize--heading-2;
-                font-weight: $fontWeight--bold;
-
-                .description {
-                    margin-top: $spacing--regular;
-                    font-size: $fontSize--medium;
-                    color: rgba($color--base, 0.6);
-                    max-width: 80%;
-                    font-weight: $fontWeight--regular;
-                }
-            }
-
-
-            // Content
-            .content {
-                padding: $spacing--large;
-            }
         }
 
     }
@@ -89,19 +68,6 @@ $height--bar: 60px;
                 min-width: auto;
                 margin: 0 $spacing--phone-edge;
                 padding: $spacing--regular 0;
-
-                .title {
-                    padding: $spacing--regular $spacing--medium 0;
-                    font-size: $fontSize--heading-3;
-
-                    .description {
-                        font-size: $fontSize--regular;
-                    }
-                }
-
-                .content {
-                    padding: $spacing--medium;
-                }
             }
         }
 

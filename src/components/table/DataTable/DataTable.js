@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
-import styles from "./styles.scss";
+import styles from "./DataTable.scss";
 
 import { WindowResizeListener } from "../../layout/WindowResizeListener";
 import { Spinner } from "../../loader/Spinner";
-import { TableHead } from "./parts/TableHead";
-import { TableBody } from "./parts/TableBody";
+import { TableHead } from "./TableHead";
+import { TableBody } from "./TableBody";
 
 export const DataTable = ({ rows, children, onRowClick, busy, rowModifiers }) => {
     const redrawTimeout = useRef();
@@ -35,17 +34,13 @@ export const DataTable = ({ rows, children, onRowClick, busy, rowModifiers }) =>
             {/* Loader */}
             {busy ? (
                 <div className={styles.loader}>
-                    <Spinner className={styles.spinner} />
+                    <Spinner />
                 </div>
             ) : null}
 
             {/* Table */}
             <div ref={wrapperRef} className={styles.wrapper}>
-                <table
-                    className={classNames(styles.table, {
-                        [styles.clickable]: onRowClick
-                    })}
-                >
+                <table className={styles.table}>
                     <TableHead children={children} />
                     <TableBody rows={rows} onRowClick={onRowClick} rowModifiers={rowModifiers}>
                         {children}

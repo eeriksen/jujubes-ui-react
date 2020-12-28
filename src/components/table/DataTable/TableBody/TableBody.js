@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Column } from "../../Column";
-import { Tr } from "../../Tr";
-import { Td } from "../../Td";
+import { Column } from "../Column";
+import { Tr } from "../Tr";
+import { Td } from "../Td";
 
 export const TableBody = ({ rows, rowModifiers, onRowClick, children }) => {
     const [prependedStaticRows, setPrependedStaticRows] = useState([]);
@@ -83,7 +83,7 @@ const TableRow = ({ row, rowIndex, modifiers, columns, onClick }) => {
         <Tr
             key={rowIndex}
             blink={shouldBlink}
-            onClick={() => onClick && !isDisabled && onClick(row)}
+            onClick={onClick ? () => onClick(row) : null}
             disabled={isDisabled}
         >
             {columns &&

@@ -1,11 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from "./styles.scss";
 
 export const Column = () => {
-    return <div className={styles.column}></div>;
+    return <div></div>;
 };
 
 Column.propTypes = {
-    field: PropTypes.string
+    /**
+     * Column label
+     */
+    label: PropTypes.string,
+    /**
+     * Cell render function
+     */
+    cell: PropTypes.func
 };

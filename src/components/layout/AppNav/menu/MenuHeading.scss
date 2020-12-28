@@ -1,0 +1,22 @@
+@import "../../../../styles/base";
+@import "../config";
+
+/* ===================================================================
+   APP NAV - MENU HEADING
+   =================================================================== */
+
+.heading {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 $spacing--nav-sides;
+    font-weight: $fontWeight--medium;
+    color: rgba($color--nav-text, 0.2);
+    font-size: $fontSize--small;
+    text-transform: uppercase;
+    text-align: left;
+    letter-spacing: 1px;
+    margin-bottom: $spacing--small;
+    @include m-truncate();
+}

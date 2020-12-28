@@ -1,6 +1,6 @@
 import React from "react"
 import classNames from "classnames"
-import styles from "./styles.scss"
+import styles from "./DotsButton.scss"
 
 import { Clickable } from "../Clickable"
 import { Icon } from "../../graphic/Icon"

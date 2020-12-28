@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./styles.scss";
+import styles from "./SplashTitle.scss";
 
 export const SplashTitle = ({ children, description }) => {
     return (

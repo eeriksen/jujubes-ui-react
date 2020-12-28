@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import styles from "./styles.scss";
+import styles from "./Arrow.scss";
 
 export const Arrow = ({ className, color, style }) => {
     return (

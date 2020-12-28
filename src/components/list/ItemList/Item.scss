@@ -1,38 +1,9 @@
 @import "../../../styles/base";
 
 /* ===================================================================
-   ITEM LIST
+   ITEM LIST ITEM
    =================================================================== */
 
-$height--item-with-image: 60px;
-
-.base {
-    &.hidden {
-        display: none;
-    }
-
-    // Loader
-    .loader {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: rgba($color--contrast, 0.5);
-        z-index: 2;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-}
-
-.list {
-    display: block;
-    position: relative;
-    overflow: hidden;
-    background-color: rgba($color--base, 0.03);
-}
-
-
-// Item
 .item {
     display: flex;
     border-bottom: 1px solid rgba($color--base, 0.05);

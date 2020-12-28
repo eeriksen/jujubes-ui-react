@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from "./styles.scss";
+import styles from "./FormItem.scss";
 import classNames from "classnames";
 import { Row } from "../../grid/Row";
 import { Col } from "../../grid/Col";

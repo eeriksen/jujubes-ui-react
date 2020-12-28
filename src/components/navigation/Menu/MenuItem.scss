@@ -1,37 +1,9 @@
 @import "../../../styles/base";
 
 /* ===================================================================
-   MENU
+   MENU ITEM
    =================================================================== */
 
-// Base
-.base {
-    display: block;
-    background-color: $color--contrast;
-
-    // Hidden menu
-    &.hidden {
-        display: none;
-    }
-}
-
-// Heading
-.heading {
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    height: $size--element-small;
-    line-height: $size--element-small;
-    padding: 0 10px;
-    font-weight: $fontWeight--bold;
-    color: rgba($color--base, 0.4);
-    font-size: $fontSize--small;
-    text-transform: uppercase;
-    text-align: left;
-}
-
-// Item
 .item {
     position: relative;
     display: flex;
@@ -103,7 +75,6 @@
         }
     }
 
-
     // STATE: Hover
     &:hover {
         cursor: pointer;
@@ -127,7 +98,7 @@
 
         .counter {
             .counterIndicator {
-                background-color: rgba($color--base, 0.10);
+                background-color: rgba($color--base, 0.1);
             }
         }
 

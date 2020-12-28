@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import styles from "./styles.scss";
+import styles from "./ProgressBar.scss";
 import PropTypes from "prop-types";
 
 export const ProgressBar = ({ percent, color, animation, children }) => {

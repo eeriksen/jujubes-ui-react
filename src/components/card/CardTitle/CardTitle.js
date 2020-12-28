@@ -1,25 +1,21 @@
-import React from "react"
-import PropTypes from "prop-types"
-import styles from "./styles.scss"
+import React from "react";
+import PropTypes from "prop-types";
+import styles from "./CardTitle.scss";
 
-import { Clickable } from "../../button/Clickable"
-import { Icon } from "../../graphic/Icon"
+import { Clickable } from "../../button/Clickable";
+import { Icon } from "../../graphic/Icon";
 
 export const CardTitle = (props) => {
-    const { title, actions, children } = props;
+    const { title, actions, children } = props;
 
     return (
         <div className={styles.base}>
-            <div className={styles.title}>
-                {title}
-            </div>
+            <div className={styles.title}>{title}</div>
 
             {/* Addons */}
             {children ? (
                 <div className={styles.addons}>
-                    <div className={styles.wrapper}>
-                        {children}
-                    </div>
+                    <div className={styles.wrapper}>{children}</div>
                 </div>
             ) : null}
 
@@ -27,18 +23,21 @@ export const CardTitle = (props) => {
             {actions && actions.length ? (
                 <div className={styles.actions}>
                     {actions.map((action, index) => (
-                        <Clickable key={`CardTitleAction-${index}`} onClick={action.onClick} className={styles.action}>
-                            <Icon name={action.icon || 'ligtning'} />
+                        <Clickable
+                            key={`CardTitleAction-${index}`}
+                            onClick={action.onClick}
+                            className={styles.action}
+                        >
+                            <Icon name={action.icon || "ligtning"} />
                         </Clickable>
                     ))}
                 </div>
             ) : null}
         </div>
-    )
-}
+    );
+};
 
 CardTitle.propTypes = {
-
     /**
      * Addons to be displayed
      */
@@ -53,5 +52,4 @@ CardTitle.propTypes = {
      * Actions to be displayed
      */
     actions: PropTypes.array
-}
-
+};

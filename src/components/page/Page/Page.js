@@ -1,28 +1,21 @@
-import React from "react"
-import styles from "./Page.scss"
+import React from "react";
+import styles from "./Page.scss";
 
-
-export const Page = ({children}) => {
+export const Page = ({ children }) => {
     let mainBox = [];
     let topBox = [];
     React.Children.map(children, (child) => {
-        if(child.type && child.type.name === "PageCrumbs"){
+        if (child.type && child.type.name === "PageCrumbs") {
             topBox.push(child);
-        }else {
+        } else {
             mainBox.push(child);
         }
     });
 
     return (
         <div className={styles.base}>
-            {topBox ? (
-                <div className={styles.topBox}>
-                    {topBox}
-                </div>
-            ) : null}
-            <div className={styles.mainBox}>
-                {mainBox}
-            </div>
+            {topBox ? <div className={styles.topBox}>{topBox}</div> : null}
+            <div className={styles.mainBox}>{mainBox}</div>
         </div>
-    )
+    );
 };

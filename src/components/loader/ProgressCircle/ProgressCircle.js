@@ -1,10 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import styles from "./styles.scss";
+import styles from "./ProgressCircle.scss";
 import { Circle } from "rc-progress";
 
-export const ProgressCircle = ({ percent, value, annotation, color, children, strokeWidth, trailWidth, strong }) => {
+export const ProgressCircle = ({
+    percent,
+    value,
+    annotation,
+    color,
+    children,
+    strokeWidth,
+    trailWidth,
+    strong
+}) => {
     return (
         <div
             className={classNames(styles.base, {

@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import styles from "./styles.scss";
+import styles from "./Button.scss";
 import { Icon } from "../../graphic/Icon";
 
 import { LoaderHorizontal } from "../../loader/LoaderHorizontal";
@@ -44,7 +44,7 @@ export const Button = (props) => {
         }
 
         // Link
-        if (link) {
+        if (link && history) {
             history.push(link);
         }
 

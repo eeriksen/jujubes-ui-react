@@ -1,0 +1,20 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   MENU HEADING
+   =================================================================== */
+
+.heading {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: $size--element-small;
+    line-height: $size--element-small;
+    padding: 0 10px;
+    font-weight: $fontWeight--bold;
+    color: rgba($color--base, 0.4);
+    font-size: $fontSize--small;
+    text-transform: uppercase;
+    text-align: left;
+}

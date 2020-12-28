@@ -1,7 +1,6 @@
 import React from "react";
-import classNames from "classnames";
-import styles from "./styles.scss";
+import styles from "./Menu.scss";
 
-export const Menu = ({ children, className }) => {
-    return <nav className={classNames(styles.base, className)}>{children}</nav>;
+export const Menu = ({ children }) => {
+    return <nav className={styles.base}>{children}</nav>;
 };

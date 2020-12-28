@@ -4,6 +4,7 @@ import commonjsPlugin from "rollup-plugin-commonjs";
 import postcssPlugin from "rollup-plugin-postcss";
 import clearPlugin from "rollup-plugin-clear";
 import autoExternalPlugin from "rollup-plugin-auto-external";
+import { terser } from "rollup-plugin-terser";
 import autoprefixer from "autoprefixer";
 import url from "postcss-url";
 import cssnano from "cssnano";
@@ -34,16 +35,21 @@ export default {
         }),
         nodeResolvePlugin({
             browser: true,
-            extensions: [".js", ".jsx", ".scss"]
+            extensions: [".js", ".jsx", ".scss", ".css"]
         }),
         postcssPlugin({
+            minimize: true,
+            autoModules: false,
             modules: {
-                generateScopedName: function (name, filename, css) {
+                generateScopedName: (name, filename, css) => {
+
+                    // Ignore external CSS files
                     if (filename.indexOf("/node_modules/") >= 0) {
                         return name;
-                    } else {
-                        return `_${hash({ name: name, filename: filename }).substring(0, 5)}`;
                     }
+
+                    const componentName = filename.match(/^(.*)\/(.*)(\..*)$/)[2];
+                    return `${componentName}-${name}_${hash({ name: name, filename: filename }).substring(0, 3)}`;
                 }
             },
             extract: `${DIST_DIR}/styles.css`,
@@ -62,6 +68,7 @@ export default {
             namedExports: {
                 "node_modules/react-tippy/dist/react-tippy.js": ["Tooltip"]
             }
-        })
+        }),
+        terser()
     ]
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import styles from "./styles.scss";
+import styles from "./Popup.scss";
 import { Overlay } from "../../layout/Overlay";
 import { Clickable } from "../../button/Clickable";
 import { Icon } from "../../graphic/Icon";

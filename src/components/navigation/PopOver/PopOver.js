@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import style from "./styles.scss";
+import styles from "./PopOver.scss";
 import classNames from "classnames";
 
 export const PopOver = (props) => {
@@ -13,7 +13,7 @@ export const PopOver = (props) => {
     const [position, setPosition] = useState("bottom");
 
     useEffect(() => {
-        if(visible){
+        if (visible) {
             redrawPosition();
             document.addEventListener("mousedown", handleClickOutside);
         }
@@ -68,10 +68,10 @@ export const PopOver = (props) => {
         }
     };
 
-    const baseClasses = classNames(style.base, {
-        [style.visible]: visible,
-        [style.sizeLarge]: size === "large",
-        [style.onTop]: position === "top"
+    const baseClasses = classNames(styles.base, {
+        [styles.visible]: visible,
+        [styles.sizeLarge]: size === "large",
+        [styles.onTop]: position === "top"
     });
 
     return (
@@ -80,7 +80,7 @@ export const PopOver = (props) => {
 
             <div
                 ref={popRef}
-                className={style.pop}
+                className={styles.pop}
                 style={{
                     top: `${topPos}px`,
                     left: `${leftPos}px`
@@ -88,8 +88,8 @@ export const PopOver = (props) => {
             >
                 {/* Arrow */}
                 <div
-                    className={classNames(style.arrow, {
-                        [style.colorPrimary]: arrowColor === "primary"
+                    className={classNames(styles.arrow, {
+                        [styles.colorPrimary]: arrowColor === "primary"
                     })}
                     style={{
                         left: arrowLeftPos && `${arrowLeftPos}px`
@@ -97,7 +97,7 @@ export const PopOver = (props) => {
                 />
 
                 {/* Content */}
-                <div className={style.wrapper}>{content}</div>
+                <div className={styles.wrapper}>{content}</div>
             </div>
         </div>
     );

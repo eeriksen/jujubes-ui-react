@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import PropTypes from "prop-types"
-import styles from "./styles.scss"
+import styles from "./ConfirmActionButton.scss"
 
 import { Button } from "../Button"
 import { Row } from "../../grid/Row"

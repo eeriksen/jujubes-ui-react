@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "./styles.scss"
+import styles from "./H3.scss"
 
 
 export const H3 = ({children}) => {

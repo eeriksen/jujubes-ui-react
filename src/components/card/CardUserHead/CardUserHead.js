@@ -1,10 +1,10 @@
-import React from "react"
-import PropTypes from "prop-types"
-import styles from "./styles.scss"
-import { Icon } from "../../graphic/Icon"
+import React from "react";
+import PropTypes from "prop-types";
+import styles from "./CardUserHead.scss";
+import { Icon } from "../../graphic/Icon";
 
 export const CardUserHead = (props) => {
-    const { picture, name, email, alt } = props;
+    const { picture, name, email, alt } = props;
 
     return (
         <div className={styles.base}>
@@ -19,23 +19,18 @@ export const CardUserHead = (props) => {
                     )}
                 </div>
                 <div className={styles.details}>
-                    <div className={styles.name}>
-                        {name}
-                    </div>
-                    <div className={styles.email}>
-                        {email}
-                    </div>
+                    <div className={styles.name}>{name}</div>
+                    <div className={styles.email}>{email}</div>
                 </div>
             </div>
             <div className={styles.background}>
                 <img alt={alt} src={picture} />
             </div>
         </div>
-    )
-}
+    );
+};
 
 CardUserHead.propTypes = {
-
     /**
      * User image URL
      */
@@ -50,5 +45,4 @@ CardUserHead.propTypes = {
      * Email of user
      */
     email: PropTypes.string
-
 };

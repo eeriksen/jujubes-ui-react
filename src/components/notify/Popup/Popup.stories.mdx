@@ -15,7 +15,15 @@ import { Col } from "../../grid/Col";
 
 # Popup
 
-Use the `<Popup/>` component to overlay content to the user without leaving context.
+Popups has many use cases; Take input from the user, alert of changes, get user confirmation and more.
+The toolkit gives you multiple types of popup-components that you can use for all of these cases.
+In a basic setup, the `<Popup />` component wraps the popup. `<PopupTitle />` let's you display a title inside your popup.
+For any custom content in the popup, wrap it in the `<PopupContent />` component, and navigational buttons inside
+the `<PopupFooter />` component.
+
+With `<PopupTabs />` you can add tabbed content inside the popup the same way you would use
+`<Tabs />` normally.
+
 <ArgsTable of={Popup} />
 
 # PopupTitle

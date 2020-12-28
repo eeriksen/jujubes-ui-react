@@ -1,0 +1,16 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   MENU
+   =================================================================== */
+
+// Base
+.base {
+    display: block;
+    background-color: $color--contrast;
+
+    // Hidden menu
+    &.hidden {
+        display: none;
+    }
+}

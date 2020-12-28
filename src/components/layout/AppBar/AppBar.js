@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import styles from "./styles.scss";
+import styles from "./AppBar.scss";
 
 import { MenuButton } from "../../button/MenuButton";
 import { DotsButton } from "../../button/DotsButton";

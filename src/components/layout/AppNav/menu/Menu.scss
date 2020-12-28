@@ -6,30 +6,12 @@
    =================================================================== */
 
 $menuItem-size: 42px;
-$spacing-sides: $spacing--nav-sides;
 
 .base {
     display: block;
     margin-bottom: $spacing--large;
 }
 
-/* HEADING
----------------------------------------------------------------------- */
-.heading {
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 0 $spacing-sides;
-    font-weight: $fontWeight--medium;
-    color: rgba($color--nav-text, 0.2);
-    font-size: $fontSize--small;
-    text-transform: uppercase;
-    text-align: left;
-    letter-spacing: 1px;
-    margin-bottom: $spacing--small;
-    @include m-truncate();
-}
 
 /* ITEM
 ---------------------------------------------------------------------- */
@@ -38,7 +20,7 @@ $spacing-sides: $spacing--nav-sides;
     display: flex;
     width: 100%;
     height: $menuItem-size;
-    padding: 0 $spacing-sides 0 $spacing-sides;
+    padding: 0 $spacing--nav-sides;
     outline: none;
     user-select: none;
     transition: background-color 0.2s ease-in-out;

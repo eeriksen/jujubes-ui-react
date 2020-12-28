@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import styles from "./styles.scss";
+import styles from "./Tabs.scss";
 import { useLocation } from "react-router-dom";
 import { ScrollableArea } from "../../layout/ScrollableArea";
 import { TabPane } from "./TabPane";

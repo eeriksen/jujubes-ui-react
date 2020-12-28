@@ -1,0 +1,16 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   POPUP CONTENT
+   =================================================================== */
+
+.content {
+    .frame {
+        max-height: 62vh;
+        user-select: all;
+
+        .wrapper {
+            padding: $spacing--medium;
+        }
+    }
+}

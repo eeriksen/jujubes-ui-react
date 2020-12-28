@@ -11,7 +11,7 @@ $grid-columns: 24;
 
 @mixin colList($index, $list) {
     @if ($index <= $grid-columns) {
-        $item: ".grid_col_#{$index}, .grid_col_xs_#{$index}, .grid_col_sm_#{$index}, .grid_col_md_#{$index}, .grid_col_lg_#{$index}";
+        $item: ".col_#{$index}, .col_xs_#{$index}, .col_sm_#{$index}, .col_md_#{$index}, .col_lg_#{$index}";
         @include colList(($index + 1), "#{$list}, #{$item}");
     } @else if ($index > $grid-columns) {
         #{$list} {
@@ -23,7 +23,7 @@ $grid-columns: 24;
 }
 
 @mixin col($index) {
-    $item: ".grid_col_#{$index}, .grid_col_xs_#{$index}, .grid_col_sm_#{$index}, .grid_col_md_#{$index}, .grid_col_lg_#{$index}";
+    $item: ".col_#{$index}, .col_xs_#{$index}, .col_sm_#{$index}, .col_md_#{$index}, .col_lg_#{$index}";
     @include colList(($index + 1), $item);
 }
 
@@ -37,7 +37,7 @@ $grid-columns: 24;
 
 //@mixin floatColList($index, $list, $class) {
 //    @if ($index <= $grid-columns) {
-//        $item: ".grid_col#{$class}_#{$index}";
+//        $item: ".col#{$class}_#{$index}";
 //        @include floatColList(($index + 1), "#{$list}, #{$item}", $class);
 //    } @else if ($index > $grid-columns) {
 //        #{$list} {
@@ -47,7 +47,7 @@ $grid-columns: 24;
 //}
 
 //@mixin floatCol($index, $class) {
-//    $item: ".grid_col#{$class}_#{$index}";
+//    $item: ".col#{$class}_#{$index}";
 //    @include floatColList(($index + 1), $item, $class);
 //}
 //
@@ -61,54 +61,54 @@ $grid-columns: 24;
 @mixin loop-grid-columns($index, $class) {
 
     @if ($index > 0) {
-        .grid_col#{$class}_#{$index} {
+        .col#{$class}_#{$index} {
             display: block;
             width: percentage(($index / $grid-columns));
         }
 
-        .grid_col#{$class}_push_#{$index} {
+        .col#{$class}_push_#{$index} {
             left: percentage(($index / $grid-columns));
         }
 
-        .grid_col#{$class}_pull_#{$index} {
+        .col#{$class}_pull_#{$index} {
             right: percentage(($index / $grid-columns));
         }
 
-        .grid_col#{$class}_offset_#{$index} {
+        .col#{$class}_offset_#{$index} {
             margin-left: percentage(($index / $grid-columns));
         }
 
-        .grid_col#{$class}_order_#{$index} {
+        .col#{$class}_order_#{$index} {
             order: $index;
         }
 
         @include loop-grid-columns(($index - 1), $class);
     } @else if ($index == 0) {
-        .grid_col#{$class}_#{$index} {
+        .col#{$class}_#{$index} {
             display: none;
         }
 
-        .grid_col_push_#{$index} {
+        .col_push_#{$index} {
             left: auto;
         }
 
-        .grid_col_pull_#{$index} {
+        .col_pull_#{$index} {
             right: auto;
         }
 
-        .grid_col#{$class}_push_#{$index} {
+        .col#{$class}_push_#{$index} {
             left: auto;
         }
 
-        .grid_col#{$class}_pull_#{$index} {
+        .col#{$class}_pull_#{$index} {
             right: auto;
         }
 
-        .grid_col#{$class}_offset_#{$index} {
+        .col#{$class}_offset_#{$index} {
             margin-left: 0;
         }
 
-        .grid_col#{$class}_order_#{$index} {
+        .col#{$class}_order_#{$index} {
             order: 0;
         }
     }

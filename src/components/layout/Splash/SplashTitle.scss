@@ -1,0 +1,30 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   SPLASH TITLE
+   =================================================================== */
+
+// Title
+.title {
+    padding: $spacing--large $spacing--large 0;
+    font-size: $fontSize--heading-2;
+    font-weight: $fontWeight--bold;
+
+    .description {
+        margin-top: $spacing--regular;
+        font-size: $fontSize--medium;
+        color: rgba($color--base, 0.6);
+        max-width: 80%;
+        font-weight: $fontWeight--regular;
+    }
+
+    // RESPONSIVE
+    @include for-phone-only() {
+        padding: $spacing--regular $spacing--medium 0;
+        font-size: $fontSize--heading-3;
+
+        .description {
+            font-size: $fontSize--regular;
+        }
+    }
+}

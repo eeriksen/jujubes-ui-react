@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./styles.scss";
+import styles from "./Splash.scss";
 
 export const Splash = ({ logo, footer, children }) => {
     return (

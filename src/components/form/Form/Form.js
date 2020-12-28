@@ -1,10 +1,9 @@
-import React from "react"
-import PropTypes from "prop-types"
-import classNames from "classnames"
-import styles from "./styles.scss"
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import styles from "./Form.scss";
 
-export const Form = ({onSubmit, children, className, responsive}) => {
-
+export const Form = ({ onSubmit, children, className, responsive }) => {
     /**
      * Handle form submit
      * @private
@@ -19,21 +18,21 @@ export const Form = ({onSubmit, children, className, responsive}) => {
     return (
         <form className={baseClasses} onSubmit={handleSubmit}>
             {React.Children.map(children, (child) => {
-                return child ? React.cloneElement(child, {
-                    responsive
-                }) : null;
+                return child
+                    ? React.cloneElement(child, {
+                          responsive
+                      })
+                    : null;
             })}
         </form>
-    )
-
-}
+    );
+};
 
 Form.defaultProps = {
     responsive: false
-}
+};
 
 Form.propTypes = {
-
     /**
      * Submit form handler
      */
@@ -43,4 +42,4 @@ Form.propTypes = {
      * Display form items horizontally on large screens
      */
     responsive: PropTypes.bool
-}
+};

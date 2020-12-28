@@ -1,34 +1,38 @@
-import React from "react"
-import PropTypes from "prop-types"
-import classNames from 'classnames'
-import styles from "./styles.scss"
-
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import styles from "./Row.scss";
 
 export const Row = (props) => {
-    const { className, children, gutter, spacing } = props;
+    const { className, children, gutter, spacing } = props;
 
     return (
-        <div className={classNames(styles.row, {
-            [styles[`gutter_ver_${gutter[0]}`]]: gutter[0],
-            [styles[`gutter_hor_${gutter[1]}`]]: gutter[1],
-            [styles[`spacing_${spacing}`]]: spacing
-        }, className)}>
-            {React.Children.map(children, child =>
+        <div
+            className={classNames(
+                styles.row,
+                {
+                    [styles[`gutter_ver_${gutter[0]}`]]: gutter[0],
+                    [styles[`gutter_hor_${gutter[1]}`]]: gutter[1],
+                    [styles[`spacing_${spacing}`]]: spacing
+                },
+                className
+            )}
+        >
+            {React.Children.map(children, (child) =>
                 React.cloneElement(child, {
                     gutter
                 })
             )}
         </div>
-    )
+    );
 };
 
 Row.defaultProps = {
     spacing: null,
     gutter: ["regular", "regular"]
-}
+};
 
 Row.propTypes = {
-
     /**
      * Define vertical/horizontal gutter
      */

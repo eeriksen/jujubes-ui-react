@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import styles from "./styles.scss";
+import styles from "./Image.scss";
 import { useDropzone } from "react-dropzone";
 import { Icon } from "../../graphic/Icon";
 import { ProgressCircle } from "../../loader/ProgressCircle";

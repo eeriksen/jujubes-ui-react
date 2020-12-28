@@ -1,10 +1,5 @@
-import React from "react"
-import styles from "./styles.scss"
+import React from "react";
 
-export const Option = ({value, children}) => {
-    return (
-        <option value={value} className={styles.option}>
-            {children}
-        </option>
-    )
-}
+export const Option = ({ value, children }) => {
+    return <option value={value}>{children}</option>;
+};

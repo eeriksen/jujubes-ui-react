@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import styles from "./styles.scss";
+import styles from "./MenuItem.scss";
 
 import { Clickable } from "../../../button/Clickable";
 import { Icon } from "../../../graphic/Icon";

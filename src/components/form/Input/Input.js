@@ -1,10 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import styles from "./styles.scss";
+import styles from "./Input.scss";
 import { Icon } from "../../graphic/Icon";
 import { Clickable } from "../../button/Clickable";
-
 
 export const Input = (props) => {
     const {
@@ -50,10 +49,8 @@ export const Input = (props) => {
  * PART:
  * Icon
  */
-const IconPart = ({icon}) => {
-    return icon ? (
-        <Icon name={icon} className={styles.icon} />
-    ) : null;
+const IconPart = ({ icon }) => {
+    return icon ? <Icon name={icon} className={styles.icon} /> : null;
 };
 
 /**
@@ -166,15 +163,12 @@ const CounterPart = ({ counter, value }) => {
     return counter ? <div className={styles.counter}>{value ? value.length : 0}</div> : null;
 };
 
-
-
 Input.defaultProps = {
     type: "text",
     maxLength: 255
 };
 
 Input.propTypes = {
-
     /**
      * Size of input field
      */
@@ -218,9 +212,7 @@ Input.propTypes = {
     /**
      * Render input error indication
      */
-    error: PropTypes.oneOfType([
-        PropTypes.bool, PropTypes.string
-    ]),
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 
     /**
      * Show character counter

@@ -1,0 +1,27 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   PAGE CRUMBS
+   =================================================================== */
+
+.base {
+    background: darken($color--background, 0%);
+    height: $size--element-small;
+
+    .leftFade {
+        display: none;
+    }
+
+    .rightFade {
+        display: none;
+    }
+
+    .container {
+        position: absolute;
+        display: flex;
+        white-space: nowrap;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        overflow: hidden;
+    }
+}

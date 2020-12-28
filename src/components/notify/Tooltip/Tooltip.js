@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./styles.scss";
+import "./Tooltip.scss";
 
 import "react-tippy/dist/tippy.css";
 import { Tooltip as Tippy } from "react-tippy";

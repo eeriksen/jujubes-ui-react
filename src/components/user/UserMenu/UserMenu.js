@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import styles from "./styles.scss";
+import styles from "./UserMenu.scss";
 
 import { Clickable } from "../../button/Clickable";
 import { CardUserHead } from "../../card/CardUserHead";

@@ -1,7 +1,7 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import classNames from "classnames";
-import styles from "./styles.scss";
+import styles from "./ItemList.scss";
 import { SortableContainer } from "react-sortable-hoc";
 import { Spinner } from "../../loader/Spinner";
 import { Text } from "../../typography/Text";

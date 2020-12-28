@@ -1,0 +1,24 @@
+@import "../../../../styles/base";
+@import "../config";
+
+/* ===================================================================
+   TABLE HEAD
+   =================================================================== */
+
+.head {
+    // Row
+    > tr {
+        // Col
+        > th {
+            text-align: left;
+            padding: $padding-cell--regular;
+            font-weight: $fontWeight--medium;
+            color: $color--base;
+            @include m-truncate();
+
+            &:last-child {
+                border-right: none;
+            }
+        }
+    }
+}

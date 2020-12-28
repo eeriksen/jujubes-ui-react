@@ -1,0 +1,33 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Radio } from "./Radio";
+import { RadioGroup } from "./RadioGroup";
+
+<Meta title="Components/Forms/Radio" component={Radio} />
+
+# Radio
+
+Use multiple `<Radio />` components inside a `<RadioGroup />` when you have 2-4 fairly short choices that the user can select from.
+
+<ArgsTable of={Radio} />
+
+# RadioGroup
+
+<ArgsTable of={RadioGroup} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        {() => {
+            const [value, setValue] = useState();
+            return (
+                <RadioGroup value={value} onChange={setValue}>
+                    <Radio value={1}>First</Radio>
+                    <Radio value={2}>Second</Radio>
+                    <Radio value={3}>Third</Radio>
+                </RadioGroup>
+            );
+        }}
+    </Story>
+</Canvas>

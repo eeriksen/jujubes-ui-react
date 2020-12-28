@@ -1,6 +1,6 @@
 {
     "name": "kembo-ui-react",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Kembo UI - React",
     "homepage": "https://github.com/eeriksen/kembo-ui-react#readme",
     "bugs": {
@@ -33,7 +33,7 @@
         "react-dropzone": "^11.2.4",
         "react-perfect-scrollbar": "^1.4.2",
         "react-sortable-hoc": "^1.5.3",
-        "react-tippy": "^1.2.3"
+        "react-tippy": "^1.4.0"
     },
     "devDependencies": {
         "@babel/core": "^7.12.9",

@@ -1,0 +1,79 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   RADIO
+   =================================================================== */
+
+$radio--size: 28px;
+
+.base {
+    cursor: pointer;
+    display: inline-block;
+    min-height: $radio--size;
+    user-select: none;
+
+    $topBottom-margin: ($size--element-regular - $radio--size) / 2;
+    margin: $topBottom-margin $spacing--medium $topBottom-margin 0;
+
+    .symbol {
+        position: relative;
+        float: left;
+        display: inline-block;
+        width: $radio--size;
+        height: $radio--size;
+        border: $input--border;
+        border-radius: $radio--size;
+        transition: all 0.2s ease;
+        background-color: $color--contrast;
+
+        .dot {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border-radius: 50%;
+            background-color: $color--primary;
+            opacity: 0;
+        }
+    }
+
+    .label {
+        margin-left: $radio--size;
+        padding: 4px 0 0 $spacing--regular;
+        color: rgba($color--base, 0.6);
+        transition: all 0.2s ease;
+    }
+
+    &:hover, &:focus {
+        .symbol {
+            box-shadow: $input--boxShadow-focus;
+            border: $input--border-focus;
+        }
+
+        .label {
+            color: $color--base;
+        }
+    }
+
+    &.selected {
+        .symbol {
+            .dot {
+                opacity: 1;
+            }
+        }
+
+        .label {
+            color: $color--base;
+        }
+
+        &:hover {
+            cursor: default;
+
+            .symbol {
+                border: $input--border;
+                box-shadow: none;
+            }
+        }
+    }
+}

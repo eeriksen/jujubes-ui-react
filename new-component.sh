@@ -31,8 +31,8 @@ export * from "./${name}";
 EOL
 
 
-# styles.scss
-cat >styles.scss <<EOL
+# Component.scss
+cat >"$name.scss" <<EOL
 @import "../../../styles/base";
 
 /* ===================================================================
@@ -40,15 +40,15 @@ cat >styles.scss <<EOL
    =================================================================== */
 
 .base {
-
+    position: relative;
 }
 EOL
 
 
-#Component.js
+# Component.js
 cat >"$name.js" <<EOL
 import React from "react"
-import styles from "./styles.scss"
+import styles from "./${name}.scss"
 
 
 export const ${name} = ({children}) => {
@@ -58,6 +58,30 @@ export const ${name} = ({children}) => {
         </div>
     )
 };
+EOL
+
+
+# Component.stories.mdx
+cat >"$name.stories.mdx" <<EOL
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { ${name} } from "./${name}";
+
+<Meta title="Components/UNGROUPED/${name}" component={${name}} />
+
+# ${name}
+
+Write something here.
+
+<ArgsTable of={${name}} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        <${name}>Something here</${name}>
+    </Story>
+</Canvas>
 EOL
 
 

@@ -1,0 +1,24 @@
+name: Build and deploy Storybook docs
+on:
+  push:
+    paths: [".storybook/stories/**", "src/**"] # Trigger the action only when files change in the folders defined here
+jobs:
+  storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
+        with:
+          persist-credentials: false
+      - name: Install and Build 🔧
+        run: |
+          npm install
+          npm run build-storybook
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.6.2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: master
+          FOLDER: docs-build
+          CLEAN: true
+          TARGET_FOLDER: docs

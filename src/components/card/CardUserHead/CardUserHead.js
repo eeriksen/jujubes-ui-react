@@ -23,9 +23,6 @@ export const CardUserHead = (props) => {
                     <div className={styles.email}>{email}</div>
                 </div>
             </div>
-            <div className={styles.background}>
-                <img alt={alt} src={picture} />
-            </div>
         </div>
     );
 };

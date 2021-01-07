@@ -9,10 +9,6 @@
     vertical-align: middle;
 }
 
-.block {
-    display: block;
-}
-
 .truncate {
     @include m-truncate();
 }
@@ -20,75 +16,75 @@
 // SIZES
 
 .sizeSmall {
-    font-size: $fontSize--small;
+    font-size: var(--fontSize_small);
 }
 
 .sizeNormal {
-    font-size: $fontSize--regular;
+    font-size: var(--fontSize_regular);
 }
 
 .sizeMedium {
-    font-size: $fontSize--medium;
+    font-size: var(--fontSize_medium);
 }
 
 .sizeLarge {
-    font-size: $fontSize--large;
+    font-size: var(--fontSize_large);
 }
 
 .sizeXlarge {
-    font-size: $fontSize--heading-3;
+    font-size: var(--fontSize_heading3);
 }
 
 // WEIGHTS
 
 .weightLight {
-    font-weight: $fontWeight--light;
+    font-weight: var(--fontWeight_light);
 }
 
 .weightMedium {
-    font-weight: $fontWeight--medium;
+    font-weight: var(--fontWeight_medium);
 }
 
 .weightBold {
-    font-weight: $fontWeight--bold;
+    font-weight: var(--fontWeight_bold);
 }
 
 // COLORS
 
 .base80 {
-    color: rgba($color--base, 0.8);
+    color: rgba(var(--color_base), 0.8);
 }
 
 .base60 {
-    color: rgba($color--base, 0.6);
+    color: rgba(var(--color_base), 0.6);
 }
 
 .base40 {
-    color: rgba($color--base, 0.4);
+    color: rgba(var(--color_base), 0.4);
 }
 
 .success {
-    color: $color--success;
+    color: rgba(var(--color_success), 1);
 }
 
 .warning {
-    color: $color--warning;
+    color: rgba(var(--color_warning), 1);
 }
 
 .error {
-    color: $color--error;
+    color: rgba(var(--color_error), 1);
 }
 
 .primary {
-    color: $color--primary;
+    color: rgba(var(--color_primary), 1);
 }
 
 .contrast {
-    color: $color--contrast;
+    color: rgba(var(--color_contrast), 1);
 }
 
 .info {
-    color: $color--info;
+    color: rgba(var(--color_info), 1);
 }
 
 // FORMATTING

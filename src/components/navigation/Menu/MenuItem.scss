@@ -11,16 +11,16 @@
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
-    border-bottom: 1px solid rgba($color--base, 0.05);
+    border-bottom: 1px solid rgba(var(--color_base), 0.05);
     border-right: none;
-    height: $size--element-regular;
-    line-height: $size--element-regular;
+    height: var(--elementSize_regular);
+    line-height: var(--elementSize_regular);
     padding: 0 5px;
-    font-size: $fontSize--regular;
+    font-size: var(--fontSize_regular);
     text-decoration: none;
-    background-color: $color--contrast;
+    background-color: rgba(var(--color_contrast), 1);
     text-align: left;
-    font-family: $fontFamily--primary;
+    font-family: var(--fontFamily_primary);
     outline: none;
     transition: color 0.2s ease-in-out;
     user-select: none;
@@ -40,7 +40,7 @@
 
     // Label
     .label {
-        color: rgba($color--base, 0.8);
+        color: rgba(var(--color_base), 0.8);
         padding: 0 5px;
         flex-grow: 1;
     }
@@ -64,10 +64,10 @@
             align-items: center;
             min-width: $size--counter;
             text-align: center;
-            font-weight: $fontWeight--medium;
-            font-size: $fontSize--tiny;
-            color: $color--status-text;
-            background-color: $color--error;
+            font-weight: var(--fontWeight_medium);
+            font-size: var(--fontSize_tiny);
+            color: rgba(var(--color_statusText), 1);
+            background-color: rgba(var(--color_error), 1);
             height: $size--counter;
             line-height: $size--counter;
             padding: 0 7px;
@@ -80,7 +80,7 @@
         cursor: pointer;
 
         .label {
-            color: $color--base;
+            color: rgba(var(--color_base), 1);
         }
     }
 
@@ -89,16 +89,16 @@
         cursor: default;
 
         .icon {
-            @include m-iconColor(rgba($color--base, 0.2));
+            @include m-iconColor(rgba(var(--color_base), 0.2));
         }
 
         .label {
-            color: rgba($color--base, 0.4);
+            color: rgba(var(--color_base), 0.4);
         }
 
         .counter {
             .counterIndicator {
-                background-color: rgba($color--base, 0.1);
+                background-color: rgba(var(--color_base), 0.1);
             }
         }
 

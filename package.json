@@ -23,9 +23,8 @@
         "build-storybook": "build-storybook -c .storybook -o docs-build"
     },
     "peerDependencies": {
-        "react": "^17.0.1",
-        "react-dom": "^17.0.1",
-        "react-router-dom": "^5.2.0"
+        "react": ">=16.9.0",
+        "react-dom": ">=16.9.0"
     },
     "dependencies": {
         "rc-notification": "^3.3.0",
@@ -33,7 +32,8 @@
         "react-dropzone": "^11.2.4",
         "react-perfect-scrollbar": "^1.4.2",
         "react-sortable-hoc": "^1.5.3",
-        "react-tippy": "^1.4.0"
+        "react-tippy": "^1.4.0",
+        "webfontloader": "^1.6.28"
     },
     "devDependencies": {
         "@babel/core": "^7.12.9",
@@ -41,6 +41,9 @@
         "@babel/preset-env": "^7.12.7",
         "@babel/preset-react": "^7.12.7",
         "@dump247/storybook-state": "^1.6.1",
+        "@rollup/plugin-babel": "^5.2.2",
+        "@rollup/plugin-commonjs": "^17.0.0",
+        "@rollup/plugin-node-resolve": "^11.0.1",
         "@storybook/addon-actions": "^6.2.0-alpha.3",
         "@storybook/addon-docs": "^6.2.0-alpha.3",
         "@storybook/addons": "^6.2.0-alpha.3",
@@ -51,7 +54,6 @@
         "babel-loader": "^8.0.4",
         "classnames": "^2.2.6",
         "css-loader": "^1.0.1",
-        "cssnano": "^4.1.8",
         "eslint": "^4.19.1",
         "eslint-config-react-app": "^2.1.0",
         "eslint-loader": "^2.1.1",
@@ -72,15 +74,10 @@
         "react-dom": "^17.0.1",
         "react-router-dom": "^5.2.0",
         "rollup": "^2.35.1",
-        "rollup-plugin-auto-external": "^2.0.0",
-        "rollup-plugin-babel": "^4.4.0",
         "rollup-plugin-clear": "^2.0.7",
-        "rollup-plugin-commonjs": "^10.1.0",
-        "rollup-plugin-node-resolve": "^5.2.0",
         "rollup-plugin-postcss": "^4.0.0",
         "rollup-plugin-terser": "^7.0.2",
         "sass-loader": "^7.1.0",
-        "storybook-react-router": "^1.0.8",
         "storybook-readme": "^5.0.9",
         "style-loader": "^0.23.1",
         "webpack": "^4.43.0"

@@ -1,5 +1,5 @@
 /* ===================================================================
-   CONSTANTS
+   CONFIG
    =================================================================== */
 
 /* LAYERS
@@ -25,3 +25,23 @@ $zIndex--appNav: $zIndex-8;
 $zIndex--popOver: $zIndex-8;
 $zIndex--popups: $zIndex-9;
 $zIndex--userMenu: $zIndex-9;
+
+/* SIZES / DIMENSIONS
+---------------------------------------------------------------------- */
+
+// Breakpoints
+$breakpoint--tablet-portrait: 600px;
+$breakpoint--tablet-landscape: 900px;
+$breakpoint--desktop: 1200px;
+$breakpoint--big-desktop: 1400px;
+
+// Icon sizes
+$iconSize--small: 14px;
+$iconSize--regular: 16px;
+$iconSize--medium: 20px;
+$iconSize--large: 24px;
+$iconSize--large-x: 45px;
+$iconSize--large-xx: 70px;
+
+$appBar--height: 64px;
+$appNav--width: 280px;

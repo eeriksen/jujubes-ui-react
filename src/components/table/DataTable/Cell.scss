@@ -13,8 +13,8 @@
         resize: none;
         border: 0;
         background: transparent;
-        font-size: $fontSize--regular;
-        font-family: $fontFamily--primary;
+        font-size: var(--fontSize_regular);
+        font-family: var(--fontFamily_primary);
         padding: $padding-cell--regular;
     }
 

@@ -1,12 +1,9 @@
-
 /* ===================================================================
    MIXINS
    =================================================================== */
 
-
-
 // Icon color
-@mixin m-iconColor($color, $withTransition:false){
+@mixin m-iconColor($color, $withTransition: false) {
     svg {
         fill: $color;
 
@@ -16,9 +13,8 @@
     }
 }
 
-
 // Icon size
-@mixin m-iconSize($size, $maxSize:null){
+@mixin m-iconSize($size, $maxSize: null) {
     svg {
         width: $size;
         height: $size;
@@ -29,12 +25,10 @@
     }
 }
 
-
 // Striped background
-@mixin m-stripedBackground($color1, $color2, $size){
+@mixin m-stripedBackground($color1, $color2, $size) {
     background: repeating-linear-gradient(45deg, $color1, $color1 $size, $color2 $size, $color2 $size * 2);
 }
-
 
 // Truncate text in container
 @mixin m-truncate {
@@ -43,9 +37,8 @@
     text-overflow: ellipsis;
 }
 
-
 // CLEARFIX
-@mixin m-clearFix(){
+@mixin m-clearFix() {
     zoom: 1;
     &:before,
     &:after {
@@ -60,35 +53,54 @@
     }
 }
 
-
 // BREAKPOINTS
 @mixin for-phone-only {
-  @media (max-width: $breakpoint--tablet-portrait - 1px) { @content; }
+    @media (max-width: $breakpoint--tablet-portrait - 1px) {
+        @content;
+    }
 }
 @mixin for-tablet-portrait-up {
-  @media (min-width: $breakpoint--tablet-portrait) { @content; }
+    @media (min-width: $breakpoint--tablet-portrait) {
+        @content;
+    }
 }
 @mixin for-tablet-portrait-down {
-  @media (max-width: $breakpoint--tablet-portrait) { @content; }
+    @media (max-width: $breakpoint--tablet-portrait) {
+        @content;
+    }
 }
 @mixin for-tablet-portait-only {
-  @media (min-width: $breakpoint--tablet-portrait) and (max-width: $breakpoint--tablet-landscape - 1px) { @content; }
+    @media (min-width: $breakpoint--tablet-portrait) and (max-width: $breakpoint--tablet-landscape - 1px) {
+        @content;
+    }
 }
 @mixin for-tablet-landscape-up {
-  @media (min-width: $breakpoint--tablet-landscape) { @content; }
+    @media (min-width: $breakpoint--tablet-landscape) {
+        @content;
+    }
 }
 @mixin for-tablet-landscape-down {
-  @media (max-width: $breakpoint--tablet-landscape - 1px) { @content; }
+    @media (max-width: $breakpoint--tablet-landscape - 1px) {
+        @content;
+    }
 }
 @mixin for-tablet-landscape-only {
-  @media (min-width: $breakpoint--tablet-landscape) and (max-width: $breakpoint--desktop - 1px) { @content; }
+    @media (min-width: $breakpoint--tablet-landscape) and (max-width: $breakpoint--desktop - 1px) {
+        @content;
+    }
 }
 @mixin for-desktop-up {
-  @media (min-width: $breakpoint--desktop) { @content; }
+    @media (min-width: $breakpoint--desktop) {
+        @content;
+    }
 }
 @mixin for-desktop-down {
-  @media (max-width: $breakpoint--desktop) { @content; }
+    @media (max-width: $breakpoint--desktop) {
+        @content;
+    }
 }
 @mixin for-desktop-only {
-  @media (min-width: $breakpoint--desktop) and (max-width: $breakpoint--big-desktop - 1px) { @content; }
+    @media (min-width: $breakpoint--desktop) and (max-width: $breakpoint--big-desktop - 1px) {
+        @content;
+    }
 }

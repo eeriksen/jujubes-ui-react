@@ -4,7 +4,7 @@
    TABS
    =================================================================== */
 
-$height-tabs: $size--element-regular + 4px;
+$height-tabs: var(--elementSize_regular);
 
 .base {
     .tabs {
@@ -16,7 +16,7 @@ $height-tabs: $size--element-regular + 4px;
             left: 0;
             display: flex;
             height: 100%;
-            border-bottom: 1px solid rgba($color--base, 0.10);
+            border-bottom: 1px solid rgba(var(--color_base), 0.10);
             min-width: 100%;
         }
     }

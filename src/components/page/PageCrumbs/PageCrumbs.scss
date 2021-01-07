@@ -5,8 +5,8 @@
    =================================================================== */
 
 .base {
-    background: darken($color--background, 0%);
-    height: $size--element-small;
+    background: rgba(var(--color_background), 1);
+    height: var(--elementSize_small);
 
     .leftFade {
         display: none;

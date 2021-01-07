@@ -9,12 +9,12 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    height: $size--element-small;
-    line-height: $size--element-small;
+    height: var(--elementSize_small);
+    line-height: var(--elementSize_small);
     padding: 0 10px;
-    font-weight: $fontWeight--bold;
-    color: rgba($color--base, 0.4);
-    font-size: $fontSize--small;
+    font-weight: var(--fontWeight_bold);
+    color: rgba(var(--color_base), 0.4);
+    font-size: var(--fontSize_small);
     text-transform: uppercase;
     text-align: left;
 }

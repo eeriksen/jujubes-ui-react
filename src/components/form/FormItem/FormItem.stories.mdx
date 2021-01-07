@@ -61,7 +61,7 @@ A form component should __always__ be wrapped in a `<FormItem />` component.
             const [value, setValue] = useState(null);
             return (
                 <Form>
-                    <FormItem label="Your name" error info="Some error message here">
+                    <FormItem label="Your name" info="Some error message here" error>
                         <Input
                             value={value}
                             onChange={setValue}

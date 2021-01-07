@@ -13,7 +13,8 @@ export const UserMenu = ({ picture, email, name, children }) => {
     return (
         <div
             className={classNames(styles.base, {
-                [styles.visible]: visible
+                [styles.visible]: visible,
+                [styles.hasPicture]: picture
             })}
         >
             <PopOver

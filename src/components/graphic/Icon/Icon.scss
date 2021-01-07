@@ -11,7 +11,7 @@
 
     svg {
         display: block;
-        fill: $color--base;
+        fill: rgba(var(--color_base), 1);
         vertical-align: top;
         width: $iconSize--regular;
         height: $iconSize--regular;
@@ -20,24 +20,24 @@
     // For presenting icons in a grid
     &.presentation {
         width: 100%;
-        border: 1px solid rgba($color--base, 0.10);
-        border-radius: $borderRadius--regular;
+        border: 1px solid rgba(var(--color_base), 0.10);
+        border-radius: var(--borderRadius_content);
         text-align: center;
-        padding: $spacing--large $spacing--small;
-        @include m-iconColor($color--primary);
+        padding: var(--spacing_large) var(--spacing_small);
+        @include m-iconColor(rgba(var(--color_primary), 1));
         @include m-iconSize($iconSize--large);
-        margin-bottom: $spacing--regular;
+        margin-bottom: var(--spacing_regular);
         min-height: 120px;
-        background: $color--contrast;
+        background: rgba(var(--color_contrast), 1);
 
         svg {
             display: inline-block;
         }
 
         .label {
-            margin-top: $spacing--medium;
+            margin-top: var(--spacing_medium);
             display: block;
-            color: rgba($color--base, 0.8);
+            color: rgba(var(--color_base), 0.8);
         }
     }
 
@@ -49,27 +49,27 @@
 
 // Colors
 .colorContrast {
-    @include m-iconColor($color--contrast, true);
+    @include m-iconColor(rgba(var(--color_contrast), 1), true);
 }
 
 .colorInfo {
-    @include m-iconColor($color--info, true);
+    @include m-iconColor(rgba(var(--color_info), 1), true);
 }
 
 .colorPrimary {
-    @include m-iconColor($color--primary, true);
+    @include m-iconColor(rgba(var(--color_primary), 1), true);
 }
 
 .colorSuccess {
-    @include m-iconColor($color--success, true);
+    @include m-iconColor(rgba(var(--color_success), 1), true);
 }
 
 .colorWarning {
-    @include m-iconColor($color--warning, true);
+    @include m-iconColor(rgba(var(--color_warning), 1), true);
 }
 
 .colorError {
-    @include m-iconColor($color--error, true);
+    @include m-iconColor(rgba(var(--color_error), 1), true);
 }
 
 // Sizes
@@ -110,11 +110,11 @@
 
 // Margins
 .marginRight {
-    margin-right: $spacing--small;
+    margin-right: var(--spacing_small);
 }
 
 .marginLeft {
-    margin-left: $spacing--small;
+    margin-left: var(--spacing_small);
 }
 
 // Animation

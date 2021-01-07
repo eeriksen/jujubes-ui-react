@@ -133,3 +133,32 @@ Use the `<Select />` when the user should choose from a list of alternatives.
         }}
     </Story>
 </Canvas>
+
+### Error
+<Canvas>
+    <Story name="error" >
+        {() => {
+            const [value, setValue] = useState(null);
+            return (
+                <Form>
+                    <FormItem error>
+                        <Select placeholder="Choose one" value={value} onChange={setValue}>
+                            <Option value={0}>
+                                First choice
+                            </Option>
+                            <Option value={1}>
+                                Second choice
+                            </Option>
+                            <Option value={2}>
+                                Third choice
+                            </Option>
+                            <Option value={3}>
+                                Fourth choice
+                            </Option>
+                        </Select>
+                    </FormItem>
+                </Form>
+            )
+        }}
+    </Story>
+</Canvas>

@@ -23,20 +23,24 @@ export const AppNav = ({ logo, title, children }) => {
                 </div>
 
                 {/* Menu content */}
-                <ScrollableArea>
-                    {/* Header */}
-                    {title ? (
-                        <div className={styles.header}>
-                            <div className={styles.title}>{title}</div>
+                <div className={styles.container}>
+                    <ScrollableArea>
+                        <div className={styles.wrapper}>
+                            {/* Header */}
+                            {title ? (
+                                <div className={styles.header}>
+                                    <div className={styles.title}>{title}</div>
+                                </div>
+                            ) : null}
+
+                            {/* Menu */}
+                            <div className={styles.menu}>{children}</div>
                         </div>
-                    ) : null}
+                    </ScrollableArea>
 
-                    {/* Menu */}
-                    <div className={styles.menu}>{children}</div>
-                </ScrollableArea>
-
-                {/* Fade*/}
-                <div className={styles.fade} />
+                    {/* Fade*/}
+                    <div className={styles.fade} />
+                </div>
             </div>
 
             {/* Overlay */}

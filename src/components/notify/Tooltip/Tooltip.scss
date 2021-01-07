@@ -6,26 +6,26 @@
 
 :global(.tippy-popper) {
     .tippy-tooltip {
-        background-color: $color--base;
-        color: $color--contrast;
-        font-family: $fontFamily--primary;
-        font-size: $fontSize--regular;
+        background-color: rgba(var(--color_base), 1);
+        color: rgba(var(--color_contrast), 1);
+        font-family: var(--fontFamily_primary);
+        font-size: var(--fontSize_regular);
         padding: 0.3rem 0.7rem 0.3rem;
     }
 
     &[x-placement^="bottom"] [x-arrow] {
-        border-bottom-color: $color--base !important;
+        border-bottom-color: var(--color_base) !important;
     }
 
     &[x-placement^="top"] [x-arrow] {
-        border-top-color: $color--base !important;
+        border-top-color: var(--color_base) !important;
     }
 
     &[x-placement^="right"] [x-arrow] {
-        border-right-color: $color--base !important;
+        border-right-color: var(--color_base) !important;
     }
 
     &[x-placement^="left"] [x-arrow] {
-        border-left-color: $color--base !important;
+        border-left-color: var(--color_base) !important;
     }
 }

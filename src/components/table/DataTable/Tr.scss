@@ -9,7 +9,7 @@
     // Col
     > .col {
         padding: 0;
-        border-top: 1px solid rgba($color--base, 0.05);
+        border-top: 1px solid rgba(var(--color_base), 0.05);
     }
 
     // Clickable
@@ -19,7 +19,7 @@
         &:not(.disabled) {
             &:hover {
                 > .col {
-                    background-color: rgba($color--background, 0.5) !important;
+                    background-color: rgba(var(--color_background), 0.5) !important;
                     border-top-color: transparent;
                 }
             }
@@ -38,7 +38,7 @@
         cursor: default;
 
         > .col {
-            background-color: rgba($color--background, 0.35);
+            background-color: rgba(var(--color_background), 0.35);
             opacity: 0.6;
         }
     }
@@ -47,12 +47,12 @@
 // MOD: Blinking row
 @keyframes rowBlink {
     0% {
-        background-color: rgba($color--attention, 0.2);
+        background-color: rgba(var(--color_attention), 0.2);
     }
     50% {
-        background-color: rgba($color--attention, 0.6);
+        background-color: rgba(var(--color_attention), 0.6);
     }
     100% {
-        background-color: rgba($color--attention, 0.2);
+        background-color: rgba(var(--color_attention), 0.2);
     }
 }

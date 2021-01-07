@@ -10,14 +10,14 @@ $loader--height: 6px;
     width: 100%;
     height: $loader--height;
     overflow: hidden;
-    background: $color--primary;
+    background: rgba(var(--color_primary), 1);
     margin: auto;
     border-radius: $loader--height;
 
     .bar {
         width: 100%;
         height: $loader--height;
-        background-color: $color--background;
+        background-color: rgba(var(--color_background), 1);
         margin-top: 0;
         margin-left: -100%;
         animation-name: loaderAnimation;

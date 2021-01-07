@@ -5,23 +5,23 @@
    =================================================================== */
 
 .title {
-    padding: $spacing--medium;
+    padding: var(--spacing_medium);
     text-align: left;
     overflow: hidden;
     transition: color 0.3s ease;
-    border-radius: $borderRadius--regular $borderRadius--regular 0 0;
-    border-bottom: 1px solid rgba($color--base, 0.1);
+    border-radius: var(--borderRadius_content) var(--borderRadius_content) 0 0;
+    border-bottom: 1px solid rgba(var(--color_base), 0.1);
     @include m-truncate();
 
     .text {
-        font-size: $fontSize--heading-4;
-        font-weight: $fontWeight--medium;
-        color: $color--base;
+        font-size: var(--fontSize_heading4);
+        font-weight: var(--fontWeight_medium);
+        color: rgba(var(--color_base), 1);
     }
 
     .description {
-        font-size: $fontSize--regular;
-        color: rgba($color--base, 0.6);
-        font-weight: $fontWeight--regular;
+        font-size: var(--fontSize_regular);
+        color: rgba(var(--color_base), 0.6);
+        font-weight: var(--fontWeight_regular);
     }
 }

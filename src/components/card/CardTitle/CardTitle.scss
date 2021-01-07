@@ -5,21 +5,21 @@
    =================================================================== */
 
 .base {
-    height: $size--element-big;
-    border-bottom: 1px solid rgba($color--base, 0.10);
+    height: var(--elementSize_big);
+    border-bottom: 1px solid rgba(var(--color_base), 0.10);
     display: flex;
 
     .title {
         flex-grow: 1;
-        font-size: $fontSize--large;
-        font-weight: $fontWeight--medium;
-        line-height: $size--element-big;
-        padding: 0 $spacing--medium;
+        font-size: var(--fontSize_large);
+        font-weight: var(--fontWeight_medium);
+        line-height: var(--elementSize_big);
+        padding: 0 var(--spacing_medium);
         @include m-truncate();
     }
 
     .addons {
-        padding: 0 $spacing--medium;
+        padding: 0 var(--spacing_medium);
         display: flex;
         align-items: center;
     }
@@ -29,18 +29,18 @@
 
         .action {
             position: relative;
-            width: $size--element-big;
-            border-left: 1px solid rgba($color--base, 0.05);
+            width: var(--elementSize_big);
+            border-left: 1px solid rgba(var(--color_base), 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             user-select: none;
-            @include m-iconColor(rgba($color--base, 0.8));
+            @include m-iconColor(rgba(var(--color_base), 0.8));
 
             &:hover, &:active {
-                @include m-iconColor($color--base);
-                background-color: rgba($color--base, 0.03);
+                @include m-iconColor(rgba(var(--color_base), 1));
+                background-color: rgba(var(--color_base), 0.03);
             }
         }
     }

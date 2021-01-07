@@ -27,7 +27,8 @@ export const Button = ({
     propagate,
     link,
     href,
-    onClick
+    onClick,
+    className
 }) => {
     const history = useHistory();
 
@@ -60,6 +61,7 @@ export const Button = ({
 
     // Classnames
     const buttonClasses = classNames(styles.base, {
+        [styles.colorDefault]: !color,
         [styles.colorPrimary]: color === "primary",
         [styles.colorSuccess]: color === "success",
         [styles.colorWarning]: color === "warning",
@@ -88,7 +90,7 @@ export const Button = ({
         [styles.labelSuccess]: labelColor === "success",
         [styles.labelWarning]: labelColor === "warning",
         [styles.labelError]: labelColor === "error"
-    });
+    }, className);
 
     // Properties
     const properties = {
@@ -101,21 +103,26 @@ export const Button = ({
 
     return (
         <button {...properties}>
-            {/* Busy */}
-            {busy ? (
-                <div className={styles.loader}>
-                    <LoaderHorizontal />
-                </div>
-            ) : null}
+            <div className={styles.content}>
+                {/* Busy */}
+                {busy ? (
+                    <div className={styles.loader}>
+                        <LoaderHorizontal />
+                    </div>
+                ) : null}
 
-            {/* Icon left */}
-            {icon && !iconRight ? <Icon className={styles.icon} name={icon} /> : null}
+                {/* Icon left */}
+                {icon && !iconRight ? <Icon className={styles.icon} name={icon} /> : null}
 
-            {/* Children */}
-            {children}
+                {/* Children */}
+                {children}
 
-            {/* Icon right */}
-            {icon && iconRight ? <Icon className={styles.icon} name={icon} /> : null}
+                {/* Icon right */}
+                {icon && iconRight ? <Icon className={styles.icon} name={icon} /> : null}
+            </div>
+
+            {/* Shade */}
+            {!busy ? <div className={styles.shade}></div> : null}
         </button>
     );
 };

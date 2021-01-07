@@ -6,20 +6,20 @@
 
 
 .base {
-    margin-bottom: $spacing--medium;
+    margin-bottom: var(--spacing_medium);
 
     // LABEL
     .label {
         label {
             display: block;
-            font-size: $fontSize--regular;
-            font-weight: $fontWeight--medium;
-            color: $color--base;
-            margin-bottom: $spacing--small;
+            font-size: var(--fontSize_regular);
+            font-weight: var(--fontWeight_medium);
+            color: rgba(var(--color_base), 1);
+            margin-bottom: var(--spacing_small);
             @include m-truncate();
 
             .colon {
-                padding: 0 $spacing--small 0 2px;
+                padding: 0 var(--spacing_small) 0 2px;
             }
         }
     }
@@ -30,9 +30,9 @@
     }
 
     .infoText {
-        font-size: $fontSize--small;
-        color: rgba($color--base, 0.6);
-        padding-top: $spacing--small;
+        font-size: var(--fontSize_small);
+        color: rgba(var(--color_base), 0.6);
+        padding-top: var(--spacing_small);
     }
 
     &:last-child {
@@ -43,11 +43,11 @@
     // ERROR
     &.error {
         .label label {
-            color: $color--error;
+            color: rgba(var(--color_error), 1);
         }
 
         .infoText {
-            color: $color--error;
+            color: rgba(var(--color_error), 1);
         }
     }
 
@@ -57,7 +57,7 @@
             .label {
                 label {
                     text-align: right;
-                    line-height: $size--element-regular;
+                    line-height: var(--elementSize_regular);
                     margin-bottom: 0;
                 }
             }

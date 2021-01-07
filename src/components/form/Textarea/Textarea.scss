@@ -9,36 +9,36 @@
     width: 100%;
     outline: none;
     padding: 10px;
-    border: $input--border;
-    font-family: $fontFamily--primary;
-    font-size: $fontSize--regular;
-    color: rgba($color--base, 0.8);
+    border: var(--input_border);
+    font-family: var(--fontFamily_primary);
+    font-size: var(--fontSize_regular);
+    color: rgba(var(--color_base), 0.8);
     transition: border-color 0.3s ease;
     appearance: none;
-    border-radius: $borderRadius--regular;
+    border-radius: var(--borderRadius_form);
     resize: none;
     vertical-align: top; // To compensate for space under textarea in misc browsers
     background: transparent;
 
     &:focus {
-        border: $input--border-focus;
-        box-shadow: $input--boxShadow-focus;
-        color: $color--base;
+        border: var(--input_borderFocus);
+        box-shadow: var(--input_boxShadowFocus);
+        color: rgba(var(--color_base), 1);
     }
 
     &[disabled] {
-        background-color: rgba($color--base, 0.03);
-        border-color: rgba($color--base, 0.10);
-        color: rgba($color--base, 0.4);
+        background-color: rgba(var(--color_base), 0.03);
+        border-color: rgba(var(--color_base), 0.10);
+        color: rgba(var(--color_base), 0.4);
         cursor: not-allowed;
     }
 
     // STATE: Error
     &.error {
-        border: $input--border-error;
+        border: var(--input_borderError);
 
         &:focus {
-            box-shadow: $input--boxShadow-error;
+            box-shadow: var(--input_boxShadowError);
         }
     }
 

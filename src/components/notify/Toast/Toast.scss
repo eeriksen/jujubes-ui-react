@@ -7,26 +7,26 @@
 
 .base {
     user-select: none;
-    color: $color--contrast;
-    font-weight: $fontWeight--medium;
+    color: rgba(var(--color_contrast), 1);
+    font-weight: var(--fontWeight_medium);
     padding: 10px 20px 9px;
-    background-color: $color--info;
-    border-radius: $borderRadius--regular;
-    box-shadow: $boxShadow--regular;
+    background-color: rgba(var(--color_info), 1);
+    border-radius: var(--borderRadius_form);
+    box-shadow: var(--boxShadow_regular);
 
     &.success {
-        background-color: $color--success;
-        color: $color--status-text;
+        background-color: rgba(var(--color_success), 1);
+        color: rgba(var(--color_statusText), 1);
     }
 
     &.error {
-        background-color: $color--error;
-        color: $color--status-text;
+        background-color: rgba(var(--color_error), 1);
+        color: rgba(var(--color_statusText), 1);
     }
 
     &.loading {
         .icon {
-            @include m-iconColor(rgba($color--base, 0.6));
+            @include m-iconColor(rgba(var(--color_base), 0.6));
         }
     }
 
@@ -44,12 +44,12 @@
         &-notice {
             width: 100%;
             text-align: center;
-            margin-bottom: $spacing--regular;
+            margin-bottom: var(--spacing_regular);
         }
 
         &-notice-content {
             display: inline-block;
-            margin: 0 $spacing--large;
+            margin: 0 var(--spacing_large);
         }
 
         @mixin fade-effect() {

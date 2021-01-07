@@ -5,6 +5,6 @@
    =================================================================== */
 
 .footer {
-    padding: $spacing--medium;
-    border-top: 1px solid rgba($color--base, 0.1);
+    padding: var(--spacing_medium);
+    border-top: 1px solid rgba(var(--color_base), 0.1);
 }

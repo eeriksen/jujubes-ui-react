@@ -12,23 +12,23 @@
     .input {
         position: relative;
         display: inline-block;
-        height: $size--element-regular;
+        height: var(--elementSize_regular);
         width: 100%;
         outline: none;
         padding: 0 10px 0;
-        border: $input--border;
-        font-family: $fontFamily--primary;
-        font-size: $fontSize--regular;
-        color: rgba($color--base, 0.8);
+        border: var(--input_border);
+        font-family: var(--fontFamily_primary);
+        font-size: var(--fontSize_regular);
+        color: rgba(var(--color_base), 0.8);
         transition: border-color .3s ease, box-shadow .3s ease;
-        background-color: $color--contrast;
-        border-radius: $borderRadius--regular;
+        background-color: rgba(var(--color_contrast), 1);
+        border-radius: var(--borderRadius_form);
         appearance: none;
 
         &:focus {
-            border: $input--border-focus;
-            color: $color--base;
-            box-shadow: $input--boxShadow-focus;
+            border: var(--input_borderFocus);
+            color: rgba(var(--color_base), 1);
+            box-shadow: var(--input_boxShadowFocus);
 
             &:after {
                 content: '';
@@ -37,14 +37,14 @@
                 left: 20px;
                 width: 2px;
                 height: 5px;
-                background-color: $color--primary;
+                background-color: rgba(var(--color_primary), 1);
             }
         }
 
         &[disabled] {
-            background-color: rgba($color--base, 0.03);
-            border-color: rgba($color--base, 0.10);
-            color: rgba($color--base, 0.4);
+            background-color: rgba(var(--color_base), 0.03);
+            border-color: rgba(var(--color_base), 0.10);
+            color: rgba(var(--color_base), 0.4);
             cursor: not-allowed;
         }
     }
@@ -63,7 +63,7 @@
             margin-top: -8px;
             left: 13px;
             z-index: 2;
-            @include m-iconColor($color--primary);
+            @include m-iconColor(rgba(var(--color_primary), 1));
 
             &:after {
                 content: '';
@@ -72,9 +72,8 @@
                 top: -4px;
                 bottom: -4px;
                 width: 1px;
-                background-color: rgba(rgba($color--base, 0.05), 0);
-                background-image: -webkit-linear-gradient(bottom, rgba(rgba($color--base, 0.15), 0) 0, rgba($color--base, 0.15) 30%, rgba($color--base, 0.15) 70%, rgba(rgba($color--base, 0.15), 0) 100%);
-                background-image: linear-gradient(to top, rgba(rgba($color--base, 0.15), 0) 0, rgba($color--base, 0.15) 30%, rgba($color--base, 0.15) 70%, rgba(rgba($color--base, 0.15), 0) 100%);
+                background-color: rgba(var(--color_base), 0);
+                background-image: linear-gradient(to top, rgba(var(--color_base), 0) 0, rgba(var(--color_base), 0.15) 30%, rgba(var(--color_base), 0.15) 70%, rgba(var(--color_base), 0) 100%);
             }
         }
 
@@ -123,12 +122,12 @@
         .prepend {
             display: flex;
             flex-shrink: 0;
-            border: $input--border;
+            border: var(--input_border);
             border-right: none;
-            border-radius: $borderRadius--regular 0 0 $borderRadius--regular;
-            background-color: rgba($color--base, 0.03);
-            padding: 0 $spacing--regular;
-            min-width: $size--element-regular;
+            border-radius: var(--borderRadius_form) 0 0 var(--borderRadius_form);
+            background-color: rgba(var(--color_base), 0.03);
+            padding: 0 var(--spacing_regular);
+            min-width: var(--elementSize_regular);
             align-items: center;
             justify-content: center;
 
@@ -140,13 +139,13 @@
                 cursor: pointer;
 
                 &:hover {
-                    background-color: rgba($color--base, 0.05);
+                    background-color: rgba(var(--color_base), 0.05);
                 }
 
             }
 
             &.disabled {
-                border-color: rgba($color--base, 0.10);
+                border-color: rgba(var(--color_base), 0.10);
             }
 
         }
@@ -167,12 +166,12 @@
         .append {
             display: flex;
             flex-shrink: 0;
-            border: $input--border;
+            border: var(--input_border);
             border-left: none;
-            border-radius: 0 $borderRadius--regular $borderRadius--regular 0;
-            background-color: rgba($color--base, 0.03);
-            padding: 0 $spacing--regular;
-            min-width: $size--element-regular;
+            border-radius: 0 var(--borderRadius_form) var(--borderRadius_form) 0;
+            background-color: rgba(var(--color_base), 0.03);
+            padding: 0 var(--spacing_regular);
+            min-width: var(--elementSize_regular);
             align-items: center;
             justify-content: center;
 
@@ -184,7 +183,7 @@
                 cursor: pointer;
 
                 &:hover {
-                    background-color: rgba($color--base, 0.05);
+                    background-color: rgba(var(--color_base), 0.05);
                 }
 
             }
@@ -195,61 +194,60 @@
     --------------------------------------- */
     .counter {
         position: absolute;
-        right: -$spacing--medium;
+        right: -var(--spacing_medium);
         top: 50%;
         transform: translateY(-50%);
-        color: rgba($color--base, 0.4);
-        font-size: $fontSize--small;
+        color: rgba(var(--color_base), 0.4);
+        font-size: var(--fontSize_small);
     }
 
     // SIZE: Small
     &.sizeSmall {
         .input {
-            height: $size--element-small;
-            font-size: $fontSize--small;
+            height: var(--elementSize_small);
+            font-size: var(--fontSize_small);
         }
     }
 
     // SIZE: Big
     &.sizeBig {
         .input {
-            height: $size--element-big;
-            font-size: $fontSize--medium;
+            height: var(--elementSize_big);
+            font-size: var(--fontSize_medium);
         }
     }
 
     // STATE: Error
     &.error {
-
         .input {
-            border: $input--border-error;
+            border: var(--input_borderError);
 
             &:focus {
-                box-shadow: $input--boxShadow-error;
+                box-shadow: var(--input_boxShadowError);
             }
         }
 
         .icon {
-            @include m-iconColor(lighten($color--error, 10%));
+            @include m-iconColor(rgba(var(--color_error), 1));
         }
     }
 
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color: rgba($color--base, 0.4);
+    color: rgba(var(--color_base), 0.4);
 }
 
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: rgba($color--base, 0.4);
+    color: rgba(var(--color_base), 0.4);
     opacity: 1;
 }
 
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: rgba($color--base, 0.4);
+    color: rgba(var(--color_base), 0.4);
     opacity: 1;
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: rgba($color--base, 0.4);
+    color: rgba(var(--color_base), 0.4);
 }

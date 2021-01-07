@@ -8,11 +8,12 @@
     position: relative;
     height: $appBar--height;
     z-index: $zIndex--appBar;
+    flex-shrink: 0;
 
     .mainBar {
         position: relative;
-        background: $color--nav-bar-background;
-        box-shadow: $boxShadow--regular;
+        background: rgba(var(--nav_accentColor), 1);
+        box-shadow: var(--boxShadow_regular);
         height: $appBar--height;
         display: flex;
         z-index: 2;
@@ -28,10 +29,10 @@
                 width: 100%;
                 line-height: $appBar--height;
                 text-align: center;
-                font-size: $fontSize--heading-4;
-                font-weight: $fontWeight--medium;
-                color: $color--nav-text;
-                padding: 0 $spacing--regular;
+                font-size: var(--fontSize_heading4);
+                font-weight: var(--fontWeight_medium);
+                color: rgba(var(--nav_textColor), 1);
+                padding: 0 var(--spacing_regular);
                 @include m-truncate();
             }
         }
@@ -42,9 +43,9 @@
         top: 0;
         width: 100%;
         height: $appBar--height;
-        background-color: $content--backgroundColor;
+        background-color: rgba(var(--color_backgroundContent), 1);
         transition: top .2s cubic-bezier(0.550, 0.055, 0.675, 0.190), box-shadow .2s linear;
-        box-shadow: $boxShadow--regular;
+        box-shadow: var(--boxShadow_regular);
         display: flex;
         z-index: 1;
 
@@ -80,7 +81,7 @@
         &.subBarActive {
             .subBar {
                 top: $appBar--height;
-                box-shadow: $boxShadow--regular;
+                box-shadow: var(--boxShadow_regular);
             }
         }
     }

@@ -6,7 +6,7 @@
 
 .base {
     position: relative;
-    margin-bottom: $spacing--large;
+    margin-bottom: var(--spacing_large);
     display: flex;
 
     .icon {
@@ -15,24 +15,23 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: $borderRadius--medium;
-        @include m-iconColor($color--primary);
+        @include m-iconColor(rgba(var(--color_primary), 1));
         @include m-iconSize(3rem);
-        margin-right: $spacing--regular;
+        margin-right: var(--spacing_regular);
         flex-shrink: 0;
     }
 
     .titles {
-        margin-right: $size--element-big;
+        margin-right: var(--elementSize_big);
         margin-top: -5px;
-        padding-right: $spacing--medium;
+        padding-right: var(--spacing_medium);
         flex-grow: 1;
 
         .mainTitle {
             margin: 0;
-            font-size: $fontSize--heading-1;
-            font-weight: $fontWeight--bold;
-            line-height: $lineHeight--small;
+            font-size: var(--fontSize_heading1);
+            font-weight: var(--fontWeight_bold);
+            line-height: var(--lineHeight_small);
         }
 
         .subTitle {
@@ -41,17 +40,17 @@
 
             .dots {
                 width: 13px;
-                margin-right: $spacing--regular;
+                margin-right: var(--spacing_regular);
 
                 svg {
-                    fill: $color--primary;
+                    fill: rgba(var(--color_primary), 1);
                 }
             }
 
             .text {
-                font-size: $fontSize--heading-4;
-                color: rgba($color--base, 0.5);
-                font-weight: $fontWeight--regular;
+                font-size: var(--fontSize_heading4);
+                color: rgba(var(--color_base), 0.5);
+                font-weight: var(--fontWeight_regular);
                 margin-top: -2px;
             }
         }
@@ -59,10 +58,10 @@
 
     .breadcrumbs {
         position: absolute;
-        top: -$spacing--large;
-        left: -$spacing--large;
-        right: -$spacing--large;
-        padding: 0 $spacing--large;
+        top: -var(--spacing_large);
+        left: -var(--spacing_large);
+        right: -var(--spacing_large);
+        padding: 0 var(--spacing_large);
     }
 
     // With icon
@@ -85,17 +84,16 @@
 
 @include for-phone-only(){
     .base {
-        margin-bottom: $spacing--medium;
-        padding: 0 $spacing--phone-edge + 40px 0 $spacing--phone-edge;
+        margin-bottom: var(--spacing_medium);
+        padding: 0 calc(var(--spacing_edges) + 40px) 0 var(--spacing_edges);
 
         .icon {
             position: absolute;
-            right: $spacing--phone-edge;
+            right: var(--spacing_edges);
             top: 50%;
             transform: translateY(-50%);
             width: 2.6rem;
             height: 2.6rem;
-            border-radius: $borderRadius--regular;
             margin-right: 0;
             @include m-iconSize(2.6rem);
         }
@@ -111,18 +109,18 @@
             margin-top: 0;
 
             .mainTitle {
-                font-size: $fontSize--heading-3;
+                font-size: var(--fontSize_heading3);
             }
             .subTitle {
                 margin-left: 6px;
 
                 .dots {
                     width: 10px;
-                    margin-right: $spacing--small;
+                    margin-right: var(--spacing_small);
                 }
 
                 .text {
-                    font-size: $fontSize--medium;
+                    font-size: var(--fontSize_medium);
                     margin-top: 2px;
                 }
             }
@@ -130,8 +128,8 @@
 
         .breadcrumbs {
             .crumb {
-                font-size: $fontSize--small;
-                font-weight: $fontWeight--medium;
+                font-size: var(--fontSize_small);
+                font-weight: var(--fontWeight_medium);
 
                 .divider {
                     padding: 0 5px;

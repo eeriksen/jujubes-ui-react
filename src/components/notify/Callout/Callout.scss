@@ -5,38 +5,38 @@
    =================================================================== */
 
 .base {
-    padding: $spacing--regular;
-    border-radius: $borderRadius--regular;
-    border: 1px solid rgba($color--base, 0.10);
-    background-color: rgba($color--base, 0.03);
-    color: rgba($color--base, 0.8);
+    padding: var(--spacing_regular);
+    border-radius: var(--borderRadius_content);
+    border: 1px solid rgba(var(--color_base), 0.10);
+    background-color: rgba(var(--color_base), 0.03);
+    color: rgba(var(--color_base), 0.8);
 
     &.info {
-        background-color: rgba($color--info, 0.1);
-        border-color: rgba($color--info, 0.3);
-        color: desaturate($color--info, 30%);
+        background-color: rgba(var(--color_info), 0.05);
+        border-color: rgba(var(--color_info), 0.3);
+        color: rgba(var(--color_info), 1);
     }
 
     &.success {
-        background-color: rgba($color--success, 0.1);
-        border-color: rgba($color--success, 0.3);
-        color: desaturate($color--success, 30%);
+        background-color: rgba(var(--color_success), 0.05);
+        border-color: rgba(var(--color_success), 0.3);
+        color: rgba(var(--color_success), 1);
     }
 
     &.warning {
-        background-color: rgba($color--warning, 0.1);
-        border-color: rgba($color--warning, 0.4);
-        color: desaturate($color--warning, 30%);
+        background-color: rgba(var(--color_warning), 0.05);
+        border-color: rgba(var(--color_warning), 0.4);
+        color: rgba(var(--color_warning), 1);
     }
 
     &.error {
-        background-color: rgba($color--error, 0.1);
-        border-color: rgba($color--error, 0.3);
-        color: desaturate($color--error, 30%);
+        background-color: rgba(var(--color_error), 0.05);
+        border-color: rgba(var(--color_error), 0.3);
+        color: rgba(var(--color_error), 1);
     }
 
     .title {
-        font-size: $fontSize--medium;
-        font-weight: $fontWeight--medium;
+        font-size: var(--fontSize_medium);
+        font-weight: var(--fontWeight_medium);
     }
 }

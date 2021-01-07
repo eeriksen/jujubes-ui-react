@@ -10,22 +10,22 @@ $distance-pop: 18px;
     position: relative;
 
     .pop {
-        position: fixed;
+        position: absolute;
         right: 0;
         z-index: $zIndex--popOver;
         width: 260px;
         opacity: 0;
         pointer-events: none;
-        box-shadow: $boxShadow--large;
+        box-shadow: var(--boxShadow_large);
         transform: translateY(0);
         transition: transform .2s ease-in-out, opacity .2s linear;
-        background-color: $color--contrast;
-        font-weight: $fontWeight--regular;
-        border-radius: $borderRadius--regular;
+        background-color: rgba(var(--color_contrast), 1);
+        font-weight: var(--fontWeight_regular);
+        border-radius: var(--borderRadius_content);
 
         .wrapper {
             z-index: 2;
-            border-radius: $borderRadius--regular;
+            border-radius: var(--borderRadius_content);
             overflow: hidden;
         }
 
@@ -39,15 +39,14 @@ $distance-pop: 18px;
                 position: absolute;
                 width: 0;
                 height: 0;
-                box-sizing: border-box;
                 border: 8px solid black;
-                border-color: transparent transparent $color--contrast $color--contrast;
+                border-color: transparent transparent rgba(var(--color_contrast), 1) rgba(var(--color_contrast), 1);
                 transform-origin: 0 0;
                 transform: rotate(-45deg);
             }
 
             &.colorPrimary:after {
-                border-color: transparent transparent $color--primary $color--primary;
+                border-color: transparent transparent rgba(var(--color_primary), 1) rgba(var(--color_primary), 1);
             }
         }
     }
@@ -69,7 +68,7 @@ $distance-pop: 18px;
     &.onTop {
         .pop {
             .arrow {
-                bottom: 0;
+                bottom: 1px;
                 transform: rotate(0deg) scaleX(0.8) translateX(-10px) translateY(100%);
             }
         }

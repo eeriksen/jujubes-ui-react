@@ -40,7 +40,7 @@ export const FormItem = ({ children, label, error, className, info, responsive }
                         }
 
                         return React.cloneElement(child, {
-                            error: error
+                            error: child.props.error || error
                         });
                     })}
 

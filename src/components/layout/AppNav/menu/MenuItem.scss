@@ -25,14 +25,15 @@ $spacing-sides: $spacing--nav-sides;
         display: flex;
         align-items: center;
         width: 32px;
-        @include m-iconColor(rgba(desaturate($color--nav-accent, 50%), 0.5), true);
+        @include m-iconColor(rgba(var(--nav_accentColor), 0.5), true);
     }
 
     // Label
     .label {
         @include m-truncate();
         text-decoration: none;
-        color: rgba($color--nav-text, 0.4);
+        color: rgba(var(--nav_textColor), 0.4);
+        font-weight: var(--fontWeight_medium);
         flex-grow: 1;
         transition: color 0.2s ease-in-out;
     }
@@ -45,26 +46,26 @@ $spacing-sides: $spacing--nav-sides;
         // Arrow
         .arrow {
             @include m-iconSize(8px);
-            @include m-iconColor(rgba($color--nav-text, 0.2), true);
+            @include m-iconColor(rgba(var(--nav_textColor), 0.2), true);
         }
     }
 
     // STATE: Selected
     &.selected,
     &:hover {
-        background-color: darken($color--nav-sidebar-background, 3%);
+        background-color: rgba(0, 0, 0, 0.1);
         cursor: pointer;
 
         .icon {
-            @include m-iconColor(rgba($color--nav-accent, 1));
+            @include m-iconColor(rgba(var(--nav_accentColor), 1));
         }
 
         .label {
-            color: $color--nav-text;
+            color: rgba(var(--nav_textColor), 1);
         }
 
         .arrow {
-            @include m-iconColor($color--nav-text);
+            @include m-iconColor(rgba(var(--nav_textColor), 1));
         }
     }
 

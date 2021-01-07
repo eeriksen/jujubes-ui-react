@@ -14,18 +14,18 @@ $checkbox--size: 28px;
     vertical-align: top;
     position: relative;
 
-    $topBottom-margin: ($size--element-regular - $checkbox--size) / 2;
-    margin: $topBottom-margin $spacing--medium $topBottom-margin 0;
+    $topBottom-margin: calc((var(--elementSize_regular) - $checkbox--size) / 2);
+    margin: $topBottom-margin var(--spacing_medium) $topBottom-margin 0;
 
     .check {
         position: relative;
         float: left;
         width: $checkbox--size;
         height: $checkbox--size;
-        border: $input--border;
-        border-radius: $borderRadius--regular;
+        border: var(--input_border);
+        border-radius: var(--borderRadius_form);
         transition: all 0.2s ease;
-        background-color: $color--contrast;
+        background-color: rgba(var(--color_contrast), 1);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -34,14 +34,14 @@ $checkbox--size: 28px;
             opacity: 0;
             transform: scale(1.5);
             transition: transform .3s cubic-bezier(0.620, 0.055, 0.240, 1.305);
-            @include m-iconColor($color--contrast);
+            @include m-iconColor(rgba(var(--color_contrast), 1));
         }
     }
 
     .label {
         margin-left: $checkbox--size;
-        padding: 1px 0 0 $spacing--regular;
-        color: rgba($color--base, 0.8);
+        padding: 1px 0 0 var(--spacing_regular);
+        color: rgba(var(--color_base), 0.8);
         transition: all 0.2s ease;
         min-height: $checkbox--size;
         display: flex;
@@ -50,11 +50,11 @@ $checkbox--size: 28px;
 
     &:hover {
         .check {
-            border-color: $input--border-focus;
+            border-color: var(--input_borderFocus);
         }
 
         .label {
-            color: $color--base;
+            color: rgba(var(--color_base), 1);
         }
     }
 
@@ -69,7 +69,7 @@ $checkbox--size: 28px;
     &.isChecked {
         .check {
             border-color: transparent;
-            background-color: $color--primary;
+            background-color: rgba(var(--color_primary), 1);
 
             .icon {
                 opacity: 1;
@@ -78,13 +78,7 @@ $checkbox--size: 28px;
         }
 
         .label {
-            color: $color--base;
-        }
-
-        &:active {
-            .check {
-                background-color: darken($color--primary, 5%);
-            }
+            color: rgba(var(--color_base), 1);
         }
     }
 
@@ -99,8 +93,8 @@ $checkbox--size: 28px;
 
         &:focus + label {
             .check {
-                box-shadow: $input--boxShadow-focus;
-                border: $input--border-focus;
+                box-shadow: var(--input_boxShadowFocus);
+                border: var(--input_borderFocus);
             }
         }
     }

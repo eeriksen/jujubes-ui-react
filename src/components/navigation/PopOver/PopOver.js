@@ -40,21 +40,21 @@ export const PopOver = (props) => {
         const shouldPositionLeft = windowWidth - baseVal.x < 300;
 
         if (shouldPositionTop) {
-            setTopPos(baseVal.y - popVal.height);
+            setTopPos(-1 * popVal.height);
             setPosition("top");
         } else {
-            setTopPos(baseVal.y + baseVal.height);
+            setTopPos(baseVal.height);
             setPosition("bottom");
         }
 
         if (shouldPositionLeft) {
-            setLeftPos(baseVal.x + baseVal.width - popVal.width);
+            setLeftPos(baseVal.width - popVal.width);
             setArrowLeftPos(popVal.width - baseVal.width / 2);
         } else if (baseBiggerThanPop) {
-            setLeftPos(baseVal.x + (baseVal.width - popVal.width) / 2);
+            setLeftPos((baseVal.width - popVal.width) / 2);
             setArrowLeftPos(popVal.width / 2);
         } else {
-            setLeftPos(baseVal.x);
+            setLeftPos(0);
             setArrowLeftPos(baseVal.width / 2);
         }
     };

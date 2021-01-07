@@ -1,13 +1,22 @@
 import React from "react";
-import StoryRouter from "storybook-react-router";
+import { BrowserRouter as Router } from "react-router-dom";
+import { AppContainer } from "../src/components/layout/AppContainer";
 
-export const decorators = [StoryRouter()];
+export const decorators = [
+    (Story) => (
+        <AppContainer>
+            <Router>
+                <Story />
+            </Router>
+        </AppContainer>
+    )
+];
 
 export const parameters = {
     layout: "fullscreen",
     options: {
         storySort: {
-            order: ['Start', 'Components']
+            order: ["Start", "Components"]
         }
     }
 };

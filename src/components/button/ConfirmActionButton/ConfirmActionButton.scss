@@ -4,12 +4,12 @@
    CONFIRM ACTION BUTTON
    =================================================================== */
 
-$color--prompt-frame: rgba($color--error, 1);
+$color--prompt-frame: rgba(var(--color_error), 1);
 
 .base {
 
     .button {
-        border: 1px solid rgba($color--error, 0.5);
+        border: 1px solid rgba(var(--color_error), 0.5);
     }
 
     .prompt {
@@ -18,14 +18,14 @@ $color--prompt-frame: rgba($color--error, 1);
         background-size: 5px 1px, 5px 1px, 1px 5px, 1px 5px;
         background-position: left top, right bottom, left bottom, right   top;
         animation: border-dance .5s infinite linear;
-        padding: $spacing--medium;
-        border-radius: $borderRadius--regular;
+        padding: var(--spacing_medium);
+        border-radius: var(--borderRadius_content);
 
         .question {
-            padding: $spacing--small $spacing--medium $spacing--medium;
+            padding: var(--spacing_small) var(--spacing_medium) var(--spacing_medium);
             text-align: center;
-            font-weight: $fontWeight--medium;
-            color: $color--error;
+            font-weight: var(--fontWeight_medium);
+            color: rgba(var(--color_error), 1);
         }
     }
 

@@ -12,16 +12,16 @@
     .mainBox {
         position: relative;
         display: block;
-        padding: $spacing--large;
+        padding: var(--spacing_large);
         max-width: $breakpoint--big-desktop;
         margin: 0 auto;
 
         @include for-tablet-portrait-down(){
-            padding: $spacing--medium $spacing--phone-edge;
+            padding: var(--spacing_medium) var(--spacing_edges);
         }
 
         @include for-phone-only(){
-            padding: $spacing--medium 2px;
+            padding: var(--spacing_medium) 0;
         }
     }
 }

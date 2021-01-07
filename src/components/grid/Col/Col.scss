@@ -124,30 +124,30 @@ $grid-columns: 24;
 // ----------------------------------------------------------
 
 .gutter_ver_small {
-    padding-left: ($grid--gutter-small / 2);
-    padding-right: ($grid--gutter-small / 2);
+    padding-left: calc(var(--spacing_regular) / 2);
+    padding-right: calc(var(--spacing_regular) / 2);
 }
 
 .gutter_hor_small {
-    margin-top: $grid--gutter-small;
+    margin-top: var(--spacing_regular);
 }
 
 .gutter_ver_regular {
-    padding-left: ($grid--gutter-regular / 2);
-    padding-right: ($grid--gutter-regular / 2);
+    padding-left: calc(var(--spacing_medium) / 2);
+    padding-right: calc(var(--spacing_medium) / 2);
 }
 
 .gutter_hor_regular {
-    margin-top: $grid--gutter-regular;
+    margin-top: var(--spacing_medium);
 }
 
 .gutter_ver_large {
-    padding-left: ($grid--gutter-large / 2);
-    padding-right: ($grid--gutter-large / 2);
+    padding-left: calc(var(--spacing_large) / 2);
+    padding-right: calc(var(--spacing_large) / 2);
 }
 
 .gutter_hor_large {
-    margin-top: $grid--gutter-large;
+    margin-top: var(--spacing_large);
 }
 
 

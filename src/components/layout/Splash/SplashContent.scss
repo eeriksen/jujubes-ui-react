@@ -5,9 +5,9 @@
    =================================================================== */
 
 .content {
-    padding: $spacing--large;
+    padding: var(--spacing_large);
 
     @include for-phone-only() {
-        padding: $spacing--medium;
+        padding: var(--spacing_medium);
     }
 }

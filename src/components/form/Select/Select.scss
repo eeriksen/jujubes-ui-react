@@ -10,7 +10,7 @@
     &:hover {
         .arrow {
             .icon {
-                @include m-iconColor(rgba($color--base, 0.6), true);
+                @include m-iconColor(rgba(var(--color_base), 0.6), true);
             }
         }
     }
@@ -21,43 +21,43 @@
         top: 0;
         bottom: 0;
         width: 10px;
-        right: $spacing--regular;
+        right: var(--spacing_regular);
         pointer-events: none;
         display: flex;
         align-items: center;
 
         .icon {
             @include m-iconSize(10px);
-            @include m-iconColor(rgba($color--base, 0.20), true);
+            @include m-iconColor(rgba(var(--color_base), 0.20), true);
         }
     }
 
     &.placeholder {
         .select {
-            color: rgba($color--base, 0.4);
+            color: rgba(var(--color_base), 0.4);
         }
     }
 
     // SELECT
     .select {
         display: inline-block;
-        height: $size--element-regular;
+        height: var(--elementSize_regular);
         width: 100%;
         outline: none;
-        padding: 0 $size--element-regular 0 10px;
-        border: $input--border;
-        font-family: $fontFamily--primary;
-        font-size: $fontSize--regular;
-        color: rgba($color--base, 0.8);
-        border-radius: $borderRadius--regular;
+        padding: 0 var(--elementSize_regular) 0 10px;
+        border: var(--input_border);
+        font-family: var(--fontFamily_primary);
+        font-size: var(--fontSize_regular);
+        color: rgba(var(--color_base), 0.8);
+        border-radius: var(--borderRadius_form);
         transition: border-color 0.3s ease;
-        background-color: $color--contrast;
+        background-color: rgba(var(--color_contrast), 1);
         appearance: none;
 
         &:focus {
-            border: $input--border-focus;
-            color: $color--base;
-            box-shadow: $input--boxShadow-focus;
+            border: var(--input_borderFocus);
+            color: rgba(var(--color_base), 1);
+            box-shadow: var(--input_boxShadowFocus);
         }
     }
 
@@ -65,10 +65,10 @@
     // STATE: Error
     &.error {
         .select {
-            border: $input--border-error;
+            border: var(--input_borderError);
 
             &:focus {
-                box-shadow: $input--boxShadow-error;
+                box-shadow: var(--input_boxShadowError);
             }
         }
     }
@@ -79,15 +79,15 @@
 
         .arrow {
             .icon {
-                @include m-iconColor(rgba($color--base, 0.10));
+                @include m-iconColor(rgba(var(--color_base), 0.10));
             }
         }
 
         .select {
             cursor: not-allowed;
-            background-color: rgba($color--base, 0.03);
-            border-color: rgba($color--base, 0.10);
-            color: rgba($color--base, 0.4);
+            background-color: rgba(var(--color_base), 0.03);
+            border-color: rgba(var(--color_base), 0.10);
+            color: rgba(var(--color_base), 0.4);
         }
     }
 
@@ -96,17 +96,17 @@
     // SIZE: Small
     &.sizeSmall {
         .select {
-            height: $size--element-small;
-            font-size: $fontSize--small;
-            padding-right: $size--element-small;
+            height: var(--elementSize_small);
+            font-size: var(--fontSize_small);
+            padding-right: var(--elementSize_small);
         }
     }
 
     // SIZE: Big
     &.sizeBig {
         .select {
-            height: $size--element-big;
-            font-size: $fontSize--medium;
+            height: var(--elementSize_big);
+            font-size: var(--fontSize_medium);
         }
     }
 

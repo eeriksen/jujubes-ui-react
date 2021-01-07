@@ -6,14 +6,14 @@
 
 .base {
     height: $appBar--height;
-    padding: 0 $spacing--phone-edge;
+    padding: 0 var(--spacing_edges);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 
     .icon {
-        @include m-iconColor($color--contrast);
+        @include m-iconColor(rgba(var(--color_contrast), 1));
         @include m-iconSize($iconSize--medium);
         transition: transform .3s cubic-bezier(0.620, 0.055, 0.240, 1.305);
     }

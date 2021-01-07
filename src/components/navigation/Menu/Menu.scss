@@ -7,7 +7,7 @@
 // Base
 .base {
     display: block;
-    background-color: $color--contrast;
+    background-color: rgba(var(--color_contrast), 1);
 
     // Hidden menu
     &.hidden {

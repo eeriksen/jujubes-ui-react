@@ -14,7 +14,7 @@
     transition: opacity .2s linear;
     pointer-events: none;
     backdrop-filter: blur(2px);
-    background: rgba($color--base, 0.8);
+    background: rgba(var(--color_base), 0.8);
 
     &.visible {
         pointer-events: auto;

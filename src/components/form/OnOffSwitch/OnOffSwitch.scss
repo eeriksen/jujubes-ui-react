@@ -13,8 +13,8 @@ $switch--width: 56px;
     display: inline-block;
     user-select: none;
 
-    $topBottom-margin: ($size--element-regular - $switch--height) / 2;
-    margin: $topBottom-margin $spacing--medium $topBottom-margin 0;
+    $topBottom-margin: calc((var(--elementSize_regular) - $switch--height) / 2);
+    margin: $topBottom-margin var(--spacing_medium) $topBottom-margin 0;
 
     .switch {
         overflow: hidden;
@@ -25,7 +25,7 @@ $switch--width: 56px;
         height: $switch--height;
         width: $switch--width;
         border-radius: $switch--height;
-        background-color: $color--success;
+        background-color: rgba(var(--color_success), 1);
         transition: background-color 0.3s ease;
 
         .handle {
@@ -34,12 +34,12 @@ $switch--width: 56px;
             left: 2px;
             width: $switch--height - 4px;
             height: $switch--height - 4px;
-            background-color: $color--status-text;
+            background-color: rgba(var(--color_statusText), 1);
             border-radius: 50%;
             transition: left 0.3s ease-in-out;
             text-align: center;
             padding-top: 1px;
-            @include m-iconColor(rgba($color--base, 0.25));
+            @include m-iconColor(rgba(var(--color_base), 0.25));
         }
 
         .onIcon {
@@ -48,7 +48,7 @@ $switch--width: 56px;
             top: 50%;
             transform: translateY(-50%);
             transition: right 0.3s ease-in-out;
-            @include m-iconColor(rgba($color--status-text, 0.9));
+            @include m-iconColor(rgba(var(--color_statusText), 0.9));
             @include m-iconSize($iconSize--small);
         }
 
@@ -58,15 +58,15 @@ $switch--width: 56px;
             top: 50%;
             transform: translateY(-50%);
             transition: left 0.3s ease-in-out;
-            @include m-iconColor(rgba($color--status-text, 0.9));
+            @include m-iconColor(rgba(var(--color_statusText), 0.9));
             @include m-iconSize($iconSize--small);
         }
     }
 
     .label {
         margin-left: $switch--width;
-        padding: 1px 0 0 $spacing--regular;
-        color: rgba($color--base, 0.8);
+        padding: 1px 0 0 var(--spacing_regular);
+        color: rgba(var(--color_base), 0.8);
         transition: all 0.2s ease;
         min-height: $switch--height;
         display: flex;
@@ -75,7 +75,7 @@ $switch--width: 56px;
 
     &.isOff {
         .switch {
-            background-color: $color--error;
+            background-color: rgba(var(--color_error), 1);
 
             .handle {
                 left: calc((100% - #{$switch--height}) + 2px);
@@ -92,13 +92,13 @@ $switch--width: 56px;
         }
 
         .label {
-            color: rgba($color--base, 0.6);
+            color: rgba(var(--color_base), 0.6);
         }
     }
 
     &:hover {
         .label {
-            color: $color--base;
+            color: rgba(var(--color_base), 1);
         }
     }
 
@@ -113,12 +113,12 @@ $switch--width: 56px;
 
         &:hover {
             .label {
-                color: rgba($color--base, 0.6);
+                color: rgba(var(--color_base), 0.6);
             }
         }
 
         .switch {
-            background-color: rgba($color--base, 0.20);
+            background-color: rgba(var(--color_base), 0.20);
         }
     }
 }

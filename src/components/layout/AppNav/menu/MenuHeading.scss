@@ -11,12 +11,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 0 $spacing--nav-sides;
-    font-weight: $fontWeight--medium;
-    color: rgba($color--nav-text, 0.2);
-    font-size: $fontSize--small;
+    font-weight: var(--fontWeight_medium);
+    color: rgba(var(--nav_textColor), 0.2);
+    font-size: var(--fontSize_small);
     text-transform: uppercase;
     text-align: left;
     letter-spacing: 1px;
-    margin-bottom: $spacing--small;
+    margin-bottom: var(--spacing_small);
     @include m-truncate();
 }

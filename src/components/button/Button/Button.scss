@@ -4,55 +4,90 @@
    BUTTON
    =================================================================== */
 
-$height--button: $size--element-regular;
-$height--button-big: $size--element-big;
-$height--button-small: $size--element-small;
+$height--button: var(--elementSize_regular);
+$height--button-big: var(--elementSize_big);
+$height--button-small: var(--elementSize_small);
 
 .base {
     display: block;
     width: 100%;
     position: relative;
     outline: none;
-    background: $color--contrast;
     height: $height--button;
     line-height: $height--button - 2px;
-    font-family: $fontFamily--primary;
-    font-size: $fontSize--regular;
-    font-weight: $fontWeight--medium;
-    border: 1px solid rgba($color--base, 0.20);
-    color: $color--base;
+    font-family: var(--fontFamily_primary);
+    font-size: var(--fontSize_regular);
+    font-weight: var(--fontWeight_medium);
+    border: none;
     cursor: pointer;
-    border-radius: $borderRadius--regular;
+    border-radius: var(--borderRadius_buttons);
     text-decoration: none;
     user-select: none;
     transition: border-color 0.3s linear, color .3s linear, background-color .3s linear;
     @include m-truncate();
 
+    .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .shade {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: transparent;
+        pointer-events: none;
+    }
+
     &:hover {
-        color: $color--base;
-        border-color: rgba($color--base, 0.20);
-        background-color: darken($color--contrast, 2%);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+        .shade {
+            background: rgba(var(--color_contrast), 1);
+            border: 1px solid rgba(var(--color_contrast), 1);
+            opacity: 0.15;
+        }
     }
 
     &:active, &.active {
-        background-color: rgba($color--base, 0.10);
-        transition: background-color 0s ease;
+        box-shadow: none;
+
+        .shade {
+            transition: none;
+            background: rgba(var(--color_base), 1);
+            border: 1px solid rgba(var(--color_base), 1);
+            opacity: 0.06;
+        }
     }
 }
 
 // Disabled
 .base[disabled], .base[disabled]:hover, .base[disabled]:active {
     border-color: transparent;
-    background-color: rgba($color--base, 0.03);
-    color: rgba($color--base, 0.3);
+    background-color: rgba(var(--color_base), 0.03);
+    color: rgba(var(--color_base), 0.3);
+    box-shadow: none;
     cursor: default;
 
     .icon {
-        @include m-iconColor(rgba($color--base, 0.20) !important);
+        @include m-iconColor(rgba(var(--color_base), 0.20) !important);
+    }
+
+    .shade {
+        display: none;
     }
 
     &:hover {
-        color: rgba($color--base, 0.3);
+        color: rgba(var(--color_base), 0.3);
     }
 }
 
@@ -69,7 +104,7 @@ $height--button-small: $size--element-small;
     right: 0;
     display: flex;
     align-items: center;
-    padding: 0 $spacing--medium;
+    padding: 0 var(--spacing_medium);
 }
 
 
@@ -83,7 +118,7 @@ $height--button-small: $size--element-small;
         vertical-align: -3px;
         margin-right: 8px;
         margin-left: -7px;
-        @include m-iconColor($color--base);
+        @include m-iconColor(rgba(var(--color_base), 1));
     }
 
     // Icon on the right side of label
@@ -97,35 +132,35 @@ $height--button-small: $size--element-small;
     // Primary colored icon
     &.iconPrimary {
         .icon {
-            @include m-iconColor($color--primary);
+            @include m-iconColor(rgba(var(--color_primary), 1));
         }
     }
 
     // Info colored icon
     &.iconInfo {
         .icon {
-            @include m-iconColor($color--info);
+            @include m-iconColor(rgba(var(--color_info), 1));
         }
     }
 
     // Success colored icon
     &.iconSuccess {
         .icon {
-            @include m-iconColor($color--success);
+            @include m-iconColor(rgba(var(--color_success), 1));
         }
     }
 
     // Warning colored icon
     &.iconWarning {
         .icon {
-            @include m-iconColor($color--warning);
+            @include m-iconColor(rgba(var(--color_warning), 1));
         }
     }
 
     // Error colored icon
     &.iconError {
         .icon {
-            @include m-iconColor($color--error);
+            @include m-iconColor(rgba(var(--color_error), 1));
         }
     }
 
@@ -144,23 +179,23 @@ $height--button-small: $size--element-small;
 
 .base {
     &.labelSuccess {
-        color: $color--success;
+        color: rgba(var(--color_success), 1);
         &:hover {
-            color: $color--success;
+            color: rgba(var(--color_success), 1);
         }
     }
 
     &.labelWarning {
-        color: $color--warning;
+        color: rgba(var(--color_warning), 1);
         &:hover {
-            color: $color--warning;
+            color: rgba(var(--color_warning), 1);
         }
     }
 
     &.labelError {
-        color: $color--error;
+        color: rgba(var(--color_error), 1);
         &:hover {
-            color: $color--error;
+            color: rgba(var(--color_error), 1);
         }
     }
 }
@@ -171,121 +206,109 @@ $height--button-small: $size--element-small;
    BUTTON COLORS
    =================================================================== */
 
+.colorDefault {
+    color: rgba(var(--color_base), 1);
+    border: 1px solid rgba(var(--color_base), 0.20);
+    background: rgba(var(--color_contrast), 1);
+
+    &:hover {
+        color: rgba(var(--color_base), 1);
+    }
+}
+
 .colorPrimary {
-    color: $color--primary-contrast;
+    color: rgba(var(--color_primaryContrast), 1);
+    background: rgba(var(--color_primary), 1);
     border: none;
-    background: $color--primary;
 
     .icon {
-        @include m-iconColor($color--primary-contrast);
+        @include m-iconColor(rgba(var(--color_primaryContrast), 1));
     }
 
     &:hover {
-        background-color: $color--primary;
-        color: $color--primary-contrast;
-    }
-
-    &:active, &.active {
-        background-color: darken($color--primary, 5%);
+        background-color: rgba(var(--color_primary), 1);
+        color: rgba(var(--color_primaryContrast), 1);
     }
 }
 
 .colorSuccess {
-    color: $color--status-text;
-    border-color: transparent;
-    background-color: $color--success;
+    color: rgba(var(--color_statusText), 1);
+    background-color: rgba(var(--color_success), 1);
 
     .icon {
-        @include m-iconColor($color--status-text);
+        @include m-iconColor(rgba(var(--color_statusText), 1));
     }
 
     &:hover {
-        border-color: $color--success;
-        background-color: $color--success;
-        color: $color--status-text;
-    }
-
-    &:active, &.active {
-        background-color: darken($color--success, 5%);
+        border-color: rgba(var(--color_success), 1);
+        color: rgba(var(--color_statusText), 1);
     }
 }
 
 .colorWarning {
-    color: $color--status-text;
+    color: rgba(var(--color_statusText), 1);
     border-color: transparent;
-    background-color: $color--warning;
+    background-color: rgba(var(--color_warning), 1);
 
     .icon {
-        @include m-iconColor($color--status-text);
+        @include m-iconColor(rgba(var(--color_statusText), 1));
     }
 
     &:hover {
-        border-color: $color--warning;
-        background-color: $color--warning;
-        color: $color--status-text;
-    }
-
-    &:active, &.active {
-        background-color: darken($color--warning, 5%);
+        border-color: rgba(var(--color_warning), 1);
+        background-color: rgba(var(--color_warning), 1);
+        color: rgba(var(--color_statusText), 1);
     }
 }
 
 .colorError {
-    color: $color--status-text;
+    color: rgba(var(--color_statusText), 1);
     border-color: transparent;
-    background-color: $color--error;
+    background-color: rgba(var(--color_error), 1);
 
     .icon {
-        @include m-iconColor($color--status-text);
+        @include m-iconColor(rgba(var(--color_statusText), 1));
     }
 
     &:hover {
         border-color: transparent;
-        background-color: $color--error;
-        color: $color--status-text;
-    }
-
-    &:active, &.active {
-        background-color: darken($color--error, 5%);
+        background-color: rgba(var(--color_error), 1);
+        color: rgba(var(--color_statusText), 1);
     }
 }
 
 .colorInfo {
-    color: $color--status-text;
+    color: rgba(var(--color_statusText), 1);
     border-color: transparent;
-    background-color: $color--info;
+    background-color: rgba(var(--color_info), 1);
 
     .icon {
-        @include m-iconColor($color--status-text);
+        @include m-iconColor(rgba(var(--color_statusText), 1));
     }
 
     &:hover {
         border-color: transparent;
-        background-color: $color--info;
-        color: $color--status-text;
-    }
-
-    &:active, &.active {
-        background-color: darken($color--info, 5%);
+        background-color: rgba(var(--color_info), 1);
+        color: rgba(var(--color_statusText), 1);
     }
 }
 
 .silent {
-    color: rgba($color--base, 0.8);
-    border-color: rgba($color--base, 0.05);
-    background-color: $color--contrast;
+    color: rgba(var(--color_base), 0.8);
+    border-color: rgba(var(--color_base), 0.05);
+    background-color: rgba(var(--color_contrast), 1);
 
     .icon {
-        @include m-iconColor(rgba($color--base, 0.8));
+        @include m-iconColor(rgba(var(--color_base), 0.8));
     }
 
     &:hover {
-        border-color: rgba($color--base, 0.20);
-        color: rgba($color--base, 0.8);
+        border-color: rgba(var(--color_base), 0.20);
+        color: rgba(var(--color_base), 0.8);
     }
 
     &:active, &.active {
-        border-color: rgba($color--base, 0.3);
+        border-color: rgba(var(--color_base), 0.3);
     }
 }
 
@@ -298,7 +321,7 @@ $height--button-small: $size--element-small;
 .sizeBig {
     height: $height--button-big;
     line-height: $height--button-big - 1px;
-    font-size: $fontSize--medium;
+    font-size: var(--fontSize_medium);
 
     .icon {
         vertical-align: -4px;

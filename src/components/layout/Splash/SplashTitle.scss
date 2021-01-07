@@ -6,25 +6,25 @@
 
 // Title
 .title {
-    padding: $spacing--large $spacing--large 0;
-    font-size: $fontSize--heading-2;
-    font-weight: $fontWeight--bold;
+    padding: var(--spacing_large) var(--spacing_large) 0;
+    font-size: var(--fontSize_heading2);
+    font-weight: var(--fontWeight_bold);
 
     .description {
-        margin-top: $spacing--regular;
-        font-size: $fontSize--medium;
-        color: rgba($color--base, 0.6);
+        margin-top: var(--spacing_regular);
+        font-size: var(--fontSize_medium);
+        color: rgba(var(--color_base), 0.6);
         max-width: 80%;
-        font-weight: $fontWeight--regular;
+        font-weight: var(--fontWeight_regular);
     }
 
     // RESPONSIVE
     @include for-phone-only() {
-        padding: $spacing--regular $spacing--medium 0;
-        font-size: $fontSize--heading-3;
+        padding: var(--spacing_regular) var(--spacing_medium) 0;
+        font-size: var(--fontSize_heading3);
 
         .description {
-            font-size: $fontSize--regular;
+            font-size: var(--fontSize_regular);
         }
     }
 }

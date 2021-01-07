@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
-import { Form } from "../Form";
-import { FormItem } from "../FormItem";
-import { Input } from './Input';
-import { Text } from "../../typography/Text";
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Form } from "../Form";
+import { FormItem } from "../FormItem";
+import { Input } from "./Input";
+import { Text } from "../../typography/Text";
 
 <Meta title="Components/Forms/Input" component={Input} />
 
@@ -14,8 +14,9 @@ The `<Input />` component is a very flexible text input component.
 <ArgsTable of={Input} />
 
 ### Basic
+
 <Canvas>
-    <Story name="basic" >
+    <Story name="basic">
         {() => {
             const [value, setValue] = useState(null);
             return (
@@ -24,61 +25,111 @@ The `<Input />` component is a very flexible text input component.
                         <Input value={value} onChange={setValue} placeholder="Basic input" />
                     </FormItem>
                 </Form>
-            )
+            );
         }}
     </Story>
 </Canvas>
 
-
 ### Size
+
 <Canvas>
-    <Story name="size" >
+    <Story name="size">
         {() => {
             const [value, setValue] = useState(null);
             return (
                 <Form>
                     <FormItem>
-                        <Input size="small" value={value} onChange={setValue} placeholder="Small input" />
+                        <Input
+                            size="small"
+                            value={value}
+                            onChange={setValue}
+                            placeholder="Small input"
+                        />
                     </FormItem>
                     <FormItem>
                         <Input value={value} onChange={setValue} placeholder="Regular input" />
                     </FormItem>
                     <FormItem>
-                        <Input size="big" value={value} onChange={setValue} placeholder="Big input" />
+                        <Input
+                            size="big"
+                            value={value}
+                            onChange={setValue}
+                            placeholder="Big input"
+                        />
                     </FormItem>
                 </Form>
-            )
+            );
         }}
     </Story>
 </Canvas>
 
-
 ### Icon
+
 <Canvas>
-    <Story name="icon" >
+    <Story name="icon">
         {() => {
             const [value, setValue] = useState(null);
             return (
                 <Form>
                     <FormItem>
-                        <Input size="small" icon="link" value={value} onChange={setValue} placeholder="Big input with icon" />
+                        <Input
+                            size="small"
+                            icon="link"
+                            value={value}
+                            onChange={setValue}
+                            placeholder="Small input with icon"
+                        />
                     </FormItem>
                     <FormItem>
-                        <Input icon="link" value={value} onChange={setValue} placeholder="Big input with icon" />
+                        <Input
+                            icon="link"
+                            value={value}
+                            onChange={setValue}
+                            placeholder="Regular input with icon"
+                        />
                     </FormItem>
                     <FormItem>
-                        <Input size="big" icon="link" value={value} onChange={setValue} placeholder="Big input with icon" />
+                        <Input
+                            size="big"
+                            icon="link"
+                            value={value}
+                            onChange={setValue}
+                            placeholder="Big input with icon"
+                        />
                     </FormItem>
                 </Form>
-            )
+            );
         }}
     </Story>
 </Canvas>
 
+### Error
+
+<Canvas>
+    <Story name="error">
+        {() => {
+            const [value, setValue] = useState(null);
+            return (
+                <Form>
+                    <FormItem error>
+                        <Input
+                            type="password"
+                            icon="lock"
+                            value={value}
+                            onChange={setValue}
+                            placeholder="Input with error"
+                        />
+                    </FormItem>
+                </Form>
+            );
+        }}
+    </Story>
+</Canvas>
 
 ### Prepend
+
 <Canvas>
-    <Story name="prepend" >
+    <Story name="prepend">
         {() => {
             const [value, setValue] = useState(null);
             return (
@@ -92,15 +143,15 @@ The `<Input />` component is a very flexible text input component.
                         />
                     </FormItem>
                 </Form>
-            )
+            );
         }}
     </Story>
 </Canvas>
 
-
 ### Append
+
 <Canvas>
-    <Story name="append" >
+    <Story name="append">
         {() => {
             const [value, setValue] = useState(null);
             return (
@@ -114,25 +165,29 @@ The `<Input />` component is a very flexible text input component.
                         />
                     </FormItem>
                 </Form>
-            )
+            );
         }}
     </Story>
 </Canvas>
 
-
 ### Disabled
+
 <Canvas>
-    <Story name="disabled" >
+    <Story name="disabled">
         {() => {
             const [value, setValue] = useState(null);
             return (
                 <Form>
                     <FormItem>
-                        <Input value={value} onChange={setValue} placeholder="Disabled input" disabled />
+                        <Input
+                            value={value}
+                            onChange={setValue}
+                            placeholder="Disabled input"
+                            disabled
+                        />
                     </FormItem>
                 </Form>
-            )
+            );
         }}
     </Story>
 </Canvas>
-

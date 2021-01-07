@@ -1,0 +1,19 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { AppContainer } from "./AppContainer";
+
+<Meta title="Components/Layout/AppContainer" component={AppContainer} />
+
+# AppContainer
+
+The `<AppContainer />` must wrap any component used from this library in order to get the correct styling.
+
+<ArgsTable of={AppContainer} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        <AppContainer>Something here</AppContainer>
+    </Story>
+</Canvas>

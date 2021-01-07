@@ -12,8 +12,8 @@
         > th {
             text-align: left;
             padding: $padding-cell--regular;
-            font-weight: $fontWeight--medium;
-            color: $color--base;
+            font-weight: var(--fontWeight_medium);
+            color: rgba(var(--color_base), 1);
             @include m-truncate();
 
             &:last-child {

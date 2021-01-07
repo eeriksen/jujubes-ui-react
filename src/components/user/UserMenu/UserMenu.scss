@@ -9,12 +9,12 @@
     position: relative;
 
     .frame {
-        padding: $spacing--regular;
+        padding: var(--spacing_regular);
     }
 
     .picture {
-        width: $size--element-regular;
-        height: $size--element-regular;
+        width: var(--elementSize_regular);
+        height: var(--elementSize_regular);
         border-radius: 50%;
         object-fit: cover;
         object-position: 50% 50%;
@@ -29,20 +29,30 @@
         .placeholder {
             width: 100%;
             height: 100%;
-            background: rgba($color--background, 0.5);
+            background: rgba(var(--color_background), 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
             @include m-iconSize($iconSize--medium);
-            @include m-iconColor(rgba($color--base, 0.8), true);
+            @include m-iconColor(rgba(var(--color_base), 0.8), true);
         }
     }
 
     &.visible {
         .picture .placeholder {
-            @include m-iconColor($color--primary, true);
-            box-shadow: inset $boxShadow--regular;
+            @include m-iconColor(rgba(var(--color_primary), 1), true);
+        }
+
+        .picture {
+            border: 2px solid rgba(var(--color_primary), 1);
+        }
+
+        &.hasPicture {
+            .picture {
+                border: 2px solid rgba(var(--color_contrast), 1);
+                box-shadow: 0 0 0 2px rgba(var(--color_primary), 1);
+            }
         }
     }
 }

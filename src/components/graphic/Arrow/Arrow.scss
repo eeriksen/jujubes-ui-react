@@ -17,19 +17,19 @@
 
     &.colorContrast {
         svg {
-            fill: $color--contrast;
+            fill: rgba(var(--color_contrast), 1);
         }
     }
 
     &.colorPrimary {
         svg {
-            fill: $color--primary;
+            fill: rgba(var(--color_primary), 1);
         }
     }
 
     &.colorAccent {
         svg {
-            fill: $color--primary-accent;
+            fill: rgba(var(--color_primaryAccent), 1);
         }
     }
 }

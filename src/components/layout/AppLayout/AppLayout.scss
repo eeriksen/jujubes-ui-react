@@ -1,5 +1,4 @@
 @import "../../../styles/base";
-@import "../../../styles/main";
 
 /* ===================================================================
    APP LAYOUT
@@ -12,7 +11,7 @@
     right: 0;
     bottom: 0;
     display: flex;
-    background-color: $color--background;
+    background-color: rgba(var(--color_background), 1);
 
     .left {
         position: relative;
@@ -23,10 +22,6 @@
         flex-grow: 1;
         display: flex;
         flex-direction: column;
-
-        .bar {
-
-        }
 
         .content {
             flex-grow: 1;

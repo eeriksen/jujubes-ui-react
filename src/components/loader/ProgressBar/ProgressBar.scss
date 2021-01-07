@@ -10,23 +10,23 @@ $color--bar-animation: rgba(0, 0, 0, 0.1);
 
 .base {
     display: block;
-    margin: $spacing--medium 0;
+    margin: var(--spacing_medium) 0;
 
     .bar {
 
         .info {
-            margin-bottom: $spacing--small;
+            margin-bottom: var(--spacing_small);
 
             .label {
                 display: inline-block;
-                margin-right: $spacing--medium;
+                margin-right: var(--spacing_medium);
             }
 
             .percent {
                 vertical-align: top;
                 float: right;
-                font-weight: $fontWeight--medium;
-                color: rgba($color--base, 0.6);
+                font-weight: var(--fontWeight_medium);
+                color: rgba(var(--color_base), 0.6);
             }
         }
 
@@ -34,14 +34,14 @@ $color--bar-animation: rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
             height: $height--bar;
-            background-color: rgba($color--base, 0.05);
+            background-color: rgba(var(--color_base), 0.05);
             border-radius: $height--bar;
 
             .indicator {
                 position: relative;
                 height: 100%;
                 border-radius: $height--bar;
-                background: $color--primary;;
+                background: rgba(var(--color_primary), 1);;
                 transition: width 0.2s ease;
 
                 .stripes {
@@ -60,13 +60,13 @@ $color--bar-animation: rgba(0, 0, 0, 0.1);
 
     &.colorSuccess {
         .bar .trail .indicator {
-            background: $color--success;
+            background: rgba(var(--color_success), 1);
         }
     }
 
     &.colorError {
         .bar .trail .indicator {
-            background: $color--error;
+            background: rgba(var(--color_error), 1);
         }
     }
 

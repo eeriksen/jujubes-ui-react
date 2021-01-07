@@ -5,6 +5,6 @@
    =================================================================== */
 
 .base {
-    margin: 0 0 $spacing--regular 0;
-    font-size: $fontSize--heading-3;
+    margin: 0 0 var(--spacing_regular) 0;
+    font-size: var(--fontSize_heading3);
 }

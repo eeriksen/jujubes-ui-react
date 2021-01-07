@@ -4,8 +4,8 @@
    SPINNER
    =================================================================== */
 
-$width--spinner: $size--element-regular;
-$color--spinner: rgba($color--base, 0.6);
+$width--spinner: var(--elementSize_regular);
+$color--spinner: rgba(var(--color_base), 0.6);
 
 .base {
     position: relative;
@@ -70,9 +70,9 @@ $color--spinner: rgba($color--base, 0.6);
 
 @keyframes color {
     100%, 0% {
-        stroke: $color--primary;
+        stroke: rgba(var(--color_primary), 1);
     }
     50% {
-        stroke: $color--primary-accent;
+        stroke: rgba(var(--color_primaryAccent), 1);
     }
 }

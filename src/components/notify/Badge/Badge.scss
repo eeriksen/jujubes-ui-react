@@ -13,21 +13,20 @@ $height--badge-small: 17px;
     height: $height--badge;
     line-height: $height--badge - 2px;
     padding: 0 7px;
-    font-size: $fontSize--tiny;
-    box-sizing: border-box;
-    border: $borderWidth--badge solid rgba($color--base, 0.4);
-    font-weight: $fontWeight--bold;
+    font-size: var(--fontSize_tiny);
+    border: $borderWidth--badge solid rgba(var(--color_base), 0.4);
+    font-weight: var(--fontWeight_bold);
     text-transform: uppercase;
-    border-radius: $borderRadius--regular;
-    color: rgba($color--base, 0.8);
+    border-radius: var(--borderRadius_form);
+    color: rgba(var(--color_base), 0.8);
     letter-spacing: .5px;
 
     /* Filled
     ---------------------------------------------------------------------- */
     &.fill {
-        background-color: $color--base;
-        border-color: $color--base;
-        color: $color--contrast;
+        background-color: rgba(var(--color_base), 1);
+        border-color: rgba(var(--color_base), 1);
+        color: rgba(var(--color_contrast), 1);
     }
 
     /* Number
@@ -39,80 +38,80 @@ $height--badge-small: 17px;
     /* Badge variants
     ---------------------------------------------------------------------- */
     &.primary {
-        border-color: $color--primary;
+        border-color: rgba(var(--color_primary), 1);
         background-color: transparent;
-        color: $color--primary;
+        color: rgba(var(--color_primary), 1);
 
         &.fill {
-            background-color: $color--primary;
-            color: $color--contrast;
+            background-color: rgba(var(--color_primary), 1);
+            color: rgba(var(--color_contrast), 1);
         }
     }
 
     &.muted {
-        border-color: rgba($color--base, 0.10);
+        border-color: rgba(var(--color_base), 0.10);
         background-color: transparent;
-        color: rgba($color--base, 0.4);
+        color: rgba(var(--color_base), 0.4);
 
         &.fill {
             border-color: transparent;
-            background-color: rgba($color--base, 0.10);
-            color: rgba($color--base, 0.4);
+            background-color: rgba(var(--color_base), 0.10);
+            color: rgba(var(--color_base), 0.4);
         }
     }
 
     &.info {
-        border-color: $color--info;
+        border-color: rgba(var(--color_info), 1);
         background-color: transparent;
-        color: $color--info;
+        color: rgba(var(--color_info), 1);
 
         &.fill {
-            background-color: $color--info;
-            color: $color--status-text;
+            background-color: rgba(var(--color_info), 1);
+            color: rgba(var(--color_statusText), 1);
         }
     }
 
     &.error {
-        border-color: $color--error;
+        border-color: rgba(var(--color_error), 1);
         background-color: transparent;
-        color: $color--error;
+        color: rgba(var(--color_error), 1);
 
         &.fill {
-            background-color: $color--error;
-            color: $color--status-text;
+            background-color: rgba(var(--color_error), 1);
+            color: rgba(var(--color_statusText), 1);
         }
     }
 
     &.warning {
-        border-color: $color--warning;
+        border-color: rgba(var(--color_warning), 1);
         background-color: transparent;
-        color: $color--warning;
+        color: rgba(var(--color_warning), 1);
 
         &.fill {
-            background-color: $color--warning;
-            color: $color--status-text;
+            background-color: rgba(var(--color_warning), 1);
+            color: rgba(var(--color_statusText), 1);
         }
     }
 
     &.success {
-        border-color: $color--success;
+        border-color: rgba(var(--color_success), 1);
         background-color: transparent;
-        color: $color--success;
+        color: rgba(var(--color_success), 1);
 
         &.fill {
-            background-color: $color--success;
-            color: $color--status-text;
+            background-color: rgba(var(--color_success), 1);
+            color: rgba(var(--color_statusText), 1);
         }
     }
 
     &.contrast {
-        border-color: $color--contrast;
+        border-color: rgba(var(--color_contrast), 1);
         background-color: transparent;
-        color: $color--contrast;
+        color: rgba(var(--color_contrast), 1);
 
         &.fill {
-            background-color: $color--contrast;
-            color: $color--base;
+            background-color: rgba(var(--color_contrast), 1);
+            color: rgba(var(--color_base), 1);
         }
     }
 
@@ -122,7 +121,7 @@ $height--badge-small: 17px;
         vertical-align: middle;
         height: $height--badge-small;
         line-height: $height--badge-small;
-        border-radius: $borderRadius--small;
+        border-radius: calc(var(--borderRadius_form) / 2);
         font-size: 0.645rem;
         padding: 0 5px;
     }
@@ -130,10 +129,10 @@ $height--badge-small: 17px;
     /* Spacing
     ---------------------------------------------------------------------- */
     &.leftSpacing {
-        margin-left: $spacing--small;
+        margin-left: var(--spacing_small);
     }
 
     &.rightSpacing {
-        margin-right: $spacing--small;
+        margin-right: var(--spacing_small);
     }
 }

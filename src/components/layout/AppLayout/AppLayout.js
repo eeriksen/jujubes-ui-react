@@ -1,15 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./AppLayout.scss";
 
 import { AppNav } from "../AppNav";
 import { AppBar } from "../AppBar";
 import { AppContent } from "../AppContent";
-import { AppContext } from "../AppContext";
 
 export const AppLayout = ({ children }) => {
-    const [navActive, setNavActive] = useState(false);
-    const [subBarActive, setSubBarActive] = useState(false);
-
     // Iterate children
     let nav = null;
     let bar = null;
@@ -32,26 +28,18 @@ export const AppLayout = ({ children }) => {
     });
 
     return (
-        <AppContext.Provider
-            value={{
-                navActive,
-                setNavActive,
-                subBarActive,
-                setSubBarActive
-            }}
-        >
-            <div className={styles.base}>
-                {/* Navigation */}
-                {nav ? <div className={styles.left}>{nav}</div> : null}
+        <div className={styles.base}>
+            {/* Navigation */}
+            {nav ? <div className={styles.left}>{nav}</div> : null}
 
-                <div className={styles.right}>
-                    {/* Bar */}
-                    {bar ? <div className={styles.bar}>{bar}</div> : null}
+            <div className={styles.right}>
 
-                    {/* Content */}
-                    {content ? <div className={styles.content}>{content}</div> : null}
-                </div>
+                {/* Bar */}
+                {bar ? bar : null}
+
+                {/* Content */}
+                {content ? <div className={styles.content}>{content}</div> : null}
             </div>
-        </AppContext.Provider>
+        </div>
     );
 };

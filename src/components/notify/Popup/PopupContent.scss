@@ -10,7 +10,7 @@
         user-select: all;
 
         .wrapper {
-            padding: $spacing--medium;
+            padding: var(--spacing_medium);
         }
     }
 }

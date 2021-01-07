@@ -10,7 +10,7 @@
 
     .wrapper {
         height: $appBar--height;
-        padding: 0 $spacing--phone-edge;
+        padding: 0 var(--spacing_edges);
         display: flex;
         align-items: center;
         justify-content: center;

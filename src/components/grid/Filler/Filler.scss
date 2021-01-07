@@ -6,12 +6,12 @@
 
 .base {
     display: block;
-    height: $size--element-regular;
-    line-height: $size--element-regular;
+    height: var(--elementSize_regular);
+    line-height: var(--elementSize_regular);
     text-align: center;
-    color: rgba($color--base, 0.4);
-    border: 1px solid rgba($color--primary, 0.5);
-    background-color: rgba($color--primary, 0.1);
+    color: rgba(var(--color_base), 0.4);
+    border: 1px solid rgba(var(--color_primary), 0.5);
+    background-color: rgba(var(--color_primary), 0.1);
     width: 100%;
     overflow: hidden;
 }

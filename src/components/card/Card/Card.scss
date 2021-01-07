@@ -6,7 +6,7 @@
 
 .base {
     position: relative;
-    background-color: $content--backgroundColor;
-    box-shadow: $boxShadow--regular;
-    border-radius: $content--borderRadius;
+    background-color: rgba(var(--color_backgroundContent), 1);
+    box-shadow: var(--boxShadow_regular);
+    border-radius: var(--borderRadius_content);
 }

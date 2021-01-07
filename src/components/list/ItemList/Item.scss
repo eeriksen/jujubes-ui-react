@@ -6,11 +6,11 @@
 
 .item {
     display: flex;
-    border-bottom: 1px solid rgba($color--base, 0.05);
+    border-bottom: 1px solid rgba(var(--color_base), 0.05);
     user-select: none;
     overflow: hidden;
-    background-color: $color--contrast;
-    min-height: $size--element-regular;
+    background-color: rgba(var(--color_contrast), 1);
+    min-height: var(--elementSize_regular);
     padding: 5px;
 
     // Content
@@ -23,7 +23,7 @@
 
         .wrapper {
             max-width: 100%;
-            line-height: $lineHeight--small;
+            line-height: var(--lineHeight_small);
             @include m-truncate();
         }
 
@@ -33,27 +33,27 @@
     .prepend {
         display: flex;
         align-items: center;
-        margin-right: $spacing--regular;
+        margin-right: var(--spacing_regular);
     }
 
     // Append
     .append {
         display: flex;
         align-items: center;
-        margin-left: $spacing--regular;
+        margin-left: var(--spacing_regular);
     }
 
     // Handle
     .handle {
         min-height: 100%;
-        padding: 0 $spacing--regular;
+        padding: 0 var(--spacing_regular);
         cursor: ns-resize;
         display: flex;
         align-items: center;
 
         .icon {
             vertical-align: 2px;
-            @include m-iconColor(rgba($color--base, 0.15));
+            @include m-iconColor(rgba(var(--color_base), 0.15));
         }
 
     }
@@ -72,8 +72,8 @@
 
     // STATE: Is dragged
     &.isDragged {
-        background-color: $color--contrast;
-        box-shadow:$boxShadow--large;
+        background-color: rgba(var(--color_contrast), 1);
+        box-shadow: var(--boxShadow_large);
         z-index: $zIndex--itemList-draggedItem;
     }
 }

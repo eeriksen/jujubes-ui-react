@@ -12,7 +12,7 @@ $radio--size: 28px;
     min-height: $radio--size;
     user-select: none;
 
-    $topBottom-margin: calc((var(--elementSize_regular) - $radio--size) / 2);
+    $topBottom-margin: calc((var(--elementSize_regular) - #{$radio--size}) / 2);
     margin: $topBottom-margin var(--spacing_medium) $topBottom-margin 0;
 
     .symbol {

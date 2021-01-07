@@ -13,7 +13,7 @@ $switch--width: 56px;
     display: inline-block;
     user-select: none;
 
-    $topBottom-margin: calc((var(--elementSize_regular) - $switch--height) / 2);
+    $topBottom-margin: calc((var(--elementSize_regular) - #{$switch--height}) / 2);
     margin: $topBottom-margin var(--spacing_medium) $topBottom-margin 0;
 
     .switch {

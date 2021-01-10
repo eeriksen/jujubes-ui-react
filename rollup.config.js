@@ -1,6 +1,6 @@
 import { nodeResolve as nodeResolvePlugin } from "@rollup/plugin-node-resolve";
 import { babel as babelPlugin } from "@rollup/plugin-babel";
-import commonjsPlugin from '@rollup/plugin-commonjs';
+import commonjsPlugin from "@rollup/plugin-commonjs";
 import postcssPlugin from "rollup-plugin-postcss";
 import clearPlugin from "rollup-plugin-clear";
 import { terser as terserPlugin } from "rollup-plugin-terser";

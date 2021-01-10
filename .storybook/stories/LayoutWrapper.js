@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react";
-import { AppContext } from "../../src/components/layout/AppContext";
+import React, { useState } from "react";
 import { AppLayout } from "../../src/components/layout/AppLayout";
 import { AppNav } from "../../src/components/layout/AppNav";
 import { AppBar } from "../../src/components/layout/AppBar";

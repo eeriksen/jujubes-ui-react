@@ -1,6 +1,0 @@
-{
-    "rules": {
-        "function-calc-no-unspaced-operator": true,
-        "function-calc-no-invalid": true
-    }
-}

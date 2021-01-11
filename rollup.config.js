@@ -7,6 +7,7 @@ import { terser as terserPlugin } from "rollup-plugin-terser";
 import autoprefixer from "autoprefixer";
 import url from "postcss-url";
 import hash from "object-hash";
+import cssnano from "cssnano";
 
 import pkg from "./package.json";
 import path from "path";
@@ -36,7 +37,7 @@ export default {
             extensions: [".js", ".jsx"]
         }),
         postcssPlugin({
-            minimize: true,
+            minimize: false,
             autoModules: false,
             modules: {
                 generateScopedName: (name, filename, css) => {
@@ -57,7 +58,15 @@ export default {
                 url({
                     url: "inline"
                 }),
-                autoprefixer
+                autoprefixer,
+                cssnano({
+                    preset: [
+                        "default",
+                        {
+                            calc: false
+                        }
+                    ]
+                })
             ]
         }),
         babelPlugin({

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
 import { DataTable } from "./DataTable";
+import { Tr } from "./Tr";
+import { Td } from "./Td";
 import { Column } from "./Column";
 import { Cell } from "./Cell";
 import { Badge } from "../../notify/Badge";
@@ -66,10 +68,7 @@ basis if you need to.
 
 <Canvas>
     <Story name="basic">
-        <DataTable
-            rows={tableRows}
-            onRowClick={(data) => console.log("CLICK", data)}
-        >
+        <DataTable rows={tableRows} onRowClick={(data) => console.log("CLICK", data)}>
             <Column label="ID" cell={({ row }) => <Cell>{row.id}</Cell>} />
             <Column label="First name" cell={({ row }) => <Cell>{row.firstName}</Cell>} />
             <Column label="Last name" cell={({ row }) => <Cell>{row.lastName}</Cell>} />
@@ -94,11 +93,7 @@ basis if you need to.
 
 <Canvas>
     <Story name="busy">
-        <DataTable
-            busy
-            rows={tableRows}
-            onRowClick={(data) => console.log("CLICK", data)}
-        >
+        <DataTable busy rows={tableRows} onRowClick={(data) => console.log("CLICK", data)}>
             <Column label="ID" cell={({ row }) => <Cell>{row.id}</Cell>} />
             <Column label="First name" cell={({ row }) => <Cell>{row.firstName}</Cell>} />
             <Column label="Last name" cell={({ row }) => <Cell>{row.lastName}</Cell>} />

@@ -41,10 +41,13 @@ export const DataTable = ({ rows, children, onRowClick, busy, rowModifiers }) =>
             {/* Table */}
             <div ref={wrapperRef} className={styles.wrapper}>
                 <table className={styles.table}>
-                    <TableHead children={children} />
-                    <TableBody rows={rows} onRowClick={onRowClick} rowModifiers={rowModifiers}>
-                        {children}
-                    </TableBody>
+                    <TableHead columns={children} />
+                    <TableBody
+                        columns={children}
+                        rows={rows}
+                        onRowClick={onRowClick}
+                        rowModifiers={rowModifiers}
+                    />
                 </table>
             </div>
 

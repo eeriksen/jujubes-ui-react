@@ -3,54 +3,9 @@ import { Column } from "../Column";
 import { Tr } from "../Tr";
 import { Td } from "../Td";
 
-export const TableBody = ({ rows, rowModifiers, onRowClick, children }) => {
-    const [prependedStaticRows, setPrependedStaticRows] = useState([]);
-    const [appendedStaticRows, setAppendedStaticRows] = useState([]);
-    const [dynamicColumns, setDynamicColumns] = useState([]);
-
-    useEffect(() => {
-        setPrependedStaticRows([]);
-        setAppendedStaticRows([]);
-        setDynamicColumns([]);
-        children &&
-            children.map((e) => {
-                switch (e.type) {
-                    case Column: {
-                        setDynamicColumns((l) => {
-                            l.push(e);
-                            return l;
-                        });
-                        break;
-                    }
-                    case Tr: {
-                        if (dynamicColumns.length) {
-                            setAppendedStaticRows((l) => {
-                                l.push(e);
-                                return l;
-                            });
-                        } else {
-                            setPrependedStaticRows((l) => {
-                                l.push(e);
-                                return l;
-                            });
-                        }
-                        break;
-                    }
-                    default: {
-                        return e;
-                    }
-                }
-                return e;
-            });
-    }, [children]);
-
-    // Iterate rows
+export const TableBody = ({ rows, rowModifiers, onRowClick, columns }) => {
     return (
         <tbody>
-            {/* Prepended static rows */}
-            {prependedStaticRows}
-
-            {/* Dynamic rows */}
             {rows && rows.length
                 ? rows.map((row, index) => (
                       <TableRow
@@ -58,14 +13,11 @@ export const TableBody = ({ rows, rowModifiers, onRowClick, children }) => {
                           row={row}
                           rowIndex={index}
                           modifiers={rowModifiers}
-                          columns={dynamicColumns}
+                          columns={columns}
                           onClick={onRowClick}
                       />
                   ))
                 : null}
-
-            {/* Appended static rows */}
-            {appendedStaticRows}
         </tbody>
     );
 };
@@ -87,15 +39,17 @@ const TableRow = ({ row, rowIndex, modifiers, columns, onClick }) => {
             disabled={isDisabled}
         >
             {columns &&
-                columns.map((column, colIndex) => (
-                    <TableCell
-                        key={`${rowIndex}_${colIndex}`}
-                        rowIndex={rowIndex}
-                        colIndex={colIndex}
-                        row={row}
-                        column={column}
-                    />
-                ))}
+                React.Children.map(columns, (column, colIndex) =>
+                    column.type === Column ? (
+                        <TableCell
+                            key={`${rowIndex}_${colIndex}`}
+                            rowIndex={rowIndex}
+                            colIndex={colIndex}
+                            row={row}
+                            column={column}
+                        />
+                    ) : null
+                )}
         </Tr>
     );
 };

@@ -22,8 +22,7 @@ Import components at will:
 
 ## Documentation
 
-https://eeriksen.github.io/kembo-ui-react/
-
+https://kembo-ui-react.netlify.app
 
 ## Development
 

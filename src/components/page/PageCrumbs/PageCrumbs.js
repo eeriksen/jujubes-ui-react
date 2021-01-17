@@ -4,7 +4,7 @@ import styles from "./PageCrumbs.scss";
 import { ScrollableArea } from "../../layout/ScrollableArea";
 import { Crumb } from "./Crumb";
 
-export const PageCrumbs = ({ children, className }) => {
+export const PageCrumbs = ({ children }) => {
     return (
         <div className={styles.base}>
             <div className={styles.leftFade} />

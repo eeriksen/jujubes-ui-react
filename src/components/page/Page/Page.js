@@ -1,11 +1,12 @@
 import React from "react";
 import styles from "./Page.scss";
+import { PageCrumbs } from "../PageCrumbs";
 
 export const Page = ({ children }) => {
     let mainBox = [];
     let topBox = [];
     React.Children.map(children, (child) => {
-        if (child.type && child.type.name === "PageCrumbs") {
+        if (child && child.type === PageCrumbs) {
             topBox.push(child);
         } else {
             mainBox.push(child);

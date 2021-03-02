@@ -13,6 +13,7 @@ export const Button = ({
     active,
     circle,
     square,
+    fill,
     icon,
     iconRight,
     iconColor,
@@ -76,6 +77,7 @@ export const Button = ({
         [styles.active]: active,
         [styles.circle]: circle,
         [styles.square]: square,
+        [styles.fill]: fill,
 
         [styles.iconRight]: iconRight,
         [styles.hideIcon]: hideIcon || busy,

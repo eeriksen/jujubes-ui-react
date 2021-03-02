@@ -40,7 +40,7 @@ export const FormItem = ({ children, label, error, className, info, responsive }
                         }
 
                         return React.cloneElement(child, {
-                            error: child.props.error || error
+                            error: child.props.error || error
                         });
                     })}
 
@@ -54,6 +54,10 @@ export const FormItem = ({ children, label, error, className, info, responsive }
             </Row>
         </div>
     );
+};
+
+FormItem.defaultValues = {
+    responsive: false
 };
 
 FormItem.propTypes = {

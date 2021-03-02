@@ -14,7 +14,7 @@ import { ComponentWrapper } from "../../src/components/layout/ComponentWrapper";
 
 import { user } from "../constants";
 
-export const LayoutWrapper = ({children}) => {
+export const ExampleWrapper = ({children}) => {
     const [activeMenuItem, setActiveMenuItem] = useState(1);
     const [searchTerm, setSearchTerm] = useState(null);
     return (

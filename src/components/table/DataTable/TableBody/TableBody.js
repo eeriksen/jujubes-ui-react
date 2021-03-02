@@ -3,9 +3,10 @@ import { Column } from "../Column";
 import { Tr } from "../Tr";
 import { Td } from "../Td";
 
-export const TableBody = ({ rows, rowModifiers, onRowClick, columns }) => {
+export const TableBody = ({ rows, rowModifiers, onRowClick, columns, loading }) => {
     return (
         <tbody>
+            {/* Table rows */}
             {rows && rows.length
                 ? rows.map((row, index) => (
                       <TableRow

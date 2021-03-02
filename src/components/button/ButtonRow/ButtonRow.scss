@@ -1,0 +1,20 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   BUTTON ROW
+   =================================================================== */
+
+.base {
+    position: relative;
+    display: flex;
+    @include m-truncate();
+
+
+    .item {
+        margin-right: var(--spacing_regular);
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

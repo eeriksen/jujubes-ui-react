@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { AppContext } from "../../src/components/layout/AppContext";
 import { Page } from "../../src/components/page/Page";
 import { PageActions, Action } from "../../src/components/page/PageActions";
@@ -7,8 +7,10 @@ import { PageHeader } from "../../src/components/page/PageHeader";
 import { Card } from "../../src/components/card/Card";
 import { CardTitle } from "../../src/components/card/CardTitle";
 import { CardContent } from "../../src/components/card/CardContent";
+import { CardFooter } from "../../src/components/card/CardFooter";
 import { Form } from "../../src/components/form/Form";
 import { FormItem } from "../../src/components/form/FormItem";
+import { FormButtons } from "../../src/components/form/FormButtons";
 import { Input } from "../../src/components/form/Input";
 import { Textarea } from "../../src/components/form/Textarea";
 import { Checkbox } from "../../src/components/form/Checkbox";
@@ -22,10 +24,11 @@ import { Select, Option } from "../../src/components/form/Select";
 
 import * as themes from "../../src/styles/themes";
 
-export const LayoutContent = () => {
+export const ExampleContent = () => {
     const { themeKey, setThemeKey } = useContext(AppContext);
     const [showCreatePagePrompt, setShowCreatePagePrompt] = useState(false);
     const [data, setData] = useState({});
+    const [busyLoading, setBusyLoading] = useState(true);
     const [tableRows] = useState([
         {
             id: 1,
@@ -70,8 +73,15 @@ export const LayoutContent = () => {
             status: false
         }
     ]);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setBusyLoading(false);
+        }, 10000);
+    }, []);
+
     return (
-        <Page>
+        <Page loading={busyLoading}>
             <PageHeader icon="gear" title="Example layout" subtitle="Getting started" />
             <PageCrumbs>
                 <Crumb label="Start" link="/" />
@@ -122,6 +132,7 @@ export const LayoutContent = () => {
                                 <CardTitle title="Card with table" />
                                 <CardContent>
                                     <DataTable
+                                        loading={true}
                                         rows={tableRows}
                                         onRowClick={(data) => console.log("CLICK", data)}
                                         rowModifiers={{
@@ -229,13 +240,16 @@ export const LayoutContent = () => {
                                                 Send to everyone
                                             </Checkbox>
                                         </FormItem>
-                                        <FormItem>
-                                            <Button type="submit" color="primary">
-                                                Submit comment
-                                            </Button>
-                                        </FormItem>
                                     </Form>
                                 </CardContent>
+                                <CardFooter>
+                                    <FormButtons>
+                                        <Button type="submit" color="primary">
+                                            Save changes
+                                        </Button>
+                                        <Button onClick={() => setData({})}>Reset</Button>
+                                    </FormButtons>
+                                </CardFooter>
                             </Card>
                         </Col>
                     </Row>

@@ -9,8 +9,6 @@ $height--button-big: var(--elementSize_big);
 $height--button-small: var(--elementSize_small);
 
 .base {
-    display: block;
-    width: 100%;
     position: relative;
     outline: none;
     height: $height--button;
@@ -24,18 +22,15 @@ $height--button-small: var(--elementSize_small);
     text-decoration: none;
     user-select: none;
     transition: border-color 0.3s linear, color .3s linear, background-color .3s linear;
-    @include m-truncate();
+    padding: 0 var(--spacing_large);
 
     .content {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
         z-index: 2;
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
+        @include m-truncate();
     }
 
     .shade {
@@ -104,7 +99,6 @@ $height--button-small: var(--elementSize_small);
     right: 0;
     display: flex;
     align-items: center;
-    padding: 0 var(--spacing_medium);
 }
 
 
@@ -117,14 +111,14 @@ $height--button-small: var(--elementSize_small);
     .icon {
         vertical-align: -3px;
         margin-right: 8px;
-        margin-left: -7px;
+        margin-left: 0;
         @include m-iconColor(rgba(var(--color_base), 1));
     }
 
     // Icon on the right side of label
     &.iconRight {
         .icon {
-            margin-right: -7px;
+            margin-right: 0;
             margin-left: 8px;
         }
     }
@@ -341,7 +335,7 @@ $height--button-small: var(--elementSize_small);
 }
 
 /* ===================================================================
-   BUTTON MUTTATORS
+   BUTTON MUTATORS
    =================================================================== */
 
 .circle {
@@ -381,7 +375,21 @@ $height--button-small: var(--elementSize_small);
     }
 }
 
+.fill {
+    display: block;
+    width: 100%;
+}
+
 .hideLabel {
     transition: color 0s ease;
     color: rgba(0, 0, 0, 0) !important;
 }
+
+
+/* ===================================================================
+   RESPONSIVE
+   =================================================================== */
+
+   @include for-phone-only(){
+
+   }

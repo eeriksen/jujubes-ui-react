@@ -4,5 +4,5 @@ export default create({
   base: 'light',
   brandTitle: 'Kembo UI',
   brandUrl: 'https://kembo.app',
-  brandImage: undefined,
+  brandImage: undefined
 });

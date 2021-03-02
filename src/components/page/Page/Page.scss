@@ -16,6 +16,21 @@
         max-width: $breakpoint--big-desktop;
         margin: 0 auto;
 
+        .loader {
+            margin-top: 20%;
+            text-align: center;
+
+            .box {
+                padding: 20px;
+                display: inline-block;
+                background-color: rgba(var(--color_backgroundContent), 1);
+                box-shadow: var(--boxShadow_regular);
+                border-radius: var(--borderRadius_content);
+            }
+
+        }
+
+
         @include for-tablet-portrait-down(){
             padding: var(--spacing_medium) var(--spacing_edges);
         }

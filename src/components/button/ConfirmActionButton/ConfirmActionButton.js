@@ -19,19 +19,19 @@ export const ConfirmActionButton = (props) => {
                     </div>
                     <Row gutter={["small"]}>
                         <Col span={12}>
-                            <Button block size={size} icon="check" iconColor="success" onClick={() => { setPromptConfirm(false); onConfirm(); }}>
+                            <Button fill block size={size} icon="check" iconColor="success" onClick={() => { setPromptConfirm(false); onConfirm(); }}>
                                 {lang.yes}
                             </Button>
                         </Col>
                         <Col span={12}>
-                            <Button block size={size} icon="close" iconColor="error" onClick={() => setPromptConfirm(false)}>
+                            <Button fill block size={size} icon="close" iconColor="error" onClick={() => setPromptConfirm(false)}>
                                 {lang.no}
                             </Button>
                         </Col>
                     </Row>
                 </div>
             ) : (
-                <Button size={size} labelColor="error" className={styles.button} block onClick={() => setPromptConfirm(true)}>
+                <Button fill size={size} labelColor="error" className={styles.button} block onClick={() => setPromptConfirm(true)}>
                     {label}
                 </Button>
             )}

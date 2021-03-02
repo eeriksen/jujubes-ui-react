@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import styles from "./DataTable.scss";
 
 import { WindowResizeListener } from "../../layout/WindowResizeListener";
@@ -7,10 +8,13 @@ import { Spinner } from "../../loader/Spinner";
 import { TableHead } from "./TableHead";
 import { TableBody } from "./TableBody";
 
-export const DataTable = ({ rows, children, onRowClick, busy, rowModifiers }) => {
+export const DataTable = ({ rows, children, onRowClick, onLoadMore, busy, loading, rowModifiers }) => {
+    const tableRef = useRef();
     const redrawTimeout = useRef();
     const wrapperRef = useRef();
     const [tableHeight, setTableHeight] = useState(0);
+    const [overflowLeft, setOverflowLeft] = useState(false);
+    const [overflowRight, setOverflowRight] = useState(false);
 
     useEffect(() => {
         updateHeightDebounce();
@@ -26,11 +30,33 @@ export const DataTable = ({ rows, children, onRowClick, busy, rowModifiers }) =>
 
     const updateHeightDebounce = () => {
         clearTimeout(redrawTimeout.current);
-        redrawTimeout.current = setTimeout(updateHeight, 500);
+        redrawTimeout.current = setTimeout(() => {
+            updateHeight();
+            updateOverflowIndicators();
+        }, 500);
+    };
+
+    const updateOverflowIndicators = () => {
+        const { scrollLeft, scrollWidth } = tableRef.current;
+        const containerWidth = Math.floor(tableRef.current.getBoundingClientRect().width);
+        setOverflowLeft(scrollLeft > 0);
+        setOverflowRight(scrollWidth > containerWidth && scrollLeft < scrollWidth - containerWidth);
     };
 
     return (
         <div className={styles.base} style={{ height: `${tableHeight}px` }}>
+            {/* Overflow indicators */}
+            <div
+                className={classNames(styles.overflow, styles.left, {
+                    [styles.visible]: overflowLeft
+                })}
+            />
+            <div
+                className={classNames(styles.overflow, styles.right, {
+                    [styles.visible]: overflowRight
+                })}
+            />
+
             {/* Loader */}
             {busy ? (
                 <div className={styles.loader}>
@@ -39,17 +65,23 @@ export const DataTable = ({ rows, children, onRowClick, busy, rowModifiers }) =>
             ) : null}
 
             {/* Table */}
-            <div ref={wrapperRef} className={styles.wrapper}>
-                <table className={styles.table}>
-                    <TableHead columns={children} />
-                    <TableBody
-                        columns={children}
-                        rows={rows}
-                        onRowClick={onRowClick}
-                        rowModifiers={rowModifiers}
-                    />
-                </table>
+            <div ref={tableRef} className={styles.container} onScroll={updateOverflowIndicators}>
+                <div ref={wrapperRef} className={styles.wrapper}>
+                    <table className={styles.table}>
+                        <TableHead columns={children} loading={loading} />
+                        <TableBody
+                            columns={children}
+                            rows={rows}
+                            onRowClick={onRowClick}
+                            rowModifiers={rowModifiers}
+                            loading={loading}
+                        />
+                    </table>
+                </div>
             </div>
+
+            {/* Load more */}
+            {onLoadMore ? <div classsName={styles.loadMore}></div> : null}
 
             <WindowResizeListener onResize={updateHeightDebounce} />
         </div>

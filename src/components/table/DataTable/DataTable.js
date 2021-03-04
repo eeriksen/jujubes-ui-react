@@ -40,7 +40,7 @@ export const DataTable = ({ rows, children, onRowClick, onLoadMore, busy, loadin
         const { scrollLeft, scrollWidth } = tableRef.current;
         const containerWidth = Math.floor(tableRef.current.getBoundingClientRect().width);
         setOverflowLeft(scrollLeft > 0);
-        setOverflowRight(scrollWidth > containerWidth && scrollLeft < scrollWidth - containerWidth);
+        setOverflowRight(scrollWidth - containerWidth > 1 && scrollLeft < scrollWidth - containerWidth);
     };
 
     return (

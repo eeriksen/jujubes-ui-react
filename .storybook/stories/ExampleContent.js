@@ -7,7 +7,6 @@ import { PageHeader } from "../../src/components/page/PageHeader";
 import { Card } from "../../src/components/card/Card";
 import { CardTitle } from "../../src/components/card/CardTitle";
 import { CardContent } from "../../src/components/card/CardContent";
-import { CardFooter } from "../../src/components/card/CardFooter";
 import { Form } from "../../src/components/form/Form";
 import { FormItem } from "../../src/components/form/FormItem";
 import { FormButtons } from "../../src/components/form/FormButtons";
@@ -77,7 +76,7 @@ export const ExampleContent = () => {
     useEffect(() => {
         setTimeout(() => {
             setBusyLoading(false);
-        }, 10000);
+        }, 2000);
     }, []);
 
     return (
@@ -242,14 +241,14 @@ export const ExampleContent = () => {
                                         </FormItem>
                                     </Form>
                                 </CardContent>
-                                <CardFooter>
+                                <CardContent border="top">
                                     <FormButtons>
                                         <Button type="submit" color="primary">
                                             Save changes
                                         </Button>
                                         <Button onClick={() => setData({})}>Reset</Button>
                                     </FormButtons>
-                                </CardFooter>
+                                </CardContent>
                             </Card>
                         </Col>
                     </Row>

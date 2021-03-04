@@ -7,3 +7,12 @@
 .base {
     padding: var(--spacing_medium);
 }
+
+.borderBottom {
+    border-bottom: 1px solid rgba(var(--color_base), 0.10);
+}
+
+.borderTop {
+    border-top: 1px solid rgba(var(--color_base), 0.10);
+}
+

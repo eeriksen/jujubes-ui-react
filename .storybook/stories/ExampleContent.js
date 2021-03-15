@@ -20,8 +20,10 @@ import { Col } from "../../src/components/grid/Col";
 import { Popup, PopupTitle, PopupContent, PopupFooter } from "../../src/components/notify/Popup";
 import { DataTable, Column, Cell } from "../../src/components/table/DataTable";
 import { Select, Option } from "../../src/components/form/Select";
+import { axios } from "../../src/services";
 
 import * as themes from "../../src/styles/themes";
+
 
 export const ExampleContent = () => {
     const { themeKey, setThemeKey } = useContext(AppContext);
@@ -74,6 +76,9 @@ export const ExampleContent = () => {
     ]);
 
     useEffect(() => {
+        axios.defaults.baseURL = "http://localhost:8080";
+
+        axios.get("/jalla");
         setTimeout(() => {
             setBusyLoading(false);
         }, 2000);
@@ -81,7 +86,7 @@ export const ExampleContent = () => {
 
     return (
         <Page loading={busyLoading}>
-            <PageHeader icon="gear" title="Example layout" subtitle="Getting started" />
+            <PageHeader icon="gear" title="Example layout" />
             <PageCrumbs>
                 <Crumb label="Start" link="/" />
                 <Crumb label="Company" link="/companies" />

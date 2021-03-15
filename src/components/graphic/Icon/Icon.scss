@@ -119,7 +119,10 @@
 
 // Animation
 .rotate {
-    animation: rotate 1.5s infinite linear;
+    svg {
+        animation: rotate 1.5s infinite linear;
+    }
+
     @keyframes rotate {
         from {
             transform: rotate(0deg);

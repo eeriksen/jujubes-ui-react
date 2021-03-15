@@ -15,6 +15,13 @@
 
 // Icon size
 @mixin m-iconSize($size, $maxSize: null) {
+
+    @if unit($size) == '%' {
+        span {
+            width: $size;
+        }
+    }
+
     svg {
         width: $size;
         height: $size;

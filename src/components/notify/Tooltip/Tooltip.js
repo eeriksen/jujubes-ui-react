@@ -27,6 +27,10 @@ Tooltip.defaultProps = {
     disabled: false
 };
 
+Tooltip.defaultProps = {
+    arrow: true
+};
+
 Tooltip.propTypes = {
     /**
      * Tooltip text

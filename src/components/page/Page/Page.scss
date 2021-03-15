@@ -5,6 +5,8 @@
    =================================================================== */
 
 .base {
+    background-color: rgba(var(--color_background), 1);
+
     .topBox {
         position: relative;
     }
@@ -14,6 +16,7 @@
         display: block;
         padding: var(--spacing_large);
         max-width: $breakpoint--big-desktop;
+        min-height: 100vh;
         margin: 0 auto;
 
         .loader {

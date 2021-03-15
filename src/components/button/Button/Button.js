@@ -89,6 +89,7 @@ export const Button = ({
         [styles.iconWarning]: iconColor === "warning",
         [styles.iconError]: iconColor === "error",
 
+        [styles.labelPrimary]: labelColor === "primary",
         [styles.labelSuccess]: labelColor === "success",
         [styles.labelWarning]: labelColor === "warning",
         [styles.labelError]: labelColor === "error"

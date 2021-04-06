@@ -30,6 +30,9 @@
         }
     }
 
+    &.evadeButtons {
+        transform: translateY(-50px);
+    }
 }
 
 :global {

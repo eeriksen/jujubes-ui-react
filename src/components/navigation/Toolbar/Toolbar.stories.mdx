@@ -1,0 +1,71 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Toolbar } from "./Toolbar";
+import { Item } from "./Item";
+import { Button } from "../../button/Button";
+import { ButtonGroup } from "../../button/ButtonGroup";
+import { Text } from "../../typography/Text";
+
+<Meta title="Components/Navigation/Toolbar" component={Toolbar} />
+
+# Toolbar
+
+The `<Toolbar />` is a sleek and compact line of buttons and other controllers.
+
+<ArgsTable of={Toolbar} />
+
+# Toolbar.Item
+
+<ArgsTable of={Item} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        <Toolbar>
+            <Item divideRight spacing="none">
+                <Button square icon="arrow-left" color="silent" />
+            </Item>
+            <Item grow divideRight spacing="medium">
+                <Text size="medium">Title of something</Text>
+            </Item>
+            <Item divideRight>
+                <ButtonGroup>
+                    <Button size="small" icon="tools" square></Button>
+                    <Button size="small" icon="mobile" square></Button>
+                </ButtonGroup>
+            </Item>
+            <Item>
+                <Button icon="rocket" size="small">
+                    Publish
+                </Button>
+            </Item>
+        </Toolbar>
+    </Story>
+</Canvas>
+
+### Color
+
+<Canvas>
+    <Story name="color">
+        <Toolbar color="primary">
+            <Item divideRight spacing="none">
+                <Button square icon="arrow-left" color="silent" iconColor="contrast" />
+            </Item>
+            <Item grow divideRight spacing="medium">
+                <Text size="medium" color="contrast">Title of something</Text>
+            </Item>
+            <Item divideRight>
+                <ButtonGroup>
+                    <Button size="small" icon="tools" square color="primary"></Button>
+                    <Button size="small" icon="mobile" square color="primary"></Button>
+                </ButtonGroup>
+            </Item>
+            <Item>
+                <Button icon="rocket" size="small" color="primary">
+                    Publish
+                </Button>
+            </Item>
+        </Toolbar>
+    </Story>
+</Canvas>

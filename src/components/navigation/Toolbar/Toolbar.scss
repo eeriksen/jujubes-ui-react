@@ -1,0 +1,64 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   TOOLBAR
+   =================================================================== */
+
+$height: var(--elementSize_big);
+$spacing: var(--spacing_regular);
+
+.base {
+    background-color: rgba(var(--color_contrast), 1);
+    border-bottom: 1px solid rgba(var(--color_base), 0.15);
+    height: $height;
+    min-height: $height;
+    display: flex;
+
+    .item {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 $spacing;
+
+        &.grow {
+            flex-grow: 1;
+        }
+
+        &.shrink {
+            flex-shrink: 1;
+        }
+
+        &.divideLeft {
+            border-left: 1px solid rgba(var(--color_base), 0.05);
+        }
+
+        &.divideRight {
+            border-right: 1px solid rgba(var(--color_base), 0.05);
+        }
+
+        &.spacingNone {
+            padding: 0;
+        }
+
+        &.spacingMedium {
+            padding: 0 var(--spacing_medium);
+        }
+
+        &.truncate {
+            @include m-truncate();
+        }
+    }
+
+    // COLOR: Primary
+    &.colorPrimary {
+        background-color: rgba(var(--color_primary), 1);
+        border-bottom-color: rgba(0, 0, 0, 0.1);
+
+        .item {
+            &.divideLeft,
+            &.divideRight {
+                border-color: rgba(0, 0, 0, 0.1);
+            }
+        }
+    }
+}

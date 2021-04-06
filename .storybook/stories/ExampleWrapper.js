@@ -14,7 +14,7 @@ import { ComponentWrapper } from "../../src/components/layout/ComponentWrapper";
 
 import { user } from "../constants";
 
-export const ExampleWrapper = ({children}) => {
+export const ExampleWrapper = ({ children }) => {
     const [activeMenuItem, setActiveMenuItem] = useState(1);
     const [searchTerm, setSearchTerm] = useState(null);
     return (
@@ -76,11 +76,9 @@ export const ExampleWrapper = ({children}) => {
                 <AppNav
                     logo={<Logo width={100} />}
                     title={
-                        <React.Fragment>
-                            <Text block size="large" weight="medium">
-                                Example page
-                            </Text>
-                        </React.Fragment>
+                        <Text block size="large" weight="medium">
+                            Example page
+                        </Text>
                     }
                 >
                     <AppNav.Menu>
@@ -110,9 +108,7 @@ export const ExampleWrapper = ({children}) => {
                         <AppNav.MenuItem icon="puzzle">Pages</AppNav.MenuItem>
                     </AppNav.Menu>
                 </AppNav>
-                <AppContent>
-                    {children}
-                </AppContent>
+                <AppContent>{children}</AppContent>
             </AppLayout>
         </ComponentWrapper>
     );

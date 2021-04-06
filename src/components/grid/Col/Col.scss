@@ -186,3 +186,8 @@ $grid-columns: 24;
 @include for-desktop-up() {
     @include make-grid("_lg");
 }
+
+
+.alignCenter {
+    text-align: center;
+}

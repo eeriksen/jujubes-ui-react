@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from "react";
+import moment from "moment";
 import { AppContext } from "../AppContext";
 import * as themes from "../../../styles/themes";
 import { hexToRgb } from "../../../utils/colorUtils";
 import WebFont from "webfontloader";
 import "./AppContainer.scss";
+import { DATE_TIME_FORMAT } from "../../../constants";
+
+moment.defaultFormat = DATE_TIME_FORMAT;
+moment.defaultFormatUtc = DATE_TIME_FORMAT;
 
 const STANDARD_THEME_KEY = "standard";
 
 export const AppContainer = ({ children }) => {
     const [navActive, setNavActive] = useState(false);
     const [subBarActive, setSubBarActive] = useState(false);
+    const [currentPage, setCurrentPage] = useState({
+        hasButtons: false
+    });
     const [themeKey, setThemeKey] = useState(STANDARD_THEME_KEY);
 
     useEffect(() => {
@@ -57,6 +65,8 @@ export const AppContainer = ({ children }) => {
                 setNavActive,
                 subBarActive,
                 setSubBarActive,
+                currentPage,
+                setCurrentPage,
                 themeKey,
                 setThemeKey,
                 loadTheme

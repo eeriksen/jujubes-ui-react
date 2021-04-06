@@ -43,7 +43,11 @@ $color--spinner: rgba(var(--color_base), 0.6);
 
 }
 
-.large {
+.sizeSmall {
+    width: var(--elementSize_small);
+}
+
+.sizeLarge {
     width: 80px;
 }
 

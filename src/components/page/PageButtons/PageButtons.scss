@@ -1,0 +1,145 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   PAGE BUTTONS
+   =================================================================== */
+
+$size--button: var(--elementSize_big);
+$size--counter: 22px;
+
+.base {
+    display: flex;
+    margin-bottom: var(--spacing_large);
+
+    .button {
+        display: flex;
+        position: relative;
+        background-color: rgba(var(--color_backgroundContent), 1);
+        box-shadow: var(--boxShadow_regular);
+        height: $size--button;
+        cursor: pointer;
+        user-select: none;
+        margin-right: var(--spacing_regular);
+        padding: 0 var(--spacing_small);
+        transition: box-shadow .2s linear, background-color .2s linear, border .2s ease-in-out;
+        border-bottom: 3px solid rgba(var(--color_base), 0.2);
+        text-decoration: none;
+        border-radius: var(--borderRadius_content);
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: $size--button;
+            height: 100%;
+            @include m-iconSize(19px);
+            @include m-iconColor(rgba(var(--color_base), 0.2), true);
+        }
+
+        .label {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            font-size: var(--fontSize_medium);
+            font-weight: var(--fontWeight_medium);
+            padding: 2px var(--spacing_medium) 0 0;
+            color: rgba(var(--color_base), 0.6);
+            transition: color .2s linear;
+        }
+
+        .count {
+            display: flex;
+            align-items: center;
+            margin-left: -5px;
+            margin-right: 5px;
+            border-radius: $size--counter;
+            background: rgba(var(--color_backgroundContent), 1);
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            right: 5px;
+            transform: translateY(-50%);
+
+            .number {
+                position: relative;
+                text-align: center;
+                font-size: var(--fontSize_small);
+                font-weight: var(--fontWeight_medium);
+                height: $size--counter;
+                min-width: $size--counter;
+                line-height: $size--counter;
+                padding: 0 5px;
+                white-space: nowrap;
+                color: rgba(var(--color_statusText), 1);
+                background-color: rgba(var(--color_error), 1);
+                transition: all .2s linear;
+                border-radius: $size--counter;
+            }
+        }
+
+        // STATE: Hover
+        &:hover {
+            border-color: rgba(var(--color_primaryAccent), 1);
+
+            .icon {
+                @include m-iconColor(rgba(var(--color_base), 0.4), true);
+            }
+
+            .label {
+                color: rgba(var(--color_base), 1);
+            }
+        }
+
+        // STATE: Active
+        &.active {
+            cursor: default;
+            border-color: rgba(var(--color_primary), 1);
+
+            .icon {
+                @include m-iconColor(rgba(var(--color_primary), 1), true);
+            }
+
+            .label {
+                color: rgba(var(--color_base), 1);
+            }
+
+            &:hover {
+                box-shadow: var(--boxShadow_regular);
+            }
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    // RESPONSIVE: For phone only
+    @include for-tablet-landscape-down(){
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: $zIndex--pageButtons;
+        margin: 0;
+        background: rgba(var(--color_backgroundContent), 1);
+        box-shadow: var(--boxShadow_regular);
+
+        .button {
+            box-shadow: none;
+            margin: 0;
+            border-radius: 0;
+            position: relative;
+            flex-grow: 1;
+            align-items: center;
+            justify-content: center;
+
+            .label {
+                display: none;
+            }
+
+            .count {
+                right: 2px;
+            }
+        }
+    }
+}

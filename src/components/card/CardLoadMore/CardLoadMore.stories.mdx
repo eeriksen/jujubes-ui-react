@@ -1,0 +1,19 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { CardLoadMore } from "./CardLoadMore";
+
+<Meta title="Components/Cards/CardLoadMore" component={CardLoadMore} />
+
+# CardLoadMore
+
+Big button to place on the bottom of a `<Card />` that loads more content and shows a progress of how much is loaded.
+
+<ArgsTable of={CardLoadMore} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        <CardLoadMore>Something here</CardLoadMore>
+    </Story>
+</Canvas>

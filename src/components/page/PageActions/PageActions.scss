@@ -22,7 +22,7 @@
         transition: transform .2s cubic-bezier(0.620, 0.055, 0.240, 1.305), background-color .2s ease-in-out, box-shadow .2s ease-in-out;
         user-select: none;
         @include m-iconColor(rgba(var(--color_contrast), 1));
-        @include m-iconSize($iconSize--medium);
+        @include m-iconSize($iconSize--large);
 
         &:hover {
             cursor: pointer;
@@ -48,17 +48,20 @@
 
         .button {
             box-shadow: var(--boxShadow_medium);
+            @include m-iconSize($iconSize--medium);
 
             &.active {
                 box-shadow: var(--boxShadow_medium);
             }
         }
+
+        &.evadeButtons {
+            bottom: calc(var(--elementSize_big) + var(--spacing_medium));
+            right: var(--spacing_medium);
+        }
     }
 
     @include for-tablet-portrait-down(){
-        bottom: var(--spacing_medium);
-        right: var(--spacing_medium);
-
         .button {
             width: calc(var(--elementSize_big) - 10px);
             height: calc(var(--elementSize_big) - 10px);

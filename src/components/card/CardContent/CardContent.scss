@@ -19,3 +19,7 @@
 .paddingNone {
     padding: 0;
 }
+
+.colorSilent {
+    background-color: rgba(var(--color_background), 0.1);
+}

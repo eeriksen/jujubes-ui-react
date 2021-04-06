@@ -1,7 +1,7 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
-import { Button } from './Button';
-import { Row } from "../../grid/Row"
-import { Col } from "../../grid/Col"
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Button } from "./Button";
+import { Row } from "../../grid/Row";
+import { Col } from "../../grid/Col";
 
 <Meta title="Components/Buttons/Button" component={Button} />
 
@@ -13,76 +13,63 @@ Use a careful combination of colored buttons where needed.
 <ArgsTable of={Button} />
 
 ### Basic
+
 <Canvas>
-    <Story name="basic" >
-        <Button>
-            Basic button
-        </Button>
+    <Story name="basic">
+        <Button>Basic button</Button>
     </Story>
 </Canvas>
 
 ### Color
+
 <Canvas>
     <Story name="color">
         <Row>
             <Col span={6}>
-                <Button>
-                    Default button
-                </Button>
+                <Button>Default button</Button>
             </Col>
             <Col span={6}>
-                <Button color="primary">
-                    Primary button
-                </Button>
+                <Button color="primary">Primary button</Button>
             </Col>
             <Col span={6}>
-                <Button color="success">
-                    Success button
-                </Button>
+                <Button color="success">Success button</Button>
             </Col>
             <Col span={6}>
-                <Button color="warning">
-                    Warning button
-                </Button>
+                <Button color="warning">Warning button</Button>
             </Col>
             <Col span={6}>
-                <Button color="error">
-                    Error button
-                </Button>
+                <Button color="error">Error button</Button>
             </Col>
             <Col span={6}>
-                <Button color="info">
-                    Info button
-                </Button>
+                <Button color="info">Info button</Button>
+            </Col>
+            <Col span={6}>
+                <Button icon="devices" color="silent">Silent button</Button>
             </Col>
         </Row>
     </Story>
 </Canvas>
 
 ### Size
+
 <Canvas>
     <Story name="size">
         <Row>
             <Col span={8}>
-                <Button size="small">
-                    Small button
-                </Button>
+                <Button size="small">Small button</Button>
             </Col>
             <Col span={8}>
-                <Button>
-                    Regular button
-                </Button>
+                <Button>Regular button</Button>
             </Col>
             <Col span={8}>
-                <Button size="big">
-                    Big button
-                </Button>
+                <Button size="big">Big button</Button>
             </Col>
         </Row>
     </Story>
 </Canvas>
 
 ### Icon
+
 <Canvas>
     <Story name="icon">
         <Row>
@@ -92,9 +79,7 @@ Use a careful combination of colored buttons where needed.
                 </Button>
             </Col>
             <Col circle span={8}>
-                <Button icon="devices">
-                    Regular icon button
-                </Button>
+                <Button icon="devices">Regular icon button</Button>
             </Col>
             <Col circle span={8}>
                 <Button icon="devices" size="big">
@@ -121,13 +106,12 @@ Use a careful combination of colored buttons where needed.
 </Canvas>
 
 ### Icon color
+
 <Canvas>
     <Story name="icon color">
         <Row>
             <Col span={8}>
-                <Button icon="devices">
-                    Icon color default
-                </Button>
+                <Button icon="devices">Icon color default</Button>
             </Col>
             <Col span={8}>
                 <Button icon="devices" iconColor="primary">
@@ -159,6 +143,7 @@ Use a careful combination of colored buttons where needed.
 </Canvas>
 
 ### Icon right
+
 <Canvas>
     <Story name="icon right">
         <Row>
@@ -182,56 +167,49 @@ Use a careful combination of colored buttons where needed.
 </Canvas>
 
 ### Label color
+
 <Canvas>
     <Story name="label color">
         <Row>
             <Col span={8}>
-                <Button labelColor="success">
-                    Label color success
-                </Button>
+                <Button labelColor="success">Label color success</Button>
             </Col>
             <Col span={8}>
-                <Button labelColor="warning">
-                    Label color warning
-                </Button>
+                <Button labelColor="warning">Label color warning</Button>
             </Col>
             <Col span={8}>
-                <Button labelColor="error">
-                    Label color error
-                </Button>
+                <Button labelColor="error">Label color error</Button>
             </Col>
         </Row>
     </Story>
 </Canvas>
 
 ### Active
+
 <Canvas>
     <Story name="active">
-        <Button active>
-            Active button
-        </Button>
+        <Button active>Active button</Button>
     </Story>
 </Canvas>
 
 ### Disabled
+
 <Canvas>
     <Story name="disabled">
-        <Button disabled>
-            Disabled button
-        </Button>
+        <Button disabled>Disabled button</Button>
     </Story>
 </Canvas>
 
 ### Busy
+
 <Canvas>
     <Story name="busy">
-        <Button busy>
-            Active button
-        </Button>
+        <Button busy>Active button</Button>
     </Story>
 </Canvas>
 
 ### Circle
+
 <Canvas>
     <Story name="circle">
         <Row>
@@ -249,6 +227,7 @@ Use a careful combination of colored buttons where needed.
 </Canvas>
 
 ### Square
+
 <Canvas>
     <Story name="square">
         <Row>
@@ -264,4 +243,3 @@ Use a careful combination of colored buttons where needed.
         </Row>
     </Story>
 </Canvas>
-

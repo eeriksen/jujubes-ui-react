@@ -39,7 +39,7 @@
         }
 
         @include for-phone-only(){
-            padding: var(--spacing_medium) 0;
+            padding: var(--spacing_medium) 5px;
         }
     }
 }

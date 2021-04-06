@@ -1,0 +1,37 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   TIME PICKER
+   =================================================================== */
+
+.base {
+    position: relative;
+}
+
+.preview {
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing_medium);
+    border-bottom: 1px solid rgba(var(--color_base), 0.1);
+
+    .segment {
+        color: rgba(var(--color_primary), 1);
+        display: inline-block;
+        background: transparent;
+        font-size: 4rem;
+        border: none;
+        cursor: pointer;
+        outline: none;
+
+        &.selected {
+            font-weight: var(--fontWeight_bold);
+            border-bottom: 1px dashed rgba(var(--color_primary), 1);
+        }
+    }
+
+    .colon {
+        color: rgba(var(--color_primary), 1);
+        font-size: 3rem;
+        padding: 0 0.3rem;
+    }
+}

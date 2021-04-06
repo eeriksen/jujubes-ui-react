@@ -6,7 +6,7 @@ import styles from "./Col.scss";
 import { Filler } from "../Filler";
 
 export const Col = (props) => {
-    const { span, order, offset, push, pull, gutter, className, children } = props;
+    const { span, order, offset, push, pull, gutter, className, align, children } = props;
 
     let spanLabel = 0;
     let sizeClassObj = {};
@@ -37,10 +37,9 @@ export const Col = (props) => {
                 sizeProps.order || sizeProps.order === 0,
             [styles[`col_${size}_offset_${sizeProps.offset}`]]:
                 sizeProps.offset || sizeProps.offset === 0,
-            [styles[`col_${size}_push_${sizeProps.push}`]]:
-                sizeProps.push || sizeProps.push === 0,
-            [styles[`col_${size}_pull_${sizeProps.pull}`]]:
-                sizeProps.pull || sizeProps.pull === 0
+            [styles[`col_${size}_push_${sizeProps.push}`]]: sizeProps.push || sizeProps.push === 0,
+            [styles[`col_${size}_pull_${sizeProps.pull}`]]: sizeProps.pull || sizeProps.pull === 0,
+            [styles.alignCenter]: align === "center"
         });
     });
 

@@ -26,16 +26,14 @@ function getMessageInstance() {
     return messageInstance;
 }
 
-function notice(content, duration, type, onClose) {
-    const classes = classNames(styles.base, styles[type]);
-
+const NoticeInstance = (content, duration, type, onClose) => {
     let instance = getMessageInstance();
     instance.notice({
         key,
         duration: duration || defaultDuration,
         style: {},
         content: (
-            <div className={classes}>
+            <div className={classNames(styles.base, styles[type])}>
                 <span className={styles.content}>{content}</span>
             </div>
         ),
@@ -48,19 +46,19 @@ function notice(content, duration, type, onClose) {
             instance.removeNotice(target);
         };
     })();
-}
+};
 
 export const Toast = {
     info(content, duration, onClose) {
-        return notice(content, duration, "info", onClose);
+        return NoticeInstance(content, duration, "info", onClose);
     },
 
     success(content, duration, onClose) {
-        return notice(content, duration, "success", onClose);
+        return NoticeInstance(content, duration, "success", onClose);
     },
 
     error(content, duration, onClose) {
-        return notice(content, duration, "error", onClose);
+        return NoticeInstance(content, duration, "error", onClose);
     },
 
     config(options) {

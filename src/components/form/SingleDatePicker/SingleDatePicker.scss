@@ -1,0 +1,80 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   SINGLE DATE PICKER
+   =================================================================== */
+
+.base {
+    // Day picker
+    .dayPicker {
+        .prevButton,
+        .nextButton {
+            position: absolute;
+            top: 22px;
+        }
+
+        .prevButton {
+            left: 22px;
+        }
+
+        .nextButton {
+            right: 22px;
+        }
+    }
+
+    :global {
+        .DayPicker,
+        .DayPicker > div,
+        .DayPicker > div > div,
+        .DayPicker_transitionContainer,
+        .CalendarMonth_table {
+            background-color: transparent !important;
+            width: 100% !important;
+        }
+
+        .CalendarMonth, .CalendarMonthGrid {
+            background-color: transparent !important;
+        }
+
+        .CalendarMonth_caption {
+            padding: 22px 53px 50px;
+        }
+
+        .CalendarMonthGrid {
+            width: 1000% !important;
+        }
+
+        .CalendarMonthGrid_month__horizontal {
+            width: calc(10% - 18px) !important;
+        }
+
+        .DayPicker_weekHeader {
+            top: 90px;
+            width: calc(100% - 9px) !important;
+            z-index: 1;
+        }
+
+        .DayPicker_focusRegion {
+            position: relative;
+            z-index: 2;
+        }
+
+        .CalendarDay,
+        .DayPicker_weekHeader_li {
+            width: 14.285714286% !important;
+        }
+
+        .CalendarDay__selected {
+            background-color: rgba(var(--color_primary), 1) !important;
+            color: rgba(var(--color_primaryContrast), 1) !important;
+        }
+
+        .CalendarDay__today {
+            background-color: rgba(var(--color_attention), 1);
+        }
+
+        .CalendarDay__blocked_calendar, .CalendarDay__blocked_calendar:hover {
+            background-color: rgba(var(--color_base), 0.1);
+        }
+    }
+}

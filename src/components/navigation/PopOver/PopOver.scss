@@ -22,6 +22,7 @@ $distance-pop: 18px;
         background-color: rgba(var(--color_contrast), 1);
         font-weight: var(--fontWeight_regular);
         border-radius: var(--borderRadius_content);
+        text-align: left;
 
         .wrapper {
             z-index: 2;
@@ -78,6 +79,12 @@ $distance-pop: 18px;
     &.sizeLarge {
         .pop {
             width: 300px;
+        }
+    }
+
+    &.padding {
+        .pop {
+            padding: var(--spacing_medium);
         }
     }
 }

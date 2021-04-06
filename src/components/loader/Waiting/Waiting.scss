@@ -1,0 +1,56 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   WAITING
+   =================================================================== */
+
+.base {
+    display: inline-block;
+
+    span {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: rgba(var(--color_primary), 1);
+        animation-name: blink;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: both;
+    }
+
+    span:nth-child(2) {
+        animation-delay: .2s;
+        margin: 0 3px;
+    }
+
+    span:nth-child(3) {
+        animation-delay: .4s;
+    }
+
+    &.colorContrast {
+        span {
+            background-color: rgba(var(--color_contrast), 1);
+        }
+    }
+
+    &.sizeMedium {
+        span {
+            width: 10px;
+            height: 10px;
+        }
+    }
+}
+
+
+@keyframes blink {
+    0% {
+        opacity: .1;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: .1;
+    }
+}

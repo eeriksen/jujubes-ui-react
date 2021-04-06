@@ -1,0 +1,129 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   NAV PANES
+   =================================================================== */
+
+.base {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    max-height: 75vh;
+
+    .layout {
+        flex-grow: 1;
+        position: relative;
+
+        .wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .nav {
+            min-width: 200px;
+            border-right: 1px solid rgba(var(--color_base), 0.15);
+            background-color: rgba(var(--color_base), 0.05);
+
+            .item {
+                height: var(--elementSize_regular);
+                line-height: var(--elementSize_regular);
+                border-top: 1px solid transparent;
+                border-bottom: 1px solid transparent;
+                cursor: pointer;
+                padding: 0 calc(var(--spacing_regular) + 3px);
+                color: rgba(var(--color_base), 0.6);
+                display: flex;
+                @include m-truncate();
+
+                .icon {
+                    display: flex;
+                    align-items: center;
+                    width: 30px;
+                    min-width: 30px;
+                    @include m-iconColor(rgba(var(--color_base), 0.1));
+                }
+
+                .label {
+                    flex-grow: 1;
+                }
+
+                &:hover {
+                    color: rgba(var(--color_base), 1);
+
+                    .icon {
+                        @include m-iconColor(rgba(var(--color_base), 0.3));
+                    }
+                }
+
+                &:first-child {
+                    border-top: none;
+                }
+
+                &.active {
+                    cursor: default;
+                    background-color: rgba(var(--color_backgroundContent), 1);
+                    margin-right: -1px;
+                    color: rgba(var(--color_base), 1);
+                    box-shadow: inset 3px 0 0 0 rgba(var(--color_primary), 1);
+                    font-weight: var(--fontWeight_medium);
+                    border-top-color: rgba(var(--color_base), 0.15);
+                    border-bottom-color: rgba(var(--color_base), 0.15);
+                    border-right: 1px solid rgba(var(--color_base), 0.05);
+
+                    .icon {
+                        @include m-iconColor(rgba(var(--color_primary), 1));
+                    }
+                }
+            }
+        }
+
+        .content {
+            overflow-x: hidden;
+            overflow-y: auto;
+            flex-grow: 1;
+            background-color: rgba(var(--color_contrast), 1);
+        }
+    }
+
+    &.sizeEmbedded {
+        width: 750px;
+
+        @media (max-width: "770px"){
+            width: calc(100vw - 20px);
+        }
+    }
+
+    &.sizeFit {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        max-height: none;
+    }
+
+
+    @include for-tablet-portrait-down() {
+        .layout {
+            .nav {
+                min-width: auto;
+
+                .item {
+                    padding-right: 0;
+
+                    .label {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

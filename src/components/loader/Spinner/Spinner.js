@@ -7,7 +7,8 @@ export const Spinner = ({ size }) => {
     return (
         <div
             className={classNames(styles.base, {
-                [styles.large]: size === "large"
+                [styles.sizeSmall]: size === "small",
+                [styles.sizeLarge]: size === "large"
             })}
         >
             <svg className={styles.circular} viewBox="25 25 50 50">
@@ -21,5 +22,5 @@ Spinner.propTypes = {
     /**
      * Size of spinner
      */
-    size: PropTypes.oneOf(["large"])
+    size: PropTypes.oneOf(["small", "large"])
 };

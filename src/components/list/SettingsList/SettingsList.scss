@@ -1,0 +1,41 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   SETTINGS LIST
+   =================================================================== */
+
+.base {
+
+    .item {
+
+        .title {
+            border-top: 1px solid rgba(var(--color_base), 0.15);
+            border-bottom: 1px solid rgba(var(--color_base), 0.1);
+            height: calc(var(--elementSize_regular) + 1px);
+            line-height: calc(var(--elementSize_regular) + 1px);
+            padding: 0 var(--spacing_regular);
+            @include m-truncate();
+            font-weight: var(--fontWeight_medium);
+            margin-top: -1px;
+
+            .icon {
+                @include m-iconSize(12px);
+                @include m-iconColor(rgba(var(--color_base), 0.2), true);
+                vertical-align: -1px;
+                margin-right: 8px;
+            }
+        }
+
+        .content {
+            padding: var(--spacing_medium);
+        }
+
+        &:hover {
+            .title {
+                .icon {
+                    @include m-iconColor(rgba(var(--color_primary), 1), true);
+                }
+            }
+        }
+    }
+}

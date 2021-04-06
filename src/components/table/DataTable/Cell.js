@@ -6,7 +6,8 @@ export const Cell = ({ align, children }) => {
     return (
         <div
             className={classNames(styles.cell, {
-                [styles.alignRight]: align === "right"
+                [styles.alignRight]: align === "right",
+                [styles.alignCenter]: align === "center"
             })}
         >
             {children}

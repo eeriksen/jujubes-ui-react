@@ -55,7 +55,7 @@ export default {
         borderRadius_buttons: "5px",
         borderRadius_content: "5px",
 
-        boxShadow_regular: "0 1px 10px 1px rgba(var(--color_base), 0.08)",
+        boxShadow_regular: "0 1px 10px 1px rgba(var(--color_base), 0.1)",
         boxShadow_medium: "0 1px 15px 1px rgba(var(--color_base), 0.3)",
         boxShadow_large: "0 1px 25px 1px rgba(var(--color_base), 0.3)",
 

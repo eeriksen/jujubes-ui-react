@@ -5,6 +5,7 @@
    =================================================================== */
 
 $height--bar: 16px;
+$height--bar-small: 5px;
 $color--bar-animation: rgba(0, 0, 0, 0.1);
 
 
@@ -67,6 +68,17 @@ $color--bar-animation: rgba(0, 0, 0, 0.1);
     &.colorError {
         .bar .trail .indicator {
             background: rgba(var(--color_error), 1);
+        }
+    }
+
+    &.sizeSmall {
+        .bar .trail {
+            height: $height--bar-small;
+            border-radius: $height--bar-small;
+
+            .indicator {
+                border-radius: $height--bar-small;
+            }
         }
     }
 

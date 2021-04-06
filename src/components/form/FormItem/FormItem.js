@@ -5,12 +5,11 @@ import classNames from "classnames";
 import { Row } from "../../grid/Row";
 import { Col } from "../../grid/Col";
 
-export const FormItem = ({ children, label, error, className, info, responsive }) => {
+export const FormItem = ({ children, label, error, className, info }) => {
     // Classes
     const baseClasses = classNames(
         styles.base,
         {
-            [styles.responsive]: responsive,
             [styles.error]: error
         },
         className
@@ -20,7 +19,7 @@ export const FormItem = ({ children, label, error, className, info, responsive }
         <div className={baseClasses}>
             <Row gutter={["regular", "none"]}>
                 {/* Label */}
-                <Col lg={responsive ? 6 : 24} className={styles.label}>
+                <Col span={24} className={styles.label}>
                     {label ? (
                         <label>
                             {label}
@@ -32,7 +31,7 @@ export const FormItem = ({ children, label, error, className, info, responsive }
                 </Col>
 
                 {/* Field */}
-                <Col lg={responsive ? 12 : 24} className={styles.field}>
+                <Col span={24} className={styles.field}>
                     {React.Children.map(children, (child) => {
                         // Check if null
                         if (!child) {
@@ -54,10 +53,6 @@ export const FormItem = ({ children, label, error, className, info, responsive }
             </Row>
         </div>
     );
-};
-
-FormItem.defaultValues = {
-    responsive: false
 };
 
 FormItem.propTypes = {

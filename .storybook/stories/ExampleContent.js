@@ -4,9 +4,11 @@ import { Page } from "../../src/components/page/Page";
 import { PageActions, Action } from "../../src/components/page/PageActions";
 import { PageCrumbs, Crumb } from "../../src/components/page/PageCrumbs";
 import { PageHeader } from "../../src/components/page/PageHeader";
+import { PageButtons, PageButton } from "../../src/components/page/PageButtons";
 import { Card } from "../../src/components/card/Card";
 import { CardTitle } from "../../src/components/card/CardTitle";
 import { CardContent } from "../../src/components/card/CardContent";
+import { CardLoadMore } from "../../src/components/card/CardLoadMore";
 import { Form } from "../../src/components/form/Form";
 import { FormItem } from "../../src/components/form/FormItem";
 import { FormButtons } from "../../src/components/form/FormButtons";
@@ -20,7 +22,7 @@ import { Col } from "../../src/components/grid/Col";
 import { Popup, PopupTitle, PopupContent, PopupFooter } from "../../src/components/notify/Popup";
 import { DataTable, Column, Cell } from "../../src/components/table/DataTable";
 import { Select, Option } from "../../src/components/form/Select";
-import { axios } from "../../src/services";
+import { Toast } from "../../src/components/notify/Toast";
 
 import * as themes from "../../src/styles/themes";
 
@@ -30,6 +32,7 @@ export const ExampleContent = () => {
     const [showCreatePagePrompt, setShowCreatePagePrompt] = useState(false);
     const [data, setData] = useState({});
     const [busyLoading, setBusyLoading] = useState(true);
+    const [activePageButton, setActivePageButton] = useState(1);
     const [tableRows] = useState([
         {
             id: 1,
@@ -75,18 +78,19 @@ export const ExampleContent = () => {
         }
     ]);
 
-    useEffect(() => {
-        axios.defaults.baseURL = "http://localhost:8080";
+    const showToast = () => {
+        Toast.success("This is a toast");
+    };
 
-        axios.get("/jalla");
+    useEffect(() => {
         setTimeout(() => {
             setBusyLoading(false);
-        }, 2000);
+        }, 1000);
     }, []);
 
     return (
         <Page loading={busyLoading}>
-            <PageHeader icon="gear" title="Example layout" />
+            <PageHeader icon="gear" title="Example layout" subtitle="Kembo UI" />
             <PageCrumbs>
                 <Crumb label="Start" link="/" />
                 <Crumb label="Company" link="/companies" />
@@ -104,6 +108,13 @@ export const ExampleContent = () => {
                     Delete page
                 </Action>
             </PageActions>
+            <PageButtons>
+                <PageButton active={activePageButton === 1} onClick={() => setActivePageButton(1)} icon="edit" label="Details" />
+                <PageButton active={activePageButton === 2} onClick={() => setActivePageButton(2)} icon="devices" label="Devices" count={29} />
+                <PageButton active={activePageButton === 3} onClick={() => setActivePageButton(3) || showToast()} icon="palette" label="Theme" />
+                <PageButton active={activePageButton === 4} onClick={() => setActivePageButton(4)} icon="bell" label="Notifications" />
+                <PageButton active={activePageButton === 5} onClick={() => setActivePageButton(5)} icon="gear" label="Settings" />
+            </PageButtons>
             <Row>
                 <Col lg={18}>
                     <Row>
@@ -133,12 +144,14 @@ export const ExampleContent = () => {
                         </Col>
                         <Col span={24}>
                             <Card>
-                                <CardTitle title="Card with table" />
+                                <CardTitle title="Card with table">
+                                    <Badge color="primary">878</Badge>
+                                </CardTitle>
                                 <CardContent>
                                     <DataTable
-                                        loading={true}
                                         rows={tableRows}
                                         onRowClick={(data) => console.log("CLICK", data)}
+                                        onLoadMore={() => console.log("LOAD MORE")}
                                         rowModifiers={{
                                             blink: (row) => row.id === 3000,
                                             disabled: (row) => row.id === 5000
@@ -174,6 +187,7 @@ export const ExampleContent = () => {
                                         />
                                     </DataTable>
                                 </CardContent>
+                                <CardLoadMore progress={30} onClick={() => console.log("CLICK")} />
                             </Card>
                         </Col>
                         <Col span={24}>
@@ -206,45 +220,49 @@ export const ExampleContent = () => {
                                     ]}
                                 />
                                 <CardContent>
-                                    <Form responsive onSubmit={() => console.log("SUBMIT")}>
-                                        <FormItem label="Your name">
-                                            <Input
-                                                value={data.name}
-                                                onChange={(e) =>
-                                                    setData({
-                                                        ...data,
-                                                        name: e.target.value
-                                                    })
-                                                }
-                                                placeholder="Write here..."
-                                            />
-                                        </FormItem>
-                                        <FormItem label="Your comment">
-                                            <Textarea
-                                                value={data.comment}
-                                                onChange={(e) =>
-                                                    setData({
-                                                        ...data,
-                                                        comment: e.target.value
-                                                    })
-                                                }
-                                                placeholder="Write here..."
-                                            />
-                                        </FormItem>
-                                        <FormItem>
-                                            <Checkbox
-                                                checked={data.checked}
-                                                onChange={(val) =>
-                                                    setData({
-                                                        ...data,
-                                                        checked: val
-                                                    })
-                                                }
-                                            >
-                                                Send to everyone
-                                            </Checkbox>
-                                        </FormItem>
-                                    </Form>
+                                    <Row>
+                                        <Col lg={14} md={24}>
+                                            <Form onSubmit={() => console.log("SUBMIT")}>
+                                                <FormItem label="Your name">
+                                                    <Input
+                                                        value={data.name}
+                                                        onChange={(value) =>
+                                                            setData({
+                                                                ...data,
+                                                                name: value
+                                                            })
+                                                        }
+                                                        placeholder="Write here..."
+                                                    />
+                                                </FormItem>
+                                                <FormItem label="Your comment">
+                                                    <Textarea
+                                                        value={data.comment}
+                                                        onChange={(value) =>
+                                                            setData({
+                                                                ...data,
+                                                                comment: value
+                                                            })
+                                                        }
+                                                        placeholder="Write here..."
+                                                    />
+                                                </FormItem>
+                                                <FormItem>
+                                                    <Checkbox
+                                                        checked={data.checked}
+                                                        onChange={(val) =>
+                                                            setData({
+                                                                ...data,
+                                                                checked: val
+                                                            })
+                                                        }
+                                                    >
+                                                        Send to everyone
+                                                    </Checkbox>
+                                                </FormItem>
+                                            </Form>
+                                        </Col>
+                                    </Row>
                                 </CardContent>
                                 <CardContent border="top">
                                     <FormButtons>

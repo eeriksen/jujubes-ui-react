@@ -1,14 +1,15 @@
-import React, {useState} from "react"
-import styles from "./PageActions.scss"
-import classNames from "classnames"
+import React, { useState, useContext } from "react";
+import styles from "./PageActions.scss";
+import classNames from "classnames";
 
-import { Clickable } from "../../button/Clickable"
-import { Icon } from "../../graphic/Icon"
-import { Menu, MenuItem } from "../../navigation/Menu"
-import { PopOver } from "../../navigation/PopOver"
+import { AppContext } from "../../layout/AppContext";
+import { Clickable } from "../../button/Clickable";
+import { Icon } from "../../graphic/Icon";
+import { Menu, MenuItem } from "../../navigation/Menu";
+import { PopOver } from "../../navigation/PopOver";
 
-
-export const PageActions = ({children}) => {
+export const PageActions = ({ children }) => {
+    const { currentPage } = useContext(AppContext);
     const [visible, setVisible] = useState(false);
 
     /**
@@ -19,38 +20,42 @@ export const PageActions = ({children}) => {
         setVisible(!visible);
     };
 
-
-    // Button classes
-    const buttonClasses = classNames(styles.button, {
-        [styles.active]: visible
-    });
-
     return (
-        <div className={styles.base}>
-            <PopOver visible={visible}
-                     content={renderMenu(children)}
-                     onClose={() => setVisible(false)}>
-                <Clickable className={buttonClasses} onClick={handleActionClick}>
+        <div className={classNames(styles.base, {
+            [styles.evadeButtons]: currentPage.hasButtons
+        })}>
+            <PopOver
+                visible={visible}
+                content={renderMenu(children)}
+                onClose={() => setVisible(false)}
+            >
+                <Clickable
+                    className={classNames(styles.button, {
+                        [styles.active]: visible
+                    })}
+                    onClick={handleActionClick}
+                >
                     <Icon name="lightning" />
                 </Clickable>
             </PopOver>
         </div>
-    )
-}
+    );
+};
 
 const renderMenu = (items) => {
     return (
         <div className={styles.menu}>
             <Menu>
-                {items && React.Children.map(items, (child, index) => (
-                    <MenuItem
-                        key={index}
-                        icon={child.props.icon}
-                        label={child.props.children}
-                        {...child.props}
-                    />
-                ))}
+                {items &&
+                    React.Children.map(items, (child, index) => (
+                        <MenuItem
+                            key={index}
+                            icon={child.props.icon}
+                            label={child.props.children}
+                            {...child.props}
+                        />
+                    ))}
             </Menu>
         </div>
-    )
-}
+    );
+};

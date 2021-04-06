@@ -51,16 +51,4 @@
         }
     }
 
-    // RESPONSIVE
-    @include for-desktop-up() {
-        &.responsive {
-            .label {
-                label {
-                    text-align: right;
-                    line-height: var(--elementSize_regular);
-                    margin-bottom: 0;
-                }
-            }
-        }
-    }
 }

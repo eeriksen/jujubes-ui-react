@@ -6,7 +6,7 @@
 
 .base {
     position: relative;
-    margin-bottom: var(--spacing_large);
+    margin-bottom: 3rem;
     display: flex;
 
     .icon {
@@ -84,7 +84,7 @@
 
 @include for-phone-only(){
     .base {
-        margin-bottom: var(--spacing_medium);
+        margin: 0 -3px var(--spacing_medium);
         padding: 0 calc(var(--spacing_edges) + 40px) 0 var(--spacing_edges);
 
         .icon {

@@ -21,7 +21,7 @@ $height--button-small: var(--elementSize_small);
     border-radius: var(--borderRadius_buttons);
     text-decoration: none;
     user-select: none;
-    transition: border-color 0.3s linear, color .3s linear, background-color .3s linear;
+    transition: border-color 0.3s linear, color 0.3s linear, background-color 0.3s linear;
     padding: 0 var(--spacing_large);
 
     .content {
@@ -41,6 +41,7 @@ $height--button-small: var(--elementSize_small);
         bottom: 0;
         background: transparent;
         pointer-events: none;
+        border-radius: var(--borderRadius_buttons);
     }
 
     &:hover {
@@ -53,7 +54,8 @@ $height--button-small: var(--elementSize_small);
         }
     }
 
-    &:active, &.active {
+    &:active,
+    &.active {
         box-shadow: none;
 
         .shade {
@@ -66,7 +68,9 @@ $height--button-small: var(--elementSize_small);
 }
 
 // Disabled
-.base[disabled], .base[disabled]:hover, .base[disabled]:active {
+.base[disabled],
+.base[disabled]:hover,
+.base[disabled]:active {
     border-color: transparent;
     background-color: rgba(var(--color_base), 0.03);
     color: rgba(var(--color_base), 0.3);
@@ -74,7 +78,7 @@ $height--button-small: var(--elementSize_small);
     cursor: default;
 
     .icon {
-        @include m-iconColor(rgba(var(--color_base), 0.20) !important);
+        @include m-iconColor(rgba(var(--color_base), 0.2) !important);
     }
 
     .shade {
@@ -85,7 +89,6 @@ $height--button-small: var(--elementSize_small);
         color: rgba(var(--color_base), 0.3);
     }
 }
-
 
 /* ===================================================================
    LOADER (Busy)
@@ -101,8 +104,6 @@ $height--button-small: var(--elementSize_small);
     align-items: center;
 }
 
-
-
 /* ===================================================================
    BUTTON ICON
    =================================================================== */
@@ -111,7 +112,6 @@ $height--button-small: var(--elementSize_small);
     .icon {
         vertical-align: -3px;
         margin-right: 8px;
-        margin-left: 0;
         @include m-iconColor(rgba(var(--color_base), 1));
     }
 
@@ -158,6 +158,13 @@ $height--button-small: var(--elementSize_small);
         }
     }
 
+    // Contrast colored icon
+    &.iconContrast {
+        .icon {
+            @include m-iconColor(rgba(var(--color_contrast), 1));
+        }
+    }
+
     // Hide icon
     &.hideIcon {
         .icon {
@@ -166,42 +173,44 @@ $height--button-small: var(--elementSize_small);
     }
 }
 
-
 /* ===================================================================
    LABEL COLOR
    =================================================================== */
 
-.base {
-    &.labelPrimary {
+.labelColorPrimary {
+    color: rgba(var(--color_primary), 1);
+    &:hover {
         color: rgba(var(--color_primary), 1);
-        &:hover {
-            color: rgba(var(--color_primary), 1);
-        }
-    }
-
-    &.labelSuccess {
-        color: rgba(var(--color_success), 1);
-        &:hover {
-            color: rgba(var(--color_success), 1);
-        }
-    }
-
-    &.labelWarning {
-        color: rgba(var(--color_warning), 1);
-        &:hover {
-            color: rgba(var(--color_warning), 1);
-        }
-    }
-
-    &.labelError {
-        color: rgba(var(--color_error), 1);
-        &:hover {
-            color: rgba(var(--color_error), 1);
-        }
     }
 }
 
+.labelColorSuccess {
+    color: rgba(var(--color_success), 1);
+    &:hover {
+        color: rgba(var(--color_success), 1);
+    }
+}
 
+.labelColorWarning {
+    color: rgba(var(--color_warning), 1);
+    &:hover {
+        color: rgba(var(--color_warning), 1);
+    }
+}
+
+.labelColorError {
+    color: rgba(var(--color_error), 1);
+    &:hover {
+        color: rgba(var(--color_error), 1);
+    }
+}
+
+/* ===================================================================
+   LABEL SIZE
+   =================================================================== */
+.labelSizeBig {
+    font-size: var(--fontSize_medium);
+}
 
 /* ===================================================================
    BUTTON COLORS
@@ -209,7 +218,7 @@ $height--button-small: var(--elementSize_small);
 
 .colorDefault {
     color: rgba(var(--color_base), 1);
-    border: 1px solid rgba(var(--color_base), 0.20);
+    border: 1px solid rgba(var(--color_base), 0.2);
     background: rgba(var(--color_contrast), 1);
 
     &:hover {
@@ -294,26 +303,21 @@ $height--button-small: var(--elementSize_small);
     }
 }
 
-.silent {
+.colorSilent {
     color: rgba(var(--color_base), 0.8);
     border-color: rgba(var(--color_base), 0.05);
-    background-color: rgba(var(--color_contrast), 1);
+    background-color: transparent;
 
     .icon {
         @include m-iconColor(rgba(var(--color_base), 0.8));
     }
 
     &:hover {
-        border-color: rgba(var(--color_base), 0.20);
+        border-color: rgba(var(--color_base), 0.2);
         color: rgba(var(--color_base), 0.8);
-    }
-
-    &:active, &.active {
-        border-color: rgba(var(--color_base), 0.3);
+        box-shadow: none;
     }
 }
-
-
 
 /* ===================================================================
    BUTTON SIZES
@@ -385,18 +389,10 @@ $height--button-small: var(--elementSize_small);
 .fill {
     display: block;
     width: 100%;
+    padding: 0;
 }
 
 .hideLabel {
     transition: color 0s ease;
     color: rgba(0, 0, 0, 0) !important;
 }
-
-
-/* ===================================================================
-   RESPONSIVE
-   =================================================================== */
-
-   @include for-phone-only(){
-
-   }

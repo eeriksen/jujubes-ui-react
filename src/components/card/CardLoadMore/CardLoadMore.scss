@@ -1,0 +1,62 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   CARD LOAD MORE
+   =================================================================== */
+
+.base {
+    position: relative;
+    height: var(--elementSize_big);
+    border-top: 1px solid rgba(var(--color_base), 0.10);
+
+    .progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        height: 4px;
+        background: rgba(var(--color_background), 0.6);
+        overflow: hidden;
+
+        .bar {
+            position: absolute;
+            top: 0px;
+            left: 0;
+            height: 100%;
+            background: rgba(var(--color_primary), 1);
+            transition: width 0.2s ease;
+        }
+    }
+
+    .button {
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: none;
+        outline: none;
+        cursor: default;
+        background: rgba(var(--color_background), 0.4);
+        transition: background-color .3s linear;
+        @include m-iconColor(rgba(var(--color_primary), 1));
+
+        &[disabled] {
+            background: rgba(var(--color_background), 0.4);
+        }
+
+        &:hover:not([disabled]) {
+            cursor: pointer;
+            background: rgba(var(--color_background), 0);
+        }
+
+        &:active:not([disabled]) {
+            transition: none;
+            background: rgba(var(--color_background), 0.6);
+        }
+    }
+
+}

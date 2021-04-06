@@ -3,9 +3,9 @@ import styles from "./FormButtons.scss";
 import { ButtonRow } from "../../button/ButtonRow";
 import { FormItem } from "../FormItem/FormItem";
 
-export const FormButtons = ({ children, responsive }) => {
+export const FormButtons = ({ children }) => {
     return (
-        <FormItem responsive={responsive}>
+        <FormItem>
             <div className={styles.base}>
                 <ButtonRow>{children}</ButtonRow>
             </div>

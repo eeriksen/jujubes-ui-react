@@ -18,6 +18,7 @@ export const Button = ({
     iconRight,
     iconColor,
     labelColor,
+    labelSize,
     hideIcon,
     hideLabel,
     type,
@@ -68,11 +69,10 @@ export const Button = ({
         [styles.colorWarning]: color === "warning",
         [styles.colorError]: color === "error",
         [styles.colorInfo]: color === "info",
+        [styles.colorSilent]: color === "silent",
 
         [styles.sizeSmall]: size === "small",
         [styles.sizeBig]: size === "big",
-
-        [styles.silent]: color === "silent",
 
         [styles.active]: active,
         [styles.circle]: circle,
@@ -88,11 +88,14 @@ export const Button = ({
         [styles.iconSuccess]: iconColor === "success",
         [styles.iconWarning]: iconColor === "warning",
         [styles.iconError]: iconColor === "error",
+        [styles.iconContrast]: iconColor === "contrast",
 
-        [styles.labelPrimary]: labelColor === "primary",
-        [styles.labelSuccess]: labelColor === "success",
-        [styles.labelWarning]: labelColor === "warning",
-        [styles.labelError]: labelColor === "error"
+        [styles.labelColorPrimary]: labelColor === "primary",
+        [styles.labelColorSuccess]: labelColor === "success",
+        [styles.labelColorWarning]: labelColor === "warning",
+        [styles.labelColorError]: labelColor === "error",
+
+        [styles.labelSizeBig]: labelSize === "big"
     }, className);
 
     // Properties
@@ -149,7 +152,7 @@ Button.propTypes = {
     /**
      * Color of button
      */
-    color: PropTypes.oneOf(["primary", "secondary", "info", "success", "warning", "error"]),
+    color: PropTypes.oneOf(["primary", "secondary", "info", "success", "warning", "error", "silent"]),
 
     /**
      * Size of button
@@ -189,7 +192,7 @@ Button.propTypes = {
     /**
      * Color of the icon on the button
      */
-    iconColor: PropTypes.oneOf(["primary", "secondary", "info", "success", "warning", "error"]),
+    iconColor: PropTypes.oneOf(["primary", "secondary", "info", "success", "warning", "error", "contrast"]),
 
     /**
      * Display the icon to the right of the label.
@@ -199,5 +202,10 @@ Button.propTypes = {
     /**
      * Change the color of the text label.
      */
-    labelColor: PropTypes.oneOf(["success", "warning", "error"])
+    labelColor: PropTypes.oneOf(["success", "warning", "error"]),
+
+    /**
+     * Size of label text
+     */
+    labelSize: PropTypes.oneOf(["big"])
 };

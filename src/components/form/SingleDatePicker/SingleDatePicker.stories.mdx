@@ -1,0 +1,40 @@
+import { useState } from "react";
+import moment from "moment";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { SingleDatePicker } from "./SingleDatePicker";
+
+<Meta title="Components/Forms/SingleDatePicker" component={SingleDatePicker} />
+
+# SingleDatePicker
+
+Write something here.
+
+<ArgsTable of={SingleDatePicker} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        {() => {
+            const [date, setDate] = useState(null);
+            return <SingleDatePicker value={date} onChange={setDate} />;
+        }}
+    </Story>
+</Canvas>
+
+### Blocked days
+
+<Canvas>
+    <Story name="blocked days">
+        {() => {
+            const [date, setDate] = useState(null);
+            const handleBlockedDay = (day) => {
+                const diff = day.diff(moment(), "days");
+                return diff < 0;
+            };
+            return (
+                <SingleDatePicker value={date} onChange={setDate} isDayBlocked={handleBlockedDay} />
+            );
+        }}
+    </Story>
+</Canvas>

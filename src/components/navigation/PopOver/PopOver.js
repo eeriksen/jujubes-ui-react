@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./PopOver.scss";
 import classNames from "classnames";
 
-export const PopOver = (props) => {
-    const { visible, onClose, children, content, arrowColor, size } = props;
+export const PopOver = ({ visible, onClose, children, content, arrowColor, size, padding }) => {
     const baseRef = useRef(null);
     const popRef = useRef(null);
     const [topPos, setTopPos] = useState(0);
@@ -27,7 +26,7 @@ export const PopOver = (props) => {
      * @private
      */
     const redrawPosition = () => {
-        const $base = baseRef.current;
+        const $base = baseRef.current.childNodes[0];
         const $pop = popRef.current;
         const baseVal = $base.getBoundingClientRect();
         const popVal = $pop.getBoundingClientRect();
@@ -37,7 +36,6 @@ export const PopOver = (props) => {
         const distanceFromBottom = windowHeight - (baseVal.y + baseVal.height);
         const baseBiggerThanPop = baseVal.width > popVal.width;
         const shouldPositionTop = distanceFromBottom <= popVal.height;
-        const shouldPositionLeft = windowWidth - baseVal.x < 300;
 
         if (shouldPositionTop) {
             setTopPos(-1 * popVal.height);
@@ -47,13 +45,32 @@ export const PopOver = (props) => {
             setPosition("bottom");
         }
 
-        if (shouldPositionLeft) {
-            setLeftPos(baseVal.width - popVal.width);
-            setArrowLeftPos(popVal.width - baseVal.width / 2);
-        } else if (baseBiggerThanPop) {
-            setLeftPos((baseVal.width - popVal.width) / 2);
+        const leftSpace = baseVal.x;
+        const rightSpace = windowWidth - (baseVal.x + baseVal.width);
+        const hasLeftSpace = leftSpace >= (popVal.width / 2);
+        const hasRightSpace = rightSpace >= (popVal.width / 2);
+
+        // If no space on either left or right, we leave in middle
+        if(!hasLeftSpace && !hasRightSpace){
+            if(baseBiggerThanPop){
+                setLeftPos((baseVal.width - popVal.width) / 2);
+            }else {
+                setLeftPos((popVal.width - baseVal.width) / -2);
+            }
             setArrowLeftPos(popVal.width / 2);
-        } else {
+        }
+
+        else if(hasLeftSpace && !hasRightSpace){
+            setLeftPos(-(popVal.width - baseVal.width));
+            setArrowLeftPos(popVal.width - baseVal.width + (baseVal.width / 2))
+        }
+
+        else if(hasLeftSpace && hasRightSpace){
+            setLeftPos((popVal.width - baseVal.width) / -2);
+            setArrowLeftPos(popVal.width / 2);
+        }
+
+        else {
             setLeftPos(0);
             setArrowLeftPos(baseVal.width / 2);
         }
@@ -71,7 +88,8 @@ export const PopOver = (props) => {
     const baseClasses = classNames(styles.base, {
         [styles.visible]: visible,
         [styles.sizeLarge]: size === "large",
-        [styles.onTop]: position === "top"
+        [styles.onTop]: position === "top",
+        [styles.padding]: padding
     });
 
     return (
@@ -127,9 +145,15 @@ PopOver.propTypes = {
     /**
      * The element that will show the pop over, usually a button
      */
-    children: PropTypes.element
+    children: PropTypes.element,
+
+    /**
+     * Padding around content
+     */
+    padding: PropTypes.bool
 };
 
 PropTypes.defaultValues = {
-    visible: false
+    visible: false,
+    padding: false
 };

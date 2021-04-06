@@ -1,0 +1,43 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { SettingsList } from "./SettingsList";
+import { Item } from "./Item";
+
+<Meta title="Components/Lists/SettingsList" component={SettingsList} />
+
+# SettingsList
+
+Write something here.
+
+<ArgsTable of={SettingsList} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        <SettingsList>
+            <Item title="First section">
+                Bacon ipsum dolor amet jowl pork loin corned beef meatball strip steak. Pork loin tenderloin kielbasa
+                ham hock pork belly beef ribs turducken. Picanha ham hock drumstick tail venison cupim kevin beef
+                meatball spare ribs jowl ham hamburger kielbasa. Chuck biltong leberkas, pastrami sausage buffalo doner
+                hamburger boudin pork loin beef ribs spare ribs kevin ham. Pork belly porchetta swine frankfurter
+                tri-tip chicken. Tenderloin landjaeger meatloaf jowl flank ham, brisket swine cupim leberkas drumstick
+                boudin alcatra. Chuck flank alcatra ground round sausage.
+            </Item>
+            <Item title="Second section">
+                Turkey pork belly filet mignon buffalo pancetta. Pancetta rump turducken tri-tip doner. Porchetta pork
+                chop chicken, tail jerky buffalo ribeye ham t-bone pastrami meatball. Corned beef chuck buffalo swine,
+                pork chop t-bone chicken ball tip bresaola filet mignon spare ribs shankle burgdoggen picanha leberkas.
+                Picanha drumstick rump, corned beef t-bone sausage turkey leberkas shankle cow ribeye ball tip bacon.
+                Pork loin leberkas filet mignon swine, ground round salami turducken shankle corned beef hamburger strip
+                steak tenderloin kevin turkey picanha. Buffalo fatback filet mignon venison andouille beef alcatra flank
+                picanha tongue salami short ribs.
+            </Item>
+            <Item title="Third section">
+                Shoulder turducken flank pastrami landjaeger filet mignon. Bresaola meatloaf ball tip, jowl strip steak
+                alcatra pork loin sirloin prosciutto meatball. Meatloaf ball tip boudin beef. Kevin shank pastrami
+                alcatra pig pork chop beef ribs pancetta.
+            </Item>
+        </SettingsList>
+    </Story>
+</Canvas>

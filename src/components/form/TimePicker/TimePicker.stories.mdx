@@ -1,0 +1,22 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { TimePicker } from "./TimePicker";
+
+<Meta title="Components/Forms/TimePicker" component={TimePicker} />
+
+# TimePicker
+
+Write something here.
+
+<ArgsTable of={TimePicker} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        {() => {
+            const [date, setDate] = useState(null);
+            return <TimePicker value={date} onChange={setDate} />;
+        }}
+    </Story>
+</Canvas>

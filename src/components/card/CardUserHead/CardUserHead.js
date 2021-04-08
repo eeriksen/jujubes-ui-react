@@ -4,7 +4,7 @@ import styles from "./CardUserHead.scss";
 import { Icon } from "../../graphic/Icon";
 
 export const CardUserHead = (props) => {
-    const { picture, name, email, alt } = props;
+    const { picture, name, about, alt } = props;
 
     return (
         <div className={styles.base}>
@@ -20,7 +20,9 @@ export const CardUserHead = (props) => {
                 </div>
                 <div className={styles.details}>
                     <div className={styles.name}>{name}</div>
-                    <div className={styles.email}>{email}</div>
+                    {about ? (
+                        <div className={styles.about}>{about}</div>
+                    ) : null}
                 </div>
             </div>
         </div>
@@ -39,7 +41,7 @@ CardUserHead.propTypes = {
     name: PropTypes.string,
 
     /**
-     * Email of user
+     * Other info (i.e. email, jobtitle)
      */
-    email: PropTypes.string
+    about: PropTypes.string
 };

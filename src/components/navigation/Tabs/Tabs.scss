@@ -9,6 +9,7 @@ $height-tabs: var(--elementSize_regular);
 .base {
     .tabs {
         height: $height-tabs;
+        overflow: hidden;
 
         .wrapper {
             position: absolute;

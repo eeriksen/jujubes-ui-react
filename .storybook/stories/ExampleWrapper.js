@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import moment from "moment";
 import { AppLayout } from "../../src/components/layout/AppLayout";
 import { AppNav } from "../../src/components/layout/AppNav";
 import { AppBar } from "../../src/components/layout/AppBar";
@@ -31,7 +32,7 @@ export const ExampleWrapper = ({ children }) => {
                         />
                     </AppBar.Item>
                     <AppBar.Item placeRight>
-                        <UserMenu name={user.name} email={user.email} picture={user.pictureUrl}>
+                        <UserMenu name={user.name} about={user.email} picture={user.pictureUrl}>
                             <Menu>
                                 <MenuItem
                                     selected={activeMenuItem === 1}

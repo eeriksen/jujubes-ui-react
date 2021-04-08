@@ -25,14 +25,14 @@ $spacing-sides: $spacing--nav-sides;
         display: flex;
         align-items: center;
         width: 32px;
-        @include m-iconColor(rgba(var(--nav_accentColor), 0.5), true);
+        @include m-iconColor(rgba(var(--navMain_accentColor), 0.5), true);
     }
 
     // Label
     .label {
         @include m-truncate();
         text-decoration: none;
-        color: rgba(var(--nav_textColor), 0.4);
+        color: rgba(var(--navMain_foregroundColor), 0.4);
         font-weight: var(--fontWeight_medium);
         flex-grow: 1;
         transition: color 0.2s ease-in-out;
@@ -46,7 +46,7 @@ $spacing-sides: $spacing--nav-sides;
         // Arrow
         .arrow {
             @include m-iconSize(8px);
-            @include m-iconColor(rgba(var(--nav_textColor), 0.2), true);
+            @include m-iconColor(rgba(var(--navMain_foregroundColor), 0.2), true);
         }
     }
 
@@ -57,15 +57,15 @@ $spacing-sides: $spacing--nav-sides;
         cursor: pointer;
 
         .icon {
-            @include m-iconColor(rgba(var(--nav_accentColor), 1));
+            @include m-iconColor(rgba(var(--navMain_accentColor), 1));
         }
 
         .label {
-            color: rgba(var(--nav_textColor), 1);
+            color: rgba(var(--navMain_foregroundColor), 1);
         }
 
         .arrow {
-            @include m-iconColor(rgba(var(--nav_textColor), 1));
+            @include m-iconColor(rgba(var(--navMain_foregroundColor), 1));
         }
     }
 

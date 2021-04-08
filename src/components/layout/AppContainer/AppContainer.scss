@@ -5,7 +5,8 @@
    =================================================================== */
 
 :root {
-    height: 100%;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
     background-color: rgba(var(--color_background), 1);
     font-size: var(--fontSize_root);
     margin: 0;

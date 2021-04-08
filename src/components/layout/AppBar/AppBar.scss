@@ -12,7 +12,7 @@
 
     .mainBar {
         position: relative;
-        background: rgba(var(--nav_accentColor), 1);
+        background: rgba(var(--navTop_backgroundColor), 1);
         box-shadow: var(--boxShadow_regular);
         height: $appBar--height;
         display: flex;
@@ -31,7 +31,7 @@
                 text-align: center;
                 font-size: var(--fontSize_heading4);
                 font-weight: var(--fontWeight_medium);
-                color: rgba(var(--nav_textColor), 1);
+                color: rgba(var(--navTop_foregroundColor), 1);
                 padding: 0 var(--spacing_regular);
                 @include m-truncate();
             }

@@ -1,12 +1,12 @@
 import React, { useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import styles from "./PageButtons.scss";
+import styles from "./PageNav.scss";
 import { Clickable } from "../../button/Clickable";
 import { Icon } from "../../graphic/Icon";
 import { AppContext } from "../../layout/AppContext";
 
-export const PageButton = ({ icon, label, count, active, onClick, link }) => {
+export const NavButton = ({ icon, label, count, active, onClick, link }) => {
     const { currentPage, setCurrentPage } = useContext(AppContext);
 
     useEffect(() => {
@@ -46,7 +46,7 @@ export const PageButton = ({ icon, label, count, active, onClick, link }) => {
     );
 };
 
-PageButton.propTypes = {
+NavButton.propTypes = {
     /**
      * The text label of the button.
      */

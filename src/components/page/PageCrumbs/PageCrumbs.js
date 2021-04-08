@@ -10,7 +10,9 @@ export const PageCrumbs = ({ children }) => {
             <div className={styles.leftFade} />
             <div className={styles.rightFade} />
             <ScrollableArea>
-                <div className={styles.container}>{Object.assign([], children).reverse()}</div>
+                <div className={styles.container}>
+                    {Object.assign([], children).reverse()}
+                </div>
             </ScrollableArea>
         </div>
     );

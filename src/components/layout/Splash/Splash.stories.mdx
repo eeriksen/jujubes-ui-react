@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
-import { Splash, SplashTitle, SplashContent, SplashActions } from ".";
+import { Splash } from "./Splash";
+import { SplashContent } from "./SplashContent";
+import { SplashTitle } from "./SplashTitle";
 import { Form } from "../../form/Form";
 import { FormItem } from "../../form/FormItem";
 import { Input } from "../../form/Input";
 import { Button } from "../../button/Button";
 import { Logo } from "../../graphic/Logo";
 import { ComponentWrapper } from "../../layout/ComponentWrapper";
+import { Text } from "../../typography";
+import { Row, Col } from "../../grid";
+import { Callout } from "../../notify";
 
 <Meta title="Components/Layout/Splash" component={Splash} />
 
@@ -25,14 +30,29 @@ a limited set of choices.
         {() => {
             const [username, setUsername] = useState(null);
             const [password, setPassword] = useState(null);
+            const [busy, setBusy] = useState(false);
+            const [error, setError] = useState(false);
+            const simulateLogin = () => {
+                setBusy(true);
+                setTimeout(() => {
+                    setBusy(false);
+                    setError(!error);
+                }, 2000);
+            };
             return (
                 <ComponentWrapper>
                     <Splash
                         logo={<Logo width={180} />}
                         footer={`Kembo UI © ${new Date().getFullYear()}`}
                     >
-                        <SplashTitle description="Sign in with your company email and password.">
-                            Sign in
+                        <SplashTitle title="Sign in">
+                            <Row>
+                                <Col span={18}>
+                                    <Text size="medium" color="base60">
+                                        Sign in with your company email and password.
+                                    </Text>
+                                </Col>
+                            </Row>
                         </SplashTitle>
                         <SplashContent>
                             <Form>
@@ -53,10 +73,25 @@ a limited set of choices.
                                         icon="lock"
                                         type="password"
                                         placeholder="Your password"
+                                        error={error}
                                     />
                                 </FormItem>
+                                {error ? (
+                                    <FormItem>
+                                        <Callout color="error" align="center">
+                                            Wrong username and/or password
+                                        </Callout>
+                                    </FormItem>
+                                ) : null}
                                 <FormItem>
-                                    <Button type="submit" color="primary" size="big" block>
+                                    <Button
+                                        type="submit"
+                                        color="primary"
+                                        size="big"
+                                        fill
+                                        onClick={simulateLogin}
+                                        busy={busy}
+                                    >
                                         Sign in
                                     </Button>
                                 </FormItem>

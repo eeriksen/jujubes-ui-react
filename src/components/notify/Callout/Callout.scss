@@ -7,9 +7,14 @@
 .base {
     padding: var(--spacing_regular);
     border-radius: var(--borderRadius_content);
-    border: 1px solid rgba(var(--color_base), 0.10);
+    border: 1px solid rgba(var(--color_base), 0.1);
     background-color: rgba(var(--color_base), 0.03);
     color: rgba(var(--color_base), 0.8);
+
+    .title {
+        font-size: var(--fontSize_medium);
+        font-weight: var(--fontWeight_medium);
+    }
 
     &.info {
         background-color: rgba(var(--color_info), 0.05);
@@ -35,8 +40,7 @@
         color: rgba(var(--color_error), 1);
     }
 
-    .title {
-        font-size: var(--fontSize_medium);
-        font-weight: var(--fontWeight_medium);
+    &.alignCenter {
+        text-align: center;
     }
 }

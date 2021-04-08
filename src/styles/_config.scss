@@ -19,7 +19,7 @@ $zIndex-10: 1000;
 
 $zIndex--toast: $zIndex-4;
 $zIndex--itemList-draggedItem: $zIndex-4;
-$zIndex--pageButtons: $zIndex-5;
+$zIndex--pageNav: $zIndex-5;
 $zIndex--pageActionButton: $zIndex-6;
 $zIndex--appBar: $zIndex-7;
 $zIndex--appNav: $zIndex-8;
@@ -41,8 +41,8 @@ $iconSize--small: 14px;
 $iconSize--regular: 16px;
 $iconSize--medium: 20px;
 $iconSize--large: 24px;
-$iconSize--large-x: 45px;
-$iconSize--large-xx: 70px;
+$iconSize--large-x: 30px;
+$iconSize--large-xx: 40px;
 
 $appBar--height: 64px;
 $appNav--width: 280px;

@@ -5,6 +5,8 @@ import { Item } from "./Item";
 import { Button } from "../../button/Button";
 import { ButtonGroup } from "../../button/ButtonGroup";
 import { Text } from "../../typography/Text";
+import { Card, CardTitle, CardContent } from "../../card";
+import { Input, Select, Option } from "../../form";
 
 <Meta title="Components/Navigation/Toolbar" component={Toolbar} />
 
@@ -26,8 +28,10 @@ The `<Toolbar />` is a sleek and compact line of buttons and other controllers.
             <Item divideRight spacing="none">
                 <Button square icon="arrow-left" color="silent" />
             </Item>
-            <Item grow divideRight spacing="medium">
-                <Text size="medium">Title of something</Text>
+            <Item grow divideRight truncate spacing="medium">
+                <Text size="medium" truncate>
+                    Title of something
+                </Text>
             </Item>
             <Item divideRight>
                 <ButtonGroup>
@@ -44,28 +48,46 @@ The `<Toolbar />` is a sleek and compact line of buttons and other controllers.
     </Story>
 </Canvas>
 
-### Color
+### With Card
 
 <Canvas>
-    <Story name="color">
-        <Toolbar color="primary">
-            <Item divideRight spacing="none">
-                <Button square icon="arrow-left" color="silent" iconColor="contrast" />
-            </Item>
-            <Item grow divideRight spacing="medium">
-                <Text size="medium" color="contrast">Title of something</Text>
-            </Item>
-            <Item divideRight>
-                <ButtonGroup>
-                    <Button size="small" icon="tools" square color="primary"></Button>
-                    <Button size="small" icon="mobile" square color="primary"></Button>
-                </ButtonGroup>
-            </Item>
-            <Item>
-                <Button icon="rocket" size="small" color="primary">
-                    Publish
-                </Button>
-            </Item>
-        </Toolbar>
+    <Story name="with card">
+        <Card>
+            <CardTitle title="Card with toolbar" />
+            <Toolbar>
+                <Item grow divideRight truncate>
+                    <Input
+                        size="small"
+                        icon="search"
+                        placeholder="Search"
+                    />
+                </Item>
+                <Item divideRight>
+                    <Select value={50} size="small">
+                        <Option>10</Option>
+                        <Option>25</Option>
+                        <Option>50</Option>
+                        <Option>100</Option>
+                    </Select>
+                </Item>
+                <Item>
+                    <Button icon="close" iconColor="error" size="small">
+                        Clear
+                    </Button>
+                </Item>
+            </Toolbar>
+            <CardContent>
+                There are many variations of passages of Lorem Ipsum available, but the majority
+                have suffered alteration in some form, by injected humour, or randomised words which
+                don't look even slightly believable. If you are going to use a passage of Lorem
+                Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of
+                text. All the Lorem Ipsum generators on the Internet tend to repeat predefined
+                chunks as necessary, making this the first true generator on the Internet. It uses a
+                dictionary of over 200 Latin words, combined with a handful of model sentence
+                structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem
+                Ipsum is therefore always free from repetition, injected humour, or
+                non-characteristic words etc.
+            </CardContent>
+        </Card>
     </Story>
 </Canvas>

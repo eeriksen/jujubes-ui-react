@@ -3,14 +3,15 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./Callout.scss";
 
-export const Callout = ({ color, title, children }) => {
+export const Callout = ({ color, title, align, children }) => {
     return (
         <div
             className={classNames(styles.base, {
                 [styles.info]: color === "info",
                 [styles.success]: color === "success",
                 [styles.warning]: color === "warning",
-                [styles.error]: color === "error"
+                [styles.error]: color === "error",
+                [styles.alignCenter]: align === "center"
             })}
         >
             {/* Title */}

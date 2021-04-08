@@ -1,15 +1,21 @@
 @import "../../../styles/base";
 
 /* ===================================================================
-   PAGE BUTTONS
+   PAGE NAV
    =================================================================== */
 
 $size--button: var(--elementSize_big);
 $size--counter: 22px;
 
 .base {
-    display: flex;
     margin-bottom: var(--spacing_large);
+    height: $size--button;
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+    }
 
     .button {
         display: flex;
@@ -21,7 +27,7 @@ $size--counter: 22px;
         user-select: none;
         margin-right: var(--spacing_regular);
         padding: 0 var(--spacing_small);
-        transition: box-shadow .2s linear, background-color .2s linear, border .2s ease-in-out;
+        transition: box-shadow 0.2s linear, background-color 0.2s linear, border 0.2s ease-in-out;
         border-bottom: 3px solid rgba(var(--color_base), 0.2);
         text-decoration: none;
         border-radius: var(--borderRadius_content);
@@ -44,7 +50,7 @@ $size--counter: 22px;
             font-weight: var(--fontWeight_medium);
             padding: 2px var(--spacing_medium) 0 0;
             color: rgba(var(--color_base), 0.6);
-            transition: color .2s linear;
+            transition: color 0.2s linear;
         }
 
         .count {
@@ -72,7 +78,7 @@ $size--counter: 22px;
                 white-space: nowrap;
                 color: rgba(var(--color_statusText), 1);
                 background-color: rgba(var(--color_error), 1);
-                transition: all .2s linear;
+                transition: all 0.2s linear;
                 border-radius: $size--counter;
             }
         }
@@ -102,10 +108,6 @@ $size--counter: 22px;
             .label {
                 color: rgba(var(--color_base), 1);
             }
-
-            &:hover {
-                box-shadow: var(--boxShadow_regular);
-            }
         }
 
         &:last-child {
@@ -113,16 +115,40 @@ $size--counter: 22px;
         }
     }
 
+
+    // MODE: Compact
+    &.compact {
+        .button {
+            box-shadow: none;
+            position: relative;
+            flex-grow: 1;
+            align-items: center;
+            justify-content: center;
+
+            .label {
+                display: none;
+            }
+
+            .count {
+                right: 2px;
+            }
+        }
+    }
+
     // RESPONSIVE: For phone only
-    @include for-tablet-landscape-down(){
+    @include for-tablet-landscape-down() {
         position: fixed;
         bottom: 0;
         left: 0;
         right: 0;
-        z-index: $zIndex--pageButtons;
+        z-index: $zIndex--pageNav;
         margin: 0;
         background: rgba(var(--color_backgroundContent), 1);
         box-shadow: var(--boxShadow_regular);
+
+        .buttons {
+            width: 100%;
+        }
 
         .button {
             box-shadow: none;

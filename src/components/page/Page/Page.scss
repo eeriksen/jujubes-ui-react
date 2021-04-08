@@ -6,6 +6,7 @@
 
 .base {
     background-color: rgba(var(--color_background), 1);
+    padding-bottom: var(--elementSize_big);
 
     .topBox {
         position: relative;

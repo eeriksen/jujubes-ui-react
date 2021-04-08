@@ -1,11 +1,29 @@
-
 $clockSize: 280px;
 $handSize: 40px;
 
 .timeSelector {
-    padding: var(--spacing_large) var(--spacing_medium);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    overflow: hidden;
     display: flex;
     justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.2);
+
+    &.visible {
+        width: auto;
+        transform: scale(1);
+        opacity: 1;
+        pointer-events: all;
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        touch-action: none;
+    }
 }
 
 .clock {
@@ -24,9 +42,9 @@ $handSize: 40px;
 
         .time {
             position: absolute;
-            top:  50%;
+            top: 50%;
             left: 50%;
-            width:  $handSize;
+            width: $handSize;
             height: $handSize;
             margin: -($handSize / 2);
             display: flex;
@@ -40,9 +58,10 @@ $handSize: 40px;
             color: rgba(var(--color_base), 0.4);
             pointer-events: all;
             outline: none;
+            cursor: pointer;
 
-            &.silent {
-                color: rgba(0, 0, 0, 0);
+            &:hover {
+                background: rgba(var(--color_base), 0.05);
             }
         }
 
@@ -92,16 +111,14 @@ $handSize: 40px;
     }
 }
 
-
-
 /// Draw items on a circle
 @mixin on-circle($item-count, $circle-size, $item-size, $class) {
     .#{$class} {
         display: block;
         position: absolute;
-        top:  50%;
+        top: 50%;
         left: 50%;
-        width:  $item-size;
+        width: $item-size;
         height: $item-size;
         margin: -($item-size / 2);
 
@@ -110,10 +127,7 @@ $handSize: 40px;
 
         @for $i from 1 through $item-count {
             &:nth-of-type(#{$i}) {
-                transform:
-                    rotate($rot * 1deg)
-                    translate($circle-size / 2)
-                    rotate($rot * -1deg);
+                transform: rotate($rot * 1deg) translate($circle-size / 2) rotate($rot * -1deg);
             }
 
             $rot: $rot + $angle;

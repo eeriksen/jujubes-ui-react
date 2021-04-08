@@ -21,6 +21,10 @@ export const Item = ({ children, grow, shrink, divideLeft, divideRight, spacing,
     );
 };
 
+Item.defaultProps = {
+    shrink: true
+};
+
 Item.propTypes = {
     /**
      * Expand to fill empty space.

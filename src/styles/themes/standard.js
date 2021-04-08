@@ -7,6 +7,7 @@ export default {
     },
     options: {
         fontFamily_primary: "'Nunito Sans', sans-serif",
+        fontFamily_titles: "'Nunito Sans', sans-serif",
 
         fontSize_root: "14px",
         fontSize_tiny: "0.785rem",
@@ -56,8 +57,8 @@ export default {
         borderRadius_content: "5px",
 
         boxShadow_regular: "0 1px 10px 1px rgba(var(--color_base), 0.1)",
-        boxShadow_medium: "0 1px 15px 1px rgba(var(--color_base), 0.3)",
-        boxShadow_large: "0 1px 25px 1px rgba(var(--color_base), 0.3)",
+        boxShadow_medium: "0 1px 15px 1px rgba(var(--color_base), 0.2)",
+        boxShadow_large: "0 1px 25px 1px rgba(var(--color_base), 0.2)",
 
         input_border: "1px solid rgba(24, 28, 50, 0.2)",
         input_borderFocus: "1px solid #3699ff",
@@ -65,8 +66,17 @@ export default {
         input_boxShadowFocus: "0 0 5px 0 rgba(54, 153, 255, 0.3)",
         input_boxShadowError: "0 0 5px 0 rgba(255, 102, 141, 0.3)",
 
-        nav_backgroundColor: "#27273b",
-        nav_accentColor: "#3699ff",
-        nav_textColor: "#ffffff"
+        navMain_backgroundColor: "#27273b",
+        navMain_foregroundColor: "#ffffff",
+        navMain_accentColor: "#3699ff",
+
+        navTop_backgroundColor: "#27273b",
+        navTop_foregroundColor: "#ffffff",
+        navTop_accentColor: "#ffffff",
+
+        navLogo_backgroundColor: "#3699ff",
+
+        splash_backgroundColor: "#27273b",
+        splash_foregroundColor: "#ffffff"
     }
 };

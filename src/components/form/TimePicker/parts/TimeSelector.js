@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import classNames from "classnames";
 import styles from "./TimeSelector.scss";
 
-export const TimeSelector = ({ type, value, onChange, onNext }) => {
+export const TimeSelector = ({ type, value, onChange, onNext, visible }) => {
     const clockRef = useRef();
     const [isDragging, setIsDragging] = useState(false);
     const [handRotation, setHandRotation] = useState(0);
@@ -34,7 +34,13 @@ export const TimeSelector = ({ type, value, onChange, onNext }) => {
         }
     }, [value, outerTimes, innerTimes]);
 
+    const handleDragStart = (e) => {
+        e.stopPropagation();
+        setIsDragging(true);
+    };
+
     const handleDrag = (e) => {
+        e.stopPropagation();
         if (!isDragging) {
             return;
         }
@@ -44,6 +50,9 @@ export const TimeSelector = ({ type, value, onChange, onNext }) => {
         if (e.touches && e.touches.length) {
             pointerX = e.touches[0].clientX;
             pointerY = e.touches[0].clientY;
+        }else if(e.changedTouches && e.changedTouches.length){
+            pointerX = e.changedTouches[0].clientX;
+            pointerY = e.changedTouches[0].clientY;
         }
 
         const clockDimensions = clockRef.current.getBoundingClientRect();
@@ -76,17 +85,32 @@ export const TimeSelector = ({ type, value, onChange, onNext }) => {
         onChange && onChange(newValue);
     };
 
+    const handleDragStop = (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        handleDrag(e);
+        setIsDragging(false);
+        onNext();
+    };
+
+    const handleClickTime = (e, time) => {
+        e.stopPropagation();
+        onChange(time);
+    };
+
     return (
-        <div className={styles.timeSelector}>
+        <div className={classNames(styles.timeSelector, {
+            [styles.visible]: visible
+        })}>
             <div
                 ref={clockRef}
                 className={styles.clock}
                 onMouseMove={handleDrag}
                 onTouchMove={handleDrag}
-                onMouseDown={() => setIsDragging(true)}
-                onTouchStart={() => setIsDragging(true)}
-                onMouseUp={() => setIsDragging(false) | onNext()}
-                onTouchEnd={() => setIsDragging(false) | onNext()}
+                onMouseDown={handleDragStart}
+                onTouchStart={handleDragStart}
+                onMouseUp={handleDragStop}
+                onTouchEnd={handleDragStop}
             >
                 {/* Hand */}
                 <div
@@ -111,13 +135,12 @@ export const TimeSelector = ({ type, value, onChange, onNext }) => {
                     {outerTimes.map((time, index) => {
                         const angle = 360 / outerTimes.length;
                         const rotation = Math.round(270 + index * angle);
-                        return (
+                        return outerTimes.length <= 12 || index % 5 === 0 ? (
                             <button
                                 key={time}
-                                onMouseDown={() => onChange(time)}
+                                onMouseDown={(e) => handleClickTime(e, time)}
                                 className={classNames(styles.time, {
-                                    [styles.selected]: value === time,
-                                    [styles.silent]: outerTimes.length > 12 && index % 5 !== 0
+                                    [styles.selected]: value === time
                                 })}
                                 style={{
                                     transform: `rotate(${rotation}deg) translate(120px) rotate(-${rotation}deg)`
@@ -125,7 +148,7 @@ export const TimeSelector = ({ type, value, onChange, onNext }) => {
                             >
                                 {time.toString().length < 2 ? "0" + time : time}
                             </button>
-                        );
+                        ) : null;
                     })}
                 </div>
 
@@ -139,10 +162,10 @@ export const TimeSelector = ({ type, value, onChange, onNext }) => {
                         {innerTimes.map((time, index) => {
                             const angle = 360 / innerTimes.length;
                             const rotation = Math.round(270 + index * angle);
-                            return (
+                            return innerTimes.length <= 12 || index % 5 === 0 ? (
                                 <button
                                     key={time}
-                                    onMouseDown={() => onChange(time)}
+                                    onMouseDown={(e) => handleClickTime(e, time)}
                                     className={classNames(styles.time, {
                                         [styles.selected]: value === time
                                     })}
@@ -152,7 +175,7 @@ export const TimeSelector = ({ type, value, onChange, onNext }) => {
                                 >
                                     {time.toString().length < 2 ? "0" + time : time}
                                 </button>
-                            );
+                            ) : null;
                         })}
                     </div>
                 ) : null}

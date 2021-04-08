@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 import { Button } from "../../button/Button";
 import { Text } from "../../typography/Text";
 import { Popup, PopupTitle, PopupFooter, PopupContent } from "../Popup";
-import { Row } from "../../grid/Row";
-import { Col } from "../../grid/Col";
+import { ButtonRow } from "../../button/ButtonRow";
 
 export const PopupYesNo = ({ title, children, onYes, onNo, visible, onClose, lang }) => {
     return (
@@ -14,26 +13,14 @@ export const PopupYesNo = ({ title, children, onYes, onNo, visible, onClose, lan
                 <Text size="medium">{children}</Text>
             </PopupContent>
             <PopupFooter>
-                <Row gutter={["small"]}>
-                    <Col span={12}>
-                        <Button
-                            icon="check"
-                            color="success"
-                            onClick={onYes}
-                        >
-                            {lang.yes}
-                        </Button>
-                    </Col>
-                    <Col span={12}>
-                        <Button
-                            icon="close"
-                            color="error"
-                            onClick={onNo}
-                        >
-                            {lang.no}
-                        </Button>
-                    </Col>
-                </Row>
+                <ButtonRow>
+                    <Button icon="check" color="success" onClick={onYes}>
+                        {lang.yes}
+                    </Button>
+                    <Button icon="close" iconColor="error" onClick={onNo}>
+                        {lang.no}
+                    </Button>
+                </ButtonRow>
             </PopupFooter>
         </Popup>
     );
@@ -45,7 +32,7 @@ PopupYesNo.defaultProps = {
         yes: "Yes",
         no: "No"
     }
-}
+};
 
 PopupYesNo.propTypes = {
     /**

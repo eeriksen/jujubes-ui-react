@@ -20,6 +20,12 @@ export const TimePicker = ({ value, onChange, placeholder, error }) => {
         setMinutes(date.getMinutes());
     }, [value]);
 
+    const handleInputClick = () => {
+        document.activeElement.blur();
+        setSelectorType("HOURS");
+        setFocused(true);
+    };
+
     const handleChangeHours = (newHours) => {
         const date = value ? new Date(value) : new Date();
         date.setHours(newHours);
@@ -39,7 +45,7 @@ export const TimePicker = ({ value, onChange, placeholder, error }) => {
                 error={error}
                 prepend={<Icon name="clock" className={styles.icon} />}
                 value={value && moment(value).format("HH:mm")}
-                onClick={() => setSelectorType("HOURS") | setFocused(true)}
+                onClick={handleInputClick}
             />
 
             {focused ? (
@@ -63,21 +69,22 @@ export const TimePicker = ({ value, onChange, placeholder, error }) => {
                             {minutes.toString().length < 2 ? "0" + minutes : minutes}
                         </button>
                     </div>
-                    {selectorType === "HOURS" ? (
+                    <div className={styles.picker}>
                         <TimeSelector
+                            visible={selectorType === "HOURS"}
                             type="HOURS"
                             value={hours}
                             onChange={handleChangeHours}
                             onNext={() => setSelectorType("MINUTES")}
                         />
-                    ) : (
                         <TimeSelector
+                            visible={selectorType === "MINUTES"}
                             type="MINUTES"
                             value={minutes}
                             onChange={handleChangeMinutes}
                             onNext={() => setFocused(false)}
                         />
-                    )}
+                    </div>
                 </Popup>
             ) : null}
         </div>

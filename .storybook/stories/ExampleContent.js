@@ -4,7 +4,7 @@ import { Page } from "../../src/components/page/Page";
 import { PageActions, Action } from "../../src/components/page/PageActions";
 import { PageCrumbs, Crumb } from "../../src/components/page/PageCrumbs";
 import { PageHeader } from "../../src/components/page/PageHeader";
-import { PageButtons, PageButton } from "../../src/components/page/PageButtons";
+import { PageNav, NavButton } from "../../src/components/page/PageNav";
 import { Card } from "../../src/components/card/Card";
 import { CardTitle } from "../../src/components/card/CardTitle";
 import { CardContent } from "../../src/components/card/CardContent";
@@ -23,16 +23,16 @@ import { Popup, PopupTitle, PopupContent, PopupFooter } from "../../src/componen
 import { DataTable, Column, Cell } from "../../src/components/table/DataTable";
 import { Select, Option } from "../../src/components/form/Select";
 import { Toast } from "../../src/components/notify/Toast";
+import { Toolbar } from "../../src/components/navigation/Toolbar";
 
 import * as themes from "../../src/styles/themes";
-
 
 export const ExampleContent = () => {
     const { themeKey, setThemeKey } = useContext(AppContext);
     const [showCreatePagePrompt, setShowCreatePagePrompt] = useState(false);
     const [data, setData] = useState({});
     const [busyLoading, setBusyLoading] = useState(true);
-    const [activePageButton, setActivePageButton] = useState(1);
+    const [activePageNav, setActivePageNav] = useState(1);
     const [tableRows] = useState([
         {
             id: 1,
@@ -95,7 +95,6 @@ export const ExampleContent = () => {
                 <Crumb label="Start" link="/" />
                 <Crumb label="Company" link="/companies" />
                 <Crumb label="Layouts" link="/companies/articles" />
-                <Crumb current />
             </PageCrumbs>
             <PageActions>
                 <Action icon="plus" onClick={() => setShowCreatePagePrompt(true)}>
@@ -108,13 +107,39 @@ export const ExampleContent = () => {
                     Delete page
                 </Action>
             </PageActions>
-            <PageButtons>
-                <PageButton active={activePageButton === 1} onClick={() => setActivePageButton(1)} icon="edit" label="Details" />
-                <PageButton active={activePageButton === 2} onClick={() => setActivePageButton(2)} icon="devices" label="Devices" count={29} />
-                <PageButton active={activePageButton === 3} onClick={() => setActivePageButton(3) || showToast()} icon="palette" label="Theme" />
-                <PageButton active={activePageButton === 4} onClick={() => setActivePageButton(4)} icon="bell" label="Notifications" />
-                <PageButton active={activePageButton === 5} onClick={() => setActivePageButton(5)} icon="gear" label="Settings" />
-            </PageButtons>
+            <PageNav>
+                <NavButton
+                    active={activePageNav === 1}
+                    onClick={() => setActivePageNav(1)}
+                    icon="edit"
+                    label="Details"
+                />
+                <NavButton
+                    active={activePageNav === 2}
+                    onClick={() => setActivePageNav(2)}
+                    icon="devices"
+                    label="Devices"
+                    count={29}
+                />
+                <NavButton
+                    active={activePageNav === 3}
+                    onClick={() => setActivePageNav(3) || showToast()}
+                    icon="palette"
+                    label="Theme"
+                />
+                <NavButton
+                    active={activePageNav === 4}
+                    onClick={() => setActivePageNav(4)}
+                    icon="bell"
+                    label="Notifications"
+                />
+                <NavButton
+                    active={activePageNav === 5}
+                    onClick={() => setActivePageNav(5)}
+                    icon="gear"
+                    label="Settings"
+                />
+            </PageNav>
             <Row>
                 <Col lg={18}>
                     <Row>
@@ -147,6 +172,24 @@ export const ExampleContent = () => {
                                 <CardTitle title="Card with table">
                                     <Badge color="primary">878</Badge>
                                 </CardTitle>
+                                <Toolbar>
+                                    <Toolbar.Item grow divideRight>
+                                        <Input size="small" icon="search" placeholder="Search" />
+                                    </Toolbar.Item>
+                                    <Toolbar.Item divideRight shrink={false}>
+                                        <Select value={50} size="small">
+                                            <Option>10</Option>
+                                            <Option>25</Option>
+                                            <Option>50</Option>
+                                            <Option>100</Option>
+                                        </Select>
+                                    </Toolbar.Item>
+                                    <Toolbar.Item>
+                                        <Button icon="close" iconColor="error" size="small">
+                                            Clear
+                                        </Button>
+                                    </Toolbar.Item>
+                                </Toolbar>
                                 <CardContent>
                                     <DataTable
                                         rows={tableRows}

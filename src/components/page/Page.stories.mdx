@@ -4,6 +4,7 @@ import { Page } from "./Page";
 import { PageHeader } from "./PageHeader";
 import { PageCrumbs, Crumb } from "./PageCrumbs";
 import { PageActions, Action } from "./PageActions";
+import { PageNav, NavButton } from "./PageNav";
 import { ComponentWrapper } from "../layout/ComponentWrapper";
 import { AppLayout } from "../layout/AppLayout";
 import { AppContent } from "../layout/AppContent";
@@ -17,11 +18,13 @@ Every logical page should be wrapped inside the `<Page/>` component.
 # PageHeader
 
 Component to display a page title with optional subtitle and icon.
+
 <ArgsTable of={PageHeader} />
 
 # PageCrumbs
 
 The page crumbs are used to create a link trail up the page tree.
+
 <ArgsTable of={PageCrumbs} />
 
 ## Crumb
@@ -31,50 +34,91 @@ The page crumbs are used to create a link trail up the page tree.
 # PageActions
 
 Add `<PageActions />` to a page to give the user a context menu of actions to perform to perform while on the respective page.
+
 <ArgsTable of={PageActions} />
 
 ## Action
 
 Same properties as `<MenuItem />`
 
+# PageNav
+
+The `<PageNav />` renders big navigational buttons at the top of a page.
+Use these buttons to split up content into different pages within a context.
+These should only be placed on the top of the page, just below the `<PageHeader />`.
+
+<ArgsTable of={PageNav} />
+
+## PageNav.NavButton
+
+<ArgsTable of={NavButton} />
 
 ### Basic
 
 <Canvas>
     <Story name="basic">
-        <ComponentWrapper>
-            <AppLayout>
-                <AppContent>
-                    <Page>
-                        <PageHeader
-                            title="Edit profile"
-                            subtitle="Change your user profile details"
-                            icon="gear"
-                        />
-                        <PageCrumbs>
-                            <Crumb label="Start" link="/" />
-                            <Crumb label="Users" link="/users" />
-                            <Crumb label="Edit profile" link="/users/1" />
-                            <Crumb current />
-                        </PageCrumbs>
-                        <PageActions>
-                            <Action icon="plus" onClick={() => console.log("CLICK")}>
-                                Create a page
-                            </Action>
-                            <Action icon="edit" onClick={() => console.log("CLICK")}>
-                                Edit page
-                            </Action>
-                            <Action
-                                icon="trash"
-                                iconColor="error"
-                                onClick={() => console.log("CLICK")}
-                            >
-                                Delete page
-                            </Action>
-                        </PageActions>
-                    </Page>
-                </AppContent>
-            </AppLayout>
-        </ComponentWrapper>
+        {() => {
+            const [activeIndex, setActiveIndex] = useState(1);
+            return (
+                <ComponentWrapper>
+                    <AppLayout>
+                        <AppContent>
+                            <Page>
+                                <PageHeader
+                                    title="Edit profile"
+                                    subtitle="Change your user profile details"
+                                    icon="gear"
+                                />
+                                <PageCrumbs>
+                                    <Crumb label="Start" link="/" />
+                                    <Crumb label="Users" link="/users" />
+                                    <Crumb label="Edit profile" link="/users/1" />
+                                    <Crumb current />
+                                </PageCrumbs>
+                                <PageActions>
+                                    <Action icon="plus" onClick={() => console.log("CLICK")}>
+                                        Create a page
+                                    </Action>
+                                    <Action icon="edit" onClick={() => console.log("CLICK")}>
+                                        Edit page
+                                    </Action>
+                                    <Action
+                                        icon="trash"
+                                        iconColor="error"
+                                        onClick={() => console.log("CLICK")}
+                                    >
+                                        Delete page
+                                    </Action>
+                                </PageActions>
+                                <PageNav>
+                                    <NavButton
+                                        active={activeIndex === 1}
+                                        onClick={() => setActiveIndex(1)}
+                                        icon="edit"
+                                        label="Details"
+                                        link="/details"
+                                    />
+                                    <NavButton
+                                        active={activeIndex === 2}
+                                        onClick={() => setActiveIndex(2)}
+                                        icon="devices"
+                                        label="Devices"
+                                        count={29}
+                                        link="/devices"
+                                    />
+                                    <NavButton
+                                        active={activeIndex === 3}
+                                        onClick={() => setActiveIndex(3)}
+                                        icon="palette"
+                                        label="Theme"
+                                        link="/theme"
+                                    />
+                                </PageNav>
+                            </Page>
+                        </AppContent>
+                    </AppLayout>
+                </ComponentWrapper>
+            );
+        }}
     </Story>
 </Canvas>

@@ -4,8 +4,6 @@
    SPLASH
    =================================================================== */
 
-$height--bar: 60px;
-
 .base {
     position: fixed;
     display: flex;
@@ -15,7 +13,7 @@ $height--bar: 60px;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(var(--color_primary), 1);
+    background: rgba(var(--splash_backgroundColor), 1);
 
     .center {
         position: relative;
@@ -26,7 +24,11 @@ $height--bar: 60px;
             width: 100%;
             transform: translateY(-100%);
             text-align: center;
-            padding: calc(var(--spacing_medium) * 2.5) 0;
+            padding: var(--spacing_medium) var(--spacing_edges);
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .box {
@@ -45,7 +47,7 @@ $height--bar: 60px;
         position: absolute;
         bottom: 0;
         width: 100%;
-        color: rgba(var(--color_primaryContrast), 0.5);
+        color: rgba(var(--splash_foregroundColor), 0.5);
         margin: 0 auto;
         text-align: center;
         padding: var(--spacing_medium) var(--spacing_edges);
@@ -59,17 +61,16 @@ $height--bar: 60px;
         min-height: 100vh;
 
         .center {
-            min-height: 100vh;
+            min-height: 90vh;
 
             .logo {
                 position: static;
                 transform: none;
-                padding: var(--spacing_regular) var(--spacing_edges);
+                min-height: 150px;
             }
             .box {
                 min-width: auto;
                 margin: 0 var(--spacing_edges);
-                padding: var(--spacing_regular) 0;
             }
         }
 

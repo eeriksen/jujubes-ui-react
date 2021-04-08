@@ -44,7 +44,9 @@ Use a careful combination of colored buttons where needed.
                 <Button color="info">Info button</Button>
             </Col>
             <Col span={6}>
-                <Button icon="devices" color="silent">Silent button</Button>
+                <Button icon="devices" color="silent">
+                    Silent button
+                </Button>
             </Col>
         </Row>
     </Story>
@@ -171,13 +173,16 @@ Use a careful combination of colored buttons where needed.
 <Canvas>
     <Story name="label color">
         <Row>
-            <Col span={8}>
+            <Col span={6}>
+                <Button labelColor="primary">Label color primary</Button>
+            </Col>
+            <Col span={6}>
                 <Button labelColor="success">Label color success</Button>
             </Col>
-            <Col span={8}>
+            <Col span={6}>
                 <Button labelColor="warning">Label color warning</Button>
             </Col>
-            <Col span={8}>
+            <Col span={6}>
                 <Button labelColor="error">Label color error</Button>
             </Col>
         </Row>
@@ -197,6 +202,14 @@ Use a careful combination of colored buttons where needed.
 <Canvas>
     <Story name="disabled">
         <Button disabled>Disabled button</Button>
+    </Story>
+</Canvas>
+
+### Fill
+
+<Canvas>
+    <Story name="fill">
+        <Button fill>Filled width button</Button>
     </Story>
 </Canvas>
 

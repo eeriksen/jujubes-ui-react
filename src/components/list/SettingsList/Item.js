@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styles from "./SettingsList.scss";
 
-import { Icon } from "../../graphic/Icon";
+import { Icon } from "../../graphic/Icon";
 
 export const Item = ({ title, children }) => {
     return (
@@ -16,4 +17,15 @@ export const Item = ({ title, children }) => {
             {children ? <div className={styles.content}>{children}</div> : null}
         </div>
     );
+};
+
+Item.propTypes = {
+    /**
+     * Title of setting item
+     */
+    title: PropTypes.string,
+    /**
+     * Content of setting item
+     */
+    children: PropTypes.any
 };

@@ -4,57 +4,65 @@
    CARD USER HEAD
    =================================================================== */
 
+$backgroundColor: var(--navMain_backgroundColor);
+$foregroundColor: var(--navMain_foregroundColor);
+$accentColor: var(--navMain_accentColor);
+
 .base {
     position: relative;
-    background: rgba(var(--color_primary), 1);
     border-radius: var(--borderRadius_content) var(--borderRadius_content) 0 0;
     overflow: hidden;
 
     .content {
         display: flex;
         align-items: center;
-        padding: var(--spacing_medium);
+        padding: var(--spacing_large) var(--spacing_medium);
         user-select: none;
+        flex-direction: column;
 
         .image {
-            width: 65px;
-            height: 65px;
+            width: 90px;
+            height: 90px;
             overflow: hidden;
             border-radius: 50%;
+            border: 3px solid rgba(var(--color_primary), 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
             img {
-                width: 100%;
-                height: 100%;
+                width: calc(100% - 4px);
+                height: calc(100% - 4px);
+                border-radius: 50%;
                 object-fit: cover;
                 object-position: 50% 50%;
             }
 
             .placeholder {
-                background: rgba(var(--color_primaryContrast), 1);
                 width: 100%;
                 height: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                @include m-iconSize($iconSize--large);
+                @include m-iconSize($iconSize--large-x);
                 @include m-iconColor(rgba(var(--color_primary), 1));
             }
         }
 
         .details {
-            padding-left: var(--spacing_medium);
             min-width: 0;
-            text-align: left;
+            text-align: center;
+            margin-top: var(--spacing_medium);
 
             .name {
-                font-size: var(--fontSize_medium);
-                font-weight: var(--fontWeight_medium);
-                color: rgba(var(--color_primaryContrast), 1);
+                font-size: var(--fontSize_large);
+                font-weight: var(--fontWeight_bold);
+                color: rgba(var(--color_base), 1);
                 @include m-truncate();
             }
 
-            .email {
-                color: rgba(var(--color_primaryContrast), 0.8);
+            .about {
+                color: rgba(var(--color_base), 0.6);
                 font-weight: var(--fontWeight_light);
                 margin-top: -4px;
                 @include m-truncate();

@@ -14,13 +14,13 @@
         width: $appNav--width;
         height: 100vh;
         z-index: 2;
-        background: rgba(var(--nav_backgroundColor), 1);
+        background: rgba(var(--navMain_backgroundColor), 1);
         display: flex;
         flex-direction: column;
 
         .logo {
             height: $appBar--height;
-            background: rgba(var(--nav_accentColor), 1);
+            background: rgba(var(--navLogo_backgroundColor), 1);
             overflow: hidden;
             display: flex;
             justify-content: left;
@@ -49,7 +49,7 @@
                 left: 0;
                 right: 0;
                 height: 60px;
-                background: linear-gradient(to bottom, rgba(var(--nav_backgroundColor), 0) 0%, rgba(var(--nav_backgroundColor), 1) 100%);
+                background: linear-gradient(to bottom, rgba(var(--navMain_backgroundColor), 0) 0%, rgba(var(--navMain_backgroundColor), 1) 100%);
                 z-index: 2;
                 pointer-events: none;
             }
@@ -59,7 +59,7 @@
             padding: $spacing--nav-sides $spacing--nav-sides calc(var(--spacing_regular) * 3);
 
             .title {
-                color: rgba(var(--nav_textColor), 1);
+                color: rgba(var(--navMain_foregroundColor), 1);
             }
         }
 

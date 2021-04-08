@@ -8,8 +8,8 @@ $height: var(--elementSize_big);
 $spacing: var(--spacing_regular);
 
 .base {
-    background-color: rgba(var(--color_contrast), 1);
-    border-bottom: 1px solid rgba(var(--color_base), 0.15);
+    position: relative;
+    border-bottom: 1px solid rgba(var(--color_base), 0.1);
     height: $height;
     min-height: $height;
     display: flex;
@@ -19,6 +19,14 @@ $spacing: var(--spacing_regular);
         display: flex;
         align-items: center;
         padding: 0 $spacing;
+        position: relative;
+        z-index: 1;
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        > * {
+            flex: 1;
+        }
 
         &.grow {
             flex-grow: 1;
@@ -46,19 +54,6 @@ $spacing: var(--spacing_regular);
 
         &.truncate {
             @include m-truncate();
-        }
-    }
-
-    // COLOR: Primary
-    &.colorPrimary {
-        background-color: rgba(var(--color_primary), 1);
-        border-bottom-color: rgba(0, 0, 0, 0.1);
-
-        .item {
-            &.divideLeft,
-            &.divideRight {
-                border-color: rgba(0, 0, 0, 0.1);
-            }
         }
     }
 }

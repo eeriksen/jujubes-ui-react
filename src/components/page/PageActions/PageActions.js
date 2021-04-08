@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import PropTypes from "prop-types";
 import styles from "./PageActions.scss";
 import classNames from "classnames";
 
@@ -7,6 +8,7 @@ import { Clickable } from "../../button/Clickable";
 import { Icon } from "../../graphic/Icon";
 import { Menu, MenuItem } from "../../navigation/Menu";
 import { PopOver } from "../../navigation/PopOver";
+import { Action } from "./Action";
 
 export const PageActions = ({ children }) => {
     const { currentPage } = useContext(AppContext);
@@ -21,9 +23,11 @@ export const PageActions = ({ children }) => {
     };
 
     return (
-        <div className={classNames(styles.base, {
-            [styles.evadeButtons]: currentPage.hasButtons
-        })}>
+        <div
+            className={classNames(styles.base, {
+                [styles.evadeButtons]: currentPage.hasButtons
+            })}
+        >
             <PopOver
                 visible={visible}
                 content={renderMenu(children)}
@@ -58,4 +62,8 @@ const renderMenu = (items) => {
             </Menu>
         </div>
     );
+};
+
+PageActions.propTypes = {
+    children: PropTypes.arrayOf(Action)
 };

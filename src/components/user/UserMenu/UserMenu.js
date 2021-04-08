@@ -8,7 +8,7 @@ import { CardUserHead } from "../../card/CardUserHead";
 import { PopOver } from "../../navigation/PopOver";
 import { Icon } from "../../graphic/Icon";
 
-export const UserMenu = ({ picture, email, name, children }) => {
+export const UserMenu = ({ picture, about, name, children }) => {
     const [visible, setVisible] = useState(false);
     return (
         <div
@@ -19,29 +19,25 @@ export const UserMenu = ({ picture, email, name, children }) => {
         >
             <PopOver
                 visible={visible}
-                content={menuContent({ picture, email, name, children })}
-                arrowColor="primary"
+                content={menuContent({ picture, about, name, children })}
                 size="large"
                 onClose={() => setVisible(false)}
             >
                 <Clickable block className={styles.picture} onClick={() => setVisible(!visible)}>
-                    {picture ? (
-                        <img alt={name} src={picture} />
-                    ) : (
-                        <div className={styles.placeholder}>
-                            <Icon name="user" />
-                        </div>
-                    )}
+                    {picture ? <img alt={name} src={picture} /> : null}
+                    <div className={styles.symbol}>
+                        <Icon name={visible ? "arrow-down" : "user"} />
+                    </div>
                 </Clickable>
             </PopOver>
         </div>
     );
 };
 
-const menuContent = ({ picture, email, name, children }) => {
+const menuContent = ({ picture, about, name, children }) => {
     return (
         <React.Fragment>
-            <CardUserHead picture={picture} name={name} email={email} />
+            <CardUserHead picture={picture} name={name} about={about} />
             <div className={styles.frame}>{children}</div>
         </React.Fragment>
     );
@@ -53,9 +49,9 @@ UserMenu.propTypes = {
      */
     picture: PropTypes.string,
     /**
-     * Users email
+     * Users email and/or jobtitle
      */
-    email: PropTypes.string,
+    about: PropTypes.any,
     /**
      * Users full name
      */

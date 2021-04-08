@@ -7,24 +7,13 @@
 // Title
 .title {
     padding: var(--spacing_large) var(--spacing_large) 0;
-    font-size: var(--fontSize_heading2);
-    font-weight: var(--fontWeight_bold);
 
     .description {
         margin-top: var(--spacing_regular);
-        font-size: var(--fontSize_medium);
-        color: rgba(var(--color_base), 0.6);
-        max-width: 80%;
-        font-weight: var(--fontWeight_regular);
     }
 
     // RESPONSIVE
     @include for-phone-only() {
-        padding: var(--spacing_regular) var(--spacing_medium) 0;
-        font-size: var(--fontSize_heading3);
-
-        .description {
-            font-size: var(--fontSize_regular);
-        }
+        padding: var(--spacing_medium) var(--spacing_medium) var(--spacing_regular);
     }
 }

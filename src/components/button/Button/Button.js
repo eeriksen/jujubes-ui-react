@@ -202,7 +202,7 @@ Button.propTypes = {
     /**
      * Change the color of the text label.
      */
-    labelColor: PropTypes.oneOf(["success", "warning", "error"]),
+    labelColor: PropTypes.oneOf(["primary", "success", "warning", "error"]),
 
     /**
      * Size of label text

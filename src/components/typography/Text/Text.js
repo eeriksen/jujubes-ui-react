@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./Text.scss";
+import { capitalize } from "../../../utils/stringUtils";
+import { background } from "@storybook/theming";
 
 export const Text = ({
     block,
@@ -15,6 +17,8 @@ export const Text = ({
     lowercase,
     underline,
     italic,
+    shadow,
+    backgroundColor,
     children
 }) => {
     const childrenWithProps = opacity !== null ? React.Children.map(children, (child) => {
@@ -45,17 +49,23 @@ export const Text = ({
                 [styles.sizeLarge]: size === "large",
                 [styles.sizeXlarge]: size === "xlarge",
 
-                [styles.primary]: color === "primary",
-                [styles.contrast]: color === "contrast",
-                [styles.success]: color === "success",
-                [styles.warning]: color === "warning",
-                [styles.error]: color === "error",
-                [styles.info]: color === "info",
+                [styles.colorPrimary]: color === "primary",
+                [styles.colorContrast]: color === "contrast",
+                [styles.colorSuccess]: color === "success",
+                [styles.colorWarning]: color === "warning",
+                [styles.colorError]: color === "error",
+                [styles.colorInfo]: color === "info",
 
                 [styles.strikeThrough]: strikeThrough,
                 [styles.lowercase]: lowercase,
                 [styles.underline]: underline,
-                [styles.italic]: italic
+                [styles.italic]: italic,
+
+                [styles.shadowRegular]: shadow === "regular",
+                [styles.shadowMedium]: shadow === "medium",
+                [styles.shadowLarge]: shadow === "large",
+
+                [backgroundColor && styles[`background${capitalize(backgroundColor)}`]]: backgroundColor
             }),
             style: {
                 width
@@ -77,5 +87,7 @@ Text.propTypes = {
     lowercase: PropTypes.bool,
     underline: PropTypes.bool,
     italic: PropTypes.bool,
+    shadow: PropTypes.oneOf(["regular", "medium", "large"]),
+    backgroundColor: PropTypes.oneOf(["base", "primary", "contrast", "success", "warning", "error", "info"]),
     children: PropTypes.any
 };

@@ -13,12 +13,13 @@ moment.defaultFormatUtc = DATE_TIME_FORMAT;
 const STANDARD_THEME_KEY = "standard";
 
 export const AppContainer = ({ children }) => {
+    const [themeKey, setThemeKey] = useState(STANDARD_THEME_KEY);
     const [navActive, setNavActive] = useState(false);
     const [subBarActive, setSubBarActive] = useState(false);
-    const [currentPage, setCurrentPage] = useState({
+    const [pageInfo, setPageInfo] = useState({
+        breakpoint: null,
         hasButtons: false
     });
-    const [themeKey, setThemeKey] = useState(STANDARD_THEME_KEY);
 
     useEffect(() => {
         if (themeKey) {
@@ -37,17 +38,17 @@ export const AppContainer = ({ children }) => {
      */
     const loadTheme = (theme) => {
         // Set CSS variables
-        if (theme.options) {
-            const themeOptions = theme.options;
-            for (let value in themeOptions) {
-                if (themeOptions[value].match(/^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/g)) {
-                    const colorValue = hexToRgb(themeOptions[value]);
+        if (theme.properties) {
+            const themeProperties = theme.properties;
+            for (let value in themeProperties) {
+                if (themeProperties[value].match(/^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/g)) {
+                    const colorValue = hexToRgb(themeProperties[value]);
                     document.documentElement.style.setProperty(
                         `--${value}`,
                         `${colorValue.r}, ${colorValue.g}, ${colorValue.b}`
                     );
                 } else {
-                    document.documentElement.style.setProperty(`--${value}`, themeOptions[value]);
+                    document.documentElement.style.setProperty(`--${value}`, themeProperties[value]);
                 }
             }
         }
@@ -67,8 +68,8 @@ export const AppContainer = ({ children }) => {
                 subBarActive,
                 setSubBarActive,
 
-                currentPage,
-                setCurrentPage,
+                pageInfo,
+                setPageInfo,
 
                 themeKey,
                 setThemeKey,

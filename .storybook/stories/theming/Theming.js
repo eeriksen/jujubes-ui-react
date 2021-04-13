@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState, useEffect } from "react";
 import { AppContext } from "../../../src/components/layout/AppContext";
 
-import { Options } from "./parts/Options";
+import { Properties } from "./parts/Properties";
 import { NewTheme } from "./parts/NewTheme";
 
 import { standard as standardTheme } from "../../../src/styles/themes";
@@ -62,9 +62,9 @@ export const Theming = () => {
                 </Col>
                 <Col span={24}>
                     <Card>
-                        <CardTitle title="Options" />
+                        <CardTitle title="Properties" />
                         <CardContent>
-                            <Options />
+                            <Properties />
                         </CardContent>
                     </Card>
                 </Col>

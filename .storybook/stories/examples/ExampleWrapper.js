@@ -9,7 +9,7 @@ import { Badge } from "../../../src/components/notify/Badge";
 import { Menu, MenuItem } from "../../../src/components/navigation/Menu";
 import { Icon } from "../../../src/components/graphic/Icon";
 import { Text } from "../../../src/components/typography/Text";
-import { Logo } from "../../../src/components/graphic/Logo";
+import { LogoFull } from "../../../src/components/graphic/Logo";
 import { ComponentWrapper } from "../../../src/components/layout/ComponentWrapper";
 
 import { user } from "../../constants";
@@ -74,7 +74,7 @@ export const ExampleWrapper = ({ children }) => {
                     </AppBar.Item>
                 </AppBar>
                 <AppNav
-                    logo={<Logo height={64} padding="20px 0 0" />}
+                    logo={<LogoFull height={64} padding="12px 25px" />}
                     title={
                         <Text block size="large" weight="medium">
                             Example page

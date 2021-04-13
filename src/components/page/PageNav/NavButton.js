@@ -7,17 +7,17 @@ import { Icon } from "../../graphic/Icon";
 import { AppContext } from "../../layout/AppContext";
 
 export const NavButton = ({ icon, label, count, active, onClick, link }) => {
-    const { currentPage, setCurrentPage } = useContext(AppContext);
+    const { pageInfo, setPageInfo } = useContext(AppContext);
 
     useEffect(() => {
-        setCurrentPage({
-            ...currentPage,
+        setPageInfo({
+            ...pageInfo,
             hasButtons: true
         });
 
         return () => {
-            setCurrentPage({
-                ...currentPage,
+            setPageInfo({
+                ...pageInfo,
                 hasButtons: false
             });
         };

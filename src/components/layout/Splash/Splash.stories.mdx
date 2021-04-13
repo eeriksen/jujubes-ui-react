@@ -8,11 +8,12 @@ import { FormHeader } from "../../form/FormHeader";
 import { FormItem } from "../../form/FormItem";
 import { Input } from "../../form/Input";
 import { Button } from "../../button/Button";
-import { Logo } from "../../graphic/Logo";
+import { LogoFull } from "../../graphic/Logo";
 import { ComponentWrapper } from "../../layout/ComponentWrapper";
 import { Text, Paragraph } from "../../typography";
 import { Row, Col } from "../../grid";
 import { Callout } from "../../notify";
+import { Image } from "../../media";
 
 <Meta title="Components/Layout/Splash" component={Splash} />
 
@@ -42,10 +43,18 @@ a limited set of choices.
             };
             return (
                 <Splash>
-                    <SplashTitle logo={<Logo width="80px" />}>
-                        <h1>Jujubes</h1>
-                        <Text block size="xlarge" weight="light" opacity={80}>
-                            Use the Splash component to make beautiful sign up/in forms.
+                    <SplashTitle
+                        logo={<LogoFull width="75%" />}
+                        background={
+                            <Image
+                                src="https://images.unsplash.com/photo-1603422868789-3c008ba99df9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
+                                scale="fill"
+                            />
+                        }
+                    >
+                        <Text block size="xlarge" weight="light" backgroundColor="primary">
+                            Use the Splash component to make beautiful sign up and registration
+                            forms.
                         </Text>
                     </SplashTitle>
                     <SplashContent>

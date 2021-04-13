@@ -8,4 +8,10 @@
     display: flex;
     min-height: 100vh;
     background-color: rgba(var(--splash_backgroundColor), 1);
+
+    // RESPONSIVE
+    @include for-tablet-landscape-down(){
+        flex-direction: column;
+    }
 }
+

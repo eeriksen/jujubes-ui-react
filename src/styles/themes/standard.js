@@ -5,7 +5,12 @@ export default {
             families: ["Nunito Sans:300,400,600,800"]
         }
     },
-    options: {
+    properties: {
+        breakpoint_tabletPortrait: "600px",
+        breakpoint_tabletLandscape: "900px",
+        breakpoint_desktop: "1200px",
+        breakpoint_bigDesktop: "1400px",
+
         fontFamily_primary: "'Nunito Sans', sans-serif",
         fontFamily_titles: "'Nunito Sans', sans-serif",
 
@@ -75,9 +80,9 @@ export default {
         navTop_foregroundColor: "#ffffff",
         navTop_accentColor: "#ffffff",
 
-        navLogo_backgroundColor: "#27273b",
+        navLogo_backgroundColor: "#3699ff",
 
-        splash_backgroundColor: "#27273b",
+        splash_backgroundColor: "#3699ff",
         splash_foregroundColor: "#ffffff"
     }
 };

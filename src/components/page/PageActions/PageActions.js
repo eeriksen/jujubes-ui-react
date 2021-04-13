@@ -11,7 +11,7 @@ import { PopOver } from "../../navigation/PopOver";
 import { Action } from "./Action";
 
 export const PageActions = ({ children }) => {
-    const { currentPage } = useContext(AppContext);
+    const { pageInfo } = useContext(AppContext);
     const [visible, setVisible] = useState(false);
 
     /**
@@ -25,7 +25,7 @@ export const PageActions = ({ children }) => {
     return (
         <div
             className={classNames(styles.base, {
-                [styles.evadeButtons]: currentPage.hasButtons
+                [styles.evadeButtons]: pageInfo.hasButtons
             })}
         >
             <PopOver

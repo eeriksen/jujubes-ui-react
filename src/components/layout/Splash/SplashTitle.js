@@ -1,12 +1,11 @@
 import React from "react";
 import styles from "./SplashTitle.scss";
-import { H2 } from "../../typography/headings/H2";
 
-export const SplashTitle = ({ title, children }) => {
+export const SplashTitle = ({ logo, children }) => {
     return (
         <div className={styles.title}>
-            <H2>{title}</H2>
-            {children ? <div className={styles.description}>{children}</div> : null}
+            {logo ? <div className={styles.logo}>{logo}</div> : null}
+            <div className={styles.wrapper}>{children}</div>
         </div>
     );
 };

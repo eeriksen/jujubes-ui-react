@@ -19,7 +19,7 @@
         flex-direction: column;
 
         .logo {
-            height: $appBar--height;
+            min-height: $appBar--height;
             background: rgba(var(--navLogo_backgroundColor), 1);
             overflow: hidden;
             display: flex;

@@ -28,12 +28,15 @@ function getMessageInstance() {
 
 const NoticeInstance = (content, duration, type, onClose) => {
     let instance = getMessageInstance();
+    const hasPageNav = document.getElementById("page_nav_notice") !== null;
     instance.notice({
         key,
         duration: duration || defaultDuration,
         style: {},
         content: (
-            <div className={classNames(styles.base, styles[type])}>
+            <div className={classNames(styles.base, styles[type], {
+                [styles.evadePageNav]: hasPageNav
+            })}>
                 <span className={styles.content}>{content}</span>
             </div>
         ),
@@ -55,6 +58,10 @@ export const Toast = {
 
     success(content, duration, onClose) {
         return NoticeInstance(content, duration, "success", onClose);
+    },
+
+    warning(content, duration, onClose) {
+        return NoticeInstance(content, duration, "warning", onClose);
     },
 
     error(content, duration, onClose) {

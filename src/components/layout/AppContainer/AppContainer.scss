@@ -17,4 +17,44 @@
     * {
         box-sizing: border-box;
     }
+
+
+    // Markup
+
+    a {
+        color: rgba(var(--color_link), 1);
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    strong {
+        font-weight: var(--fontWeight_bold);
+    }
+
+    h1 {
+        margin: 0 0 var(--spacing_regular) 0;
+        font-size: var(--fontSize_heading1);
+        font-family: var(--fontFamily_titles);
+    }
+
+    h2 {
+        margin: 0 0 var(--spacing_regular) 0;
+        font-size: var(--fontSize_heading2);
+        font-family: var(--fontFamily_titles);
+    }
+
+    h3 {
+        margin: 0 0 var(--spacing_regular) 0;
+        font-size: var(--fontSize_heading3);
+        font-family: var(--fontFamily_titles);
+    }
+
+    h4 {
+        margin: 0 0 var(--spacing_regular) 0;
+        font-size: var(--fontSize_heading4);
+        font-family: var(--fontFamily_titles);
+    }
 }

@@ -4,10 +4,9 @@
    TOAST
    =================================================================== */
 
-
 .base {
     user-select: none;
-    color: rgba(var(--color_contrast), 1);
+    color: rgba(var(--color_statusText), 1);
     font-weight: var(--fontWeight_medium);
     padding: 10px 20px 9px;
     background-color: rgba(var(--color_info), 1);
@@ -19,19 +18,20 @@
         color: rgba(var(--color_statusText), 1);
     }
 
+    &.warning {
+        background-color: rgba(var(--color_warning), 1);
+        color: rgba(var(--color_statusText), 1);
+    }
+
     &.error {
         background-color: rgba(var(--color_error), 1);
         color: rgba(var(--color_statusText), 1);
     }
 
-    &.loading {
-        .icon {
-            @include m-iconColor(rgba(var(--color_base), 0.6));
+    @include for-tablet-landscape-down() {
+        &.evadePageNav {
+            transform: translateY(-50px);
         }
-    }
-
-    &.evadeButtons {
-        transform: translateY(-50px);
     }
 }
 
@@ -58,7 +58,7 @@
         @mixin fade-effect() {
             animation-duration: 0.2s;
             animation-fill-mode: both;
-            animation-timing-function: cubic-bezier(0.325, 0.510, 0.050, 0.770);
+            animation-timing-function: cubic-bezier(0.325, 0.51, 0.05, 0.77);
         }
 
         .fade-enter {
@@ -87,7 +87,6 @@
             animation-play-state: running;
         }
     }
-
 }
 
 @keyframes NotificationFadeIn {

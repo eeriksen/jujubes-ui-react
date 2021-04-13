@@ -8,7 +8,8 @@ export const Paragraph = ({ spacing, align, children }) => {
         <p
             className={classNames(styles.base, {
                 [styles.alignCenter]: align === "center",
-                [styles.spacingNone]: spacing === "none"
+                [styles.spacingNone]: spacing === "none",
+                [styles.spacingLarge]: spacing === "large",
             })}
         >
             {children}

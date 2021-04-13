@@ -63,12 +63,16 @@ export const AppContainer = ({ children }) => {
             value={{
                 navActive,
                 setNavActive,
+
                 subBarActive,
                 setSubBarActive,
+
                 currentPage,
                 setCurrentPage,
+
                 themeKey,
                 setThemeKey,
+
                 loadTheme
             }}
         >

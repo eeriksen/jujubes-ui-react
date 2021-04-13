@@ -1,0 +1,23 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Theming } from "./theming/Theming";
+
+<Meta
+    title="Start/Theming"
+    parameters={{
+        viewMode: "canvas",
+        previewTabs: { "storybook/docs/panel": { hidden: true }, canvas: { hidden: true } }
+    }}
+/>
+
+# Theming
+
+Create your own UI theme by tweaking the options.
+
+### Options
+
+<Canvas>
+    <Story name="options">
+        <Theming />
+    </Story>
+</Canvas>

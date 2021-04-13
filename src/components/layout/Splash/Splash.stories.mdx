@@ -4,12 +4,13 @@ import { Splash } from "./Splash";
 import { SplashContent } from "./SplashContent";
 import { SplashTitle } from "./SplashTitle";
 import { Form } from "../../form/Form";
+import { FormHeader } from "../../form/FormHeader";
 import { FormItem } from "../../form/FormItem";
 import { Input } from "../../form/Input";
 import { Button } from "../../button/Button";
 import { Logo } from "../../graphic/Logo";
 import { ComponentWrapper } from "../../layout/ComponentWrapper";
-import { Text } from "../../typography";
+import { Text, Paragraph } from "../../typography";
 import { Row, Col } from "../../grid";
 import { Callout } from "../../notify";
 
@@ -40,65 +41,71 @@ a limited set of choices.
                 }, 2000);
             };
             return (
-                <ComponentWrapper>
-                    <Splash
-                        logo={<Logo width={180} />}
-                        footer={`Kembo UI © ${new Date().getFullYear()}`}
-                    >
-                        <SplashTitle title="Sign in">
-                            <Row>
-                                <Col span={18}>
-                                    <Text size="medium" color="base60">
-                                        Sign in with your company email and password.
-                                    </Text>
-                                </Col>
-                            </Row>
-                        </SplashTitle>
-                        <SplashContent>
-                            <Form>
-                                <FormItem>
-                                    <Input
-                                        value={username}
-                                        onChange={setUsername}
-                                        big
-                                        icon="user"
-                                        placeholder="Your email"
+                <Splash>
+                    <SplashTitle logo={<Logo width="80px" />}>
+                        <h1>Jujubes</h1>
+                        <Text block size="xlarge" weight="light" opacity={80}>
+                            Use the Splash component to make beautiful sign up/in forms.
+                        </Text>
+                    </SplashTitle>
+                    <SplashContent>
+                        <Row>
+                            <Col lg={{ span: 12, offset: 6 }} md={{ span: 18, offset: 3 }}>
+                                <Form>
+                                    <FormHeader
+                                        title="Sign in"
+                                        description="Sign in with your company email and password."
                                     />
-                                </FormItem>
-                                <FormItem>
-                                    <Input
-                                        value={password}
-                                        onChange={setPassword}
-                                        big
-                                        icon="lock"
-                                        type="password"
-                                        placeholder="Your password"
-                                        error={error}
-                                    />
-                                </FormItem>
-                                {error ? (
                                     <FormItem>
-                                        <Callout color="error" align="center">
-                                            Wrong username and/or password
-                                        </Callout>
+                                        <Input
+                                            value={username}
+                                            onChange={setUsername}
+                                            size="big"
+                                            icon="user"
+                                            placeholder="Your email"
+                                        />
                                     </FormItem>
-                                ) : null}
-                                <FormItem>
-                                    <Button
-                                        type="submit"
-                                        color="primary"
-                                        size="big"
-                                        fill
-                                        onClick={simulateLogin}
-                                        busy={busy}
-                                    >
-                                        Sign in
-                                    </Button>
-                                </FormItem>
-                            </Form>
-                        </SplashContent>
-                    </Splash>
-                </ComponentWrapper>
+                                    <FormItem>
+                                        <Input
+                                            value={password}
+                                            onChange={setPassword}
+                                            size="big"
+                                            icon="lock"
+                                            type="password"
+                                            placeholder="Your password"
+                                            error={error}
+                                        />
+                                    </FormItem>
+                                    {error ? (
+                                        <FormItem>
+                                            <Callout color="error" align="center">
+                                                Wrong username and/or password
+                                            </Callout>
+                                        </FormItem>
+                                    ) : null}
+                                    <FormItem>
+                                        <Button
+                                            type="submit"
+                                            color="primary"
+                                            size="big"
+                                            fill
+                                            onClick={simulateLogin}
+                                            busy={busy}
+                                        >
+                                            Sign in
+                                        </Button>
+                                    </FormItem>
+                                </Form>
+                                <br />
+                                <Text opacity={40}>
+                                    By signing in you are hereby agreeing to our{" "}
+                                    <a href="/terms">Terms of Service</a> and{" "}
+                                    <a href="/privacy-policy">Privacy Policy</a>.
+                                </Text>
+                            </Col>
+                        </Row>
+                    </SplashContent>
+                </Splash>
             );
         }}
     </Story>

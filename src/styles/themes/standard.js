@@ -38,9 +38,10 @@ export default {
         color_success: "#34d896",
         color_error: "#ff668d",
         color_warning: "#e4bb40",
-        color_info: "#4aa1db",
+        color_info: "#4AA1DB",
         color_attention: "#f6fd9a",
         color_statusText: "#ffffff",
+        color_link: "#2A82DC",
 
         spacing_small: "0.357rem",
         spacing_regular: "0.714rem",
@@ -74,7 +75,7 @@ export default {
         navTop_foregroundColor: "#ffffff",
         navTop_accentColor: "#ffffff",
 
-        navLogo_backgroundColor: "#3699ff",
+        navLogo_backgroundColor: "#27273b",
 
         splash_backgroundColor: "#27273b",
         splash_foregroundColor: "#ffffff"

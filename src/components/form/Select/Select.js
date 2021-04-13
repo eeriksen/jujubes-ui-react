@@ -49,7 +49,7 @@ export const Select = (props) => {
                 className={selectClasses}
                 disabled={disabled}
             >
-                {!value ? <option>{placeholder}</option> : null}
+                {!value && placeholder ? <option>{placeholder}</option> : null}
                 {children}
             </select>
         </div>

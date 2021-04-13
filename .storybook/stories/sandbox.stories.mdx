@@ -1,8 +1,14 @@
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
-import { ExampleWrapper } from "./ExampleWrapper";
-import { ExampleContent } from "./ExampleContent"
+import { ExampleWrapper } from "./examples/ExampleWrapper";
+import { ExampleContent } from "./examples/ExampleContent";
 
-<Meta title="Start/Example" />
+<Meta
+    title="Start/Examples"
+    parameters={{
+        viewMode: "canvas",
+        previewTabs: { "storybook/docs/panel": { hidden: true }, canvas: { hidden: true } }
+    }}
+/>
 
 # Example
 

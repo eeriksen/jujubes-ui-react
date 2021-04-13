@@ -13,6 +13,7 @@ export const decorators = [
 ];
 
 export const parameters = {
+    viewMode: "docs",
     layout: "fullscreen",
     options: {
         storySort: {

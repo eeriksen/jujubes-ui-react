@@ -17,22 +17,27 @@ A `Toast`can be used to display a quick message to the user.
 <Canvas>
     <Story name="basic">
         <Row>
-            <Col span={8}>
-                <Button block color="info" onClick={() => Toast.info("This is a info toast")}>
+            <Col span={6}>
+                <Button fill color="info" onClick={() => Toast.info("This is a info toast")}>
                     Info toast
                 </Button>
             </Col>
-            <Col span={8}>
+            <Col span={6}>
                 <Button
-                    block
+                    fill
                     color="success"
                     onClick={() => Toast.success("This is a success toast")}
                 >
                     Success toast
                 </Button>
             </Col>
-            <Col span={8}>
-                <Button block color="error" onClick={() => Toast.error("This is an error toast")}>
+            <Col span={6}>
+                <Button fill color="warning" onClick={() => Toast.warning("This is an error toast")}>
+                    Warning toast
+                </Button>
+            </Col>
+            <Col span={6}>
+                <Button fill color="error" onClick={() => Toast.error("This is an error toast")}>
                     Error toast
                 </Button>
             </Col>

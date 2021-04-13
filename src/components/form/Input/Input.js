@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./Input.scss";
@@ -17,8 +17,11 @@ export const Input = (props) => {
         append,
         className,
         counter,
-        disabled
+        disabled,
+        onFocus,
+        onBlur
     } = props;
+    const [hasFocus, setHasFocus] = useState(false);
 
     // Base classes
     const baseClasses = classNames(
@@ -36,9 +39,13 @@ export const Input = (props) => {
 
     return (
         <div className={baseClasses}>
-            <IconPart icon={icon} />
+            <IconPart icon={icon} hasFocus={hasFocus} />
             <PrependPart prepend={prepend} onPrependClick={onPrependClick} disabled={disabled} />
-            <InputPart {...props} />
+            <InputPart
+                {...props}
+                onFocus={(e) => setHasFocus(true) | onFocus && onFocus(e)}
+                onBlur={(e) => setHasFocus(false) | onBlur && onBlur(e)}
+            />
             <AppendPart append={append} onAppendClick={onAppendClick} />
             <CounterPart counter={counter} value={value} />
         </div>
@@ -49,8 +56,15 @@ export const Input = (props) => {
  * PART:
  * Icon
  */
-const IconPart = ({ icon }) => {
-    return icon ? <Icon name={icon} className={styles.icon} /> : null;
+const IconPart = ({ icon, hasFocus }) => {
+    return icon ? (
+        <Icon
+            name={icon}
+            className={classNames(styles.icon, {
+                [styles.hasFocus]: hasFocus
+            })}
+        />
+    ) : null;
 };
 
 /**

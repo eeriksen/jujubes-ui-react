@@ -6,14 +6,20 @@
 
 // Title
 .title {
-    padding: var(--spacing_large) var(--spacing_large) 0;
+    color: rgba(var(--splash_foregroundColor), 1);
+    width: 40%;
+    max-width: $breakpoint--tablet-landscape;
+    display: flex;
+    align-items: center;
 
-    .description {
-        margin-top: var(--spacing_regular);
+    .logo {
+        position: absolute;
+        top: calc(var(--spacing_large) * 2);
+        left: calc(var(--spacing_large) * 2);
     }
 
-    // RESPONSIVE
-    @include for-phone-only() {
-        padding: var(--spacing_medium) var(--spacing_medium) var(--spacing_regular);
+    .wrapper {
+        width: 100%;
+        padding: calc(var(--spacing_large) * 2);
     }
 }

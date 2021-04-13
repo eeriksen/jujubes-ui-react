@@ -28,6 +28,7 @@ export const PageNav = ({ children }) => {
 
     return (
         <div
+            id="page_nav_notice"
             ref={baseRef}
             className={classNames(styles.base, {
                 [styles.compact]: compact

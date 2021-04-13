@@ -15,4 +15,8 @@
     &.spacingNone {
         margin-bottom: 0;
     }
+
+    &.spacingLarge {
+        margin: 0 0 var(--spacing_large) 0;
+    }
 }

@@ -1,0 +1,26 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   FORM HEADER
+   =================================================================== */
+
+.base {
+    position: relative;
+    margin-bottom: var(--spacing_large);
+
+    .title {
+        margin: 0 0 var(--spacing_regular) 0;
+        font-size: var(--fontSize_heading2);
+    }
+
+    .description {
+        font-size: var(--fontSize_medium);
+        color: rgba(var(--color_base), 0.6);
+        max-width: 80%;
+        margin-bottom: var(--spacing_regular);
+    }
+
+    .content {
+        margin-bottom: var(--spacing_regular);
+    }
+}

@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import moment from "moment";
-import { AppLayout } from "../../src/components/layout/AppLayout";
-import { AppNav } from "../../src/components/layout/AppNav";
-import { AppBar } from "../../src/components/layout/AppBar";
-import { AppContent } from "../../src/components/layout/AppContent";
-import { UserMenu } from "../../src/components/user/UserMenu";
-import { Input } from "../../src/components/form/Input";
-import { Badge } from "../../src/components/notify/Badge";
-import { Menu, MenuItem } from "../../src/components/navigation/Menu";
-import { Icon } from "../../src/components/graphic/Icon";
-import { Text } from "../../src/components/typography/Text";
-import { Logo } from "../../src/components/graphic/Logo";
-import { ComponentWrapper } from "../../src/components/layout/ComponentWrapper";
+import { AppLayout } from "../../../src/components/layout/AppLayout";
+import { AppNav } from "../../../src/components/layout/AppNav";
+import { AppBar } from "../../../src/components/layout/AppBar";
+import { AppContent } from "../../../src/components/layout/AppContent";
+import { UserMenu } from "../../../src/components/user/UserMenu";
+import { Input } from "../../../src/components/form/Input";
+import { Badge } from "../../../src/components/notify/Badge";
+import { Menu, MenuItem } from "../../../src/components/navigation/Menu";
+import { Icon } from "../../../src/components/graphic/Icon";
+import { Text } from "../../../src/components/typography/Text";
+import { Logo } from "../../../src/components/graphic/Logo";
+import { ComponentWrapper } from "../../../src/components/layout/ComponentWrapper";
 
-import { user } from "../constants";
+import { user } from "../../constants";
 
 export const ExampleWrapper = ({ children }) => {
     const [activeMenuItem, setActiveMenuItem] = useState(1);
@@ -75,7 +74,7 @@ export const ExampleWrapper = ({ children }) => {
                     </AppBar.Item>
                 </AppBar>
                 <AppNav
-                    logo={<Logo width={100} />}
+                    logo={<Logo height={64} padding="20px 0 0" />}
                     title={
                         <Text block size="large" weight="medium">
                             Example page

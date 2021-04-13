@@ -49,7 +49,7 @@ export const ItemList = ({ onItemClick, onSort, busy, children, className, empty
                 <div className={styles.item}>
                     <div className={styles.content}>
                         <div className={styles.wrapper}>
-                            <Text base40>{emptyMessage || "Tom liste."}</Text>
+                            <Text opacity={40}>{emptyMessage || "Tom liste."}</Text>
                         </div>
                     </div>
                 </div>

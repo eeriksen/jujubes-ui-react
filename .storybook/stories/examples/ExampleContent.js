@@ -90,7 +90,7 @@ export const ExampleContent = () => {
 
     return (
         <Page loading={busyLoading}>
-            <PageHeader icon="gear" title="Example layout" subtitle="Kembo UI" />
+            <PageHeader icon="gear" title="Example layout" subtitle="Jujubes UI" />
             <PageCrumbs>
                 <Crumb label="Start" link="/" />
                 <Crumb label="Company" link="/companies" />

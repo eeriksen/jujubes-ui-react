@@ -1,11 +1,11 @@
-# Kembo UI
+# Jujubes UI
 
-Kembo is dependency biased admin UI component library in React.
+Jujubes is dependency biased admin UI component library in React.
 ## Usage
  
 Install the dependency:
 
-`npm install kembo-ui-react`
+`npm install jujubes-ui-react`
 
 Install required peer dependencies if not already in your project: 
 
@@ -13,16 +13,16 @@ Install required peer dependencies if not already in your project:
 
 Import the CSS file somewhere high up in your component hierarchy:
 
-`import "kembo-ui-react/dist/styles.css"`
+`import "jujubes-ui-react/dist/styles.css"`
 
 Import components at will:
 
-`import { Button } from "kembo-ui-react"`
+`import { Button } from "jujubes-ui-react"`
 
 
 ## Documentation
 
-https://kembo-ui-react.netlify.app
+https://jujubes-ui-react.netlify.app
 
 ## Development
 

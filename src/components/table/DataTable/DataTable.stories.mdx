@@ -64,6 +64,10 @@ basis if you need to.
 
 <ArgsTable of={DataTable} />
 
+## Column
+
+<ArgsTable of={Column} />
+
 ### Basic
 
 <Canvas>
@@ -143,5 +147,72 @@ basis if you need to.
                 )}
             />
         </DataTable>
+    </Story>
+</Canvas>
+
+### Sorting
+
+<Canvas>
+    <Story name="sorting">
+        {() => {
+            const [sort, setSort] = useState({ id: "id", dir: "asc" });
+            return (
+                <DataTable
+                    rows={tableRows.sort(
+                        (a, b) =>
+                            a[sort.id].toString().localeCompare(b[sort.id].toString()) *
+                            (sort.dir === "asc" ? 1 : -1)
+                    )}
+                    onRowClick={(data) => console.log("CLICK", data)}
+                    onSort={({ columnProps, direction }) =>
+                        setSort({ id: columnProps.id, dir: direction })
+                    }
+                >
+                    <Column
+                        id="id"
+                        label="ID"
+                        sortable
+                        sorted={sort?.id === "id" ? sort.dir : null}
+                        cell={({ row }) => <Cell>{row.id}</Cell>}
+                    />
+                    <Column
+                        id="firstName"
+                        label="First name"
+                        sortable
+                        sorted={sort?.id === "firstName" ? sort.dir : null}
+                        cell={({ row }) => <Cell>{row.firstName}</Cell>}
+                    />
+                    <Column
+                        id="lastName"
+                        label="Last name"
+                        sortable
+                        sorted={sort?.id === "lastName" ? sort.dir : null}
+                        cell={({ row }) => <Cell>{row.lastName}</Cell>}
+                    />
+                    <Column
+                        id="email"
+                        label="E-mail"
+                        sortable
+                        sorted={sort?.id === "email" ? sort.dir : null}
+                        cell={({ row }) => <Cell>{row.email}</Cell>}
+                    />
+                    <Column
+                        id="status"
+                        label="Status"
+                        sortable
+                        sorted={sort?.id === "status" ? sort.dir : null}
+                        cell={({ row }) => (
+                            <Cell>
+                                {row.status ? (
+                                    <Badge color="success">Active</Badge>
+                                ) : (
+                                    <Badge color="error">Inactive</Badge>
+                                )}
+                            </Cell>
+                        )}
+                    />
+                </DataTable>
+            );
+        }}
     </Story>
 </Canvas>

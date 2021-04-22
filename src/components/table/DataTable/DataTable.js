@@ -11,8 +11,8 @@ export const DataTable = ({
     rows,
     children,
     onRowClick,
+    onSort,
     busy,
-    loading,
     rowModifiers
 }) => {
     const tableRef = useRef();
@@ -63,13 +63,12 @@ export const DataTable = ({
                     onScroll={updateOverflowIndicators}
                 >
                     <table className={styles.table}>
-                        <TableHead columns={children} loading={loading} />
+                        <TableHead columns={children} onSort={onSort} />
                         <TableBody
                             columns={children}
                             rows={rows}
                             onRowClick={onRowClick}
                             rowModifiers={rowModifiers}
-                            loading={loading}
                         />
                     </table>
                 </div>
@@ -87,6 +86,10 @@ DataTable.propTypes = {
      * Callback for when a row is clicked. Returns the respective rows data
      */
     onRowClick: PropTypes.func,
+    /**
+     * Callback triggered when column sort is clicked. Returns object containing `columnProps`, `columnIndex` and `direction`="asc|desc".
+     */
+    onSort: PropTypes.func,
     /**
      * Apply modifiers to rows.
      */

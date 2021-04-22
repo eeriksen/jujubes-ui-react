@@ -13,5 +13,13 @@ Column.propTypes = {
     /**
      * Cell render function
      */
-    cell: PropTypes.func
+    cell: PropTypes.func,
+    /**
+     * Sortable indicator
+     */
+    sortable: PropTypes.bool,
+    /**
+     * Indicate that table is sorted by column
+     */
+    sorted: PropTypes.oneOf(["asc", "desc"])
 };

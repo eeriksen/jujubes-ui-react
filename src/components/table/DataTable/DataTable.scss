@@ -42,6 +42,7 @@
         width: 30px;
         opacity: 0;
         transition: opacity 0.2s linear;
+        pointer-events: none;
 
         &:before {
             position: absolute;

@@ -3,7 +3,7 @@ import { Column } from "../Column";
 import { Tr } from "../Tr";
 import { Td } from "../Td";
 
-export const TableBody = ({ rows, rowModifiers, onRowClick, columns, loading }) => {
+export const TableBody = ({ rows, rowModifiers, onRowClick, columns }) => {
     return (
         <tbody>
             {/* Table rows */}

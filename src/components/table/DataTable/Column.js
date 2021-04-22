@@ -15,9 +15,9 @@ Column.propTypes = {
      */
     cell: PropTypes.func,
     /**
-     * Sortable indicator
+     * Sortable indicator (Can be value of custom path.)
      */
-    sortable: PropTypes.bool,
+    sortable: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     /**
      * Indicate that table is sorted by column
      */

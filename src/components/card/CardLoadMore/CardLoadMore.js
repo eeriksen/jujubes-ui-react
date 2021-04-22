@@ -7,11 +7,14 @@ import styles from "./CardLoadMore.scss";
 export const CardLoadMore = ({ progress, busy, onClick }) => {
     return (
         <div className={styles.base}>
-            <div className={styles.progress}>
-                <div className={styles.bar} style={{ width: `${progress}%` }} />
-            </div>
-            <button className={styles.button} disabled={busy} onClick={onClick}>
-                {busy ? <Waiting /> : <Icon name="arrow-down" />}
+            {progress ? (
+                <div className={styles.progress}>
+                    <div className={styles.bar} style={{ width: `${progress}%` }} />
+                </div>
+            ) : null}
+
+            <button className={styles.button} disabled={busy || progress >= 100} onClick={onClick}>
+                {busy ? <Waiting /> : <Icon name={!progress || progress < 100 ? "arrow-down" : "check"} />}
             </button>
         </div>
     );

@@ -14,6 +14,10 @@
     line-height: var(--lineHeight_regular);
     color: rgba(var(--color_base), 1);
 
+    body {
+        margin: 0;
+    }
+
     * {
         box-sizing: border-box;
     }

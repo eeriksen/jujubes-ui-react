@@ -11,7 +11,7 @@ import { Menu, MenuItem } from "../../navigation/Menu";
 import { ComponentWrapper } from "../ComponentWrapper";
 import { Icon } from "../../graphic/Icon";
 
-import { user } from "../../../../.storybook/constants";
+import { SAMPLE_USER } from "../../../../.storybook/constants";
 
 <Meta title="Components/Layout/AppBar" component={AppBar} />
 
@@ -43,9 +43,9 @@ Write something here.
                             </AppBar.Item>
                             <AppBar.Item placeRight>
                                 <UserMenu
-                                    name={user.name}
-                                    email={user.email}
-                                    picture={user.pictureUrl}
+                                    name={SAMPLE_USER.name}
+                                    email={SAMPLE_USER.email}
+                                    picture={SAMPLE_USER.pictureUrl}
                                 >
                                     <Menu>
                                         <MenuItem

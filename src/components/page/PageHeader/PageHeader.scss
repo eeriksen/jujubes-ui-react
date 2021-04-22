@@ -73,7 +73,7 @@
 }
 
 
-@include for-tablet-landscape-down(){
+@include for-tablet-down(){
     .base {
         .titles {
             margin-right: 0;
@@ -82,7 +82,7 @@
     }
 }
 
-@include for-phone-only(){
+@include for-mobile-down(){
     .base {
         margin: 0 -3px var(--spacing_medium);
         padding: 0 calc(var(--spacing_edges) + 40px) 0 var(--spacing_edges);

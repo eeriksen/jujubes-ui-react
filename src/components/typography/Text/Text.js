@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./Text.scss";
 import { capitalize } from "../../../utils/stringUtils";
-import { background } from "@storybook/theming";
 
 export const Text = ({
     block,
@@ -49,13 +48,6 @@ export const Text = ({
                 [styles.sizeLarge]: size === "large",
                 [styles.sizeXlarge]: size === "xlarge",
 
-                [styles.colorPrimary]: color === "primary",
-                [styles.colorContrast]: color === "contrast",
-                [styles.colorSuccess]: color === "success",
-                [styles.colorWarning]: color === "warning",
-                [styles.colorError]: color === "error",
-                [styles.colorInfo]: color === "info",
-
                 [styles.strikeThrough]: strikeThrough,
                 [styles.lowercase]: lowercase,
                 [styles.underline]: underline,
@@ -65,6 +57,7 @@ export const Text = ({
                 [styles.shadowMedium]: shadow === "medium",
                 [styles.shadowLarge]: shadow === "large",
 
+                [color && styles[`color${capitalize(color)}`]]: color,
                 [backgroundColor && styles[`background${capitalize(backgroundColor)}`]]: backgroundColor
             }),
             style: {
@@ -78,7 +71,7 @@ export const Text = ({
 Text.propTypes = {
     block: PropTypes.bool,
     truncate: PropTypes.bool,
-    color: PropTypes.oneOf(["primary", "contrast", "success", "warning", "error", "info"]),
+    color: PropTypes.oneOf(["base", "primary", "contrast", "success", "warning", "error", "info"]),
     opacity: PropTypes.number,
     weight: PropTypes.oneOf(["light", "medium", "bold"]),
     size: PropTypes.oneOf(["small", "normal", "medium", "large", "xlarge"]),

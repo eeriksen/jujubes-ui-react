@@ -1,6 +1,13 @@
 import { addons } from "@storybook/addons";
-import defaultTheme from "./theme";
+import { create } from "@storybook/theming/create";
+import logo from "./assets/jujubes-logo.png";
 
 addons.setConfig({
-    theme: defaultTheme
+    theme: create({
+        base: "light",
+        colorSecondary: '#3699ff',
+        brandTitle: "FUCK UI",
+        brandUrl: "https://fuck.jujubes.app",
+        brandImage: logo
+    })
 });

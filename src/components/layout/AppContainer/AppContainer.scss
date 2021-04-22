@@ -57,4 +57,10 @@
         font-size: var(--fontSize_heading4);
         font-family: var(--fontFamily_titles);
     }
+
+    hr {
+        border: none;
+        border-top: 1px solid rgba(var(--color_base), 0.1);
+        margin: var(--spacing_medium) 0;
+    }
 }

@@ -63,10 +63,6 @@ export const Col = (props) => {
 const stringOrNumber = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);
 const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
 
-Col.defaultProps = {
-    span: 24
-};
-
 Col.propTypes = {
     /**
      * Span units of given column.

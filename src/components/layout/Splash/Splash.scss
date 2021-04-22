@@ -10,7 +10,7 @@
     background-color: rgba(var(--splash_backgroundColor), 1);
 
     // RESPONSIVE
-    @include for-tablet-landscape-down(){
+    @include for-tablet-down(){
         flex-direction: column;
     }
 }

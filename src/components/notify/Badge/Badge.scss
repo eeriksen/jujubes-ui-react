@@ -4,18 +4,20 @@
    BADGE
    =================================================================== */
 
-$borderWidth--badge: 1px;
-$height--badge: 21px;
-$height--badge-small: 17px;
+$borderWidth: var(--badge_borderWidth, 1px);
+$height: var(--badge_height, 22px);
+$heightSmall: var(--badge_heightSmall, 17px);
+$fontWeight: var(--badge_fontWeight, var(--fontWeight_bold));
+$fontSize: var(--badge_fontSize, var(--fontSize_tiny));
 
 .base {
     display: inline-block;
-    height: $height--badge;
-    line-height: $height--badge - 2px;
+    height: $height;
+    line-height: $height;
     padding: 0 7px;
-    font-size: var(--fontSize_tiny);
-    border: $borderWidth--badge solid rgba(var(--color_base), 0.4);
-    font-weight: var(--fontWeight_bold);
+    font-size: $fontSize;
+    border: $borderWidth solid rgba(var(--color_base), 0.4);
+    font-weight: $fontWeight;
     text-transform: uppercase;
     border-radius: var(--borderRadius_form);
     color: rgba(var(--color_base), 0.8);
@@ -32,7 +34,7 @@ $height--badge-small: 17px;
     /* Number
     ---------------------------------------------------------------------- */
     &.number {
-        border-radius: $height--badge;
+        border-radius: $height;
     }
 
     /* Badge variants
@@ -119,8 +121,8 @@ $height--badge-small: 17px;
     ---------------------------------------------------------------------- */
     &.small {
         vertical-align: middle;
-        height: $height--badge-small;
-        line-height: $height--badge-small;
+        height: $heightSmall;
+        line-height: $heightSmall;
         border-radius: calc(var(--borderRadius_form) / 2);
         font-size: 0.645rem;
         padding: 0 5px;

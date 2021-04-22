@@ -6,11 +6,6 @@ export default {
         }
     },
     properties: {
-        breakpoint_tabletPortrait: "600px",
-        breakpoint_tabletLandscape: "900px",
-        breakpoint_desktop: "1200px",
-        breakpoint_bigDesktop: "1400px",
-
         fontFamily_primary: "'Nunito Sans', sans-serif",
         fontFamily_titles: "'Nunito Sans', sans-serif",
 

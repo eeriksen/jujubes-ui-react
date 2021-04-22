@@ -167,7 +167,7 @@ $grid-columns: 24;
 // Columns, offsets, pushes, and pulls for the small device range, from phones
 // to tablets.
 
-@include for-tablet-portrait-up() {
+@include for-mobile-up() {
     @include make-grid("_sm");
 }
 
@@ -175,7 +175,7 @@ $grid-columns: 24;
 //
 // Columns, offsets, pushes, and pulls for the desktop device range.
 
-@include for-tablet-landscape-up() {
+@include for-tablet-up() {
     @include make-grid("_md");
 }
 

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import { AppContext } from "../AppContext";
+import { WindowResizeListener } from "../WindowResizeListener";
 import * as themes from "../../../styles/themes";
 import { hexToRgb } from "../../../utils/colorUtils";
 import WebFont from "webfontloader";
 import "./AppContainer.scss";
-import { DATE_TIME_FORMAT } from "../../../constants";
+import { DATE_TIME_FORMAT, BREAKPOINTS } from "../../../constants";
 
 moment.defaultFormat = DATE_TIME_FORMAT;
 moment.defaultFormatUtc = DATE_TIME_FORMAT;
@@ -37,6 +38,12 @@ export const AppContainer = ({ children }) => {
      * @param {*} theme
      */
     const loadTheme = (theme) => {
+
+        // Use standard if missing
+        if(!theme){
+            theme = themes[STANDARD_THEME_KEY];
+        }
+
         // Set CSS variables
         if (theme.properties) {
             const themeProperties = theme.properties;
@@ -48,7 +55,10 @@ export const AppContainer = ({ children }) => {
                         `${colorValue.r}, ${colorValue.g}, ${colorValue.b}`
                     );
                 } else {
-                    document.documentElement.style.setProperty(`--${value}`, themeProperties[value]);
+                    document.documentElement.style.setProperty(
+                        `--${value}`,
+                        themeProperties[value]
+                    );
                 }
             }
         }
@@ -57,6 +67,21 @@ export const AppContainer = ({ children }) => {
         if (theme.fonts) {
             WebFont.load(theme.fonts);
         }
+    };
+
+    const updateBreakpoint = () => {
+        const windowWidth = window.innerWidth;
+        let breakpoint = null;
+        Object.keys(BREAKPOINTS).forEach((key) => {
+            const keyNumber = parseInt(key, 10);
+            if (windowWidth <= keyNumber && (breakpoint === null || keyNumber < breakpoint)) {
+                breakpoint = keyNumber;
+            }
+        });
+        setPageInfo({
+            ...pageInfo,
+            breakpoint: BREAKPOINTS[breakpoint]
+        });
     };
 
     return (
@@ -78,6 +103,7 @@ export const AppContainer = ({ children }) => {
             }}
         >
             {children}
+            <WindowResizeListener onInit={updateBreakpoint} onResize={updateBreakpoint} />
         </AppContext.Provider>
     );
 };

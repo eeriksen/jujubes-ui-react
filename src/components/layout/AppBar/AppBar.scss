@@ -64,7 +64,7 @@
 
 
 
-@include for-tablet-landscape-up(){
+@include for-tablet-up(){
     .base {
         .mainBar {
             display: none;
@@ -72,7 +72,7 @@
     }
 }
 
-@include for-tablet-landscape-down(){
+@include for-tablet-down(){
     .base {
         .subBar {
             box-shadow: none;

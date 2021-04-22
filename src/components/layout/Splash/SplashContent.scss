@@ -14,11 +14,11 @@
     .wrapper {
         width: 100%;
         padding: var(--spacing_large);
-        max-width: $breakpoint--tablet-landscape;
+        max-width: $breakpoint--tablet;
     }
 
     // RESPONSIVE
-    @include for-tablet-landscape-down() {
+    @include for-tablet-down() {
         align-items: flex-start;
         justify-content: flex-start;
         border-radius: var(--borderRadius_content) var(--borderRadius_content) 0 0;

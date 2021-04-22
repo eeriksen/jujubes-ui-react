@@ -31,10 +31,10 @@ $zIndex--userMenu: $zIndex-9;
 ---------------------------------------------------------------------- */
 
 // Breakpoints
-$breakpoint--tablet-portrait: 600px;
-$breakpoint--tablet-landscape: 900px;
+$breakpoint--mobile: 600px;
+$breakpoint--tablet: 900px;
 $breakpoint--desktop: 1200px;
-$breakpoint--big-desktop: 1400px;
+$breakpoint--widescreen: 1400px;
 
 // Icon sizes
 $iconSize--small: 14px;

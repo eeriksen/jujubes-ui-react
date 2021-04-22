@@ -12,7 +12,7 @@ import { Text } from "../../../src/components/typography/Text";
 import { LogoFull } from "../../../src/components/graphic/Logo";
 import { ComponentWrapper } from "../../../src/components/layout/ComponentWrapper";
 
-import { user } from "../../constants";
+import { SAMPLE_USER } from "../../constants";
 
 export const ExampleWrapper = ({ children }) => {
     const [activeMenuItem, setActiveMenuItem] = useState(1);
@@ -31,7 +31,7 @@ export const ExampleWrapper = ({ children }) => {
                         />
                     </AppBar.Item>
                     <AppBar.Item placeRight>
-                        <UserMenu name={user.name} about={user.email} picture={user.pictureUrl}>
+                        <UserMenu name={SAMPLE_USER.name} about={SAMPLE_USER.email} picture={SAMPLE_USER.pictureUrl}>
                             <Menu>
                                 <MenuItem
                                     selected={activeMenuItem === 1}

@@ -136,7 +136,7 @@ $size--counter: 22px;
     }
 
     // RESPONSIVE: For phone only
-    @include for-tablet-landscape-down() {
+    @include for-tablet-down() {
         position: fixed;
         bottom: 0;
         left: 0;

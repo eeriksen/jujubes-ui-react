@@ -4,12 +4,11 @@ import { Splash } from "./Splash";
 import { SplashContent } from "./SplashContent";
 import { SplashTitle } from "./SplashTitle";
 import { Form } from "../../form/Form";
-import { FormHeader } from "../../form/FormHeader";
 import { FormItem } from "../../form/FormItem";
 import { Input } from "../../form/Input";
 import { Button } from "../../button/Button";
 import { LogoFull } from "../../graphic/Logo";
-import { ComponentWrapper } from "../../layout/ComponentWrapper";
+import { ComponentWrapper, Section, SectionTitle, ContentWrapper } from "../../layout";
 import { Text, Paragraph } from "../../typography";
 import { Row, Col } from "../../grid";
 import { Callout } from "../../notify";
@@ -43,6 +42,104 @@ a limited set of choices.
             };
             return (
                 <Splash>
+                    <SplashTitle logo={<LogoFull width="75%" />}>
+                        <ContentWrapper mobile="up">
+                            <Text block size="xlarge" weight="light">
+                                Use the Splash component to make beautiful sign up and registration
+                                forms.
+                            </Text>
+                        </ContentWrapper>
+                    </SplashTitle>
+                    <SplashContent>
+                        <Row>
+                            <Col lg={{ span: 12, offset: 6 }} md={{ span: 18, offset: 3 }}>
+                                <Section>
+                                    <SectionTitle
+                                        title="Sign in"
+                                        description="Sign in with your company email and password."
+                                    />
+                                    <Form>
+                                        <FormItem>
+                                            <Input
+                                                value={username}
+                                                onChange={setUsername}
+                                                size="big"
+                                                icon="user"
+                                                placeholder="Your email"
+                                            />
+                                        </FormItem>
+                                        <FormItem>
+                                            <Input
+                                                value={password}
+                                                onChange={setPassword}
+                                                size="big"
+                                                icon="lock"
+                                                type="password"
+                                                placeholder="Your password"
+                                                error={error}
+                                            />
+                                        </FormItem>
+                                        {error ? (
+                                            <FormItem>
+                                                <Callout color="error" align="center">
+                                                    Wrong username and/or password
+                                                </Callout>
+                                            </FormItem>
+                                        ) : null}
+                                        <FormItem>
+                                            <Button
+                                                type="submit"
+                                                color="primary"
+                                                size="big"
+                                                fill
+                                                onClick={simulateLogin}
+                                                busy={busy}
+                                            >
+                                                Sign in
+                                            </Button>
+                                        </FormItem>
+                                    </Form>
+                                    <br />
+                                    <Text opacity={40}>
+                                        By signing in you are hereby agreeing to our{" "}
+                                        <a href="/terms">Terms of Service</a> and{" "}
+                                        <a href="/privacy-policy">Privacy Policy</a>.
+                                    </Text>
+                                </Section>
+                                <hr />
+                                <Button fill labelColor="primary">
+                                    <Text color="base" opacity={80}>
+                                        Not a user?
+                                    </Text>
+                                    &nbsp;&nbsp;Sign up here!
+                                </Button>
+                            </Col>
+                        </Row>
+                    </SplashContent>
+                </Splash>
+            );
+        }}
+    </Story>
+</Canvas>
+
+### With background
+
+<Canvas>
+    <Story name="with background">
+        {() => {
+            const [username, setUsername] = useState(null);
+            const [password, setPassword] = useState(null);
+            const [busy, setBusy] = useState(false);
+            const [error, setError] = useState(false);
+            const simulateLogin = () => {
+                setBusy(true);
+                setTimeout(() => {
+                    setBusy(false);
+                    setError(!error);
+                }, 2000);
+            };
+            return (
+                <Splash>
                     <SplashTitle
                         logo={<LogoFull width="75%" />}
                         background={
@@ -59,58 +156,71 @@ a limited set of choices.
                     </SplashTitle>
                     <SplashContent>
                         <Row>
-                            <Col lg={{ span: 12, offset: 6 }} md={{ span: 18, offset: 3 }}>
-                                <Form>
-                                    <FormHeader
+                            <Col
+                                lg={{ span: 12, offset: 6 }}
+                                md={{ span: 18, offset: 3 }}
+                                sm={{ span: 20, offset: 2 }}
+                            >
+                                <Section>
+                                    <SectionTitle
                                         title="Sign in"
                                         description="Sign in with your company email and password."
                                     />
-                                    <FormItem>
-                                        <Input
-                                            value={username}
-                                            onChange={setUsername}
-                                            size="big"
-                                            icon="user"
-                                            placeholder="Your email"
-                                        />
-                                    </FormItem>
-                                    <FormItem>
-                                        <Input
-                                            value={password}
-                                            onChange={setPassword}
-                                            size="big"
-                                            icon="lock"
-                                            type="password"
-                                            placeholder="Your password"
-                                            error={error}
-                                        />
-                                    </FormItem>
-                                    {error ? (
+                                    <Form>
                                         <FormItem>
-                                            <Callout color="error" align="center">
-                                                Wrong username and/or password
-                                            </Callout>
+                                            <Input
+                                                value={username}
+                                                onChange={setUsername}
+                                                size="big"
+                                                icon="user"
+                                                placeholder="Your email"
+                                            />
                                         </FormItem>
-                                    ) : null}
-                                    <FormItem>
-                                        <Button
-                                            type="submit"
-                                            color="primary"
-                                            size="big"
-                                            fill
-                                            onClick={simulateLogin}
-                                            busy={busy}
-                                        >
-                                            Sign in
-                                        </Button>
-                                    </FormItem>
-                                </Form>
-                                <br />
-                                <Text opacity={40}>
-                                    By signing in you are hereby agreeing to our{" "}
-                                    <a href="/terms">Terms of Service</a> and{" "}
-                                    <a href="/privacy-policy">Privacy Policy</a>.
-                                </Text>
+                                        <FormItem>
+                                            <Input
+                                                value={password}
+                                                onChange={setPassword}
+                                                size="big"
+                                                icon="lock"
+                                                type="password"
+                                                placeholder="Your password"
+                                                error={error}
+                                            />
+                                        </FormItem>
+                                        {error ? (
+                                            <FormItem>
+                                                <Callout color="error" align="center">
+                                                    Wrong username and/or password
+                                                </Callout>
+                                            </FormItem>
+                                        ) : null}
+                                        <FormItem>
+                                            <Button
+                                                type="submit"
+                                                color="primary"
+                                                size="big"
+                                                fill
+                                                onClick={simulateLogin}
+                                                busy={busy}
+                                            >
+                                                Sign in
+                                            </Button>
+                                        </FormItem>
+                                    </Form>
+                                    <br />
+                                    <Text opacity={40}>
+                                        By signing in you are hereby agreeing to our{" "}
+                                        <a href="/terms">Terms of Service</a> and{" "}
+                                        <a href="/privacy-policy">Privacy Policy</a>.
+                                    </Text>
+                                </Section>
+                                <hr />
+                                <Button fill labelColor="primary">
+                                    <Text color="base" opacity={80}>
+                                        Not a user?
+                                    </Text>
+                                    &nbsp;&nbsp;Sign up here!
+                                </Button>
                             </Col>
                         </Row>
                     </SplashContent>

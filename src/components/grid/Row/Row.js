@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./Row.scss";
+import { Col } from "../Col";
 
 export const Row = (props) => {
     const { className, children, gutter, spacing } = props;
@@ -18,11 +19,13 @@ export const Row = (props) => {
                 className
             )}
         >
-            {React.Children.map(children, (child) =>
-                React.cloneElement(child, {
-                    gutter
-                })
-            )}
+            {React.Children.map(children, (child) =>{
+                return child && child.type === Col ? (
+                    React.cloneElement(child, {
+                        gutter
+                    })
+                ) : child;
+            })}
         </div>
     );
 };

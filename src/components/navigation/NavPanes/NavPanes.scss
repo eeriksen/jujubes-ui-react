@@ -111,7 +111,7 @@
     }
 
 
-    @include for-tablet-portrait-down() {
+    @include for-mobile-down() {
         .layout {
             .nav {
                 min-width: auto;

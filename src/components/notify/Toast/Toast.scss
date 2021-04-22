@@ -28,7 +28,7 @@
         color: rgba(var(--color_statusText), 1);
     }
 
-    @include for-tablet-landscape-down() {
+    @include for-tablet-down() {
         &.evadePageNav {
             transform: translateY(-50px);
         }

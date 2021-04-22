@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
-import { Card } from '../Card'
-import { CardContent } from "../CardContent"
-import { CardTitle } from "../CardTitle"
-import { CardUserHead } from "./CardUserHead"
-import { Badge } from "../../notify/Badge"
-import { user } from "../../../../.storybook/constants"
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Card } from "../Card";
+import { CardContent } from "../CardContent";
+import { CardTitle } from "../CardTitle";
+import { CardUserHead } from "./CardUserHead";
+import { Badge } from "../../notify/Badge";
+import { SAMPLE_USER } from "../../../../.storybook/constants";
 
 <Meta title="Components/Cards/CardUserHead" component={CardUserHead} />
 
@@ -16,19 +16,16 @@ A `<CardUserHead />` is used to display a user profile with name, emal and pictu
 <ArgsTable of={CardUserHead} />
 
 ### Basic
+
 <Canvas>
     <Story name="basic">
         <Card>
-            <CardUserHead
-                picture={user.pictureUrl}
-                name={user.name}
-                email={user.email}
-            />
+            <CardUserHead picture={SAMPLE_USER.pictureUrl} name={SAMPLE_USER.name} email={SAMPLE_USER.email} />
             <CardContent>
                 Lorem ipsum dolor sit amet, mel aliquip consetetur ea, postulant salutandi et ius.
-                Quas semper dissentiunt ad mel, in putent minimum ius, ne doctus audiam menandri mel.
-                In amet utroque facilisi quo, mei ad mutat graeci evertitur, natum fastidii no mel.
-                Etiam praesent moderatius an vis, vim velit tollit cu.
+                Quas semper dissentiunt ad mel, in putent minimum ius, ne doctus audiam menandri
+                mel. In amet utroque facilisi quo, mei ad mutat graeci evertitur, natum fastidii no
+                mel. Etiam praesent moderatius an vis, vim velit tollit cu.
             </CardContent>
         </Card>
     </Story>

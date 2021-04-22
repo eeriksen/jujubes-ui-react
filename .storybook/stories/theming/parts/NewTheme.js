@@ -11,11 +11,11 @@ import { FormItem } from "../../../../src/components/form/FormItem";
 import { Button } from "../../../../src/components/button/Button";
 import { getData, setData } from "../../../utils/storageUtils";
 import { randomString } from "../../../utils/stringUtils";
-import { CUSTOM_THEMES_STORAGE_KEY, ACTIVE_THEME_STORAGE_KEY } from "../constants";
+import { CUSTOM_THEMES_STORAGE_KEY, ACTIVE_THEME_STORAGE_KEY } from "../../../constants";
 import { Select, Option } from "../../../../src/components/form/Select";
 import { standard as standardTheme } from "../../../../src/styles/themes";
 
-export const NewTheme = ({ onClose, fetchThemeList }) => {
+export const NewTheme = ({ onClose, fetchThemeList, setActiveThemeId }) => {
     const [themeList, setThemeList] = useState(getData(CUSTOM_THEMES_STORAGE_KEY) || []);
     const [name, setName] = useState(null);
     const [fromThemeId, setFromThemeId] = useState(0);
@@ -23,7 +23,10 @@ export const NewTheme = ({ onClose, fetchThemeList }) => {
     const handleCreateTheme = () => {
         let fromTheme = standardTheme;
         if(fromThemeId !== 0){
-            fromTheme = themeList.find((t) => t.id === fromThemeId)[0];
+            const themeIndex = themeList.findIndex((t) => t.id === fromThemeId);
+            if(themeIndex >= 0){
+                fromTheme = themeList[themeIndex];
+            }
         }
 
         let newTheme = {
@@ -36,6 +39,7 @@ export const NewTheme = ({ onClose, fetchThemeList }) => {
         setData(CUSTOM_THEMES_STORAGE_KEY, themeList);
         setData(ACTIVE_THEME_STORAGE_KEY, newTheme.id);
         fetchThemeList();
+        setActiveThemeId(newTheme.id);
         onClose();
     };
 

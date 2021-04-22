@@ -39,7 +39,7 @@
         padding: var(--spacing_small);
     }
 
-    @include for-tablet-landscape-down(){
+    @include for-tablet-down(){
         position: fixed;
         top: auto;
         bottom: var(--spacing_medium);
@@ -61,7 +61,7 @@
         }
     }
 
-    @include for-tablet-portrait-down(){
+    @include for-mobile-down(){
         .button {
             width: calc(var(--elementSize_big) - 10px);
             height: calc(var(--elementSize_big) - 10px);

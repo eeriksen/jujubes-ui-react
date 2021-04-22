@@ -1,7 +1,6 @@
 export * from "./Checkbox";
 export * from "./Form";
 export * from "./FormButtons";
-export * from "./FormHeader";
 export * from "./FormItem";
 export * from "./Input";
 export * from "./OnOffSwitch";

@@ -68,8 +68,8 @@ $popup--width-medium: 600px;
         }
     }
 
-    // RESPONSIVE: For phone only
-    @include for-phone-only() {
+    // RESPONSIVE
+    @include for-mobile-down() {
         overflow-x: hidden;
         overflow-y: auto;
 

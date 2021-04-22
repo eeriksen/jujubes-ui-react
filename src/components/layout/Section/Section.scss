@@ -1,0 +1,30 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   SECTION
+   =================================================================== */
+
+.base {
+    position: relative;
+    margin-bottom: var(--spacing_medium);
+}
+
+.spacingNone {
+    margin-bottom: 0;
+}
+
+.spacingSmall {
+    margin-bottom: var(--spacing_regular);
+}
+
+.spacingLarge {
+    margin-bottom: var(--spacing_large);
+}
+
+.alignCenter {
+    text-align: center;
+}
+
+.alignRight {
+    text-align: right;
+}

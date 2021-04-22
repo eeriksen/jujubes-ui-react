@@ -30,6 +30,8 @@
                 position: relative;
                 width: 100%;
                 height: 100%;
+                display: flex;
+                align-items: center;
 
                 svg {
                     vertical-align: top;
@@ -78,9 +80,8 @@
     }
 }
 
-/* RESPONSIVE: Table landscape down
----------------------------------------------------------------------- */
-@include for-tablet-landscape-down() {
+// RESPONSIVE
+@include for-tablet-down() {
     .base {
         .content {
             position: fixed;

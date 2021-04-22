@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
-export const WindowResizeListener = ({ onResize }) => {
+export const WindowResizeListener = ({ onInit, onResize }) => {
     useEffect(() => {
+        onInit && onInit();
         if (typeof window !== "undefined") {
             window.addEventListener("resize", handleResize, false);
         }
@@ -16,12 +17,5 @@ export const WindowResizeListener = ({ onResize }) => {
         onResize && onResize(event);
     };
 
-    return (
-        <div
-            style={{
-                display: "none",
-                visibility: "hidden"
-            }}
-        />
-    );
+    return null;
 };

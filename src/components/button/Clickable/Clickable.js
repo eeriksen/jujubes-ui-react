@@ -1,16 +1,16 @@
 import React from "react";
+import classNames from "classnames";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import styles from "./Clickable.scss";
 
-export const Clickable = (props) => {
-    const { inline, children, link, onClick, className } = props;
-
+export const Clickable = ({ inline, children, link, onClick, className }) => {
     const tagType = link ? Link : inline ? "span" : "div";
     return React.createElement(tagType, {
         children,
         link,
         onClick,
-        className,
+        className: classNames(styles.base, className),
         to: link
     });
 };

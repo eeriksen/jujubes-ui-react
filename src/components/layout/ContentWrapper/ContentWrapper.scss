@@ -1,17 +1,9 @@
 @import "../../../styles/base";
 
 /* ===================================================================
-   COMPONENT WRAPPER
+   CONTENT WRAPPER
    =================================================================== */
 
 .base {
     position: relative;
-    transform: scale(1);
-    height: 100vh;
-    overflow: hidden;
-
-    @include for-mobile-down(){
-        height: auto;
-        min-height: 100vh;
-    }
 }

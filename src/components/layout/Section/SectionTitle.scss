@@ -1,7 +1,7 @@
 @import "../../../styles/base";
 
 /* ===================================================================
-   FORM HEADER
+   SECTION TITLE
    =================================================================== */
 
 .base {
@@ -17,10 +17,6 @@
         font-size: var(--fontSize_medium);
         color: rgba(var(--color_base), 0.6);
         max-width: 80%;
-        margin-bottom: var(--spacing_regular);
-    }
-
-    .content {
         margin-bottom: var(--spacing_regular);
     }
 }

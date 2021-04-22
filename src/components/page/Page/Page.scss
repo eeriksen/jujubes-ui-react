@@ -16,7 +16,7 @@
         position: relative;
         display: block;
         padding: var(--spacing_large);
-        max-width: $breakpoint--big-desktop;
+        max-width: $breakpoint--widescreen;
         min-height: 100vh;
         margin: 0 auto;
 
@@ -35,11 +35,11 @@
         }
 
 
-        @include for-tablet-portrait-down(){
+        @include for-tablet-down(){
             padding: var(--spacing_medium) var(--spacing_edges);
         }
 
-        @include for-phone-only(){
+        @include for-mobile-down(){
             padding: var(--spacing_medium) 5px;
         }
     }

@@ -49,6 +49,10 @@
 }
 
 // COLORS
+.colorBase {
+    color: rgba(var(--color_base), 1);
+}
+
 .colorPrimary {
     color: rgba(var(--color_primary), 1);
 }

@@ -9,7 +9,7 @@
     position: relative;
     color: rgba(var(--splash_foregroundColor), 1);
     width: 40%;
-    max-width: $breakpoint--tablet-landscape;
+    max-width: $breakpoint--tablet;
     display: flex;
     align-items: center;
 
@@ -20,7 +20,7 @@
         z-index: 1;
     }
 
-    .content {
+    .wrapper {
         width: 100%;
         padding: calc(var(--spacing_large) * 2);
         z-index: 1;
@@ -36,7 +36,7 @@
     }
 
     // RESPONSIVE
-    @include for-tablet-landscape-down() {
+    @include for-tablet-down() {
         align-items: flex-start;
         flex-direction: column;
         width: 100%;
@@ -46,7 +46,7 @@
             padding: var(--spacing_large);
         }
 
-        .content {
+        .wrapper {
             padding: var(--spacing_large);
             max-width: 75%;
         }

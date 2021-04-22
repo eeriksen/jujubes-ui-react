@@ -1,0 +1,19 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { ContentWrapper } from "./ContentWrapper";
+
+<Meta title="Components/Layout/ContentWrapper" component={ContentWrapper} />
+
+# ContentWrapper
+
+Wrap content to show hide based on browser dimensions.
+
+<ArgsTable of={ContentWrapper} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        <ContentWrapper>Something here</ContentWrapper>
+    </Story>
+</Canvas>

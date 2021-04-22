@@ -1,17 +1,11 @@
 @import "../../../styles/base";
 
 /* ===================================================================
-   COMPONENT WRAPPER
+   CLICKABLE
    =================================================================== */
 
 .base {
-    position: relative;
-    transform: scale(1);
-    height: 100vh;
-    overflow: hidden;
-
-    @include for-mobile-down(){
-        height: auto;
-        min-height: 100vh;
+    &:hover {
+        text-decoration: none !important;
     }
 }

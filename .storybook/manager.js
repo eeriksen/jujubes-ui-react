@@ -6,8 +6,8 @@ addons.setConfig({
     theme: create({
         base: "light",
         colorSecondary: '#3699ff',
-        brandTitle: "FUCK UI",
-        brandUrl: "https://fuck.jujubes.app",
+        brandTitle: "Jujubes UI",
+        brandUrl: "https://ui.jujubes.app",
         brandImage: logo
     })
 });

@@ -13,7 +13,7 @@ moment.defaultFormatUtc = DATE_TIME_FORMAT;
 
 const STANDARD_THEME_KEY = "standard";
 
-export const AppContainer = ({ children }) => {
+export const AppContainer = ({ children, theme }) => {
     const [themeKey, setThemeKey] = useState(STANDARD_THEME_KEY);
     const [navActive, setNavActive] = useState(false);
     const [subBarActive, setSubBarActive] = useState(false);
@@ -23,7 +23,7 @@ export const AppContainer = ({ children }) => {
     });
 
     useEffect(() => {
-        if (themeKey) {
+        if (themeKey && !theme) {
             if (!themes[themeKey]) {
                 console.error('Not a valid theme: "%s"', themeKey);
                 loadTheme(themes[STANDARD_THEME_KEY]);
@@ -31,7 +31,13 @@ export const AppContainer = ({ children }) => {
                 loadTheme(themes[themeKey]);
             }
         }
-    }, [themeKey]);
+    }, [themeKey, theme]);
+
+    useEffect(() => {
+        if(theme){
+            loadTheme(theme);
+        }
+    }, [theme]);
 
     /**
      * Load a theme

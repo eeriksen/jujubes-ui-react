@@ -23,7 +23,7 @@ export const NavButton = ({ icon, label, count, active, onClick, link }) => {
 
             {count ? (
                 <span className={styles.count}>
-                    <span className={styles.number}>{count}</span>
+                    {count}
                 </span>
             ) : null}
         </Clickable>
@@ -42,7 +42,7 @@ NavButton.propTypes = {
     /**
      * Display a counter on the button.
      */
-    count: PropTypes.number,
+    count: PropTypes.element,
     /**
      * The link this button should navigate to.
      */

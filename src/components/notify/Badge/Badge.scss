@@ -35,6 +35,7 @@ $fontSize: var(--badge_fontSize, var(--fontSize_tiny));
     ---------------------------------------------------------------------- */
     &.number {
         border-radius: $height;
+        padding: 0 5px;
     }
 
     /* Badge variants

@@ -72,7 +72,7 @@
             "large": "0 1px 25px 1px rgba(var(--color_base), 0.2)"
         },
         "input": {
-            "border": "1px solid rgba(24, 28, 50, 0.2)",
+            "border": "1px solid rgba(var(--color_base), 0.2)",
             "borderFocus": "1px solid rgb(var(--color_primary))",
             "borderError": "1px solid rgb(var(--color_error))",
             "boxShadowFocus": "0 0 5px 0 rgba(var(--color_primary), 0.3)",
@@ -99,7 +99,7 @@
             "foregroundColor": "var(--color_primaryContrast)"
         },
         "pageNav": {
-            "borderBottom": "1px solid rgba(var(--color_base), 0.1)"
+            "borderBottom": "2px solid rgba(var(--color_base), 0.1)"
         },
         "pageCrumbs": {
             "boxShadow": "none",

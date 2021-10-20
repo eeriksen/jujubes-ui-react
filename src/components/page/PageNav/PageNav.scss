@@ -58,33 +58,12 @@ $borderRadius: var(--pageNav_borderRadius, var(--borderRadius_content));
         }
 
         .count {
-            display: flex;
-            align-items: center;
             margin-left: -5px;
             margin-right: 5px;
-            border-radius: $counterSize;
-            background: rgba(var(--color_backgroundContent), 1);
-            overflow: hidden;
             position: absolute;
             top: 0;
             right: 5px;
             transform: translateY(-50%);
-
-            .number {
-                position: relative;
-                text-align: center;
-                font-size: var(--fontSize_small);
-                font-weight: var(--fontWeight_medium);
-                height: $counterSize;
-                min-width: $counterSize;
-                line-height: $counterSize;
-                padding: 0 5px;
-                white-space: nowrap;
-                color: rgba(var(--color_statusText), 1);
-                background-color: rgba(var(--color_error), 1);
-                transition: all 0.2s linear;
-                border-radius: $counterSize;
-            }
         }
 
         // STATE: Hover

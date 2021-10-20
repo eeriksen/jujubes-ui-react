@@ -622,14 +622,13 @@ const renderIcon = (name) => {
                 <svg
                     height={defaultHeight}
                     width={defaultWidth}
-                    viewBox="0 0 211 211"
                     xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 110 103"
                 >
-                    <g>
-                        <circle cx="41.5" cy="41.5" r="41.5" />
-                        <circle cx="169.5" cy="41.5" r="41.5" />
-                        <circle cx="41.5" cy="169.5" r="41.5" />
-                        <circle cx="169.5" cy="169.5" r="41.5" />
+                    <g fill="#3699FF" fillRule="evenodd">
+                        <circle cx="85" cy="25" r="25" />
+                        <circle cx="25" cy="25" r="25" />
+                        <circle cx="55" cy="78" r="25" />
                     </g>
                 </svg>
             );
@@ -668,8 +667,8 @@ const renderIcon = (name) => {
             );
         case "more":
             return (
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -192 512 512">
-                    <path d="M320 64c0 35.348-28.652 64-64 64s-64-28.652-64-64 28.652-64 64-64 64 28.652 64 64zm0 0M128 64c0 35.348-28.652 64-64 64S0 99.348 0 64 28.652 0 64 0s64 28.652 64 64zm0 0M512 64c0 35.348-28.652 64-64 64s-64-28.652-64-64 28.652-64 64-64 64 28.652 64 64zm0 0" />
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.094 25.094">
+                    <path d="M11.524 12.484a5.762 5.762 0 11-11.525 0 5.762 5.762 0 0111.525 0zm7.808-5.634a5.763 5.763 0 00-5.765 5.76 5.763 5.763 0 005.765 5.761 5.76 5.76 0 100-11.521z" />
                 </svg>
             );
         case "mute":

@@ -5,6 +5,11 @@
    APP NAV
    =================================================================== */
 
+$backgroundColor: var(--navMain_backgroundColor);
+$foregroundColor: var(--navMain_foregroundColor);
+$logoBackgroundColor: var(--navLogo_backgroundColor, var(--navMain_accentColor));
+$logoFill: var(--navLogo_fill, var(--navMain_foregroundColor));
+
 .base {
     position: relative;
     z-index: $zIndex--appNav;
@@ -14,13 +19,13 @@
         width: $appNav--width;
         height: 100vh;
         z-index: 2;
-        background: rgba(var(--navMain_backgroundColor), 1);
+        background: rgba($backgroundColor, 1);
         display: flex;
         flex-direction: column;
 
         .logo {
             min-height: $appBar--height;
-            background: rgba(var(--navLogo_backgroundColor), 1);
+            background: rgba($logoBackgroundColor, 1);
             overflow: hidden;
             display: flex;
             justify-content: left;
@@ -34,12 +39,13 @@
                 align-items: center;
 
                 svg {
-                    vertical-align: top;
+                    fill: rgba($logoFill, 1);
                 }
             }
         }
 
         .container {
+            position: relative;
             flex-grow: 1;
 
             .wrapper {
@@ -48,15 +54,24 @@
                 width: 100%;
             }
 
-            .fade {
+            .topFade, .bottomFade {
                 position: absolute;
-                bottom: 0;
                 left: 0;
                 right: 0;
-                height: 60px;
-                background: linear-gradient(to bottom, rgba(var(--navMain_backgroundColor), 0) 0%, rgba(var(--navMain_backgroundColor), 1) 100%);
                 z-index: 2;
                 pointer-events: none;
+            }
+
+            .topFade {
+                height: 25px;
+                top: 0;
+                background: linear-gradient(to top, rgba($backgroundColor, 0) 0%, rgba($backgroundColor, 1) 100%);
+            }
+
+            .bottomFade {
+                height: 50px;
+                bottom: 0;
+                background: linear-gradient(to bottom, rgba($backgroundColor, 0) 0%, rgba($backgroundColor, 1) 100%);
             }
         }
 
@@ -64,7 +79,7 @@
             padding: $spacing--nav-sides $spacing--nav-sides calc(var(--spacing_regular) * 3);
 
             .title {
-                color: rgba(var(--navMain_foregroundColor), 1);
+                color: rgba($foregroundColor, 1);
             }
         }
 
@@ -76,7 +91,6 @@
     .overlay {
         display: none;
         z-index: 1;
-        backdrop-filter: blur(1px);
     }
 }
 
@@ -96,7 +110,6 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(var(--color_contrast), 0.9);
             pointer-events: none;
             opacity: 0;
             transition: opacity 0.3s linear;

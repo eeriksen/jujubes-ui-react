@@ -6,4 +6,18 @@
 
 .base {
     position: relative;
+    display: flex;
+    margin-top: var(--spacing_medium);
+
+    &.alignRight {
+        justify-content: flex-end;
+    }
+
+    .item {
+        margin-right: var(--spacing_regular);
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
 }

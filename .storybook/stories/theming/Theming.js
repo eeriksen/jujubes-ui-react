@@ -14,19 +14,27 @@ import { Col } from "../../../src/components/grid/Col";
 import { Select, Option } from "../../../src/components/form/Select";
 import { Tabs, TabPane } from "../../../src/components/navigation/Tabs";
 
+import themes from "../../../src/styles/themes";
+
 export const Theming = () => {
     const updateTimeout = useRef(null);
-    const { loadTheme } = useContext(AppContext);
+    const { setTheme } = useContext(AppContext);
     const [showNewThemePrompt, setShowNewThemePrompt] = useState(false);
-    const [themeList, setThemeList] = useState(getData(CUSTOM_THEMES_STORAGE_KEY) || []);
-    const [activeThemeId, setActiveThemeId] = useState(getData(ACTIVE_THEME_STORAGE_KEY) || null);
+    const [themeList, setThemeList] = useState([]);
+    const [activeThemeId, setActiveThemeId] = useState(null);
     const [activeTheme, setActiveTheme] = useState(null);
     const [activeTabKey, setActiveTabKey] = useState(1);
 
     useEffect(() => {
-        const activeTheme = themeList && themeList.find((t) => t.id === activeThemeId);
+        const customThemes = getData(CUSTOM_THEMES_STORAGE_KEY);
+        setThemeList(customThemes ? themes.concat(customThemes) : themes);
+        setActiveThemeId(getData(ACTIVE_THEME_STORAGE_KEY) || "standard");
+    }, []);
+
+    useEffect(() => {
+        const activeTheme = themeList?.find((t) => t.id === activeThemeId);
         setActiveTheme(activeTheme);
-        loadTheme(activeTheme);
+        setTheme(activeTheme);
         setData(ACTIVE_THEME_STORAGE_KEY, activeThemeId);
     }, [activeThemeId]);
 
@@ -44,7 +52,7 @@ export const Theming = () => {
                 updatedList[themeIndex] = theme;
                 setThemeList(updatedList);
                 setData(CUSTOM_THEMES_STORAGE_KEY, updatedList);
-                loadTheme(theme);
+                setTheme(theme);
             }
         }, 1000);
     };
@@ -56,7 +64,7 @@ export const Theming = () => {
         setData(ACTIVE_THEME_STORAGE_KEY, null);
         setActiveTheme(null);
         setActiveThemeId(null);
-        loadTheme();
+        setTheme();
     };
 
     return (
@@ -73,10 +81,9 @@ export const Theming = () => {
                         />
                         <CardContent>
                             <Select
-                                value={activeThemeId || 0}
+                                value={activeThemeId}
                                 onChange={(val) => setActiveThemeId(val === "0" ? null : val)}
                             >
-                                <Option value={0}>Standard</Option>
                                 {themeList &&
                                     themeList.map((theme) => (
                                         <Option key={theme.id} value={theme.id}>
@@ -88,7 +95,7 @@ export const Theming = () => {
                     </Card>
                 </Col>
 
-                {activeTheme ? (
+                {activeTheme && themes.findIndex((t) => t.id === activeThemeId) < 0 ? (
                     <Col span={24}>
                         <Card>
                             <Tabs activeKey={activeTabKey} onChange={setActiveTabKey}>
@@ -108,6 +115,7 @@ export const Theming = () => {
             {showNewThemePrompt ? (
                 <NewTheme
                     onClose={() => setShowNewThemePrompt(false)}
+                    themeList={themeList}
                     fetchThemeList={fetchThemeList}
                     setActiveThemeId={setActiveThemeId}
                 />

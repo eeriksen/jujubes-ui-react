@@ -1,3 +1,4 @@
-import standard from "./standard";
+import standard from "./standard.json";
+import simple from "./simple.json";
 
-export { standard };
+export default [standard, simple];

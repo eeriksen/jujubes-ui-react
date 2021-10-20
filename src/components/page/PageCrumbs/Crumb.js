@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./Crumb.scss";
-
 import { Clickable } from "../../button/Clickable";
+import { Icon } from "../../graphic/Icon";
 
 export const Crumb = ({ link, label }) => {
     return (
@@ -10,6 +10,9 @@ export const Crumb = ({ link, label }) => {
             <Clickable block className={styles.label} link={link}>
                 {label}
             </Clickable>
+            <div className={styles.arrow}>
+                <Icon name="chevron-right" />
+            </div>
         </div>
     );
 };

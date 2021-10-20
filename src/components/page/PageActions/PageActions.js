@@ -14,10 +14,6 @@ export const PageActions = ({ children }) => {
     const { pageInfo } = useContext(AppContext);
     const [visible, setVisible] = useState(false);
 
-    /**
-     * Action click
-     * @param e
-     */
     const handleActionClick = (e) => {
         setVisible(!visible);
     };
@@ -25,7 +21,7 @@ export const PageActions = ({ children }) => {
     return (
         <div
             className={classNames(styles.base, {
-                [styles.evadeButtons]: pageInfo.hasButtons
+                [styles.evadeButtons]: pageInfo.hasNav
             })}
         >
             <PopOver

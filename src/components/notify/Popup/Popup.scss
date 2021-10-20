@@ -84,7 +84,7 @@ $popup--width-medium: 600px;
 .close {
     position: absolute;
     top: 0;
-    right: var(--spacing_regular);
+    right: 0;
     z-index: 2;
     cursor: pointer;
     width: var(--elementSize_regular);
@@ -92,30 +92,16 @@ $popup--width-medium: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(var(--color_background), 1);
-    border-radius: 50%;
-    transform: translateY(-50%);
-    box-shadow: inset var(--boxShadow_regular);
 
     .icon {
-        @include m-iconColor(rgba(var(--color_base), 0.7), true);
+        @include m-iconColor(rgba(var(--color_base), 0.5), true);
     }
 
-    &:hover {
-        background: rgba(var(--color_primary), 1);
-        box-shadow: var(--boxShadow_regular);
+    &:hover, &:active {
         transition: background-color 0.2s linear;
 
         .icon {
-            @include m-iconColor(rgba(var(--color_primaryContrast), 1));
-        }
-    }
-
-    &:active{
-        background: rgba(var(--color_primary), 1);
-
-        .icon {
-            @include m-iconColor(rgba(var(--color_primaryContrast), 1));
+            @include m-iconColor(rgba(var(--color_primary), 1));
         }
     }
 }

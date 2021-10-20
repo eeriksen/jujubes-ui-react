@@ -64,7 +64,7 @@ EOL
 # Component.stories.mdx
 cat >"$name.stories.mdx" <<EOL
 import { useState } from "react";
-import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
 import { ${name} } from "./${name}";
 
 <Meta title="Components/UNGROUPED/${name}" component={${name}} />

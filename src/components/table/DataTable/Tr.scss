@@ -5,11 +5,14 @@
    TABLE ROW
    =================================================================== */
 
+$border: var(--tableRow_border, 1px solid rgba(var(--color_base), 0.03));
+$backgroundHover: var(--tableRow_backgroundHover, rgba(var(--color_base), 0.05));
+
 .row {
     // Col
     > .col {
         padding: 0;
-        border-top: 1px solid rgba(var(--color_base), 0.05);
+        border-top: $border;
     }
 
     // Clickable
@@ -19,7 +22,7 @@
         &:not(.disabled) {
             &:hover {
                 > .col {
-                    background-color: rgba(var(--color_background), 0.5) !important;
+                    background: $backgroundHover;
                     border-top-color: transparent;
                 }
             }

@@ -4,51 +4,57 @@
    GRID ROW
    =================================================================== */
 
+$gutterSmall: var(--spacing_regular);
+$gutterRegular: var(--spacing_medium);
+$gutterLarge: var(--spacing_large);
+
+$spacingSmall: var(--spacing_regular);
+$spacingRegular: var(--spacing_medium);
+$spacingLarge: var(--spacing_large);
+
 .row {
     display: flex;
     flex-wrap: wrap;
 
-
     // GUTTER
 
     &.gutter_ver_small {
-        margin-left: calc(var(--spacing_regular) / (-2));
-        margin-right: calc(var(--spacing_regular) / (-2));
+        margin-left: calc(#{$gutterSmall} / (-2));
+        margin-right: calc(#{$gutterSmall} / (-2));
     }
 
     &.gutter_hor_small {
-        margin-top: calc(var(--spacing_regular) * (-1));
+        margin-top: calc(#{$gutterSmall} * (-1));
     }
 
     &.gutter_ver_regular {
-        margin-left: calc(var(--spacing_medium) / (-2));
-        margin-right: calc(var(--spacing_medium) / (-2));
+        margin-left: calc(#{$gutterRegular} / (-2));
+        margin-right: calc(#{$gutterRegular} / (-2));
     }
 
     &.gutter_hor_regular {
-        margin-top: calc(var(--spacing_medium) * (-1));
+        margin-top: calc(#{$gutterRegular} * (-1));
     }
 
     &.gutter_ver_large {
-        margin-left: calc(var(--spacing_large) / (-2));
-        margin-right: calc(var(--spacing_large) / (-2));
+        margin-left: calc(#{$gutterLarge} / (-2));
+        margin-right: calc(#{$gutterLarge} / (-2));
     }
 
     &.gutter_hor_large {
-        margin-top: calc(var(--spacing_large) * (-1));
+        margin-top: calc(#{$gutterLarge} * (-1));
     }
-
 
     // SPACING
     &.spacing_small {
-        margin-bottom: var(--spacing_regular);
+        margin-bottom: $spacingSmall;
     }
 
     &.spacing_regular {
-        margin-bottom: var(--spacing_medium);
+        margin-bottom: $spacingRegular;
     }
 
     &.spacing_large {
-        margin-bottom: var(--spacing_large);
+        margin-bottom: $spacingLarge;
     }
 }

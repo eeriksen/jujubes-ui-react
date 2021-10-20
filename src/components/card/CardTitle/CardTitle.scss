@@ -4,43 +4,57 @@
    CARD TITLE
    =================================================================== */
 
+$height: var(--cardTitle_height, var(--elementSize_big));
+$borderBottom: var(--cardTitle_borderBottom, 1px solid rgba(var(--color_base), 0.10));
+$fontSize: var(--cardTitle_fontSize, var(--fontSize_large));
+$fontWeight: var(--cardTitle_fontWeight, var(--fontWeight_medium));
+$paddingSides: var(--card_paddingSides, var(--spacing_medium));
+
+$actionIconColor: var(--cardTitle_actionIconColor, rgba(var(--color_base), 0.8));
+$actionIconColorActive: var(--cardTitle_actionIconColorActive, rgba(var(--color_primary), 1));
+$actionBackgroundActive: var(--cardTitle_actionBackgroundActive, rgba(var(--color_base), 0.03));
+$actionBorder: var(--cardTitle_actionBorder, 1px solid rgba(var(--color_base), 0.07));
+
 .base {
-    height: var(--elementSize_big);
-    border-bottom: 1px solid rgba(var(--color_base), 0.10);
+    height: $height;
+    border-bottom: $borderBottom;
     display: flex;
+    align-items: center;
 
     .title {
         flex-grow: 1;
-        font-size: var(--fontSize_large);
-        font-weight: var(--fontWeight_medium);
-        line-height: var(--elementSize_big);
-        padding: 0 var(--spacing_medium);
+        font-size: $fontSize;
+        font-weight: $fontWeight;
+        padding: 0 $paddingSides;
         @include m-truncate();
     }
 
     .addons {
-        padding: 0 var(--spacing_medium);
+        height: 100%;
+        padding: 0 $paddingSides;
         display: flex;
         align-items: center;
     }
 
     .actions {
+        height: 100%;
         display: flex;
 
         .action {
             position: relative;
-            width: var(--elementSize_big);
-            border-left: 1px solid rgba(var(--color_base), 0.05);
+            width: $height;
+            height: $height;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             user-select: none;
-            @include m-iconColor(rgba(var(--color_base), 0.8));
+            border-left: $actionBorder;
+            @include m-iconColor($actionIconColor, true);
 
-            &:hover, &:active {
-                @include m-iconColor(rgba(var(--color_base), 1));
-                background-color: rgba(var(--color_base), 0.03);
+            &:hover, &:active, &.active {
+                background-color: $actionBackgroundActive;
+                @include m-iconColor($actionIconColorActive, true);
             }
         }
     }

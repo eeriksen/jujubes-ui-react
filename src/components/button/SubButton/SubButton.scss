@@ -1,8 +1,10 @@
 @import "../../../styles/base";
 
 /* ===================================================================
-   DOTS BUTTON
+   SUB BUTTON
    =================================================================== */
+
+$color: var(--navBar_accentColor, var(--subButton_color));
 
 .base {
     height: $appBar--height;
@@ -13,9 +15,10 @@
     cursor: pointer;
 
     .icon {
-        @include m-iconColor(rgba(var(--navTop_accentColor), 1));
+        @include m-iconColor(rgba($color, 1));
         @include m-iconSize($iconSize--medium);
         transition: transform .3s cubic-bezier(0.620, 0.055, 0.240, 1.305);
+        transform-origin: center center;
     }
 
     &.active {

@@ -49,27 +49,27 @@
 
 // Colors
 .colorContrast {
-    @include m-iconColor(rgba(var(--color_contrast), 1), true);
+    @include m-iconColor(rgba(var(--color_contrast), 1) !important, true);
 }
 
 .colorInfo {
-    @include m-iconColor(rgba(var(--color_info), 1), true);
+    @include m-iconColor(rgba(var(--color_info), 1) !important, true);
 }
 
 .colorPrimary {
-    @include m-iconColor(rgba(var(--color_primary), 1), true);
+    @include m-iconColor(rgba(var(--color_primary), 1) !important, true);
 }
 
 .colorSuccess {
-    @include m-iconColor(rgba(var(--color_success), 1), true);
+    @include m-iconColor(rgba(var(--color_success), 1) !important, true);
 }
 
 .colorWarning {
-    @include m-iconColor(rgba(var(--color_warning), 1), true);
+    @include m-iconColor(rgba(var(--color_warning), 1) !important, true);
 }
 
 .colorError {
-    @include m-iconColor(rgba(var(--color_error), 1), true);
+    @include m-iconColor(rgba(var(--color_error), 1) !important, true);
 }
 
 // Sizes

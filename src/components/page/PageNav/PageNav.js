@@ -1,27 +1,42 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./PageNav.scss";
-import { WindowResizeListener } from "../../layout/WindowResizeListener/WindowResizeListener";
 import { NavButton } from "./NavButton";
+import { AppContext } from "../../layout/AppContext";
+import { useDebounce } from "../../../utils/hooks";
 
 export const PageNav = ({ children }) => {
     const baseRef = useRef();
     const buttonsRef = useRef();
     const buttonsWidth = useRef();
     const [compact, setCompact] = useState(false);
+    const { pageInfo, updatePageInfo } = useContext(AppContext);
 
     useEffect(() => {
         const buttonsVal = buttonsRef.current.getBoundingClientRect();
         buttonsWidth.current = buttonsVal.width;
         adjustToWidth();
+
+        updatePageInfo({
+            hasNav: true
+        });
+
+        return () => {
+            updatePageInfo({
+                hasNav: false
+            });
+        };
     }, []);
+
+    useDebounce(() => {
+        adjustToWidth();
+    }, [pageInfo.windowWidth], 200);
 
     const adjustToWidth = () => {
         if (!baseRef.current) {
             return;
         }
-
         const baseVal = baseRef.current.getBoundingClientRect();
         setCompact(baseVal.width < buttonsWidth.current);
     };
@@ -37,7 +52,6 @@ export const PageNav = ({ children }) => {
             <div ref={buttonsRef} className={styles.buttons}>
                 {children}
             </div>
-            <WindowResizeListener onResize={adjustToWidth} />
         </div>
     );
 };

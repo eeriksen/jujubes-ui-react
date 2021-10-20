@@ -4,41 +4,50 @@ import classNames from "classnames";
 import styles from "./AppBar.scss";
 
 import { MenuButton } from "../../button/MenuButton";
-import { DotsButton } from "../../button/DotsButton";
+import { SubButton } from "../../button/SubButton";
 import { AppContext } from "../AppContext";
 
-export const AppBar = ({ title, children }) => {
-    const layout = useContext(AppContext);
+export const AppBar = ({ title, children, right }) => {
+    const { subBarActive, setSubBarActive, navActive, setNavActive } = useContext(AppContext);
 
     // Classes
     const baseClasses = classNames(styles.base, {
-        [styles.subBarActive]: layout.subBarActive
+        [styles.subBarActive]: subBarActive
     });
 
     return (
         <div className={baseClasses}>
             <div className={styles.mainBar}>
                 <div className={styles.left}>
-                    <MenuButton onClick={() => layout.setNavActive(!layout.navActive)} />
+                    <MenuButton onClick={() => setNavActive(!navActive)} />
                 </div>
                 <div className={styles.center}>
                     <div className={styles.text}>{title}</div>
                 </div>
-                <div className={styles.right}>
-                    <DotsButton
-                        onClick={() => layout.setSubBarActive(!layout.subBarActive)}
-                        active={layout.subBarActive}
-                    />
-                </div>
+                {right || children ? (
+                    <div className={styles.right}>
+                        {right ? (
+                            right
+                        ) : (
+                            <SubButton
+                                onClick={() => setSubBarActive(!subBarActive)}
+                                active={subBarActive}
+                            />
+                        )}
+                    </div>
+                ) : null}
             </div>
-            <div className={styles.subBar}>
-                <div className={styles.left}>
-                    {React.Children.toArray(children).filter((c) => c.props.placeLeft)}
+
+            {children ? (
+                <div className={styles.subBar}>
+                    <div className={styles.left}>
+                        {React.Children.toArray(children).filter((c) => c.props.placeLeft)}
+                    </div>
+                    <div className={styles.right}>
+                        {React.Children.toArray(children).filter((c) => c.props.placeRight)}
+                    </div>
                 </div>
-                <div className={styles.right}>
-                    {React.Children.toArray(children).filter((c) => c.props.placeRight)}
-                </div>
-            </div>
+            ) : null}
         </div>
     );
 };

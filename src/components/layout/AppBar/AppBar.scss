@@ -4,23 +4,43 @@
    APP BAR
    =================================================================== */
 
+$backgroundColor: rgba(var(--navBar_backgroundColor, var(--color_base)), 1);
+$foregroundColor: rgba(var(--navBar_foregroundColor, var(--color_contrast)), 1);
+$accentColor: rgba(var(--navBar_accentColor, var(--color_primary)), 1);
+$boxShadow: var(--navBar_boxShadow, var(--boxShadow_regular));
+$subBackgroundColor: rgba(var(--navBar_subBackgroundColor, var(--color_backgroundContent)), 1);
+$subBorderBottom: var(--navBar_subBorderBottom, none);
+
 .base {
     position: relative;
-    height: $appBar--height;
     z-index: $zIndex--appBar;
+    box-shadow: $boxShadow;
     flex-shrink: 0;
 
     .mainBar {
         position: relative;
-        background: rgba(var(--navTop_backgroundColor), 1);
-        box-shadow: var(--boxShadow_regular);
+        background: $backgroundColor;
         height: $appBar--height;
-        display: flex;
         z-index: 2;
+
+        .left {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .right {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
 
         .center {
             flex-grow: 1;
-            position: relative;
+            position: absolute;
+            top: 0;
+            left: $appBar--height;
+            right: $appBar--height;
 
             .text {
                 position: absolute;
@@ -31,7 +51,7 @@
                 text-align: center;
                 font-size: var(--fontSize_heading4);
                 font-weight: var(--fontWeight_medium);
-                color: rgba(var(--navTop_foregroundColor), 1);
+                color: $foregroundColor;
                 padding: 0 var(--spacing_regular);
                 @include m-truncate();
             }
@@ -39,15 +59,14 @@
     }
 
     .subBar {
-        position: absolute;
-        top: 0;
+        position: relative;
         width: 100%;
         height: $appBar--height;
-        background-color: rgba(var(--color_backgroundContent), 1);
+        background-color: $subBackgroundColor;
         transition: top .2s cubic-bezier(0.550, 0.055, 0.675, 0.190), box-shadow .2s linear;
-        box-shadow: var(--boxShadow_regular);
         display: flex;
         z-index: 1;
+        border-bottom: $subBorderBottom;
 
         .left {
             flex-grow: 1;
@@ -74,14 +93,16 @@
 
 @include for-tablet-down(){
     .base {
+
         .subBar {
-            box-shadow: none;
+            position: absolute;
+            top: 0;
         }
 
         &.subBarActive {
             .subBar {
                 top: $appBar--height;
-                box-shadow: var(--boxShadow_regular);
+                box-shadow: $boxShadow;
             }
         }
     }

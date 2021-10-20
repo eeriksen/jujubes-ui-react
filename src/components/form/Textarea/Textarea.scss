@@ -18,7 +18,7 @@
     border-radius: var(--borderRadius_form);
     resize: none;
     vertical-align: top; // To compensate for space under textarea in misc browsers
-    background: transparent;
+    background-color: rgba(var(--color_contrast), 1);
 
     &:focus {
         border: var(--input_borderFocus);

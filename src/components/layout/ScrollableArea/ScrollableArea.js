@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import "react-perfect-scrollbar/dist/css/styles.css";
 import PerfectScrollbar from "react-perfect-scrollbar";
 
-export const ScrollableArea = ({ children, onScrollX, onScrollY, containerRef }) => {
+export const ScrollableArea = ({ children, onScrollX, onScrollY, suppressScrollX, suppressScrollY, containerRef }) => {
     const areaRef = useRef(null);
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -22,6 +22,10 @@ export const ScrollableArea = ({ children, onScrollX, onScrollY, containerRef })
 
     return (
         <PerfectScrollbar
+            options={{
+                suppressScrollX,
+                suppressScrollY
+            }}
             ref={areaRef}
             containerRef={(ref) => {
 

@@ -36,11 +36,11 @@
 
 
         @include for-tablet-down(){
-            padding: var(--spacing_medium) var(--spacing_edges);
+            padding: var(--spacing_medium) var(--spacing_edges) 100px;
         }
 
         @include for-mobile-down(){
-            padding: var(--spacing_medium) 5px;
+            padding: var(--spacing_medium) 5px 80px;
         }
     }
 }

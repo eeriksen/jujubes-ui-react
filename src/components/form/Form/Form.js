@@ -10,15 +10,8 @@ export const Form = ({ onSubmit, children }) => {
     };
 
     return (
-        <form
-            className={classNames(styles.base)}
-            onSubmit={handleSubmit}
-        >
-            {React.Children.map(children, (child) => {
-                return child
-                    ? React.cloneElement(child)
-                    : null;
-            })}
+        <form className={classNames(styles.base)} onSubmit={handleSubmit}>
+            {children}
         </form>
     );
 };

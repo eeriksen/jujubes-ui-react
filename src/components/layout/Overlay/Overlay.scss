@@ -4,6 +4,9 @@
    OVERLAY
    =================================================================== */
 
+$background: var(--overlay_background, rgba(var(--color_base), 0.8));
+$blur: var(--overlay_blur, 2px);
+
 .base {
     position: absolute;
     left: 0;
@@ -13,8 +16,9 @@
     opacity: 0;
     transition: opacity .2s linear;
     pointer-events: none;
-    backdrop-filter: blur(2px);
-    background: rgba(var(--color_base), 0.8);
+
+    backdrop-filter: blur($blur);
+    background: $background;
 
     &.visible {
         pointer-events: auto;

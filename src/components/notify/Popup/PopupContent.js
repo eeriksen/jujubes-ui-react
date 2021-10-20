@@ -7,7 +7,7 @@ import { ScrollableArea } from "../../layout/ScrollableArea";
 export const PopupContent = ({ children }) => {
     return (
         <div className={styles.content}>
-            <ScrollableArea>
+            <ScrollableArea suppressScrollX>
                 <div className={styles.frame}>
                     <div className={styles.wrapper}>{children}</div>
                 </div>

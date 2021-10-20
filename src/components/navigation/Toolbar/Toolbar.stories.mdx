@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
 import { Toolbar } from "./Toolbar";
 import { Item } from "./Item";
 import { Button } from "../../button/Button";
@@ -25,15 +25,15 @@ The `<Toolbar />` is a sleek and compact line of buttons and other controllers.
 <Canvas>
     <Story name="basic">
         <Toolbar>
-            <Item divideRight spacing="none">
+            <Item spacing="none">
                 <Button square icon="arrow-left" color="silent" />
             </Item>
-            <Item grow divideRight truncate spacing="medium">
+            <Item grow truncate spacing="medium">
                 <Text size="medium" truncate>
                     Title of something
                 </Text>
             </Item>
-            <Item divideRight>
+            <Item>
                 <ButtonGroup>
                     <Button size="small" icon="tools" square></Button>
                     <Button size="small" icon="mobile" square></Button>
@@ -54,28 +54,26 @@ The `<Toolbar />` is a sleek and compact line of buttons and other controllers.
     <Story name="with card">
         <Card>
             <CardTitle title="Card with toolbar" />
-            <Toolbar>
-                <Item grow divideRight truncate>
-                    <Input
-                        size="small"
-                        icon="search"
-                        placeholder="Search"
-                    />
-                </Item>
-                <Item divideRight>
-                    <Select value={50} size="small">
-                        <Option>10</Option>
-                        <Option>25</Option>
-                        <Option>50</Option>
-                        <Option>100</Option>
-                    </Select>
-                </Item>
-                <Item>
-                    <Button icon="close" iconColor="error" size="small">
-                        Clear
-                    </Button>
-                </Item>
-            </Toolbar>
+            <CardContent border="bottom">
+                <Toolbar>
+                    <Item grow truncate>
+                        <Input size="small" icon="search" placeholder="Search" />
+                    </Item>
+                    <Item>
+                        <Select value={50} size="small">
+                            <Option>10</Option>
+                            <Option>25</Option>
+                            <Option>50</Option>
+                            <Option>100</Option>
+                        </Select>
+                    </Item>
+                    <Item>
+                        <Button icon="close" iconColor="error" size="small">
+                            Clear
+                        </Button>
+                    </Item>
+                </Toolbar>
+            </CardContent>
             <CardContent>
                 There are many variations of passages of Lorem Ipsum available, but the majority
                 have suffered alteration in some form, by injected humour, or randomised words which

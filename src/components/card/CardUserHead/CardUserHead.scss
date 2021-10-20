@@ -19,6 +19,7 @@ $accentColor: var(--navMain_accentColor);
         padding: var(--spacing_large) var(--spacing_medium);
         user-select: none;
         flex-direction: column;
+        background-color: $backgroundColor;
 
         .image {
             width: 90px;

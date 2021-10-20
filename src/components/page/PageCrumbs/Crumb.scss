@@ -4,18 +4,37 @@
    PAGE CRUMBS
    =================================================================== */
 
+$height: var(--pageCrumbs_height, var(--elementSize_small));
+$labelColor: rgba(var(--pageCrumbs_labelColor, var(--color_base)), 1);
+$labelOpacity: var(--pageCrumbs_labelOpacity, 0.6);
+$boxShadow: var(--pageCrumbs_boxShadow, inset -3px 0 3px 0 rgba(var(--color_base), 0.03));
+$backgroundColor: var(--pageCrumbs_backgroundColor, var(--color_base));
+$padding: var(--pageCrumbs_padding, 4px 18px);
+$arrowColor: var(--pageCrumbs_arrowColor, transparent);
+
 .crumb {
     position: relative;
     display: flex;
     align-items: center;
-    height: var(--elementSize_small);
+    height: $height;
     user-select: none;
     transition: all 0.2s linear;
 
     .label {
-        color: rgba(var(--color_base), 0.6);
-        padding: 4px 18px;
+        color: $labelColor;
+        padding: $padding;
         text-decoration: none;
+        opacity: $labelOpacity;
+    }
+
+    .arrow {
+        position: absolute;
+        right: 0;
+        transform: translateX(50%);
+        display: flex;
+        align-items: center;
+        @include m-iconSize(10px);
+        @include m-iconColor($arrowColor);
     }
 
     // STATE: Hover
@@ -23,16 +42,22 @@
         cursor: pointer;
 
         .label {
-            color: rgba(var(--color_base), 1);
+            opacity: 1;
         }
     }
 
     @for $i from 1 through 10 {
         &:nth-child(#{$i}) {
             position: relative;
-            background-color: rgba(var(--color_base), $i * 0.03);
-            box-shadow: inset -3px 0 3px 0 rgba(var(--color_base), 0.03);
+            background-color: rgba($backgroundColor, $i * 0.03);
+            box-shadow: $boxShadow;
             z-index: 10 - $i;
+        }
+    }
+
+    &:first-child {
+        .arrow {
+            display: none;
         }
     }
 }

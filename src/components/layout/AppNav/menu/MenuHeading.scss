@@ -5,18 +5,23 @@
    APP NAV - MENU HEADING
    =================================================================== */
 
+$color: var(--navMenuHeading_color, rgba(var(--navMain_foregroundColor), 0.2));
+$fontSize: var(--navMenuHeading_fontSize, var(--fontSize_small));
+$fontWeight: var(--navMenuHeading_fontWeight, var(--fontWeight_bold));
+$letterSpacing: var(--navMenuHeading_letterSpacing, 1px);
+
 .heading {
     display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 0 $spacing--nav-sides;
-    font-weight: var(--fontWeight_medium);
-    color: rgba(var(--navMain_foregroundColor), 0.2);
-    font-size: var(--fontSize_small);
+    font-weight: $fontWeight;
+    color: $color;
+    font-size: $fontSize;
     text-transform: uppercase;
     text-align: left;
-    letter-spacing: 1px;
+    letter-spacing: $letterSpacing;
     margin-bottom: var(--spacing_small);
     @include m-truncate();
 }

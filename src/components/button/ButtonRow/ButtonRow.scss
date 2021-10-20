@@ -7,7 +7,6 @@
 .base {
     position: relative;
     display: flex;
-    @include m-truncate();
 
 
     .item {

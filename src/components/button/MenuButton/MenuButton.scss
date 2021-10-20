@@ -4,6 +4,7 @@
    MENU BUTTON
    =================================================================== */
 
+$color: var(--navBar_accentColor, var(--menuButton_color));
 $height--menuButton:    22px;
 $width--menuButton:     30px;
 
@@ -23,7 +24,7 @@ $width--menuButton:     30px;
             display: block;
             border-radius: 1px;
             height: 2px;
-            background-color: rgba(var(--navTop_accentColor), 1);
+            background-color: rgba($color, 1);
             transition: width .3s cubic-bezier(0.620, 0.055, 0.240, 1.305), background-color .3s ease-in-out;
 
             &:first-child {
@@ -35,7 +36,7 @@ $width--menuButton:     30px;
             }
         }
     }
-
+ƒ∏
     &:hover {
         .wrapper {
             span {

@@ -1,14 +1,17 @@
 import React from "react";
 import styles from "./FormButtons.scss";
-import { ButtonRow } from "../../button/ButtonRow";
-import { FormItem } from "../FormItem/FormItem";
+import classNames from "classnames";
 
-export const FormButtons = ({ children }) => {
+export const FormButtons = ({ children, align }) => {
     return (
-        <FormItem>
-            <div className={styles.base}>
-                <ButtonRow>{children}</ButtonRow>
-            </div>
-        </FormItem>
+        <div className={classNames(styles.base, {
+            [styles.alignRight]: align === "right"
+        })}>
+            {React.Children.map(children, (child, index) => (
+                <div key={index} className={styles.item}>
+                    {child}
+                </div>
+            ))}
+        </div>
     );
 };

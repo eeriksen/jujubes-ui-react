@@ -2,16 +2,16 @@ import React, { useContext } from "react";
 import classNames from "classnames";
 import styles from "./AppNav.scss";
 
-import { Clickable } from "../../button/Clickable";
 import { ScrollableArea } from "../ScrollableArea";
 import { AppContext } from "../AppContext";
+import { Overlay } from "../Overlay";
 
 export const AppNav = ({ logo, title, children }) => {
-    const layout = useContext(AppContext);
+    const { navActive, setNavActive } = useContext(AppContext);
 
     // Classes
     const baseClasses = classNames(styles.base, {
-        [styles.isActive]: layout.navActive
+        [styles.isActive]: navActive
     });
 
     return (
@@ -39,12 +39,15 @@ export const AppNav = ({ logo, title, children }) => {
                     </ScrollableArea>
 
                     {/* Fade*/}
-                    <div className={styles.fade} />
+                    <div className={styles.topFade} />
+                    <div className={styles.bottomFade} />
                 </div>
             </div>
 
             {/* Overlay */}
-            <Clickable onClick={() => layout.setNavActive(false)} className={styles.overlay} />
+            <div className={styles.overlay}>
+                <Overlay visible={navActive} onClick={() => setNavActive(false)} />
+            </div>
         </div>
     );
 };

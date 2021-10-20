@@ -3,14 +3,13 @@ import classNames from "classnames";
 import styles from "./CardContent.scss";
 import { PropTypes } from "prop-types";
 
-export const CardContent = ({ border, padding, children, color }) => {
+export const CardContent = ({ border, padding, children }) => {
     return (
         <div
             className={classNames(styles.base, {
                 [styles.borderTop]: border === "top",
                 [styles.borderBottom]: border === "bottom",
-                [styles.paddingNone]: padding === "none",
-                [styles.colorSilent]: color === "silent"
+                [styles.paddingNone]: padding === "none"
             })}
         >
             {children}

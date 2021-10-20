@@ -15,28 +15,21 @@ import { CUSTOM_THEMES_STORAGE_KEY, ACTIVE_THEME_STORAGE_KEY } from "../../../co
 import { Select, Option } from "../../../../src/components/form/Select";
 import { standard as standardTheme } from "../../../../src/styles/themes";
 
-export const NewTheme = ({ onClose, fetchThemeList, setActiveThemeId }) => {
-    const [themeList, setThemeList] = useState(getData(CUSTOM_THEMES_STORAGE_KEY) || []);
+export const NewTheme = ({ onClose, themeList, fetchThemeList, setActiveThemeId }) => {
+    const [customThemes, setCustomThemes] = useState(getData(CUSTOM_THEMES_STORAGE_KEY) || []);
     const [name, setName] = useState(null);
-    const [fromThemeId, setFromThemeId] = useState(0);
+    const [fromThemeId, setFromThemeId] = useState("standard");
 
     const handleCreateTheme = () => {
-        let fromTheme = standardTheme;
-        if(fromThemeId !== 0){
-            const themeIndex = themeList.findIndex((t) => t.id === fromThemeId);
-            if(themeIndex >= 0){
-                fromTheme = themeList[themeIndex];
-            }
-        }
-
+        let fromTheme = themeList.find((t) => t.id === fromThemeId);
         let newTheme = {
             ...fromTheme,
             id: randomString(6),
             name: name,
         };
 
-        themeList.push(newTheme);
-        setData(CUSTOM_THEMES_STORAGE_KEY, themeList);
+        customThemes.push(newTheme);
+        setData(CUSTOM_THEMES_STORAGE_KEY, customThemes);
         setData(ACTIVE_THEME_STORAGE_KEY, newTheme.id);
         fetchThemeList();
         setActiveThemeId(newTheme.id);
@@ -50,8 +43,7 @@ export const NewTheme = ({ onClose, fetchThemeList, setActiveThemeId }) => {
                 <Form>
                     <FormItem label="From theme">
                         <Select value={fromThemeId} onChange={setFromThemeId}>
-                            <Option value={0}>Standard</Option>
-                            {themeList && themeList.map((theme) => (
+                            {themeList?.map((theme) => (
                                 <Option key={theme.id} value={theme.id}>
                                     {theme.name}
                                 </Option>

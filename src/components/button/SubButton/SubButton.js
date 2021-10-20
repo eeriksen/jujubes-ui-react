@@ -1,11 +1,11 @@
 import React from "react"
 import classNames from "classnames"
-import styles from "./DotsButton.scss"
+import styles from "./SubButton.scss"
 
 import { Clickable } from "../Clickable"
 import { Icon } from "../../graphic/Icon"
 
-export const DotsButton = ({ active, onClick }) =>  {
+export const SubButton = ({ active, onClick }) =>  {
 
     // Classes
     const classes = classNames(styles.base, {

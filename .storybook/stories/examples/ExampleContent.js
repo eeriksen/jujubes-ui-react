@@ -24,6 +24,7 @@ import { DataTable, Column, Cell } from "../../../src/components/table/DataTable
 import { Select, Option } from "../../../src/components/form/Select";
 import { Toast } from "../../../src/components/notify/Toast";
 import { Toolbar } from "../../../src/components/navigation/Toolbar";
+import { Menu, MenuItem } from "../../../src/components/navigation/Menu";
 
 import * as themes from "../../../src/styles/themes";
 
@@ -172,70 +173,110 @@ export const ExampleContent = () => {
                                 <CardTitle title="Card with table">
                                     <Badge color="primary">878</Badge>
                                 </CardTitle>
-                                <Toolbar>
-                                    <Toolbar.Item grow divideRight>
-                                        <Input size="small" icon="search" placeholder="Search" />
-                                    </Toolbar.Item>
-                                    <Toolbar.Item divideRight shrink={false}>
-                                        <Select value={50} size="small">
-                                            <Option>10</Option>
-                                            <Option>25</Option>
-                                            <Option>50</Option>
-                                            <Option>100</Option>
-                                        </Select>
-                                    </Toolbar.Item>
-                                    <Toolbar.Item>
-                                        <Button icon="close" iconColor="error" size="small">
-                                            Clear
-                                        </Button>
-                                    </Toolbar.Item>
-                                </Toolbar>
                                 <CardContent>
-                                    <DataTable
-                                        rows={tableRows}
-                                        onRowClick={(data) => console.log("CLICK", data)}
-                                        onLoadMore={() => console.log("LOAD MORE")}
-                                        rowModifiers={{
-                                            blink: (row) => row.id === 3000,
-                                            disabled: (row) => row.id === 5000
-                                        }}
-                                    >
-                                        <Column
-                                            label="ID"
-                                            cell={({ row }) => <Cell>{row.id}</Cell>}
-                                        />
-                                        <Column
-                                            label="First name"
-                                            cell={({ row }) => <Cell>{row.firstName}</Cell>}
-                                        />
-                                        <Column
-                                            label="Last name"
-                                            cell={({ row }) => <Cell>{row.lastName}</Cell>}
-                                        />
-                                        <Column
-                                            label="E-mail"
-                                            cell={({ row }) => <Cell>{row.email}</Cell>}
-                                        />
-                                        <Column
-                                            label="Status"
-                                            cell={({ row }) => (
-                                                <Cell>
-                                                    {row.status ? (
-                                                        <Badge color="success">Active</Badge>
-                                                    ) : (
-                                                        <Badge color="error">Inactive</Badge>
+                                    <Row>
+                                        <Col span={24}>
+                                            <Toolbar>
+                                                <Toolbar.Item grow divideRight>
+                                                    <Input
+                                                        size="small"
+                                                        icon="search"
+                                                        placeholder="Search"
+                                                    />
+                                                </Toolbar.Item>
+                                                <Toolbar.Item divideRight shrink={false}>
+                                                    <Select value={50} size="small">
+                                                        <Option>10</Option>
+                                                        <Option>25</Option>
+                                                        <Option>50</Option>
+                                                        <Option>100</Option>
+                                                    </Select>
+                                                </Toolbar.Item>
+                                                <Toolbar.Item>
+                                                    <Button
+                                                        icon="close"
+                                                        iconColor="error"
+                                                        size="small"
+                                                    >
+                                                        Clear
+                                                    </Button>
+                                                </Toolbar.Item>
+                                            </Toolbar>
+                                        </Col>
+                                        <Col span={24}>
+                                            <DataTable
+                                                rows={tableRows}
+                                                onRowClick={(data) => console.log("CLICK", data)}
+                                                onLoadMore={() => console.log("LOAD MORE")}
+                                                rowModifiers={{
+                                                    blink: (row) => row.id === 3000,
+                                                    disabled: (row) => row.id === 5000
+                                                }}
+                                            >
+                                                <Column
+                                                    label="ID"
+                                                    cell={({ row }) => <Cell>{row.id}</Cell>}
+                                                />
+                                                <Column
+                                                    label="First name"
+                                                    cell={({ row }) => <Cell>{row.firstName}</Cell>}
+                                                />
+                                                <Column
+                                                    label="Last name"
+                                                    cell={({ row }) => <Cell>{row.lastName}</Cell>}
+                                                />
+                                                <Column
+                                                    label="E-mail"
+                                                    cell={({ row }) => <Cell>{row.email}</Cell>}
+                                                />
+                                                <Column
+                                                    label="Status"
+                                                    cell={({ row }) => (
+                                                        <Cell>
+                                                            {row.status ? (
+                                                                <Badge color="success">
+                                                                    Active
+                                                                </Badge>
+                                                            ) : (
+                                                                <Badge color="error">
+                                                                    Inactive
+                                                                </Badge>
+                                                            )}
+                                                        </Cell>
                                                     )}
-                                                </Cell>
-                                            )}
-                                        />
-                                    </DataTable>
+                                                />
+                                            </DataTable>
+                                        </Col>
+                                    </Row>
                                 </CardContent>
                                 <CardLoadMore progress={30} onClick={() => console.log("CLICK")} />
                             </Card>
                         </Col>
                         <Col span={24}>
                             <Card>
-                                <CardTitle title="Theme" />
+                                <CardTitle
+                                    title="Theme"
+                                    actions={[
+                                        {
+                                            icon: "more",
+                                            iconColor: "primary",
+                                            content: (
+                                                <Menu>
+                                                    <MenuItem
+                                                        icon="plus"
+                                                        label="Create something"
+                                                    />
+                                                    <MenuItem icon="edit" label="Edit something" />
+                                                    <MenuItem
+                                                        icon="trash"
+                                                        iconColor="error"
+                                                        label="Delete something"
+                                                    />
+                                                </Menu>
+                                            )
+                                        }
+                                    ]}
+                                />
                                 <CardContent>
                                     <Select value={themeKey} onChange={setThemeKey}>
                                         {Object.keys(themes).map((key) => (
@@ -263,33 +304,67 @@ export const ExampleContent = () => {
                                     ]}
                                 />
                                 <CardContent>
-                                    <Row>
-                                        <Col lg={14} md={24}>
-                                            <Form onSubmit={() => console.log("SUBMIT")}>
-                                                <FormItem label="Your name">
+                                    <Form onSubmit={() => console.log("SUBMIT")}>
+                                        <Row>
+                                            <Col sm={12}>
+                                                <FormItem label="First Name">
                                                     <Input
-                                                        value={data.name}
+                                                        value={data.firstName}
                                                         onChange={(value) =>
                                                             setData({
                                                                 ...data,
-                                                                name: value
+                                                                firstName: value
                                                             })
                                                         }
-                                                        placeholder="Write here..."
+                                                        placeholder="John"
                                                     />
                                                 </FormItem>
-                                                <FormItem label="Your comment">
-                                                    <Textarea
-                                                        value={data.comment}
+                                            </Col>
+                                            <Col sm={12}>
+                                                <FormItem label="Last Name">
+                                                    <Input
+                                                        value={data.lastName}
                                                         onChange={(value) =>
                                                             setData({
                                                                 ...data,
-                                                                comment: value
+                                                                lastName: value
                                                             })
                                                         }
-                                                        placeholder="Write here..."
+                                                        placeholder="Doe"
                                                     />
                                                 </FormItem>
+                                            </Col>
+                                            <Col sm={12}>
+                                                <FormItem label="Email">
+                                                    <Input
+                                                        value={data.email}
+                                                        type="email"
+                                                        onChange={(value) =>
+                                                            setData({
+                                                                ...data,
+                                                                email: value
+                                                            })
+                                                        }
+                                                        placeholder="john.doe@online.com"
+                                                    />
+                                                </FormItem>
+                                            </Col>
+                                            <Col sm={12}>
+                                                <FormItem label="Mobile">
+                                                    <Input
+                                                        value={data.mobile}
+                                                        typ="tel"
+                                                        onChange={(value) =>
+                                                            setData({
+                                                                ...data,
+                                                                mobile: value
+                                                            })
+                                                        }
+                                                        placeholder="+47 999 88 777"
+                                                    />
+                                                </FormItem>
+                                            </Col>
+                                            {/* <Col span={24}>
                                                 <FormItem>
                                                     <Checkbox
                                                         checked={data.checked}
@@ -303,17 +378,19 @@ export const ExampleContent = () => {
                                                         Send to everyone
                                                     </Checkbox>
                                                 </FormItem>
-                                            </Form>
-                                        </Col>
-                                    </Row>
-                                </CardContent>
-                                <CardContent border="top">
-                                    <FormButtons>
-                                        <Button type="submit" color="primary">
-                                            Save changes
-                                        </Button>
-                                        <Button onClick={() => setData({})}>Reset</Button>
-                                    </FormButtons>
+                                            </Col> */}
+                                            <Col span={24}>
+                                                <FormButtons>
+                                                    <Button type="submit" color="primary">
+                                                        Save changes
+                                                    </Button>
+                                                    <Button onClick={() => setData({})}>
+                                                        Reset
+                                                    </Button>
+                                                </FormButtons>
+                                            </Col>
+                                        </Row>
+                                    </Form>
                                 </CardContent>
                             </Card>
                         </Col>
@@ -350,12 +427,18 @@ export const ExampleContent = () => {
                 <PopupTitle description="Fill in the fields below">Create a page</PopupTitle>
                 <PopupContent>
                     <Form>
-                        <FormItem label="Title">
-                            <Input />
-                        </FormItem>
-                        <FormItem label="Description">
-                            <Textarea />
-                        </FormItem>
+                        <Row>
+                            <Col span={24}>
+                                <FormItem label="Title">
+                                    <Input />
+                                </FormItem>
+                            </Col>
+                            <Col span={24}>
+                                <FormItem label="Description">
+                                    <Textarea />
+                                </FormItem>
+                            </Col>
+                        </Row>
                     </Form>
                 </PopupContent>
                 <PopupFooter>

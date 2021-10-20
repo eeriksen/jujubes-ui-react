@@ -1,28 +1,11 @@
-import React, { useEffect, useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./PageNav.scss";
 import { Clickable } from "../../button/Clickable";
 import { Icon } from "../../graphic/Icon";
-import { AppContext } from "../../layout/AppContext";
 
 export const NavButton = ({ icon, label, count, active, onClick, link }) => {
-    const { pageInfo, setPageInfo } = useContext(AppContext);
-
-    useEffect(() => {
-        setPageInfo({
-            ...pageInfo,
-            hasButtons: true
-        });
-
-        return () => {
-            setPageInfo({
-                ...pageInfo,
-                hasButtons: false
-            });
-        };
-    }, []);
-
     return (
         <Clickable
             className={classNames(styles.button, {
@@ -31,6 +14,7 @@ export const NavButton = ({ icon, label, count, active, onClick, link }) => {
             link={link}
             onClick={!active ? onClick : null}
             activeClassName={styles.active}
+            title={label}
         >
             <span className={styles.icon}>
                 <Icon name={icon} />

@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import moment from "moment";
 import { AppContext } from "../AppContext";
-import { WindowResizeListener } from "../WindowResizeListener";
-import * as themes from "../../../styles/themes";
+import themes from "../../../styles/themes";
 import { hexToRgb } from "../../../utils/colorUtils";
 import WebFont from "webfontloader";
 import "./AppContainer.scss";
@@ -11,60 +10,52 @@ import { DATE_TIME_FORMAT, BREAKPOINTS } from "../../../constants";
 moment.defaultFormat = DATE_TIME_FORMAT;
 moment.defaultFormatUtc = DATE_TIME_FORMAT;
 
-const STANDARD_THEME_KEY = "standard";
-
-export const AppContainer = ({ children, theme }) => {
-    const [themeKey, setThemeKey] = useState(STANDARD_THEME_KEY);
+export const AppContainer = ({ children, initialTheme }) => {
     const [navActive, setNavActive] = useState(false);
     const [subBarActive, setSubBarActive] = useState(false);
+    const [theme, setTheme] = useState(initialTheme || themes["standard"]);
     const [pageInfo, setPageInfo] = useState({
+        windowWidth: window.innerWidth,
         breakpoint: null,
-        hasButtons: false
+        hasNav: false
     });
+    const pageInfoRef = useRef(pageInfo);
 
     useEffect(() => {
-        if (themeKey && !theme) {
-            if (!themes[themeKey]) {
-                console.error('Not a valid theme: "%s"', themeKey);
-                loadTheme(themes[STANDARD_THEME_KEY]);
-            } else {
-                loadTheme(themes[themeKey]);
+        if (typeof window !== "undefined") {
+            window.addEventListener("resize", handleResize, false);
+        }
+        return () => {
+            if (typeof window !== "undefined") {
+                window.removeEventListener("resize", handleResize, false);
             }
-        }
-    }, [themeKey, theme]);
+        };
+    }, []);
 
     useEffect(() => {
-        if(theme){
-            loadTheme(theme);
+        if (!theme) {
+            return setTheme(themes["standard"]);
         }
-    }, [theme]);
 
-    /**
-     * Load a theme
-     * @param {*} theme
-     */
-    const loadTheme = (theme) => {
-
-        // Use standard if missing
-        if(!theme){
-            theme = themes[STANDARD_THEME_KEY];
-        }
+        // Reset theme
+        document.documentElement.style = null;
 
         // Set CSS variables
         if (theme.properties) {
-            const themeProperties = theme.properties;
-            for (let value in themeProperties) {
-                if (themeProperties[value].match(/^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/g)) {
-                    const colorValue = hexToRgb(themeProperties[value]);
-                    document.documentElement.style.setProperty(
-                        `--${value}`,
-                        `${colorValue.r}, ${colorValue.g}, ${colorValue.b}`
-                    );
-                } else {
-                    document.documentElement.style.setProperty(
-                        `--${value}`,
-                        themeProperties[value]
-                    );
+            const properties = theme.properties;
+            for (let key in properties) {
+                for (let value in properties[key]) {
+                    const propKey = `--${key}_${value}`;
+                    const propValue = properties[key][value];
+                    if (propValue.match(/^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/g)) {
+                        const colorValue = hexToRgb(propValue);
+                        document.documentElement.style.setProperty(
+                            propKey,
+                            `${colorValue.r}, ${colorValue.g}, ${colorValue.b}`
+                        );
+                    } else {
+                        document.documentElement.style.setProperty(propKey, propValue);
+                    }
                 }
             }
         }
@@ -73,20 +64,46 @@ export const AppContainer = ({ children, theme }) => {
         if (theme.fonts) {
             WebFont.load(theme.fonts);
         }
-    };
+    }, [theme]);
 
-    const updateBreakpoint = () => {
-        const windowWidth = window.innerWidth;
+    useEffect(() => {
+        pageInfoRef.current = pageInfo;
+    }, [pageInfo]);
+
+    useEffect(() => {
         let breakpoint = null;
         Object.keys(BREAKPOINTS).forEach((key) => {
             const keyNumber = parseInt(key, 10);
-            if (windowWidth <= keyNumber && (breakpoint === null || keyNumber < breakpoint)) {
+            if (
+                pageInfo.windowWidth <= keyNumber &&
+                (breakpoint === null || keyNumber < breakpoint)
+            ) {
                 breakpoint = keyNumber;
             }
         });
         setPageInfo({
-            ...pageInfo,
+            ...pageInfoRef.current,
             breakpoint: BREAKPOINTS[breakpoint]
+        });
+    }, [pageInfo.windowWidth]);
+
+    useEffect(() => {
+        if (navActive && subBarActive) {
+            setSubBarActive(false);
+        }
+    }, [navActive]);
+
+    const handleResize = () => {
+        setPageInfo({
+            ...pageInfoRef.current,
+            windowWidth: window.innerWidth
+        });
+    };
+
+    const updatePageInfo = (changes) => {
+        setPageInfo({
+            ...pageInfoRef.current,
+            ...changes
         });
     };
 
@@ -100,16 +117,17 @@ export const AppContainer = ({ children, theme }) => {
                 setSubBarActive,
 
                 pageInfo,
-                setPageInfo,
+                updatePageInfo,
 
-                themeKey,
-                setThemeKey,
-
-                loadTheme
+                theme,
+                setTheme
             }}
         >
             {children}
-            <WindowResizeListener onInit={updateBreakpoint} onResize={updateBreakpoint} />
         </AppContext.Provider>
     );
+};
+
+AppContainer.defaultProps = {
+    theme: themes["standard"]
 };

@@ -5,15 +5,23 @@
    APP NAV - MENU ITEM
    =================================================================== */
 
-$menuItem-size: 42px;
-$spacing-sides: $spacing--nav-sides;
+$itemHeight: var(--navMenuItem_height, 42px);
+$itemSpacing: var(--navMenuItem_spacing, $spacing--nav-sides);
+$iconColor: var(--navMenuItem_iconColor, rgba(var(--navMain_foregroundColor), 0.2));
+$iconColorHover: var(--navMenuItem_iconColorHover, rgba(var(--navMain_accentColor), 1));
+$labelColor: var(--navMenuItem_labelColor, rgba(var(--navMain_foregroundColor), 1));
+$labelColorHover: var(--navMenuItem_labelColorHover, rgba(var(--navMain_foregroundColor), 1));
+$fontWeight: var(--navMenuItem_fontWeight, var(--fontWeight_medium));
+$arrowColor: var(--navMenuItem_arrowColor, rgba(var(--navMain_foregroundColor), 0.2));
+$arrowColorHover: var(--navMenuItem_arrowColorHover, rgba(var(--navMain_foregroundColor), 1));
+$backgroundHover: var(--navMenuItem_backgroundHover, rgba(0, 0, 0, 0.2));
 
 .item {
     position: relative;
     display: flex;
     width: 100%;
-    height: $menuItem-size;
-    padding: 0 $spacing-sides 0 $spacing-sides;
+    height: $itemHeight;
+    padding: 0 $itemSpacing 0 $itemSpacing;
     outline: none;
     user-select: none;
     transition: background-color 0.2s ease-in-out;
@@ -25,15 +33,15 @@ $spacing-sides: $spacing--nav-sides;
         display: flex;
         align-items: center;
         width: 32px;
-        @include m-iconColor(rgba(var(--navMain_accentColor), 0.5), true);
+        @include m-iconColor($iconColor, true);
     }
 
     // Label
     .label {
         @include m-truncate();
         text-decoration: none;
-        color: rgba(var(--navMain_foregroundColor), 0.4);
-        font-weight: var(--fontWeight_medium);
+        color: $labelColor;
+        font-weight: $fontWeight;
         flex-grow: 1;
         transition: color 0.2s ease-in-out;
     }
@@ -46,26 +54,26 @@ $spacing-sides: $spacing--nav-sides;
         // Arrow
         .arrow {
             @include m-iconSize(8px);
-            @include m-iconColor(rgba(var(--navMain_foregroundColor), 0.2), true);
+            @include m-iconColor($arrowColor, true);
         }
     }
 
     // STATE: Selected
     &.selected,
     &:hover {
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: $backgroundHover;
         cursor: pointer;
 
         .icon {
-            @include m-iconColor(rgba(var(--navMain_accentColor), 1));
+            @include m-iconColor($iconColorHover);
         }
 
         .label {
-            color: rgba(var(--navMain_foregroundColor), 1);
+            color: $labelColorHover;
         }
 
         .arrow {
-            @include m-iconColor(rgba(var(--navMain_foregroundColor), 1));
+            @include m-iconColor($arrowColorHover);
         }
     }
 

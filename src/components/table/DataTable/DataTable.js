@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./DataTable.scss";
@@ -6,6 +6,7 @@ import styles from "./DataTable.scss";
 import { Spinner } from "../../loader/Spinner";
 import { TableHead } from "./TableHead";
 import { TableBody } from "./TableBody";
+import { AppContext } from "../../layout/AppContext";
 
 export const DataTable = ({
     rows,
@@ -15,13 +16,14 @@ export const DataTable = ({
     busy,
     rowModifiers
 }) => {
+    const { pageInfo } = useContext(AppContext);
     const tableRef = useRef();
     const [overflowLeft, setOverflowLeft] = useState(false);
     const [overflowRight, setOverflowRight] = useState(false);
 
     useEffect(() => {
         updateOverflowIndicators();
-    }, []);
+    }, [pageInfo.windowWidth]);
 
     const updateOverflowIndicators = () => {
         if (tableRef.current) {

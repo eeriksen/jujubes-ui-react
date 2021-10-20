@@ -4,9 +4,10 @@
    PAGE CRUMBS
    =================================================================== */
 
+$height: var(--pageCrumbs_height, var(--elementSize_small));
+
 .base {
-    background: rgba(var(--color_background), 1);
-    height: var(--elementSize_small);
+    height: $height;
 
     .leftFade {
         display: none;

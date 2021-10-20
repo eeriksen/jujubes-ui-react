@@ -4,12 +4,16 @@
    PAGE NAV
    =================================================================== */
 
-$size--button: var(--elementSize_big);
-$size--counter: 22px;
+$height: var(--pageNav_height, var(--elementSize_big));
+$counterSize: var(--pageNav_counterSize, 22px);
+$borderBottom: var(--pageNav_borderBottom, 3px solid rgba(var(--color_base), 0.1));
+$backgroundColor: rgba(var(--pageNav_backgroundColor, var(--color_backgroundContent)), 1);
+$boxShadow: var(--pageNav_boxShadow, var(--boxShadow_regular));
+$borderRadius: var(--pageNav_borderRadius, var(--borderRadius_content));
 
 .base {
     margin-bottom: var(--spacing_large);
-    height: $size--button;
+    height: $height;
 
     .buttons {
         display: flex;
@@ -20,23 +24,23 @@ $size--counter: 22px;
     .button {
         display: flex;
         position: relative;
-        background-color: rgba(var(--color_backgroundContent), 1);
-        box-shadow: var(--boxShadow_regular);
-        height: $size--button;
+        background-color: $backgroundColor;
+        box-shadow: $boxShadow;
+        height: $height;
         cursor: pointer;
         user-select: none;
         margin-right: var(--spacing_regular);
         padding: 0 var(--spacing_small);
         transition: box-shadow 0.2s linear, background-color 0.2s linear, border 0.2s ease-in-out;
-        border-bottom: 3px solid rgba(var(--color_base), 0.2);
+        border-bottom: $borderBottom;
         text-decoration: none;
-        border-radius: var(--borderRadius_content);
+        border-radius: $borderRadius;
 
         .icon {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: $size--button;
+            width: $height;
             height: 100%;
             @include m-iconSize(19px);
             @include m-iconColor(rgba(var(--color_base), 0.2), true);
@@ -58,7 +62,7 @@ $size--counter: 22px;
             align-items: center;
             margin-left: -5px;
             margin-right: 5px;
-            border-radius: $size--counter;
+            border-radius: $counterSize;
             background: rgba(var(--color_backgroundContent), 1);
             overflow: hidden;
             position: absolute;
@@ -71,21 +75,21 @@ $size--counter: 22px;
                 text-align: center;
                 font-size: var(--fontSize_small);
                 font-weight: var(--fontWeight_medium);
-                height: $size--counter;
-                min-width: $size--counter;
-                line-height: $size--counter;
+                height: $counterSize;
+                min-width: $counterSize;
+                line-height: $counterSize;
                 padding: 0 5px;
                 white-space: nowrap;
                 color: rgba(var(--color_statusText), 1);
                 background-color: rgba(var(--color_error), 1);
                 transition: all 0.2s linear;
-                border-radius: $size--counter;
+                border-radius: $counterSize;
             }
         }
 
         // STATE: Hover
         &:hover {
-            border-color: rgba(var(--color_primaryAccent), 1);
+            // border-color: rgba(var(--color_primaryAccent), 1);
 
             .icon {
                 @include m-iconColor(rgba(var(--color_base), 0.4), true);

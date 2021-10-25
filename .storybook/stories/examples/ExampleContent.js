@@ -120,7 +120,11 @@ export const ExampleContent = () => {
                     onClick={() => setActivePageNav(2)}
                     icon="devices"
                     label="Devices"
-                    count={<Badge number fill color="accent">29</Badge>}
+                    count={
+                        <Badge number fill color="accent">
+                            29
+                        </Badge>
+                    }
                 />
                 <NavButton
                     active={activePageNav === 3}

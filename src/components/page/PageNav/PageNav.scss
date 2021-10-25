@@ -9,7 +9,7 @@ $counterSize: var(--pageNav_counterSize, 22px);
 $borderBottom: var(--pageNav_borderBottom, 3px solid rgba(var(--color_base), 0.1));
 $backgroundColor: rgba(var(--pageNav_backgroundColor, var(--color_backgroundContent)), 1);
 $boxShadow: var(--pageNav_boxShadow, var(--boxShadow_regular));
-$borderRadius: var(--pageNav_borderRadius, 0);
+$borderRadius: var(--pageNav_borderRadius, var(--borderRadius_content));
 $buttonSpacing: var(--pageNav_buttonSpacing, var(--spacing_regular));
 $compactBorderTop: var(--pageNav_borderTopCompact, "none");
 $compactBoxShadow: var(--pageNav_boxShadowCompact, var(--boxShadow_regular));

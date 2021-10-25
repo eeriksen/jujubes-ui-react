@@ -1,4 +1,4 @@
-{
+export default {
     "id": "standard",
     "name": "Standard",
     "fonts": {

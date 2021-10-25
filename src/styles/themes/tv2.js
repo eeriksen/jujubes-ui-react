@@ -1,4 +1,4 @@
-{
+export default {
     "id": "tv2",
     "name": "TV 2",
     "fonts": {
@@ -104,7 +104,8 @@
         "pageNav": {
             "borderBottom": "1px solid rgba(var(--color_base), 0.1)",
             "buttonSpacing": "0",
-            "borderTopCompact": "1px solid rgba(var(--color_base), 0.1)"
+            "borderTopCompact": "1px solid rgba(var(--color_base), 0.1)",
+            "borderRadius": "0"
         },
         "pageCrumbs": {
             "boxShadow": "none",

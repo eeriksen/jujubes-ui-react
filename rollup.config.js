@@ -30,7 +30,7 @@ export default {
     external: ["react", "react-dom", "react-router-dom"],
     plugins: [
         clearPlugin({
-            targets: [DIST_DIR] 
+            targets: [DIST_DIR]
         }),
         nodeResolvePlugin({
             browser: true,

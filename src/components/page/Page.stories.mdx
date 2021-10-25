@@ -5,6 +5,7 @@ import { PageHeader } from "./PageHeader";
 import { PageCrumbs, Crumb } from "./PageCrumbs";
 import { PageActions, Action } from "./PageActions";
 import { PageNav, NavButton } from "./PageNav";
+import { Badge } from "../notify/Badge";
 import { ComponentWrapper } from "../layout/ComponentWrapper";
 import { AppLayout } from "../layout/AppLayout";
 import { AppContent } from "../layout/AppContent";
@@ -103,7 +104,11 @@ These should only be placed on the top of the page, just below the `<PageHeader 
                                         onClick={() => setActiveIndex(2)}
                                         icon="devices"
                                         label="Devices"
-                                        count={29}
+                                        count={
+                                            <Badge fill number color="accent">
+                                                29
+                                            </Badge>
+                                        }
                                         link="/devices"
                                     />
                                     <NavButton

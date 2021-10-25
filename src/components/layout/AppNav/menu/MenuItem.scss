@@ -8,13 +8,13 @@
 $itemHeight: var(--navMenuItem_height, 42px);
 $itemSpacing: var(--navMenuItem_spacing, $spacing--nav-sides);
 $iconColor: var(--navMenuItem_iconColor, rgba(var(--navMain_foregroundColor), 0.2));
-$iconColorHover: var(--navMenuItem_iconColorHover, rgba(var(--navMain_accentColor), 1));
+$iconColorActive: var(--navMenuItem_iconColorActive, rgba(var(--navMain_accentColor), 1));
 $labelColor: var(--navMenuItem_labelColor, rgba(var(--navMain_foregroundColor), 1));
-$labelColorHover: var(--navMenuItem_labelColorHover, rgba(var(--navMain_foregroundColor), 1));
+$labelColorActive: var(--navMenuItem_labelColorActive, rgba(var(--navMain_foregroundColor), 1));
 $fontWeight: var(--navMenuItem_fontWeight, var(--fontWeight_medium));
 $arrowColor: var(--navMenuItem_arrowColor, rgba(var(--navMain_foregroundColor), 0.2));
-$arrowColorHover: var(--navMenuItem_arrowColorHover, rgba(var(--navMain_foregroundColor), 1));
-$backgroundHover: var(--navMenuItem_backgroundHover, rgba(0, 0, 0, 0.2));
+$arrowColorActive: var(--navMenuItem_arrowColorActive, rgba(var(--navMain_foregroundColor), 1));
+$backgroundActive: var(--navMenuItem_backgroundActive, rgba(0, 0, 0, 0.2));
 
 .item {
     position: relative;
@@ -61,19 +61,19 @@ $backgroundHover: var(--navMenuItem_backgroundHover, rgba(0, 0, 0, 0.2));
     // STATE: Selected
     &.selected,
     &:hover {
-        background-color: $backgroundHover;
+        background-color: $backgroundActive;
         cursor: pointer;
 
         .icon {
-            @include m-iconColor($iconColorHover);
+            @include m-iconColor($iconColorActive);
         }
 
         .label {
-            color: $labelColorHover;
+            color: $labelColorActive;
         }
 
         .arrow {
-            @include m-iconColor($arrowColorHover);
+            @include m-iconColor($arrowColorActive);
         }
     }
 

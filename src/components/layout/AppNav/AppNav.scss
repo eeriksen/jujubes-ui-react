@@ -9,6 +9,7 @@ $backgroundColor: var(--navMain_backgroundColor);
 $foregroundColor: var(--navMain_foregroundColor);
 $logoBackgroundColor: var(--navLogo_backgroundColor, var(--navMain_accentColor));
 $logoFill: var(--navLogo_fill, var(--navMain_foregroundColor));
+$borderRight: var(--navMain_borderRight, "none");
 
 .base {
     position: relative;
@@ -22,6 +23,7 @@ $logoFill: var(--navLogo_fill, var(--navMain_foregroundColor));
         background: rgba($backgroundColor, 1);
         display: flex;
         flex-direction: column;
+        border-right: $borderRight;
 
         .logo {
             min-height: $appBar--height;

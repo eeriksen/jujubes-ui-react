@@ -8,6 +8,7 @@ $backgroundColor: rgba(var(--navBar_backgroundColor, var(--color_base)), 1);
 $foregroundColor: rgba(var(--navBar_foregroundColor, var(--color_contrast)), 1);
 $accentColor: rgba(var(--navBar_accentColor, var(--color_primary)), 1);
 $boxShadow: var(--navBar_boxShadow, var(--boxShadow_regular));
+$borderBottom: var(--navBar_borderBottom, "none");
 $subBackgroundColor: rgba(var(--navBar_subBackgroundColor, var(--color_backgroundContent)), 1);
 $subBorderBottom: var(--navBar_subBorderBottom, none);
 
@@ -15,6 +16,7 @@ $subBorderBottom: var(--navBar_subBorderBottom, none);
     position: relative;
     z-index: $zIndex--appBar;
     box-shadow: $boxShadow;
+    border-bottom: $borderBottom;
     flex-shrink: 0;
 
     .mainBar {

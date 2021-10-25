@@ -24,7 +24,7 @@ export const AppNav = ({ logo, title, children }) => {
 
                 {/* Menu content */}
                 <div className={styles.container}>
-                    <ScrollableArea>
+                    <ScrollableArea suppressScrollX>
                         <div className={styles.wrapper}>
                             {/* Header */}
                             {title ? (

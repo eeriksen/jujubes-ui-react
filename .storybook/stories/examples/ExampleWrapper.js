@@ -99,7 +99,7 @@ export const ExampleWrapper = ({ children }) => {
                         <AppNav.MenuItem
                             icon="image"
                             indicator={
-                                <Badge number fill color="error">
+                                <Badge number fill color="accent">
                                     34
                                 </Badge>
                             }

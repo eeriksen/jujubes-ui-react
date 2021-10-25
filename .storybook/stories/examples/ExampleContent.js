@@ -120,7 +120,7 @@ export const ExampleContent = () => {
                     onClick={() => setActivePageNav(2)}
                     icon="devices"
                     label="Devices"
-                    count={<Badge number fill color="error">29</Badge>}
+                    count={<Badge number fill color="accent">29</Badge>}
                 />
                 <NavButton
                     active={activePageNav === 3}
@@ -210,7 +210,7 @@ export const ExampleContent = () => {
                                                 onLoadMore={() => console.log("LOAD MORE")}
                                                 rowModifiers={{
                                                     blink: (row) => row.id === 3000,
-                                                    disabled: (row) => row.id === 5000
+                                                    disabled: (row) => row.id === 4000
                                                 }}
                                             >
                                                 <Column
@@ -259,7 +259,6 @@ export const ExampleContent = () => {
                                     actions={[
                                         {
                                             icon: "more",
-                                            iconColor: "primary",
                                             content: (
                                                 <Menu>
                                                     <MenuItem
@@ -364,7 +363,7 @@ export const ExampleContent = () => {
                                                     />
                                                 </FormItem>
                                             </Col>
-                                            {/* <Col span={24}>
+                                            <Col span={24}>
                                                 <FormItem>
                                                     <Checkbox
                                                         checked={data.checked}
@@ -378,7 +377,7 @@ export const ExampleContent = () => {
                                                         Send to everyone
                                                     </Checkbox>
                                                 </FormItem>
-                                            </Col> */}
+                                            </Col>
                                             <Col span={24}>
                                                 <FormButtons>
                                                     <Button type="submit" color="primary">

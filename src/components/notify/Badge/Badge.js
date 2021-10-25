@@ -8,6 +8,7 @@ export const Badge = ({ fill, size, spacing, color, number, children }) => {
         <span
             className={classNames(styles.base, {
                 [styles.primary]: color === "primary",
+                [styles.accent]: color === "accent",
                 [styles.info]: color === "info",
                 [styles.success]: color === "success",
                 [styles.warning]: color === "warning",
@@ -43,6 +44,7 @@ Badge.propTypes = {
      */
     color: PropTypes.oneOf([
         "primary",
+        "accent",
         "info",
         "success",
         "warning",

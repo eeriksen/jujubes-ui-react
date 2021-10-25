@@ -34,7 +34,11 @@ export const AppContainer = ({ children, initialTheme }) => {
 
     useEffect(() => {
         if (!theme) {
-            return setTheme(themes["standard"]);
+            const themeIndex = themes.findIndex((t) => t.id === "standard");
+            if (themeIndex >= 0) {
+                setTheme(themes[themeIndex]);
+            }
+            return;
         }
 
         // Reset theme

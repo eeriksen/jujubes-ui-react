@@ -1,19 +1,20 @@
 {
-    "id": "simple",
-    "name": "Simple",
+    "id": "tv2",
+    "name": "TV 2",
     "fonts": {
-        "google": {
-            "families": ["Nunito Sans:300,400,600,800"]
+        "custom": {
+            "families": ["TV 2 Condensed SN", "TV 2 Display"],
+            "urls": ["https://fragments.alpha.tv2.no/common.css"]
         }
     },
     "properties": {
         "fontFamily": {
-            "primary": "'Nunito Sans', sans-serif",
-            "titles": "'Nunito Sans', sans-serif"
+            "primary": "'TV 2 Condensed SN', sans-serif",
+            "titles": "'TV 2 Display', sans-serif"
         },
         "fontSize": {
             "root": "14px",
-            "tiny": "0.785rem",
+            "tiny": "0.785714rem",
             "small": "0.857rem",
             "regular": "1rem",
             "medium": "1.142rem",
@@ -24,24 +25,24 @@
             "heading1": "2.857rem"
         },
         "fontWeight": {
-            "light": "300",
-            "regular": "400",
-            "medium": "600",
-            "bold": "800"
+            "light": "100",
+            "regular": "200",
+            "medium": "400",
+            "bold": "600"
         },
         "lineHeight": {
             "small": "1.2",
-            "regular": "1.6"
+            "regular": "1.5"
         },
         "color": {
-            "base": "#181c32",
+            "base": "#100118",
             "contrast": "#ffffff",
-            "background": "#fafafa",
-            "backgroundContent": "#fafafa",
-            "primary": "#3699ff",
+            "background": "#ffffff",
+            "backgroundContent": "#ffffff",
+            "primary": "#6F03FF",
             "primaryContrast": "#ffffff",
-            "accent": "#36bfff",
-            "accentContrast": "#ffffff",
+            "accent": "#FFDDCA",
+            "accentContrast": "#100118",
             "success": "#34d896",
             "error": "#ff668d",
             "warning": "#e4bb40",
@@ -65,7 +66,7 @@
         "borderRadius": {
             "form": "5px",
             "buttons": "5px",
-            "content": "0"
+            "content": "5px"
         },
         "boxShadow": {
             "regular": "none",
@@ -82,14 +83,15 @@
         "navMain": {
             "backgroundColor": "var(--color_background)",
             "foregroundColor": "var(--color_base)",
-            "accentColor": "var(--color_primary)"
+            "accentColor": "var(--color_primary)",
+            "borderRight": "1px solid rgba(var(--color_base), 0.1)"
         },
         "navBar": {
-            "backgroundColor": "var(--color_background)",
-            "foregroundColor": "var(--color_base)",
-            "accentColor": "var(--color_primary)",
-            "boxShadow": "0 1px 10px 1px rgba(var(--color_background), 1)",
-            "subBackgroundColor": "var(--color_background)"
+            "backgroundColor": "var(--color_primary)",
+            "foregroundColor": "var(--color_primaryContrast)",
+            "accentColor": "var(--color_primaryContrast)",
+            "subBackgroundColor": "var(--color_background)",
+            "subBorderBottom": "1px solid rgba(var(--color_base), 0.1)"
         },
         "navLogo": {
             "backgroundColor": "var(--color_background)",
@@ -100,7 +102,9 @@
             "foregroundColor": "var(--color_primaryContrast)"
         },
         "pageNav": {
-            "borderBottom": "2px solid rgba(var(--color_base), 0.1)"
+            "borderBottom": "1px solid rgba(var(--color_base), 0.1)",
+            "buttonSpacing": "0",
+            "borderTopCompact": "1px solid rgba(var(--color_base), 0.1)"
         },
         "pageCrumbs": {
             "boxShadow": "none",
@@ -111,10 +115,10 @@
             "color": "rgba(var(--navMain_foregroundColor), 0.2)"
         },
         "navMenuItem": {
-            "backgroundActive": "var(--color_contrast)"
+            "backgroundActive": "rgba(var(--color_base), 0.03)"
         },
         "cardTitle": {
-            "borderBottom": "1px dotted rgba(var(--color_base), 0.1)",
+            "borderBottom": "1px solid rgba(var(--color_base), 0.1)",
             "actionBorder": "none"
         },
         "cardContent": {

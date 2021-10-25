@@ -4,28 +4,33 @@
    TOOLTIP
    =================================================================== */
 
-:global(.tippy-popper) {
-    .tippy-tooltip {
-        background-color: rgba(var(--color_base), 1);
-        color: rgba(var(--color_contrast), 1);
-        font-family: var(--fontFamily_primary);
-        font-size: var(--fontSize_regular);
-        padding: 0.3rem 0.7rem 0.3rem;
-    }
+$backgroundColor: rgba(var(--tooltip_backgroundColor, var(--color_base)), 1);
+$foregroundColor: rgba(var(--tooltip_foregroundColor, var(--color_contrast)), 1);
 
-    &[x-placement^="bottom"] [x-arrow] {
-        border-bottom-color: rgba(var(--color_base), 1) !important;
-    }
+:global {
+    .tippy-popper {
+        .tippy-tooltip {
+            background-color: $backgroundColor;
+            color: $foregroundColor;
+            font-family: var(--fontFamily_primary);
+            font-size: var(--fontSize_regular);
+            padding: 0.3rem 0.7rem 0.3rem;
+        }
 
-    &[x-placement^="top"] [x-arrow] {
-        border-top-color: rgba(var(--color_base), 1) !important;
-    }
+        &[x-placement^="bottom"] [x-arrow] {
+            border-bottom-color: $backgroundColor !important;
+        }
 
-    &[x-placement^="right"] [x-arrow] {
-        border-right-color: rgba(var(--color_base), 1) !important;
-    }
+        &[x-placement^="top"] [x-arrow] {
+            border-top-color: $backgroundColor !important;
+        }
 
-    &[x-placement^="left"] [x-arrow] {
-        border-left-color: rgba(var(--color_base), 1) !important;
+        &[x-placement^="right"] [x-arrow] {
+            border-right-color: $backgroundColor !important;
+        }
+
+        &[x-placement^="left"] [x-arrow] {
+            border-left-color: $backgroundColor !important;
+        }
     }
 }

@@ -625,7 +625,7 @@ const renderIcon = (name) => {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 110 103"
                 >
-                    <g fill="#3699FF" fillRule="evenodd">
+                    <g fillRule="evenodd">
                         <circle cx="85" cy="25" r="25" />
                         <circle cx="25" cy="25" r="25" />
                         <circle cx="55" cy="78" r="25" />

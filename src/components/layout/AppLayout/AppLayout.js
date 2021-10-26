@@ -6,7 +6,6 @@ import { AppBar } from "../AppBar";
 import { AppContent } from "../AppContent";
 
 export const AppLayout = ({ children }) => {
-    // Iterate children
     let nav = null;
     let bar = null;
     let content = null;
@@ -33,7 +32,6 @@ export const AppLayout = ({ children }) => {
             {nav ? <div className={styles.left}>{nav}</div> : null}
 
             <div className={styles.right}>
-
                 {/* Bar */}
                 {bar ? bar : null}
 

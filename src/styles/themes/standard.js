@@ -55,7 +55,8 @@ export default {
             "regular": "0.714rem",
             "medium": "1.42rem",
             "large": "2.14rem",
-            "edges": "1.28rem"
+            "edges": "1.5rem",
+            "edgesMobile": "0.5rem"
         },
         "elementSize": {
             "small": "2.57rem",
@@ -80,12 +81,11 @@ export default {
             "boxShadowError": "0 0 5px 0 rgba(var(--color_error), 0.3)"
         },
         "navMain": {
-            "backgroundColor": "#27273b",
+            "backgroundColor": "var(--color_base)",
             "foregroundColor": "#ffffff",
             "accentColor": "#3699ff"
         },
         "navBar": {
-            "backgroundColor": "#27273b",
             "foregroundColor": "#ffffff",
             "accentColor": "#3699ff"
         },

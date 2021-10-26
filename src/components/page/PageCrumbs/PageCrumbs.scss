@@ -5,9 +5,11 @@
    =================================================================== */
 
 $height: var(--pageCrumbs_height, var(--elementSize_small));
+$backgroundMobile: var(--pageCrumbs_backgroundMobile, rgba(var(--color_base), 0.05));
 
 .base {
     height: $height;
+    margin-bottom: 2rem;
 
     .leftFade {
         display: none;
@@ -24,5 +26,11 @@ $height: var(--pageCrumbs_height, var(--elementSize_small));
         flex-direction: row-reverse;
         justify-content: flex-end;
         overflow: hidden;
+    }
+
+    @include for-mobile-down(){
+        margin-bottom: 0;
+        padding: 0 var(--spacing_edges);
+        background: $backgroundMobile;
     }
 }

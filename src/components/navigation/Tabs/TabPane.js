@@ -23,7 +23,7 @@ export const TabPane = ({ label, icon, link, tabKey, children, onChange, activeK
     return children ? (
         <Clickable
             className={classNames(styles.tab, {
-                [styles.active]: link ? link === location.pathname : tabKey === activeKey
+                [styles.active]: link ? location.pathname.startsWith(link) : tabKey === activeKey
             })}
             onClick={handleTabClick}
         >

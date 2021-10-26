@@ -6,8 +6,9 @@ import styles from "./AppBar.scss";
 import { MenuButton } from "../../button/MenuButton";
 import { SubButton } from "../../button/SubButton";
 import { AppContext } from "../AppContext";
+import { Clickable } from "../../button/Clickable";
 
-export const AppBar = ({ title, children, right }) => {
+export const AppBar = ({ title, subtitle, children, right }) => {
     const { subBarActive, setSubBarActive, navActive, setNavActive } = useContext(AppContext);
 
     // Classes
@@ -21,14 +22,17 @@ export const AppBar = ({ title, children, right }) => {
                 <div className={styles.left}>
                     <MenuButton onClick={() => setNavActive(!navActive)} />
                 </div>
-                <div className={styles.center}>
-                    <div className={styles.text}>{title}</div>
-                </div>
+                <Clickable className={styles.center}>
+                    <div className={styles.title}>{title}</div>
+                    {subtitle ? (
+                        <div className={styles.subtitle}>
+                            {subtitle}
+                        </div>
+                    ) : null}
+                </Clickable>
                 {right || children ? (
                     <div className={styles.right}>
-                        {right ? (
-                            right
-                        ) : (
+                        {right || (
                             <SubButton
                                 onClick={() => setSubBarActive(!subBarActive)}
                                 active={subBarActive}

@@ -4,17 +4,21 @@ import classNames from "classnames";
 import styles from "./PageHeader.scss";
 import { Icon, iconList } from "../../graphic/Icon";
 
-export const PageHeader = ({ icon, title, subtitle, loading }) => {
+export const PageHeader = ({ icon, image, title, subtitle, loading }) => {
     return (
         <div
             className={classNames(styles.base, {
-                [styles.withIcon]: icon
+                [styles.withSymbol]: icon || image
             })}
         >
             {/* Icon */}
-            {icon ? (
-                <div className={styles.icon}>
-                    <Icon name={icon} />
+            {icon || image ? (
+                <div className={styles.symbol}>
+                    {icon ? (
+                        <div className={styles.icon}>
+                            <Icon name={icon} />
+                        </div>
+                    ) : image ? image : null}
                 </div>
             ) : null}
 

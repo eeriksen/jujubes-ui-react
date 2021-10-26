@@ -41,21 +41,27 @@ $subBorderBottom: var(--navBar_subBorderBottom, none);
             flex-grow: 1;
             position: absolute;
             top: 0;
+            bottom: 0;
             left: $appBar--height;
             right: $appBar--height;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
 
-            .text {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                line-height: $appBar--height;
+            .title {
                 text-align: center;
                 font-size: var(--fontSize_heading4);
                 font-weight: var(--fontWeight_medium);
                 color: $foregroundColor;
                 padding: 0 var(--spacing_regular);
                 @include m-truncate();
+            }
+
+            .subtitle {
+                text-align: center;
+                color: $foregroundColor;
+                margin-top: -5px;
+                opacity: 0.5;
             }
         }
     }
@@ -65,19 +71,20 @@ $subBorderBottom: var(--navBar_subBorderBottom, none);
         width: 100%;
         height: $appBar--height;
         background-color: $subBackgroundColor;
-        transition: top .2s cubic-bezier(0.550, 0.055, 0.675, 0.190), box-shadow .2s linear;
+        transition: margin-top .2s cubic-bezier(0.550, 0.055, 0.675, 0.190), box-shadow .2s linear;
         display: flex;
         z-index: 1;
         border-bottom: $subBorderBottom;
 
         .left {
+            display: flex;
             flex-grow: 1;
-            text-align: left;
         }
 
         .right {
+            display: flex;
+            justify-content: flex-end;
             flex-grow: 1;
-            text-align: right;
         }
     }
 }
@@ -95,15 +102,13 @@ $subBorderBottom: var(--navBar_subBorderBottom, none);
 
 @include for-tablet-down(){
     .base {
-
         .subBar {
-            position: absolute;
-            top: 0;
+            margin-top: - $appBar--height;
         }
 
         &.subBarActive {
             .subBar {
-                top: $appBar--height;
+                margin-top: 0;
                 box-shadow: $boxShadow;
             }
         }

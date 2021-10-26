@@ -1,29 +1,31 @@
 import React, { useState } from "react";
-import { AppLayout } from "../../../src/components/layout/AppLayout";
-import { AppNav } from "../../../src/components/layout/AppNav";
-import { AppBar } from "../../../src/components/layout/AppBar";
-import { AppContent } from "../../../src/components/layout/AppContent";
-import { UserMenu } from "../../../src/components/user/UserMenu";
-import { Input } from "../../../src/components/form/Input";
-import { Badge } from "../../../src/components/notify/Badge";
-import { Menu, MenuItem } from "../../../src/components/navigation/Menu";
-import { Icon } from "../../../src/components/graphic/Icon";
-import { Text } from "../../../src/components/typography/Text";
-import { LogoSymbol } from "../../../src/components/graphic/Logo";
-import { ComponentWrapper } from "../../../src/components/layout/ComponentWrapper";
+import { Route, Switch } from "react-router-dom";
+import { AppLayout } from "../../../../src/components/layout/AppLayout";
+import { AppNav } from "../../../../src/components/layout/AppNav";
+import { AppBar } from "../../../../src/components/layout/AppBar";
+import { AppContent } from "../../../../src/components/layout/AppContent";
+import { UserMenu } from "../../../../src/components/user/UserMenu";
+import { Input } from "../../../../src/components/form/Input";
+import { Badge } from "../../../../src/components/notify/Badge";
+import { Menu, MenuItem } from "../../../../src/components/navigation/Menu";
+import { Icon } from "../../../../src/components/graphic/Icon";
+import { Text } from "../../../../src/components/typography/Text";
+import { LogoSymbol } from "../../../../src/components/graphic/Logo";
+import { ComponentWrapper } from "../../../../src/components/layout/ComponentWrapper";
+import { Button } from "../../../../src/components/button/Button";
+import { Dashboard } from "./pages/Dashboard";
+import { SAMPLE_USER } from "../../../constants";
 
-import { TV2Logo } from "./Tv2Logo";
-
-import { SAMPLE_USER } from "../../constants";
-
-
-export const ExampleWrapper = ({ children }) => {
+export const ExampleFull = () => {
     const [activeMenuItem, setActiveMenuItem] = useState(1);
     const [searchTerm, setSearchTerm] = useState(null);
     return (
         <ComponentWrapper>
             <AppLayout>
-                <AppBar title="Spesialer">
+                <AppBar title="Jujubes">
+                    <AppBar.Item placeLeft>
+                        <Button square icon="link" size="small" color="primary" />
+                    </AppBar.Item>
                     <AppBar.Item placeLeft>
                         <Input
                             value={searchTerm}
@@ -34,7 +36,19 @@ export const ExampleWrapper = ({ children }) => {
                         />
                     </AppBar.Item>
                     <AppBar.Item placeRight>
-                        <UserMenu name={SAMPLE_USER.name} about={SAMPLE_USER.email} picture={SAMPLE_USER.pictureUrl}>
+                        <Button circle color="silent">
+                            <Badge color="error" fill number place="corner">
+                                5
+                            </Badge>
+                            <Icon name="shopping-cart" color="primary" size="medium" />
+                        </Button>
+                    </AppBar.Item>
+                    <AppBar.Item placeRight>
+                        <UserMenu
+                            name={SAMPLE_USER.name}
+                            about={SAMPLE_USER.email}
+                            picture={SAMPLE_USER.pictureUrl}
+                        >
                             <Menu>
                                 <MenuItem
                                     selected={activeMenuItem === 1}
@@ -86,9 +100,11 @@ export const ExampleWrapper = ({ children }) => {
                 >
                     <AppNav.Menu>
                         <AppNav.MenuHeading>Main</AppNav.MenuHeading>
-                        <AppNav.MenuItem icon="user">Profile</AppNav.MenuItem>
-                        <AppNav.MenuItem icon="gear" link="/">
-                            Settings
+                        <AppNav.MenuItem icon="menu-squares" link="/">
+                            Dashboard
+                        </AppNav.MenuItem>
+                        <AppNav.MenuItem icon="user" link="/profile">
+                            Profile
                         </AppNav.MenuItem>
                         <AppNav.MenuItem icon="rocket">Account</AppNav.MenuItem>
                     </AppNav.Menu>
@@ -111,7 +127,11 @@ export const ExampleWrapper = ({ children }) => {
                         <AppNav.MenuItem icon="puzzle">Pages</AppNav.MenuItem>
                     </AppNav.Menu>
                 </AppNav>
-                <AppContent>{children}</AppContent>
+                <AppContent>
+                    <Switch>
+                        <Route path="/" component={Dashboard} />
+                    </Switch>
+                </AppContent>
             </AppLayout>
         </ComponentWrapper>
     );

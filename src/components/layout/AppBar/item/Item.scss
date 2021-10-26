@@ -6,13 +6,23 @@
 
 .item {
     display: inline-block;
-    cursor: pointer;
 
     .wrapper {
         height: $appBar--height;
-        padding: 0 var(--spacing_regular);
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    &.placeRight {
+        .wrapper {
+            padding-right: var(--spacing_regular);
+        }
+    }
+
+    &.placeLeft {
+        .wrapper {
+            padding-left: var(--spacing_regular);
+        }
     }
 }

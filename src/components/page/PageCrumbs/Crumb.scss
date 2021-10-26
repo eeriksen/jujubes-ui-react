@@ -7,10 +7,10 @@
 $height: var(--pageCrumbs_height, var(--elementSize_small));
 $labelColor: rgba(var(--pageCrumbs_labelColor, var(--color_base)), 1);
 $labelOpacity: var(--pageCrumbs_labelOpacity, 0.6);
-$boxShadow: var(--pageCrumbs_boxShadow, inset -3px 0 3px 0 rgba(var(--color_base), 0.03));
-$backgroundColor: var(--pageCrumbs_backgroundColor, var(--color_base));
-$padding: var(--pageCrumbs_padding, 4px 18px);
-$arrowColor: var(--pageCrumbs_arrowColor, transparent);
+$boxShadow: var(--pageCrumbs_boxShadow, none);
+$backgroundColor: var(--pageCrumbs_backgroundColor, none);
+$padding: var(--pageCrumbs_padding, 4px 0);
+$arrowColor: var(--pageCrumbs_arrowColor, rgba(var(--color_primary), 0.8));
 
 .crumb {
     position: relative;
@@ -24,15 +24,13 @@ $arrowColor: var(--pageCrumbs_arrowColor, transparent);
         color: $labelColor;
         padding: $padding;
         text-decoration: none;
-        opacity: $labelOpacity;
+        opacity: 0.6;
     }
 
     .arrow {
-        position: absolute;
-        right: 0;
-        transform: translateX(50%);
         display: flex;
         align-items: center;
+        padding: 0 18px;
         @include m-iconSize(10px);
         @include m-iconColor($arrowColor);
     }
@@ -46,18 +44,15 @@ $arrowColor: var(--pageCrumbs_arrowColor, transparent);
         }
     }
 
-    @for $i from 1 through 10 {
-        &:nth-child(#{$i}) {
-            position: relative;
-            background-color: rgba($backgroundColor, $i * 0.03);
-            box-shadow: $boxShadow;
-            z-index: 10 - $i;
-        }
-    }
-
     &:first-child {
         .arrow {
             display: none;
+        }
+    }
+
+    @include for-mobile-down(){
+        .arrow {
+            padding: 0 14px;
         }
     }
 }

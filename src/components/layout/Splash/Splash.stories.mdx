@@ -59,45 +59,55 @@ a limited set of choices.
                                         description="Sign in with your company email and password."
                                     />
                                     <Form>
-                                        <FormItem>
-                                            <Input
-                                                value={username}
-                                                onChange={setUsername}
-                                                size="big"
-                                                icon="user"
-                                                placeholder="Your email"
-                                            />
-                                        </FormItem>
-                                        <FormItem>
-                                            <Input
-                                                value={password}
-                                                onChange={setPassword}
-                                                size="big"
-                                                icon="lock"
-                                                type="password"
-                                                placeholder="Your password"
-                                                error={error}
-                                            />
-                                        </FormItem>
-                                        {error ? (
-                                            <FormItem>
-                                                <Callout color="error" align="center">
-                                                    Wrong username and/or password
-                                                </Callout>
-                                            </FormItem>
-                                        ) : null}
-                                        <FormItem>
-                                            <Button
-                                                type="submit"
-                                                color="primary"
-                                                size="big"
-                                                fill
-                                                onClick={simulateLogin}
-                                                busy={busy}
-                                            >
-                                                Sign in
-                                            </Button>
-                                        </FormItem>
+                                        <Row>
+                                            <Col span={24}>
+                                                <FormItem>
+                                                    <Input
+                                                        value={username}
+                                                        onChange={setUsername}
+                                                        size="big"
+                                                        icon="user"
+                                                        placeholder="Your email"
+                                                    />
+                                                </FormItem>
+                                            </Col>
+                                            <Col span={24}>
+                                                <FormItem>
+                                                    <Input
+                                                        value={password}
+                                                        onChange={setPassword}
+                                                        size="big"
+                                                        icon="lock"
+                                                        type="password"
+                                                        placeholder="Your password"
+                                                        error={error}
+                                                    />
+                                                </FormItem>
+                                            </Col>
+                                            {error ? (
+                                                <Col span={24}>
+                                                    <FormItem>
+                                                        <Callout color="error" align="center">
+                                                            Wrong username and/or password
+                                                        </Callout>
+                                                    </FormItem>
+                                                </Col>
+                                            ) : null}
+                                            <Col span={24}>
+                                                <FormItem>
+                                                    <Button
+                                                        type="submit"
+                                                        color="primary"
+                                                        size="big"
+                                                        fill
+                                                        onClick={simulateLogin}
+                                                        busy={busy}
+                                                    >
+                                                        Sign in
+                                                    </Button>
+                                                </FormItem>
+                                            </Col>
+                                        </Row>
                                     </Form>
                                     <br />
                                     <Text opacity={40}>
@@ -167,45 +177,55 @@ a limited set of choices.
                                         description="Sign in with your company email and password."
                                     />
                                     <Form>
-                                        <FormItem>
-                                            <Input
-                                                value={username}
-                                                onChange={setUsername}
-                                                size="big"
-                                                icon="user"
-                                                placeholder="Your email"
-                                            />
-                                        </FormItem>
-                                        <FormItem>
-                                            <Input
-                                                value={password}
-                                                onChange={setPassword}
-                                                size="big"
-                                                icon="lock"
-                                                type="password"
-                                                placeholder="Your password"
-                                                error={error}
-                                            />
-                                        </FormItem>
-                                        {error ? (
-                                            <FormItem>
-                                                <Callout color="error" align="center">
-                                                    Wrong username and/or password
-                                                </Callout>
-                                            </FormItem>
-                                        ) : null}
-                                        <FormItem>
-                                            <Button
-                                                type="submit"
-                                                color="primary"
-                                                size="big"
-                                                fill
-                                                onClick={simulateLogin}
-                                                busy={busy}
-                                            >
-                                                Sign in
-                                            </Button>
-                                        </FormItem>
+                                        <Row>
+                                            <Col span={24}>
+                                                <FormItem>
+                                                    <Input
+                                                        value={username}
+                                                        onChange={setUsername}
+                                                        size="big"
+                                                        icon="user"
+                                                        placeholder="Your email"
+                                                    />
+                                                </FormItem>
+                                            </Col>
+                                            <Col span={24}>
+                                                <FormItem>
+                                                    <Input
+                                                        value={password}
+                                                        onChange={setPassword}
+                                                        size="big"
+                                                        icon="lock"
+                                                        type="password"
+                                                        placeholder="Your password"
+                                                        error={error}
+                                                    />
+                                                </FormItem>
+                                            </Col>
+                                            {error ? (
+                                                <Col span={24}>
+                                                    <FormItem>
+                                                        <Callout color="error" align="center">
+                                                            Wrong username and/or password
+                                                        </Callout>
+                                                    </FormItem>
+                                                </Col>
+                                            ) : null}
+                                            <Col span={24}>
+                                                <FormItem>
+                                                    <Button
+                                                        type="submit"
+                                                        color="primary"
+                                                        size="big"
+                                                        fill
+                                                        onClick={simulateLogin}
+                                                        busy={busy}
+                                                    >
+                                                        Sign in
+                                                    </Button>
+                                                </FormItem>
+                                            </Col>
+                                        </Row>
                                     </Form>
                                     <br />
                                     <Text opacity={40}>

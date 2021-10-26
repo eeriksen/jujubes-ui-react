@@ -1,0 +1,23 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { ExampleFull } from "./examples/full/ExampleFull";
+import { ExampleProfile } from "./examples/profile/ExampleProfile";
+
+<Meta
+    title="Start/Examples"
+    parameters={{
+        viewMode: "canvas",
+        previewTabs: { "storybook/docs/panel": { hidden: true }, canvas: { hidden: true } }
+    }}
+/>
+
+<Canvas>
+    <Story name="full layout">
+        <ExampleFull />
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="profile">
+        <ExampleProfile />
+    </Story>
+</Canvas>

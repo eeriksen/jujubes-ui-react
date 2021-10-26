@@ -17,21 +17,22 @@ export const Page = ({ children, loading }) => {
         }
     });
 
-    return loading ? (
+    return (
         <div className={styles.base}>
-            {topBox ? <div className={styles.topBox}>{topBox}</div> : null}
-            <div className={styles.mainBox}>
-                <div className={styles.loader}>
-                    <div className={styles.box}>
-                        <Spinner size="large" />
-                    </div>
-                </div>
+            <div className={styles.topBox}>
+                <div className={styles.wrapper}>{topBox}</div>
             </div>
-        </div>
-    ) : (
-        <div className={styles.base}>
-            {topBox ? <div className={styles.topBox}>{topBox}</div> : null}
-            <div className={styles.mainBox}>{mainBox}</div>
+            <div className={styles.mainBox}>
+                {loading ? (
+                    <div className={styles.loader}>
+                        <div className={styles.box}>
+                            <Spinner size="large" />
+                        </div>
+                    </div>
+                ) : (
+                    mainBox
+                )}
+            </div>
         </div>
     );
 };

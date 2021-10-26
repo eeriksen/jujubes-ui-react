@@ -55,7 +55,8 @@ export default {
             "regular": "0.714rem",
             "medium": "1.42rem",
             "large": "2.14rem",
-            "edges": "1.28rem"
+            "edges": "1.28rem",
+            "edgesMobile": "0.5rem"
         },
         "elementSize": {
             "small": "2.57rem",
@@ -103,9 +104,12 @@ export default {
             "borderBottom": "2px solid rgba(var(--color_base), 0.1)"
         },
         "pageCrumbs": {
-            "boxShadow": "none",
-            "backgroundColor": "transparent",
-            "arrowColor": "rgba(var(--color_primary), 1)"
+            "backgroundMobile": "none"
+        },
+        "pageHero": {
+            "imageOffset": "0",
+            "imageRadius": "5px",
+            "imagePadding": "0"
         },
         "navMenuHeading": {
             "color": "rgba(var(--navMain_foregroundColor), 0.2)"

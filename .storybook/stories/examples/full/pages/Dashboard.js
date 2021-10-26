@@ -1,34 +1,34 @@
 import React, { useState, useEffect, useContext } from "react";
-import { AppContext } from "../../../src/components/layout/AppContext";
-import { Page } from "../../../src/components/page/Page";
-import { PageActions, Action } from "../../../src/components/page/PageActions";
-import { PageCrumbs, Crumb } from "../../../src/components/page/PageCrumbs";
-import { PageHeader } from "../../../src/components/page/PageHeader";
-import { PageNav, NavButton } from "../../../src/components/page/PageNav";
-import { Card } from "../../../src/components/card/Card";
-import { CardTitle } from "../../../src/components/card/CardTitle";
-import { CardContent } from "../../../src/components/card/CardContent";
-import { CardLoadMore } from "../../../src/components/card/CardLoadMore";
-import { Form } from "../../../src/components/form/Form";
-import { FormItem } from "../../../src/components/form/FormItem";
-import { FormButtons } from "../../../src/components/form/FormButtons";
-import { Input } from "../../../src/components/form/Input";
-import { Textarea } from "../../../src/components/form/Textarea";
-import { Checkbox } from "../../../src/components/form/Checkbox";
-import { Button } from "../../../src/components/button/Button";
-import { Badge } from "../../../src/components/notify/Badge";
-import { Row } from "../../../src/components/grid/Row";
-import { Col } from "../../../src/components/grid/Col";
-import { Popup, PopupTitle, PopupContent, PopupFooter } from "../../../src/components/notify/Popup";
-import { DataTable, Column, Cell } from "../../../src/components/table/DataTable";
-import { Select, Option } from "../../../src/components/form/Select";
-import { Toast } from "../../../src/components/notify/Toast";
-import { Toolbar } from "../../../src/components/navigation/Toolbar";
-import { Menu, MenuItem } from "../../../src/components/navigation/Menu";
+import { AppContext } from "../../../../../src/components/layout/AppContext";
+import { Page } from "../../../../../src/components/page/Page";
+import { PageActions, Action } from "../../../../../src/components/page/PageActions";
+import { PageCrumbs, Crumb } from "../../../../../src/components/page/PageCrumbs";
+import { PageHeader } from "../../../../../src/components/page/PageHeader";
+import { PageNav, NavButton } from "../../../../../src/components/page/PageNav";
+import { Card } from "../../../../../src/components/card/Card";
+import { CardTitle } from "../../../../../src/components/card/CardTitle";
+import { CardContent } from "../../../../../src/components/card/CardContent";
+import { CardLoadMore } from "../../../../../src/components/card/CardLoadMore";
+import { Form } from "../../../../../src/components/form/Form";
+import { FormItem } from "../../../../../src/components/form/FormItem";
+import { FormButtons } from "../../../../../src/components/form/FormButtons";
+import { Input } from "../../../../../src/components/form/Input";
+import { Textarea } from "../../../../../src/components/form/Textarea";
+import { Checkbox } from "../../../../../src/components/form/Checkbox";
+import { Button } from "../../../../../src/components/button/Button";
+import { Badge } from "../../../../../src/components/notify/Badge";
+import { Row } from "../../../../../src/components/grid/Row";
+import { Col } from "../../../../../src/components/grid/Col";
+import { Popup, PopupTitle, PopupContent, PopupFooter } from "../../../../../src/components/notify/Popup";
+import { DataTable, Column, Cell } from "../../../../../src/components/table/DataTable";
+import { Select, Option } from "../../../../../src/components/form/Select";
+import { Toast } from "../../../../../src/components/notify/Toast";
+import { Toolbar } from "../../../../../src/components/navigation/Toolbar";
+import { Menu, MenuItem } from "../../../../../src/components/navigation/Menu";
 
-import * as themes from "../../../src/styles/themes";
+import * as themes from "../../../../../src/styles/themes";
 
-export const ExampleContent = () => {
+export const Dashboard = () => {
     const { themeKey, setThemeKey } = useContext(AppContext);
     const [showCreatePagePrompt, setShowCreatePagePrompt] = useState(false);
     const [data, setData] = useState({});
@@ -86,12 +86,12 @@ export const ExampleContent = () => {
     useEffect(() => {
         setTimeout(() => {
             setBusyLoading(false);
-        }, 200);
+        }, 1000);
     }, []);
 
     return (
         <Page loading={busyLoading}>
-            <PageHeader icon="gear" title="Example layout" subtitle="Jujubes UI" />
+            <PageHeader icon="rocket" title="Example layout" subtitle="Jujubes UI" />
             <PageCrumbs>
                 <Crumb label="Start" link="/" />
                 <Crumb label="Company" link="/companies" />

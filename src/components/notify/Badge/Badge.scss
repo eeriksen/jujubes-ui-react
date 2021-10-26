@@ -154,4 +154,13 @@ $fontSize: var(--badge_fontSize, var(--fontSize_tiny));
     &.rightSpacing {
         margin-right: var(--spacing_small);
     }
+
+
+    /* Placement
+    ---------------------------------------------------------------------- */
+
+    &.placeCorner {
+        position: absolute;
+        transform: translate(60%, -60%);
+    }
 }

@@ -16,7 +16,7 @@ export const Tabs = ({ activeKey, onChange, children }) => {
                 children.forEach((pane, index) => {
                     if (
                         pane.props.link
-                            ? pane.props.link === location.pathname
+                            ? location.pathname.startsWith(pane.props.link)
                             : pane.props.tabKey === activeKey
                     ) {
                         setActivePaneIndex(index);

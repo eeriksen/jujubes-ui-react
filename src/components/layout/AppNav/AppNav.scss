@@ -5,8 +5,8 @@
    APP NAV
    =================================================================== */
 
-$backgroundColor: var(--navMain_backgroundColor);
-$foregroundColor: var(--navMain_foregroundColor);
+$backgroundColor: var(--navMain_backgroundColor, var(--color_base));
+$foregroundColor: var(--navMain_foregroundColor, var(--color_contrast));
 $logoBackgroundColor: var(--navLogo_backgroundColor, var(--navMain_accentColor));
 $logoFill: var(--navLogo_fill, var(--navMain_foregroundColor));
 $borderRight: var(--navMain_borderRight, "none");

@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import classNames from "classnames";
 import styles from "./MenuItem.scss";
 
@@ -6,10 +7,9 @@ import { Clickable } from "../../../button/Clickable";
 import { Icon } from "../../../graphic/Icon";
 
 export const MenuItem = ({ icon, link, indicator, children }) => {
-    // Classes
-    const pathName = window.location.pathname;
+    const { pathname } = useLocation();
     const itemClasses = classNames(styles.item, {
-        [styles.selected]: link && pathName.startsWith(link)
+        [styles.selected]: link && pathname.endsWith(link)
     });
 
     return (

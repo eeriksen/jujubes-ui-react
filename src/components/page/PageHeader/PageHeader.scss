@@ -8,24 +8,37 @@
     position: relative;
     margin-bottom: 3rem;
     display: flex;
+    align-items: top;
+
+    .symbol {
+        background: rgba(var(--color_base), 0.04);
+        border-radius: var(--borderRadius_content);
+        width: 6.5rem;
+        height: 6.5rem;
+        margin-right: var(--spacing_medium);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        overflow: hidden;
+    }
 
     .icon {
-        width: 3.5rem;
-        height: 3.5rem;
         display: flex;
         align-items: center;
         justify-content: center;
         @include m-iconColor(rgba(var(--color_primary), 1));
-        @include m-iconSize(3rem);
-        margin-right: var(--spacing_regular);
+        @include m-iconSize(4rem);
         flex-shrink: 0;
     }
 
     .titles {
         margin-right: var(--elementSize_big);
-        margin-top: -5px;
         padding-right: var(--spacing_medium);
         flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
 
         .mainTitle {
             margin: 0;
@@ -63,13 +76,6 @@
         right: -var(--spacing_large);
         padding: 0 var(--spacing_large);
     }
-
-    // With icon
-    &.withIcon {
-        .titles {
-            margin-top: 3px;
-        }
-    }
 }
 
 
@@ -84,25 +90,17 @@
 
 @include for-mobile-down(){
     .base {
-        margin: 0 -3px var(--spacing_medium);
-        padding: 0 calc(var(--spacing_edges) + 40px) 0 var(--spacing_edges);
+        margin-bottom: var(--spacing_medium);
+        padding: 0 var(--spacing_regular);
 
-        .icon {
-            position: absolute;
-            right: var(--spacing_edges);
-            top: 50%;
-            transform: translateY(-50%);
-            width: 2.6rem;
-            height: 2.6rem;
-            margin-right: 0;
-            @include m-iconSize(2.6rem);
+        .symbol {
+            width: 4.5rem;
+            height: 4.5rem;
+            margin-right: var(--spacing_regular);
         }
 
-        // With icon
-        &.withIcon {
-            .titles {
-                margin-top: 2px;
-            }
+        .icon {
+            @include m-iconSize(2.6rem);
         }
 
         .titles {

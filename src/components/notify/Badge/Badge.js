@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./Badge.scss";
 
-export const Badge = ({ fill, size, spacing, color, number, children }) => {
+export const Badge = ({ fill, size, spacing, color, number, place, children }) => {
     return (
         <span
             className={classNames(styles.base, {
@@ -17,6 +17,8 @@ export const Badge = ({ fill, size, spacing, color, number, children }) => {
                 [styles.silent]: color === "silent",
 
                 [styles.small]: size === "small",
+
+                [styles.placeCorner]: place === "corner",
 
                 [styles.spacingLeft]: spacing && spacing.indexOf("left") >= 0,
                 [styles.spacingRight]: spacing && spacing.indexOf("right") >= 0,

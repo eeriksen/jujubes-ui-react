@@ -7,7 +7,7 @@
 .base {
     position: relative;
     display: flex;
-    margin-top: var(--spacing_medium);
+    padding-top: var(--spacing_medium);
 
     &.alignRight {
         justify-content: flex-end;

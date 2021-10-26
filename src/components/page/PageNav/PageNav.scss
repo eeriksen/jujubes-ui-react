@@ -15,6 +15,7 @@ $compactBorderTop: var(--pageNav_borderTopCompact, "none");
 $compactBoxShadow: var(--pageNav_boxShadowCompact, var(--boxShadow_regular));
 
 .base {
+    position: relative;
     margin-bottom: var(--spacing_large);
     height: $height;
 

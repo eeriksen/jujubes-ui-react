@@ -1,8 +1,13 @@
 import React from "react";
+import classNames from "classnames";
+import styles from "./LogoSymbol.scss";
 
-export const LogoSymbol = ({ width, height, padding }) => {
+export const LogoSymbol = ({ width, height, padding, color }) => {
     return (
         <svg
+            className={classNames(styles.logo, {
+                [styles.colorPrimary]: color === "primary"
+            })}
             height={height}
             width={width}
             style={{ padding: padding }}

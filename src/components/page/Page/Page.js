@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Page.scss";
 import { PageCrumbs } from "../PageCrumbs";
 import { Spinner } from "../../loader/Spinner";
+import { ContentWrapper } from "../../layout/ContentWrapper";
 
 export const Page = ({ children, loading }) => {
     let mainBox = [];
@@ -19,10 +20,12 @@ export const Page = ({ children, loading }) => {
 
     return (
         <div className={styles.base}>
-            <div className={styles.topBox}>
-                <div className={styles.wrapper}>{topBox}</div>
-            </div>
-            <div className={styles.mainBox}>
+            {topBox.length ? (
+                <ContentWrapper confine="page" className={styles.topBox}>
+                    {topBox}
+                </ContentWrapper>
+            ) : null}
+            <ContentWrapper confine="page" className={styles.mainBox}>
                 {loading ? (
                     <div className={styles.loader}>
                         <div className={styles.box}>
@@ -32,7 +35,7 @@ export const Page = ({ children, loading }) => {
                 ) : (
                     mainBox
                 )}
-            </div>
+            </ContentWrapper>
         </div>
     );
 };

@@ -8,7 +8,7 @@ $color: var(--navBar_accentColor, var(--subButton_color));
 
 .base {
     height: $appBar--height;
-    padding: 0 var(--spacing_edges);
+    width: $appBar--height;
     display: flex;
     align-items: center;
     justify-content: center;

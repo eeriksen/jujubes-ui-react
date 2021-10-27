@@ -7,7 +7,6 @@
 $backgroundColor: rgba(var(--navMain_backgroundColor, var(--color_base)), 1);
 $foregroundColor: rgba(var(--navMain_foregroundColor, var(--color_contrast)), 1);
 $accentColor: rgba(var(--navMain_accentColor, var(--color_primary)), 1);
-$logoFill: rgba(var(--pageHero_logoFill, var(--navMain_accentColor)), 1);
 $imageOffset: var(--pageHero_imageOffset, 1rem);
 $imageRadius: var(--pageHero_imageRadius, var(--borderRadius_content));
 $imagePadding: var(--pageHero_imagePadding, 3px);
@@ -20,12 +19,9 @@ $imagePadding: var(--pageHero_imagePadding, 3px);
 
     .wrapper {
         position: relative;
-        margin: 0 auto;
-        max-width: $breakpoint--widescreen;
-        padding: var(--spacing_large) var(--spacing_edges) 0;
+        padding-top: var(--spacing_edges);
 
-        .logo {
-            @include m-iconColor($logoFill);
+        .heading {
             margin-bottom: 3rem;
         }
 
@@ -78,14 +74,19 @@ $imagePadding: var(--pageHero_imagePadding, 3px);
         }
     }
 
+    .nav {
+        background: rgba(var(--color_background), 1);
+    }
+
     @include for-mobile-down(){
         margin-bottom: 1rem;
 
         .wrapper {
-            padding: var(--spacing_medium) var(--spacing_medium) 0;
+            padding: calc(var(--spacing_edgesMobile) + var(--spacing_medium));
+            padding-bottom: 0;
 
-            .logo {
-                margin-bottom: 2.5rem;
+            .heading {
+                margin-bottom: 2rem;
             }
 
             .content {

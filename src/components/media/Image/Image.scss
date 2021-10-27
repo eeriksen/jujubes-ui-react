@@ -191,6 +191,43 @@
         }
     }
 
+    // Shine
+    &.modShine {
+        .shine {
+            position: absolute;
+            top: -170%;
+            left: 0;
+            width: 40%;
+            height: 200%;
+            transform: rotate(-55deg) translateX(-120%);
+            transform-origin: 0 0;
+            background-color: rgba(255, 255, 255, 0.3);
+            animation: shineAnimation 10s infinite cubic-bezier(0.175, 0.580, 0.375, 0.780);
+
+            @keyframes shineAnimation {
+                0% {
+                    width: 10%;
+                    opacity: 1;
+                    top: -170%;
+                }
+                3% {
+                    width: 40%;
+                }
+                6% {
+                    width: 10%;
+                    opacity: 1;
+                    top: 100%;
+                }
+                7% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
     /* PLACEHOLDER
     --------------------------------------------- */
     .placeholder {

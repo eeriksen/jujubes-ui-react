@@ -7,3 +7,13 @@
 .base {
     position: relative;
 }
+
+.confinePage {
+    margin: 0 auto;
+    padding: 0 var(--spacing_edges);
+    max-width: $breakpoint--widescreen;
+
+    @include for-mobile-down() {
+        padding: 0 var(--spacing_edgesMobile);
+    }
+}

@@ -75,8 +75,9 @@ export const AppContainer = ({ children, initialTheme }) => {
     }, [pageInfo]);
 
     useEffect(() => {
-        let breakpoint = null;
-        Object.keys(BREAKPOINTS).forEach((key) => {
+        let breakpointKeys = Object.keys(BREAKPOINTS);
+        let breakpoint = breakpointKeys[breakpointKeys.length - 1];
+        breakpointKeys.forEach((key) => {
             const keyNumber = parseInt(key, 10);
             if (
                 pageInfo.windowWidth <= keyNumber &&

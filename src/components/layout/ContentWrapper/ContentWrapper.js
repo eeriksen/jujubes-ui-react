@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
+import classNames from "classnames";
 import PropTypes from "prop-types";
 import styles from "./ContentWrapper.scss";
 import { AppContext } from "../AppContext";
 
-export const ContentWrapper = ({ children, mobile, tablet, desktop, widescreen }) => {
+export const ContentWrapper = ({ children, mobile, tablet, desktop, widescreen, confine, className }) => {
     const { pageInfo } = useContext(AppContext);
 
     let visible = false;
@@ -14,7 +15,8 @@ export const ContentWrapper = ({ children, mobile, tablet, desktop, widescreen }
                 mobile === "only" ||
                 tablet === "down" ||
                 desktop === "down" ||
-                widescreen === "down";
+                widescreen === "down" ||
+                (!mobile && !tablet && !desktop && !widescreen);
             break;
         case "tablet":
             visible =
@@ -22,7 +24,8 @@ export const ContentWrapper = ({ children, mobile, tablet, desktop, widescreen }
                 tablet === "down" ||
                 tablet === "only" ||
                 desktop === "down" ||
-                widescreen === "down";
+                widescreen === "down" ||
+                (!mobile && !tablet && !desktop && !widescreen);
             break;
         case "desktop":
             visible =
@@ -30,7 +33,8 @@ export const ContentWrapper = ({ children, mobile, tablet, desktop, widescreen }
                 tablet === "up" ||
                 desktop === "down" ||
                 desktop === "only" ||
-                widescreen === "down";
+                widescreen === "down" ||
+                (!mobile && !tablet && !desktop && !widescreen);
             break;
         case "widescreen":
             visible =
@@ -38,13 +42,23 @@ export const ContentWrapper = ({ children, mobile, tablet, desktop, widescreen }
                 tablet === "up" ||
                 desktop === "up" ||
                 widescreen === "down" ||
-                widescreen === "only";
+                widescreen === "only" ||
+                (!mobile && !tablet && !desktop && !widescreen);
             break;
         default:
             visible = true;
+            break;
     }
 
-    return visible ? <div className={styles.base}>{children}</div> : null;
+    return visible ? (
+        <div
+            className={classNames(styles.base, {
+                [styles.confinePage]: confine === "page"
+            }, className)}
+        >
+            {children}
+        </div>
+    ) : null;
 };
 
 ContentWrapper.propTypes = {

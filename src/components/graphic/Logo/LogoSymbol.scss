@@ -1,0 +1,5 @@
+.logo {
+    &.colorPrimary {
+        fill: rgba(var(--color_primary), 1);
+    }
+}

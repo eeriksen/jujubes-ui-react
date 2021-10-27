@@ -1,20 +1,14 @@
 import React, { useState } from "react";
-import { Route, Switch } from "react-router-dom";
 import { AppLayout } from "../../../../src/components/layout/AppLayout";
-import { AppNav } from "../../../../src/components/layout/AppNav";
-import { AppBar } from "../../../../src/components/layout/AppBar";
 import { PageHero } from "../../../../src/components/page/PageHero";
 import { AppContent } from "../../../../src/components/layout/AppContent";
-import { UserMenu } from "../../../../src/components/user/UserMenu";
 import { Input } from "../../../../src/components/form/Input";
 import { Badge } from "../../../../src/components/notify/Badge";
-import { Menu, MenuItem } from "../../../../src/components/navigation/Menu";
 import { Icon } from "../../../../src/components/graphic/Icon";
-import { Text } from "../../../../src/components/typography/Text";
 import { LogoSymbol } from "../../../../src/components/graphic/Logo";
 import { ComponentWrapper } from "../../../../src/components/layout/ComponentWrapper";
 import { Button } from "../../../../src/components/button/Button";
-import { Page, PageNav, NavButton } from "../../../../src/components/page";
+import { Page, PageNav, NavButton, PageCrumbs, Crumb } from "../../../../src/components/page";
 import { Image } from "../../../../src/components/media/Image";
 import { SAMPLE_USER } from "../../../constants";
 import { Row, Col } from "../../../../src/components/grid";
@@ -37,7 +31,6 @@ export const ExampleProfile = () => {
             <AppLayout>
                 <AppContent>
                     <PageHero
-                        logo={<LogoSymbol height={40} />}
                         title={SAMPLE_USER.name}
                         subtitle={SAMPLE_USER.email}
                         image={
@@ -45,9 +38,12 @@ export const ExampleProfile = () => {
                                 src={SAMPLE_USER.pictureUrl}
                                 scale="fill"
                                 placeholder={<Icon name="user" color="primary" />}
+                                mod="shine"
                             />
                         }
-                    />
+                    >
+                        <LogoSymbol height={60} color="primary" padding="0.5rem 0 1rem 0" />
+                    </PageHero>
                     <Page>
                         <PageNav>
                             <NavButton
@@ -69,7 +65,7 @@ export const ExampleProfile = () => {
                             />
                             <NavButton
                                 active={activePageNav === 3}
-                                onClick={() => setActivePageNav(3) || showToast()}
+                                onClick={() => setActivePageNav(3)}
                                 icon="palette"
                                 label="Theme"
                             />

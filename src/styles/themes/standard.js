@@ -55,7 +55,7 @@ export default {
             "regular": "0.714rem",
             "medium": "1.42rem",
             "large": "2.14rem",
-            "edges": "1.5rem",
+            "edges": "2rem",
             "edgesMobile": "0.5rem"
         },
         "elementSize": {

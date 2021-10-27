@@ -6,7 +6,7 @@
 
 .base {
     position: relative;
-    margin-bottom: 3rem;
+    margin-bottom: var(--spacing_large);
     display: flex;
     align-items: top;
 

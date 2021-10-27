@@ -4,9 +4,10 @@ import classNames from "classnames";
 import styles from "./PageNav.scss";
 import { NavButton } from "./NavButton";
 import { AppContext } from "../../layout/AppContext";
+import { ContentWrapper } from "../../layout/ContentWrapper";
 import { useDebounce } from "../../../utils/hooks";
 
-export const PageNav = ({ children }) => {
+export const PageNav = ({ children, embedded }) => {
     const baseRef = useRef();
     const buttonsRef = useRef();
     const buttonsWidth = useRef();
@@ -29,9 +30,13 @@ export const PageNav = ({ children }) => {
         };
     }, []);
 
-    useDebounce(() => {
-        adjustToWidth();
-    }, [pageInfo.windowWidth], 200);
+    useDebounce(
+        () => {
+            adjustToWidth();
+        },
+        [pageInfo.windowWidth],
+        200
+    );
 
     const adjustToWidth = () => {
         if (!baseRef.current) {
@@ -46,12 +51,15 @@ export const PageNav = ({ children }) => {
             id="page_nav_notice"
             ref={baseRef}
             className={classNames(styles.base, {
-                [styles.compact]: compact
+                [styles.compact]: compact,
+                [styles.embedded]: embedded
             })}
         >
-            <div ref={buttonsRef} className={styles.buttons}>
-                {children}
-            </div>
+            <ContentWrapper confine={embedded && "page"}>
+                <div ref={buttonsRef} className={styles.buttons}>
+                    {children}
+                </div>
+            </ContentWrapper>
         </div>
     );
 };

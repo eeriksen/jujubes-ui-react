@@ -9,9 +9,14 @@ $height--menuButton:    22px;
 $width--menuButton:     30px;
 
 .base {
-    padding: (($appBar--height - $height--menuButton) / 2) var(--spacing_edges);
+    width: $appBar--height;
+    height: $appBar--height;
     display: inline-block;
     cursor: pointer;
+    vertical-align: top;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .wrapper {
         display: flex;
@@ -36,7 +41,7 @@ $width--menuButton:     30px;
             }
         }
     }
-ƒ∏
+
     &:hover {
         .wrapper {
             span {

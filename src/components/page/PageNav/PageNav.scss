@@ -28,7 +28,6 @@ $compactBoxShadow: var(--pageNav_boxShadowCompact, var(--boxShadow_regular));
     .button {
         display: flex;
         position: relative;
-        background-color: $backgroundColor;
         box-shadow: $boxShadow;
         height: $height;
         cursor: pointer;
@@ -39,6 +38,7 @@ $compactBoxShadow: var(--pageNav_boxShadowCompact, var(--boxShadow_regular));
         border-bottom: $borderBottom;
         text-decoration: none;
         border-radius: $borderRadius;
+        background-color: $backgroundColor;
 
         .icon {
             display: flex;
@@ -104,7 +104,6 @@ $compactBoxShadow: var(--pageNav_boxShadowCompact, var(--boxShadow_regular));
     // MODE: Compact
     &.compact {
         .button {
-            box-shadow: none;
             position: relative;
             flex-grow: 1;
             align-items: center;
@@ -117,6 +116,7 @@ $compactBoxShadow: var(--pageNav_boxShadowCompact, var(--boxShadow_regular));
             .count {
                 right: 2px;
             }
+
         }
     }
 

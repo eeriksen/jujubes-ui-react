@@ -9,30 +9,17 @@
     padding-bottom: var(--elementSize_big);
 
     .topBox {
-        position: relative;
-
-        .wrapper {
-            margin: 0 auto;
-            max-width: $breakpoint--widescreen;
-            padding: var(--spacing_edges) var(--spacing_edges) 0;
-            margin-bottom: calc(var(--spacing_large) * -1);
-        }
+        padding-top: var(--spacing_regular);
 
         @include for-mobile-down() {
-            .wrapper {
-                padding: 0;
-                margin-bottom: 0;
-            }
+            padding-top: 0;
         }
     }
 
     .mainBox {
-        position: relative;
-        display: block;
-        padding: var(--spacing_large) var(--spacing_edges) 100px;
-        max-width: $breakpoint--widescreen;
+        padding-top: var(--spacing_large);
+        padding-bottom: 80px;
         min-height: 100vh;
-        margin: 0 auto;
 
         .loader {
             margin-top: 20%;
@@ -47,12 +34,8 @@
             }
         }
 
-        @include for-tablet-down() {
-            padding: var(--spacing_medium) var(--spacing_edges) 100px;
-        }
-
-        @include for-mobile-down() {
-            padding: var(--spacing_medium) var(--spacing_edgesMobile) 80px;
+        @include for-mobile-down(){
+            padding-top: var(--spacing_medium);
         }
     }
 }

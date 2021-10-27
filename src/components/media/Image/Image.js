@@ -53,6 +53,7 @@ export const Image = ({
                 [styles.modRounded]: mod && mod.indexOf("rounded") >= 0,
                 [styles.modOval]: mod && mod.indexOf("oval") >= 0,
                 [styles.modGray]: mod && mod.indexOf("gray") >= 0,
+                [styles.modShine]: mod && mod.indexOf("shine") >= 0,
 
                 // Clickable
                 [styles.isClickable]: onClick || onFileSelect
@@ -83,6 +84,7 @@ export const Image = ({
                 {/* Image / Placeholder */}
                 {src ? (
                     <div className={styles.image}>
+                        <div className={styles.shine}></div>
                         <img alt={alt} src={src} />
                     </div>
                 ) : percent == null ? (

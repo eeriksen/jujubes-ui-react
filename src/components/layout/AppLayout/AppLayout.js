@@ -7,19 +7,20 @@ export const AppLayout = ({ children }) => {
     let content = null;
 
     React.Children.forEach(children, (child) => {
-        console.log(child);
-        switch (child.type.name) {
-            case "AppNav":
-                nav = child;
-                break;
-            case "AppBar":
-                bar = child;
-                break;
-            case "AppContent":
-                content = child;
-                break;
-            default:
-                break;
+        if (child && child.type) {
+            switch (child.type.name) {
+                case "AppNav":
+                    nav = child;
+                    break;
+                case "AppBar":
+                    bar = child;
+                    break;
+                case "AppContent":
+                    content = child;
+                    break;
+                default:
+                    break;
+            }
         }
     });
 

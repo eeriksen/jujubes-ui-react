@@ -16,12 +16,21 @@ import { Button } from "../../../../src/components/button/Button";
 import { Dashboard } from "./pages/Dashboard";
 import { SAMPLE_USER } from "../../../constants";
 
+const TV2AppNav = () => {
+    return (
+        <div style={{ position: "fixed", width: "100px", height: "100px", background: "red" }}>
+            HALLA
+        </div>
+    );
+};
+
 export const ExampleFull = () => {
     const [activeMenuItem, setActiveMenuItem] = useState(1);
     const [searchTerm, setSearchTerm] = useState(null);
     return (
         <ComponentWrapper>
             <AppLayout>
+                <TV2AppNav />
                 <AppBar title="Jujubes">
                     <AppBar.Item placeLeft>
                         <Button square icon="link" size="small" color="primary" />

@@ -19,6 +19,7 @@ export const AppLayout = ({ children }) => {
                     content = child;
                     break;
                 default:
+                    console.log("Invalid AppLayout child: ", child);
                     break;
             }
         }

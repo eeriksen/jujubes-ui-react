@@ -1,24 +1,21 @@
 import React from "react";
 import styles from "./AppLayout.scss";
 
-import { AppNav } from "../AppNav";
-import { AppBar } from "../AppBar";
-import { AppContent } from "../AppContent";
-
 export const AppLayout = ({ children }) => {
     let nav = null;
     let bar = null;
     let content = null;
 
     React.Children.forEach(children, (child) => {
-        switch (child.type) {
-            case AppNav:
+        console.log(child);
+        switch (child.type.name) {
+            case "AppNav":
                 nav = child;
                 break;
-            case AppBar:
+            case "AppBar":
                 bar = child;
                 break;
-            case AppContent:
+            case "AppContent":
                 content = child;
                 break;
             default:

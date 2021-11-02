@@ -1,6 +1,6 @@
 {
     "name": "@jujubes/ui-react",
-    "version": "1.0.13",
+    "version": "1.0.14",
     "description": "Jujubes UI - React",
     "homepage": "https://github.com/eeriksen/jujubes-ui-react#readme",
     "bugs": {
@@ -15,8 +15,7 @@
     "main": "dist/index.js",
     "module": "dist/index.es.js",
     "files": [
-        "dist",
-        ".storybook"
+        "dist"
     ],
     "scripts": {
         "start": "start-storybook -p 9001 -c .storybook",

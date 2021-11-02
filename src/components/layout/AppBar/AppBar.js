@@ -62,3 +62,7 @@ AppBar.propTypes = {
      */
     title: PropTypes.string
 };
+
+AppBar.defaultProps = {
+    slot: "bar"
+}

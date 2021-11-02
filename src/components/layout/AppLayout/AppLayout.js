@@ -4,22 +4,19 @@ import styles from "./AppLayout.scss";
 export const AppLayout = ({ children }) => {
     let nav = null;
     let bar = null;
-    let content = null;
+    let content = [];
 
     React.Children.forEach(children, (child) => {
-        if (child && child.type) {
-            switch (child.type.name) {
-                case "AppNav":
+        if (child && child.props) {
+            switch (child.props.slot) {
+                case "nav":
                     nav = child;
                     break;
-                case "AppBar":
+                case "bar":
                     bar = child;
                     break;
-                case "AppContent":
-                    content = child;
-                    break;
                 default:
-                    console.log("Invalid AppLayout child: ", child);
+                    content.push(child);
                     break;
             }
         }

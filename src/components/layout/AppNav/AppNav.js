@@ -51,3 +51,7 @@ export const AppNav = ({ logo, title, children }) => {
         </div>
     );
 };
+
+AppNav.defaultProps = {
+    slot: "nav"
+}

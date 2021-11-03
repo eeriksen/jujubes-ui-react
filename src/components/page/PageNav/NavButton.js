@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./PageNav.scss";
@@ -6,10 +7,11 @@ import { Clickable } from "../../button/Clickable";
 import { Icon } from "../../graphic/Icon";
 
 export const NavButton = ({ icon, label, count, active, onClick, link }) => {
+    const { pathname } = useLocation();
     return (
         <Clickable
             className={classNames(styles.button, {
-                [styles.active]: active
+                [styles.active]: active || (link && pathname.startsWith(link))
             })}
             link={link}
             onClick={!active ? onClick : null}
@@ -21,11 +23,7 @@ export const NavButton = ({ icon, label, count, active, onClick, link }) => {
             </span>
             <span className={styles.label}>{label}</span>
 
-            {count ? (
-                <span className={styles.count}>
-                    {count}
-                </span>
-            ) : null}
+            {count ? <span className={styles.count}>{count}</span> : null}
         </Clickable>
     );
 };

@@ -46,7 +46,10 @@ export const Text = ({
                 [styles.sizeNormal]: size === "normal",
                 [styles.sizeMedium]: size === "medium",
                 [styles.sizeLarge]: size === "large",
-                [styles.sizeXlarge]: size === "xlarge",
+                [styles.sizeH4]: size === "h4",
+                [styles.sizeH3]: size === "h3",
+                [styles.sizeH2]: size === "h2",
+                [styles.sizeH1]: size === "h1",
 
                 [styles.strikeThrough]: strikeThrough,
                 [styles.lowercase]: lowercase,
@@ -71,16 +74,16 @@ export const Text = ({
 Text.propTypes = {
     block: PropTypes.bool,
     truncate: PropTypes.bool,
-    color: PropTypes.oneOf(["base", "primary", "contrast", "success", "warning", "error", "info"]),
+    color: PropTypes.oneOf(["base", "primary", "accent", "contrast", "success", "warning", "error", "info"]),
     opacity: PropTypes.number,
     weight: PropTypes.oneOf(["light", "medium", "bold"]),
-    size: PropTypes.oneOf(["small", "normal", "medium", "large", "xlarge"]),
+    size: PropTypes.oneOf(["small", "normal", "medium", "large", "h4", "h3", "h2", "h1"]),
     width: PropTypes.string,
     strikeThrough: PropTypes.bool,
     lowercase: PropTypes.bool,
     underline: PropTypes.bool,
     italic: PropTypes.bool,
     shadow: PropTypes.oneOf(["regular", "medium", "large"]),
-    backgroundColor: PropTypes.oneOf(["base", "primary", "contrast", "success", "warning", "error", "info"]),
+    backgroundColor: PropTypes.oneOf(["base", "primary", "accent", "contrast", "success", "warning", "error", "info"]),
     children: PropTypes.any
 };

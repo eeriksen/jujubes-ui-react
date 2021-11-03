@@ -40,13 +40,25 @@ Use `<Text />` to wrap text that should have static formatting other than the de
                     filet mignon tail tongue landjaeger. Pork belly landjaeger swine.
                 </Text>
             </Paragraph>
-            <Paragraph spacing="none">
+            <Paragraph>
                 <Text size="large">
                     This is large text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra
                     short loin bresaola drumstick ham hock. Sirloin venison biltong swine pig.
                     Fatback jerky shoulder drumstick pancetta beef ribs turkey porchetta. Porchetta
                     filet mignon tail tongue landjaeger. Pork belly landjaeger swine.
                 </Text>
+            </Paragraph>
+            <Paragraph>
+                <Text size="h4">This is heading 4 text.</Text>
+            </Paragraph>
+            <Paragraph>
+                <Text size="h3">This is heading 3 text.</Text>
+            </Paragraph>
+            <Paragraph>
+                <Text size="h2">This is heading 2 text.</Text>
+            </Paragraph>
+            <Paragraph spacing="none">
+                <Text size="h1">This is heading 1 text.</Text>
             </Paragraph>
         </React.Fragment>
     </Story>
@@ -86,9 +98,10 @@ Use `<Text />` to wrap text that should have static formatting other than the de
                 </Text>
             </Paragraph>
             <Paragraph>
-                <Text color="contrast">
-                    This is contrast text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra
-                    short loin bresaola drumstick ham hock. Sirloin venison biltong swine pig.
+                <Text color="contrast" backgroundColor="base">
+                    This is contrast text. Bacon ipsum dolor amet chicken tongue strip steak,
+                    alcatra short loin bresaola drumstick ham hock. Sirloin venison biltong swine
+                    pig.
                 </Text>
             </Paragraph>
             <Paragraph>
@@ -119,6 +132,35 @@ Use `<Text />` to wrap text that should have static formatting other than the de
                 <Text color="error">
                     This is error text. Bacon ipsum dolor amet chicken tongue strip steak, alcatra
                     short loin bresaola drumstick ham hock. Sirloin venison biltong swine pig.
+                </Text>
+            </Paragraph>
+        </React.Fragment>
+    </Story>
+</Canvas>
+
+### Background color
+
+<Canvas>
+    <Story name="background color">
+        <React.Fragment>
+            <Paragraph>
+                <Text color="contrast" backgroundColor="base" size="h2" weight="bold">
+                    Text with a background color
+                </Text>
+            </Paragraph>
+            <Paragraph>
+                <Text color="contrast" backgroundColor="primary" size="h2" weight="bold">
+                    Text with a background color
+                </Text>
+            </Paragraph>
+            <Paragraph>
+                <Text color="contrast" backgroundColor="accent" size="h2" weight="bold">
+                    Text with a background color
+                </Text>
+            </Paragraph>
+            <Paragraph>
+                <Text color="contrast" backgroundColor="success" size="h2" weight="bold">
+                    Text with a background color
                 </Text>
             </Paragraph>
         </React.Fragment>

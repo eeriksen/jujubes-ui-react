@@ -4,7 +4,7 @@ import classNames from "classnames";
 import styles from "./PageHeader.scss";
 import { Icon, iconList } from "../../graphic/Icon";
 
-export const PageHeader = ({ icon, image, title, subtitle, loading }) => {
+export const PageHeader = ({ icon, image, title, subtitle }) => {
     return (
         <div
             className={classNames(styles.base, {

@@ -238,6 +238,7 @@
         align-items: center;
         justify-content: center;
         padding: 30%;
+        background-color: rgba(var(--color_base), 0.05);
         @include m-iconSize(100%);
 
         &.default {

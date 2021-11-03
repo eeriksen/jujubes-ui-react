@@ -118,6 +118,79 @@ With the item list you can sort items and display a simple thumbnail, title, des
     </Story>
 </Canvas>
 
+### Expanding / Truncating
+
+<Canvas>
+    <Story name="expanding/truncating">
+        <Card>
+            <CardContent>
+                <ItemList
+                    onItemClick={(item) => console.log("ITEM CLICKED", item)}
+                    onSort={(data) => console.log("SORT", data)}
+                >
+                    <ItemList.Item
+                        index={1}
+                        value={1}
+                        prepend={
+                            <Image
+                                thumbnail="regular"
+                                src="https://static.theceomagazine.net/wp-content/uploads/2018/10/15093202/elon-musk.jpg"
+                            />
+                        }
+                        prependAlign="top"
+                        append={<Badge color="success">Active</Badge>}
+                    >
+                        <Text block>Elon Musk</Text>
+                        <Text size="small" opacity={40} block>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                            mollit anim id est laborum.
+                        </Text>
+                    </ItemList.Item>
+                    <ItemList.Item
+                        index={2}
+                        value={2}
+                        prepend={
+                            <Image
+                                thumbnail="regular"
+                                src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5e88db50bfe9e50007a040b8%2F0x0.jpg"
+                            />
+                        }
+                        prependAlign="top"
+                        append={<Badge color="error">Inactive</Badge>}
+                    >
+                        <Text block>Chris Sacca</Text>
+                        <Text size="small" opacity={40}>
+                            American venture investor, company advisor, entrepreneur, and lawyer
+                        </Text>
+                    </ItemList.Item>
+                    <ItemList.Item
+                        index={3}
+                        value={3}
+                        prepend={
+                            <Image
+                                thumbnail="regular"
+                                src="https://res-4.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_170,w_170,f_auto,g_faces,z_0.7,b_white,q_auto:eco/v1448830269/gzcifut4c2xah95x0ewd.jpg"
+                            />
+                        }
+                        prependAlign="top"
+                        append={<Badge color="warning">Waiting</Badge>}
+                    >
+                        <Text block>Mark Zuckerberg</Text>
+                        <Text size="small" opacity={40}>
+                            American media magnate, internet entrepreneur, and philanthropist
+                        </Text>
+                    </ItemList.Item>
+                </ItemList>
+            </CardContent>
+        </Card>
+    </Story>
+</Canvas>
+
 ### Busy
 
 <Canvas>

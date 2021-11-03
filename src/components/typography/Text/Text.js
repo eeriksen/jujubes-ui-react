@@ -11,6 +11,7 @@ export const Text = ({
     opacity,
     weight,
     size,
+    lineHeight,
     width,
     strikeThrough,
     lowercase,
@@ -50,6 +51,8 @@ export const Text = ({
                 [styles.sizeH3]: size === "h3",
                 [styles.sizeH2]: size === "h2",
                 [styles.sizeH1]: size === "h1",
+
+                [styles.lineHeightSmall]: lineHeight === "small",
 
                 [styles.strikeThrough]: strikeThrough,
                 [styles.lowercase]: lowercase,

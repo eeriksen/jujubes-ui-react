@@ -60,6 +60,11 @@
     font-weight: var(--fontWeight_bold);
 }
 
+// LINE HEIGHTS
+.lineHeightSmall {
+    line-height: var(--lineHeight_small);
+}
+
 // COLORS
 .colorBase {
     color: rgba(var(--color_base), 1);

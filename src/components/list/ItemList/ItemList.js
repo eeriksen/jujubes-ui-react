@@ -7,12 +7,7 @@ import { Spinner } from "../../loader/Spinner";
 import { Text } from "../../typography/Text";
 
 export const ItemList = ({ onItemClick, onSort, busy, children, className, emptyMessage }) => {
-    /**
-     * Handle item dropped when sorting
-     * @param oldIndex
-     * @param newIndex
-     * @private
-     */
+
     const handleSortEnd = (data) => {
         if (onSort && data.oldIndex !== data.newIndex) {
             onSort(data);
@@ -39,7 +34,7 @@ export const ItemList = ({ onItemClick, onSort, busy, children, className, empty
                 sortable={typeof onSort !== "undefined"}
                 onItemClick={onItemClick}
                 onSortEnd={handleSortEnd}
-                helperClass={styles.isDragged}
+                helperClass="itemList_isDragging"
                 useDragHandle={typeof onSort !== "undefined"}
                 pressDelay={200}
             />

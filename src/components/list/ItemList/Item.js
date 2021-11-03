@@ -14,7 +14,17 @@ const DragHandle = SortableHandle(() => (
     </div>
 ));
 
-export const Item = ({ index, value, prepend, append, onClick, sortable, children }) => {
+export const Item = ({
+    index,
+    value,
+    prepend,
+    append,
+    prependAlign,
+    appendAlign,
+    onClick,
+    sortable,
+    children
+}) => {
     const handleClick = () => {
         onClick && onClick(value);
     };
@@ -23,7 +33,9 @@ export const Item = ({ index, value, prepend, append, onClick, sortable, childre
         <SortableItem index={index}>
             <Clickable
                 className={classNames(styles.item, {
-                    [styles.clickable]: onClick
+                    [styles.clickable]: onClick,
+                    [styles.prependAlignTop]: prependAlign === "top",
+                    [styles.appendAlignTop]: appendAlign === "top"
                 })}
                 onClick={handleClick}
             >

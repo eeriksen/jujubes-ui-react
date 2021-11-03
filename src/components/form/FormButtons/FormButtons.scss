@@ -7,17 +7,26 @@
 .base {
     position: relative;
     display: flex;
-    padding-top: var(--spacing_medium);
-
-    &.alignRight {
-        justify-content: flex-end;
-    }
+    flex-flow: row wrap;
 
     .item {
-        margin-right: var(--spacing_regular);
+        margin: var(--spacing_regular) var(--spacing_regular) 0 0;
 
         &:last-child {
             margin-right: 0;
+        }
+    }
+
+    @include for-mobile-down(){
+        .item {
+            display: block;
+            width: 100%;
+            flex-grow: 1;
+            margin: var(--spacing_regular) 0 0;
+
+            .button {
+                width: 100%;
+            }
         }
     }
 }

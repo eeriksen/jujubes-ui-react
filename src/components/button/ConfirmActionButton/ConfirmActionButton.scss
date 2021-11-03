@@ -38,4 +38,9 @@ $color--prompt-frame: rgba(var(--color_error), 1);
         }
     }
 
+    &.silent {
+        .button {
+            border-color: transparent;
+        }
+    }
 }

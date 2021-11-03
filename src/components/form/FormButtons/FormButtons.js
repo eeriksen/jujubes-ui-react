@@ -4,12 +4,16 @@ import classNames from "classnames";
 
 export const FormButtons = ({ children, align }) => {
     return (
-        <div className={classNames(styles.base, {
-            [styles.alignRight]: align === "right"
-        })}>
+        <div
+            className={classNames(styles.base, {
+                [styles.alignRight]: align === "right"
+            })}
+        >
             {React.Children.map(children, (child, index) => (
                 <div key={index} className={styles.item}>
-                    {child}
+                    {React.cloneElement(child, {
+                        className: styles.button
+                    })}
                 </div>
             ))}
         </div>

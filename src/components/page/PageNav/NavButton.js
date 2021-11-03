@@ -11,7 +11,7 @@ export const NavButton = ({ icon, label, count, active, onClick, link }) => {
     return (
         <Clickable
             className={classNames(styles.button, {
-                [styles.active]: active || (link && pathname.startsWith(link))
+                [styles.active]: active || (link && pathname.endsWith(link))
             })}
             link={link}
             onClick={!active ? onClick : null}

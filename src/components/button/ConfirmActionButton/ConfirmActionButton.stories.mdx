@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { ConfirmActionButton } from './ConfirmActionButton';
-import { Row } from "../../grid/Row";
-import { Col } from "../../grid/Col";
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { ConfirmActionButton } from "./ConfirmActionButton";
+import { Row } from "../../grid/Row";
+import { Col } from "../../grid/Col";
 
 <Meta title="Components/Buttons/ConfirmActionButton" component={ConfirmActionButton} />
 
@@ -15,8 +15,9 @@ It's compact size makes it fit snuggly in the bottom of a popup aswell.
 <ArgsTable of={ConfirmActionButton} />
 
 ### Basic
+
 <Canvas>
-    <Story name="basic" >
+    <Story name="basic">
         <ConfirmActionButton
             label="Delete something"
             question="Are you sure you want to delete something?"
@@ -25,9 +26,50 @@ It's compact size makes it fit snuggly in the bottom of a popup aswell.
     </Story>
 </Canvas>
 
-### Size
+### In popup
+
 <Canvas>
-    <Story name="size" >
+    <Story name="in popup">
+        <ConfirmActionButton
+            popup={true}
+            label="Delete something"
+            question="Are you sure you want to delete something?"
+            onConfirm={() => console.log("Delete something")}
+        />
+    </Story>
+</Canvas>
+
+### Silent
+
+<Canvas>
+    <Story name="silent">
+        <ConfirmActionButton
+            popup={true}
+            silent={true}
+            label="Delete something"
+            question="Are you sure you want to delete something?"
+            onConfirm={() => console.log("Delete something")}
+        />
+    </Story>
+</Canvas>
+
+### With icon
+
+<Canvas>
+    <Story name="with icon">
+        <ConfirmActionButton
+            icon="trash"
+            label="Delete something"
+            question="Are you sure you want to delete something?"
+            onConfirm={() => console.log("Delete something")}
+        />
+    </Story>
+</Canvas>
+
+### Size
+
+<Canvas>
+    <Story name="size">
         <Row>
             <Col span={12}>
                 <ConfirmActionButton

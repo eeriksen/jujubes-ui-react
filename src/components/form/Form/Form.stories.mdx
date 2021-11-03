@@ -8,6 +8,7 @@ import { Textarea } from "../Textarea";
 import { Checkbox } from "../Checkbox";
 import { Button } from "../../button/Button";
 import { Col, Row } from "../../grid";
+import { Card, CardContent } from "../../card";
 
 <Meta title="Components/Forms/Form" component={Form} />
 
@@ -24,46 +25,50 @@ The `<Form/>` component is used to wrap one or more `<FormItem/>` components.
         {() => {
             const [data, setData] = useState({});
             return (
-                <Form onSubmit={() => console.log("SUBMIT")}>
-                    <Row>
-                        <Col span={24}>
-                            <FormItem label="Your name">
-                                <Input
-                                    value={data.name}
-                                    onChange={(val) => setData({ ...data, name: val })}
-                                    placeholder="Write here..."
-                                />
-                            </FormItem>
-                        </Col>
-                        <Col span={24}>
-                            <FormItem label="Your comment">
-                                <Textarea
-                                    value={data.comment}
-                                    onChange={(val) => setData({ ...data, comment: val })}
-                                    placeholder="Write here..."
-                                />
-                            </FormItem>
-                        </Col>
-                        <Col span={24}>
-                            <FormItem>
-                                <Checkbox
-                                    checked={data.checked}
-                                    onChange={(val) => setData({ ...data, checked: val })}
-                                >
-                                    Send to everyone
-                                </Checkbox>
-                            </FormItem>
-                        </Col>
-                        <Col span={24}>
-                            <FormButtons>
-                                <Button type="submit" color="primary">
-                                    Save changes
-                                </Button>
-                                <Button onClick={() => setData({})}>Reset</Button>
-                            </FormButtons>
-                        </Col>
-                    </Row>
-                </Form>
+                <Card>
+                    <CardContent>
+                        <Form onSubmit={() => console.log("SUBMIT")}>
+                            <Row>
+                                <Col span={24}>
+                                    <FormItem label="Your name">
+                                        <Input
+                                            value={data.name}
+                                            onChange={(val) => setData({ ...data, name: val })}
+                                            placeholder="Write here..."
+                                        />
+                                    </FormItem>
+                                </Col>
+                                <Col span={24}>
+                                    <FormItem label="Your comment">
+                                        <Textarea
+                                            value={data.comment}
+                                            onChange={(val) => setData({ ...data, comment: val })}
+                                            placeholder="Write here..."
+                                        />
+                                    </FormItem>
+                                </Col>
+                                <Col span={24}>
+                                    <FormItem>
+                                        <Checkbox
+                                            checked={data.checked}
+                                            onChange={(val) => setData({ ...data, checked: val })}
+                                        >
+                                            Send to everyone
+                                        </Checkbox>
+                                    </FormItem>
+                                </Col>
+                                <Col span={24}>
+                                    <FormButtons>
+                                        <Button type="submit" color="primary">
+                                            Save changes now
+                                        </Button>
+                                        <Button onClick={() => setData({})}>Delete something</Button>
+                                    </FormButtons>
+                                </Col>
+                            </Row>
+                        </Form>
+                    </CardContent>
+                </Card>
             );
         }}
     </Story>

@@ -37,6 +37,7 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
         display: flex;
         align-items: center;
         position: relative;
+        justify-content: center;
     }
 
     .shade {
@@ -414,10 +415,6 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
 .fill {
     display: block;
     width: 100%;
-
-    .content {
-        justify-content: center;
-    }
 }
 
 .hideLabel {

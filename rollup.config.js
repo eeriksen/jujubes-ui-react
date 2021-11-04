@@ -3,7 +3,9 @@ import { babel as babelPlugin } from "@rollup/plugin-babel";
 import commonjsPlugin from "@rollup/plugin-commonjs";
 import postcssPlugin from "rollup-plugin-postcss";
 import clearPlugin from "rollup-plugin-clear";
+import jsonPlugin from "@rollup/plugin-json";
 import { terser as terserPlugin } from "rollup-plugin-terser";
+import { visualizer as visualizerPlugin } from "rollup-plugin-visualizer";
 import autoprefixer from "autoprefixer";
 import url from "postcss-url";
 import hash from "object-hash";
@@ -14,6 +16,7 @@ import path from "path";
 
 const SRC_DIR = path.resolve(__dirname, "src");
 const DIST_DIR = path.resolve(__dirname, "dist");
+const development = process.env.NODE_ENV === "development";
 
 export default {
     input: `${SRC_DIR}/index.js`,
@@ -71,10 +74,12 @@ export default {
                 })
             ]
         }),
+        jsonPlugin(),
         babelPlugin({
             babelHelpers: "bundled"
         }),
         commonjsPlugin(),
-        terserPlugin()
+        terserPlugin(),
+        development && visualizerPlugin({ open: true })
     ]
 };

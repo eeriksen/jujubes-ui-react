@@ -5,41 +5,48 @@
    =================================================================== */
 
 .base {
-    display: inline-block;
-    width: 100%;
-    outline: none;
-    padding: 10px;
-    border: var(--input_border);
-    font-family: var(--fontFamily_primary);
-    font-size: var(--fontSize_regular);
-    color: rgba(var(--color_base), 0.8);
-    transition: border-color 0.3s ease;
-    appearance: none;
-    border-radius: var(--borderRadius_form);
-    resize: none;
-    vertical-align: top; // To compensate for space under textarea in misc browsers
-    background-color: rgba(var(--color_contrast), 1);
+    textarea {
+        display: inline-block;
+        width: 100%;
+        outline: none;
+        padding: 10px;
+        border: var(--input_border);
+        font-family: var(--fontFamily_primary);
+        font-size: var(--fontSize_regular);
+        color: rgba(var(--color_base), 0.8);
+        transition: border-color 0.3s ease;
+        appearance: none;
+        border-radius: var(--borderRadius_form);
+        resize: none;
+        vertical-align: top; // To compensate for space under textarea in misc browsers
+        background-color: rgba(var(--color_contrast), 1);
 
-    &:focus {
-        border: var(--input_borderFocus);
-        box-shadow: var(--input_boxShadowFocus);
-        color: rgba(var(--color_base), 1);
+        &:focus {
+            border: var(--input_borderFocus);
+            box-shadow: var(--input_boxShadowFocus);
+            color: rgba(var(--color_base), 1);
+        }
+
+        &[disabled] {
+            background-color: rgba(var(--color_base), 0.03);
+            border-color: rgba(var(--color_base), 0.1);
+            color: rgba(var(--color_base), 0.4);
+            cursor: not-allowed;
+        }
     }
 
-    &[disabled] {
-        background-color: rgba(var(--color_base), 0.03);
-        border-color: rgba(var(--color_base), 0.10);
-        color: rgba(var(--color_base), 0.4);
-        cursor: not-allowed;
+    .toolbar {
+        margin-top: var(--spacing_small);
     }
 
     // STATE: Error
     &.error {
-        border: var(--input_borderError);
+        textarea {
+            border: var(--input_borderError);
 
-        &:focus {
-            box-shadow: var(--input_boxShadowError);
+            &:focus {
+                box-shadow: var(--input_boxShadowError);
+            }
         }
     }
-
 }

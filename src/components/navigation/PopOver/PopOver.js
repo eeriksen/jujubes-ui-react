@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./PopOver.scss";
 import classNames from "classnames";
 
-export const PopOver = ({ visible, onClose, children, content, arrowColor, size, padding }) => {
+export const PopOver = ({ visible, redraw, onClose, children, content, arrowColor, size, padding, offset }) => {
     const baseRef = useRef(null);
     const popRef = useRef(null);
     const [topPos, setTopPos] = useState(0);
@@ -38,43 +38,38 @@ export const PopOver = ({ visible, onClose, children, content, arrowColor, size,
         const shouldPositionTop = distanceFromBottom <= popVal.height;
 
         if (shouldPositionTop) {
-            setTopPos(-1 * popVal.height);
+            setTopPos(-1 * popVal.height - (offset));
             setPosition("top");
         } else {
-            setTopPos(baseVal.height);
+            setTopPos(baseVal.height + (offset));
             setPosition("bottom");
         }
 
         const leftSpace = baseVal.x;
         const rightSpace = windowWidth - (baseVal.x + baseVal.width);
-        const hasLeftSpace = leftSpace >= (popVal.width / 2);
-        const hasRightSpace = rightSpace >= (popVal.width / 2);
+        const hasLeftSpace = leftSpace >= popVal.width / 2;
+        const hasRightSpace = rightSpace >= popVal.width / 2;
 
         // If no space on either left or right, we leave in middle
-        if(!hasLeftSpace && !hasRightSpace){
-            if(baseBiggerThanPop){
+        if (!hasLeftSpace && !hasRightSpace) {
+            if (baseBiggerThanPop) {
                 setLeftPos((baseVal.width - popVal.width) / 2);
-            }else {
+            } else {
                 setLeftPos((popVal.width - baseVal.width) / -2);
             }
             setArrowLeftPos(popVal.width / 2);
-        }
-
-        else if(hasLeftSpace && !hasRightSpace){
+        } else if (hasLeftSpace && !hasRightSpace) {
             setLeftPos(-(popVal.width - baseVal.width));
-            setArrowLeftPos(popVal.width - baseVal.width + (baseVal.width / 2))
-        }
-
-        else if(hasLeftSpace && hasRightSpace){
+            setArrowLeftPos(popVal.width - baseVal.width + baseVal.width / 2);
+        } else if (hasLeftSpace && hasRightSpace) {
             setLeftPos((popVal.width - baseVal.width) / -2);
             setArrowLeftPos(popVal.width / 2);
-        }
-
-        else {
+        } else {
             setLeftPos(0);
             setArrowLeftPos(baseVal.width / 2);
         }
     };
+    useEffect(redrawPosition, [redraw]);
 
     /**
      * Handle click outside
@@ -88,13 +83,14 @@ export const PopOver = ({ visible, onClose, children, content, arrowColor, size,
     const baseClasses = classNames(styles.base, {
         [styles.visible]: visible,
         [styles.sizeLarge]: size === "large",
+        [styles.sizeAuto]: size === "auto",
         [styles.onTop]: position === "top",
         [styles.padding]: padding
     });
 
     return (
         <div className={baseClasses}>
-            <div ref={baseRef}>{children}</div>
+            <div className={styles.trigger} ref={baseRef}>{children}</div>
 
             <div
                 ref={popRef}
@@ -141,7 +137,7 @@ PopOver.propTypes = {
     /**
      * Width of the pop over
      */
-    size: PropTypes.oneOf([null, "large"]),
+    size: PropTypes.oneOf([null, "large", "auto"]),
     /**
      * The element that will show the pop over, usually a button
      */
@@ -153,7 +149,9 @@ PopOver.propTypes = {
     padding: PropTypes.bool
 };
 
-PropTypes.defaultValues = {
+PopOver.defaultProps = {
     visible: false,
-    padding: false
+    padding: false,
+    offset: 0,
+    hideDelay: 0
 };

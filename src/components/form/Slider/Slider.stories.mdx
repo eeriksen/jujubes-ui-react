@@ -1,0 +1,47 @@
+import { useState } from "react";
+import moment from "moment";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Card, CardContent } from "../../card";
+import { Slider } from "./Slider";
+
+<Meta title="Components/Forms/Slider" component={Slider} />
+
+# Slider
+
+Write something here.
+
+<ArgsTable of={Slider} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        {() => {
+            const [value, setValue] = useState(0);
+            return (
+                <Card>
+                    <CardContent>
+                        <Slider value={value} onChange={setValue} />
+                    </CardContent>
+                </Card>
+            );
+        }}
+    </Story>
+</Canvas>
+
+### with marks
+
+<Canvas>
+    <Story name="with marks">
+        {() => {
+            const [value, setValue] = useState(0);
+            return (
+                <Card>
+                    <CardContent>
+                        <Slider marks={10} value={value} onChange={setValue} />
+                    </CardContent>
+                </Card>
+            );
+        }}
+    </Story>
+</Canvas>

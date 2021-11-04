@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Textarea } from './Textarea';
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Textarea } from "./Textarea";
+import { ComponentWrapper } from "../../layout/ComponentWrapper";
 
 <Meta title="Components/Forms/Textarea" component={Textarea} />
 
@@ -11,28 +12,49 @@ Use the `<Textarea />` when users should input a longer text.
 <ArgsTable of={Textarea} />
 
 ### Basic
+
 <Canvas>
-    <Story name="basic" >
+    <Story name="basic">
         {() => {
             const [value, setValue] = useState(null);
-            return (
-                <Textarea value={value} onChange={setValue} placeholder="Write something..." />
-            )
+            return <Textarea value={value} onChange={setValue} placeholder="Write something..." />;
         }}
     </Story>
 </Canvas>
 
 ### Disabled
+
 <Canvas>
-    <Story name="disabled" >
+    <Story name="disabled">
         <Textarea placeholder="Disabled textarea..." disabled />
     </Story>
 </Canvas>
 
 ### Error
+
 <Canvas>
-    <Story name="error" >
+    <Story name="error">
         <Textarea placeholder="Textarea with error" error />
     </Story>
 </Canvas>
 
+### With emojis / counter
+
+<Canvas>
+    <Story name="emojis / counter">
+        {() => {
+            const [value, setValue] = useState("");
+            return (
+                <ComponentWrapper>
+                    <Textarea
+                        emojis
+                        counter
+                        value={value}
+                        onChange={setValue}
+                        placeholder="Write something..."
+                    />
+                </ComponentWrapper>
+            );
+        }}
+    </Story>
+</Canvas>

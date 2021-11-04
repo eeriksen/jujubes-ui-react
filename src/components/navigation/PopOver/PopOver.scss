@@ -4,7 +4,7 @@
    POP OVER
    =================================================================== */
 
-$distance-pop: 18px;
+$distance-pop: 20px;
 
 .base {
     position: relative;
@@ -12,13 +12,14 @@ $distance-pop: 18px;
 
     .pop {
         position: absolute;
+        display: table;
         right: 0;
         z-index: $zIndex--popOver;
         width: 260px;
         opacity: 0;
         pointer-events: none;
         box-shadow: var(--boxShadow_large);
-        transform: translateY(0);
+        transform: translateY(10px);
         transition: transform .2s ease-in-out, opacity .2s linear;
         background-color: rgba(var(--color_contrast), 1);
         font-weight: var(--fontWeight_regular);
@@ -26,6 +27,7 @@ $distance-pop: 18px;
         text-align: left;
 
         .wrapper {
+            position: relative;
             z-index: 2;
             border-radius: var(--borderRadius_content);
             overflow: hidden;
@@ -69,6 +71,8 @@ $distance-pop: 18px;
 
     &.onTop {
         .pop {
+            transform: translateY(-10px);
+
             .arrow {
                 bottom: 1px;
                 transform: rotate(0deg) scaleX(0.8) translateX(-10px) translateY(100%);
@@ -82,6 +86,13 @@ $distance-pop: 18px;
             width: 300px;
         }
     }
+
+    &.sizeAuto {
+        .pop {
+            width: auto;
+        }
+    }
+
 
     &.padding {
         .pop {

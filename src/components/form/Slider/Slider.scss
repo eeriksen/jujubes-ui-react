@@ -1,0 +1,114 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   SLIDER
+   =================================================================== */
+
+$trackSize: 8px;
+$thumbSize: var(--elementSize_regular);
+$thumbBoxShadow: var(--button_boxShadow);
+$thumbBoxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
+
+.horizontalSlider {
+    width: 100%;
+    height: $thumbSize;
+    display: flex;
+    align-items: center;
+
+    :global {
+        .Slider_track {
+            height: $trackSize;
+            margin: 0 calc((#{$thumbSize} - #{$trackSize}) / 2);
+        }
+    }
+
+
+    .mark {
+        margin: 0 calc((#{$thumbSize} - #{$trackSize}) / 2);
+    }
+}
+
+.verticalSlider {
+    height: 380px;
+    width: 50px;
+    border: 1px solid grey;
+
+    .thumb {
+        left: 1px;
+        width: 48px;
+        line-height: 40px;
+        height: 50px;
+    }
+
+    .track {
+        left: 20px;
+        width: $trackSize;
+    }
+
+    .mark {
+        margin: calc(25px - 6px) 0;
+        left: calc(50% - 6px);
+    }
+}
+
+.thumb {
+    outline: none;
+    border: none;
+    padding: 0;
+    background: transparent;
+
+    .wrapper {
+        background: rgba(var(--color_primary), 1);
+        height: $thumbSize;
+        width: $thumbSize;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include m-iconColor(rgba(var(--color_primaryContrast), 1));
+        cursor: grab;
+        box-shadow: $thumbBoxShadow;
+    }
+
+    &.active {
+        .wrapper {
+            background: rgba(var(--color_accent), 1);
+            cursor: grabbing;
+        }
+    }
+
+    &:hover {
+        .wrapper {
+            box-shadow: $thumbBoxShadowHover;
+        }
+    }
+}
+
+:global {
+    .Slider_track {
+        position: relative;
+        background: rgba(var(--color_base), 0.1);
+        border-radius: 100px;
+
+        &-0 {
+            background: rgba(var(--color_base), 0.3);
+        }
+    }
+}
+
+.track-0 {
+    background: #f00;
+}
+
+
+.mark {
+    height: $trackSize;
+    width: $trackSize;
+    background-color: rgba(var(--color_base), 0.3);
+    cursor: pointer;
+    border-radius: 4px;
+
+    &:hover {
+        background-color: rgba(var(--color_primary), 1);
+    }
+}

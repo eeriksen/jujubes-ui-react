@@ -1,6 +1,6 @@
 {
     "name": "@jujubes/ui-react",
-    "version": "1.0.25",
+    "version": "1.0.26",
     "description": "Jujubes UI - React",
     "homepage": "https://github.com/eeriksen/jujubes-ui-react#readme",
     "bugs": {
@@ -21,7 +21,7 @@
         "start": "start-storybook -p 9001 -c .storybook",
         "build": "rollup -c",
         "test-build": "NODE_ENV=development rollup -c",
-        "build-storybook": "build-storybook -c .storybook -o docs"
+        "build-storybook": "build-storybook -c .storybook -o docs && npx sb extract docs docs/stories.json"
     },
     "peerDependencies": {
         "react": ">=16.9.0",

@@ -39,3 +39,11 @@ Run the storybook while you develop:
 ## Collaboration
 
 Pull requests are welcome.
+
+
+
+## Changelog
+
+### [1.0.27] - 2021-11-09
+#### Changes
+- `<Button />`: Added `symbol` and `pill` properties.

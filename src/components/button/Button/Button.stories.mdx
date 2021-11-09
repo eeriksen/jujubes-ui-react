@@ -256,3 +256,47 @@ Use a careful combination of colored buttons where needed.
         </Row>
     </Story>
 </Canvas>
+
+### With symbols
+
+<Canvas>
+    <Story name="with symbols">
+        {() => {
+            const GoogleButton = (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 46">
+                    <g fill="none" fillRule="nonzero">
+                        <path
+                            fill="#FBBB00"
+                            d="m10.195 27.798-1.602 5.978-5.852.124A22.897 22.897 0 0 1 0 23c0-3.814.928-7.41 2.572-10.577l5.211.955 2.283 5.179A13.672 13.672 0 0 0 9.327 23c0 1.688.306 3.306.868 4.798Z"
+                        />
+                        <path
+                            fill="#518EF8"
+                            d="M45.598 18.703C45.862 20.095 46 21.532 46 23c0 1.647-.173 3.253-.503 4.802A22.995 22.995 0 0 1 37.4 40.936l-.001-.001-6.563-.335-.929-5.798a13.708 13.708 0 0 0 5.898-7H23.506v-9.099h22.092Z"
+                        />
+                        <path
+                            fill="#28B446"
+                            d="m37.398 40.935.001.001A22.903 22.903 0 0 1 23 46c-8.759 0-16.374-4.896-20.259-12.1l7.454-6.102c1.942 5.184 6.943 8.874 12.805 8.874 2.52 0 4.88-.68 6.906-1.87l7.492 6.133Z"
+                        />
+                        <path
+                            fill="#F14336"
+                            d="m37.68 5.295-7.45 6.1A13.595 13.595 0 0 0 23 9.328c-5.995 0-11.09 3.859-12.934 9.229l-7.493-6.134h-.001C6.4 5.043 14.11 0 23 0c5.58 0 10.698 1.988 14.68 5.295Z"
+                        />
+                    </g>
+                </svg>
+            );
+            return (
+                <Row>
+                    <Col span={8}>
+                        <Button fill pill symbol={GoogleButton}>Login with Google</Button>
+                    </Col>
+                    <Col circle span={8}>
+                        <Button fill pill size="big" symbol={GoogleButton}>Login with Google</Button>
+                    </Col>
+                    <Col circle span={8}>
+                        <Button size="big" square symbol={GoogleButton}></Button>
+                    </Col>
+                </Row>
+            );
+        }}
+    </Story>
+</Canvas>

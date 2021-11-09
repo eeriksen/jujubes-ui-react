@@ -30,6 +30,8 @@ export const Button = ({
     link,
     href,
     onClick,
+    symbol,
+    pill,
     className
 }) => {
     const history = useHistory();
@@ -62,41 +64,47 @@ export const Button = ({
     };
 
     // Classnames
-    const buttonClasses = classNames(styles.base, {
-        [styles.colorDefault]: !color,
-        [styles.colorPrimary]: color === "primary",
-        [styles.colorSuccess]: color === "success",
-        [styles.colorWarning]: color === "warning",
-        [styles.colorError]: color === "error",
-        [styles.colorInfo]: color === "info",
-        [styles.colorSilent]: color === "silent",
+    const buttonClasses = classNames(
+        styles.base,
+        {
+            [styles.colorDefault]: !color,
+            [styles.colorPrimary]: color === "primary",
+            [styles.colorSuccess]: color === "success",
+            [styles.colorWarning]: color === "warning",
+            [styles.colorError]: color === "error",
+            [styles.colorInfo]: color === "info",
+            [styles.colorSilent]: color === "silent",
 
-        [styles.sizeSmall]: size === "small",
-        [styles.sizeBig]: size === "big",
+            [styles.sizeSmall]: size === "small",
+            [styles.sizeBig]: size === "big",
 
-        [styles.active]: active,
-        [styles.circle]: circle,
-        [styles.square]: square,
-        [styles.fill]: fill,
+            [styles.active]: active,
+            [styles.circle]: circle,
+            [styles.pill]: pill,
+            [styles.square]: square,
+            [styles.fill]: fill,
 
-        [styles.iconRight]: iconRight,
-        [styles.hideIcon]: hideIcon || busy,
-        [styles.hideLabel]: hideLabel || busy,
+            [styles.iconRight]: iconRight,
+            [styles.hideIcon]: hideIcon || busy,
+            [styles.hideLabel]: hideLabel || busy,
 
-        [styles.iconPrimary]: iconColor === "primary",
-        [styles.iconInfo]: iconColor === "info",
-        [styles.iconSuccess]: iconColor === "success",
-        [styles.iconWarning]: iconColor === "warning",
-        [styles.iconError]: iconColor === "error",
-        [styles.iconContrast]: iconColor === "contrast",
+            [styles.iconPrimary]: iconColor === "primary",
+            [styles.iconInfo]: iconColor === "info",
+            [styles.iconSuccess]: iconColor === "success",
+            [styles.iconWarning]: iconColor === "warning",
+            [styles.iconError]: iconColor === "error",
+            [styles.iconContrast]: iconColor === "contrast",
 
-        [styles.labelColorPrimary]: labelColor === "primary",
-        [styles.labelColorSuccess]: labelColor === "success",
-        [styles.labelColorWarning]: labelColor === "warning",
-        [styles.labelColorError]: labelColor === "error",
+            [styles.labelColorPrimary]: labelColor === "primary",
+            [styles.labelColorSuccess]: labelColor === "success",
+            [styles.labelColorWarning]: labelColor === "warning",
+            [styles.labelColorError]: labelColor === "error",
 
-        [styles.labelSizeBig]: labelSize === "big"
-    }, className);
+            [styles.labelSizeBig]: labelSize === "big",
+            [styles.withSymbol]: symbol !== null
+        },
+        className
+    );
 
     // Properties
     const properties = {
@@ -109,6 +117,7 @@ export const Button = ({
 
     return (
         <button {...properties}>
+            {symbol ? <div className={styles.symbol}>{symbol}</div> : null}
             <div className={styles.content}>
                 {/* Busy */}
                 {busy ? (
@@ -121,7 +130,7 @@ export const Button = ({
                 {icon && !iconRight ? <Icon className={styles.icon} name={icon} /> : null}
 
                 {/* Children */}
-                {children}
+                <span>{children}</span>
 
                 {/* Icon right */}
                 {icon && iconRight ? <Icon className={styles.icon} name={icon} /> : null}
@@ -132,6 +141,10 @@ export const Button = ({
         </button>
     );
 };
+
+Button.defaultProps = {
+    symbol: null
+}
 
 Button.propTypes = {
     /**
@@ -152,7 +165,15 @@ Button.propTypes = {
     /**
      * Color of button
      */
-    color: PropTypes.oneOf(["primary", "secondary", "info", "success", "warning", "error", "silent"]),
+    color: PropTypes.oneOf([
+        "primary",
+        "secondary",
+        "info",
+        "success",
+        "warning",
+        "error",
+        "silent"
+    ]),
 
     /**
      * Size of button
@@ -192,7 +213,15 @@ Button.propTypes = {
     /**
      * Color of the icon on the button
      */
-    iconColor: PropTypes.oneOf(["primary", "secondary", "info", "success", "warning", "error", "contrast"]),
+    iconColor: PropTypes.oneOf([
+        "primary",
+        "secondary",
+        "info",
+        "success",
+        "warning",
+        "error",
+        "contrast"
+    ]),
 
     /**
      * Display the icon to the right of the label.
@@ -207,5 +236,10 @@ Button.propTypes = {
     /**
      * Size of label text
      */
-    labelSize: PropTypes.oneOf(["big"])
+    labelSize: PropTypes.oneOf(["big"]),
+
+    /**
+     * Symbol to display before label
+     */
+    symbol: PropTypes.any
 };

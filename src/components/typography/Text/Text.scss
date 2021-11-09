@@ -32,18 +32,22 @@
 
 .sizeH4 {
     font-size: var(--fontSize_heading4);
+    font-family: var(--fontFamily_titles);
 }
 
 .sizeH3 {
     font-size: var(--fontSize_heading3);
+    font-family: var(--fontFamily_titles);
 }
 
 .sizeH2 {
     font-size: var(--fontSize_heading2);
+    font-family: var(--fontFamily_titles);
 }
 
 .sizeH1 {
     font-size: var(--fontSize_heading1);
+    font-family: var(--fontFamily_titles);
 }
 
 // WEIGHTS
@@ -75,7 +79,7 @@
 }
 
 .colorAccent {
-    color: rgba(var(--color_primary), 1);
+    color: rgba(var(--color_accent), 1);
 }
 
 .colorSuccess {

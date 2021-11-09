@@ -26,11 +26,30 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
     text-decoration: none;
     user-select: none;
     transition: border-color 0.3s linear, color 0.3s linear, background-color 0.3s linear, border-radius 0.3s linear;
-    padding: 0 var(--spacing_large);
     max-width: 100%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
     box-shadow: $boxShadow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+    .symbol {
+        height: 100%;
+        padding: 0.4em 0 0.4em 0.4em;
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        svg {
+            max-height: 100%;
+            width: 100%;
+        }
+    }
+
+    &.withSymbol {
+        .content {
+            padding-left: 0;
+        }
+    }
 
     .content {
         z-index: 2;
@@ -38,6 +57,10 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
         align-items: center;
         position: relative;
         justify-content: center;
+        padding: 0 var(--spacing_large);
+        flex-grow: 1;
+        min-width: 0;
+        @include m-truncate();
     }
 
     .shade {
@@ -351,7 +374,10 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
 .sizeSmall {
     height: $height--button-small;
     line-height: $height--button-small - 2px;
-    padding: 0 var(--spacing_medium);
+
+    .content {
+        padding: 0 var(--spacing_medium);
+    }
 
     .icon {
         @include m-iconSize($iconSize--small);
@@ -364,8 +390,6 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
    =================================================================== */
 
 .circle {
-    padding-left: 0;
-    padding-right: 0;
     border-radius: 100px;
     width: $height--button;
 
@@ -378,6 +402,7 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
     }
 
     .content {
+        padding: 0;
         justify-content: center;
     }
 
@@ -390,9 +415,11 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
     }
 }
 
+.pill {
+    border-radius: 100px;
+}
+
 .square {
-    padding-left: 0;
-    padding-right: 0;
     width: $height--button;
 
     .icon {
@@ -400,6 +427,7 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
     }
 
     .content {
+        padding: 0;
         justify-content: center;
     }
 
@@ -413,8 +441,11 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
 }
 
 .fill {
-    display: block;
     width: 100%;
+
+    .content {
+        padding: 0 var(--spacing_regular);
+    }
 }
 
 .hideLabel {

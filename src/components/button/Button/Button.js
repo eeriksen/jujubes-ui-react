@@ -6,6 +6,7 @@ import styles from "./Button.scss";
 import { Icon } from "../../graphic/Icon";
 
 import { LoaderHorizontal } from "../../loader/LoaderHorizontal";
+import { Spinner } from "../../loader/Spinner";
 
 export const Button = ({
     color,
@@ -101,7 +102,8 @@ export const Button = ({
             [styles.labelColorError]: labelColor === "error",
 
             [styles.labelSizeBig]: labelSize === "big",
-            [styles.withSymbol]: symbol !== null
+            [styles.withSymbol]: symbol !== null,
+            [styles.isBusy]: busy
         },
         className
     );
@@ -122,7 +124,7 @@ export const Button = ({
                 {/* Busy */}
                 {busy ? (
                     <div className={styles.loader}>
-                        <LoaderHorizontal />
+                        {square || circle ? <Spinner /> : <LoaderHorizontal />}
                     </div>
                 ) : null}
 
@@ -130,7 +132,7 @@ export const Button = ({
                 {icon && !iconRight ? <Icon className={styles.icon} name={icon} /> : null}
 
                 {/* Children */}
-                <span>{children}</span>
+                {children}
 
                 {/* Icon right */}
                 {icon && iconRight ? <Icon className={styles.icon} name={icon} /> : null}

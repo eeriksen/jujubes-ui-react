@@ -37,8 +37,8 @@ $color--spinner: rgba(var(--color_base), 0.6);
         animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
         stroke-linecap: round;
         stroke: $color--spinner;
-        stroke-width: 3px;
-        stroke-miterlimit: 10px;
+        stroke-width: 0.4rem;
+        stroke-miterlimit: 1rem;
     }
 
 }
@@ -48,7 +48,7 @@ $color--spinner: rgba(var(--color_base), 0.6);
 }
 
 .sizeLarge {
-    width: 80px;
+    width: 5.7rem;
 }
 
 @keyframes rotate {
@@ -75,8 +75,5 @@ $color--spinner: rgba(var(--color_base), 0.6);
 @keyframes color {
     100%, 0% {
         stroke: rgba(var(--color_primary), 1);
-    }
-    50% {
-        stroke: rgba(var(--color_accent), 1);
     }
 }

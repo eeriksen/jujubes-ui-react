@@ -46,7 +46,7 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
     }
 
     &.withSymbol {
-        .content {
+        .fill .content {
             padding-left: 0;
         }
     }
@@ -60,6 +60,7 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
         padding: 0 var(--spacing_large);
         flex-grow: 1;
         min-width: 0;
+        height: 100%;
         @include m-truncate();
     }
 
@@ -133,6 +134,7 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
     right: 0;
     display: flex;
     align-items: center;
+    padding: 0 var(--spacing_large);
 }
 
 /* ===================================================================
@@ -401,6 +403,10 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
         margin: 0;
     }
 
+    .loader {
+        padding: 0.5em;
+    }
+
     .content {
         padding: 0;
         justify-content: center;
@@ -413,10 +419,12 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
     &.sizeBig {
         width: $height--button-big;
     }
-}
 
-.pill {
-    border-radius: 100px;
+    &.isBusy {
+        .symbol {
+            display: none;
+        }
+    }
 }
 
 .square {
@@ -431,12 +439,22 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
         justify-content: center;
     }
 
+    .loader {
+        padding: 0.5em;
+    }
+
     &.sizeSmall {
         width: $height--button-small;
     }
 
     &.sizeBig {
         width: $height--button-big;
+    }
+
+    &.isBusy {
+        .symbol {
+            display: none;
+        }
     }
 }
 
@@ -446,6 +464,10 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
     .content {
         padding: 0 var(--spacing_regular);
     }
+}
+
+.pill {
+    border-radius: 100px;
 }
 
 .hideLabel {

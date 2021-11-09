@@ -217,7 +217,17 @@ Use a careful combination of colored buttons where needed.
 
 <Canvas>
     <Story name="busy">
-        <Button busy>Active button</Button>
+        <Row>
+            <Col span={8}>
+                <Button busy>Active button</Button>
+            </Col>
+            <Col circle span={8}>
+                <Button square busy icon="gear" />
+            </Col>
+            <Col circle span={8}>
+                <Button circle busy icon="gear" />
+            </Col>
+        </Row>
     </Story>
 </Canvas>
 

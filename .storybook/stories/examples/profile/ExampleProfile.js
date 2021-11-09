@@ -13,13 +13,12 @@ import { Image } from "../../../../src/components/media/Image";
 import { SAMPLE_USER } from "../../../constants";
 import { Row, Col } from "../../../../src/components/grid";
 import { Card, CardTitle, CardContent } from "../../../../src/components/card";
-import { Toolbar } from "../../../../src/components/navigation/Toolbar";
-import { Select, Option } from "../../../../src/components/form/Select";
-import { CardLoadMore } from "../../../../src/components/card/CardLoadMore";
 import { Form } from "../../../../src/components/form/Form";
 import { FormItem } from "../../../../src/components/form/FormItem";
 import { Checkbox } from "../../../../src/components/form/Checkbox";
 import { FormButtons } from "../../../../src/components/form/FormButtons";
+import { ItemList } from "../../../../src/components/list/ItemList";
+import { Text } from "../../../../src/components/typography";
 
 export const ExampleProfile = () => {
     const [activePageNav, setActivePageNav] = useState(1);
@@ -113,48 +112,75 @@ export const ExampleProfile = () => {
                                     </Col>
                                     <Col span={24}>
                                         <Card>
-                                            <CardTitle title="Card with table">
+                                            <CardTitle title="Card with item list">
                                                 <Badge color="primary">878</Badge>
                                             </CardTitle>
                                             <CardContent>
-                                                <Row>
-                                                    <Col span={24}>
-                                                        <Toolbar>
-                                                            <Toolbar.Item grow divideRight>
-                                                                <Input
-                                                                    size="small"
-                                                                    icon="search"
-                                                                    placeholder="Search"
-                                                                />
-                                                            </Toolbar.Item>
-                                                            <Toolbar.Item
-                                                                divideRight
-                                                                shrink={false}
-                                                            >
-                                                                <Select value={50} size="small">
-                                                                    <Option>10</Option>
-                                                                    <Option>25</Option>
-                                                                    <Option>50</Option>
-                                                                    <Option>100</Option>
-                                                                </Select>
-                                                            </Toolbar.Item>
-                                                            <Toolbar.Item>
-                                                                <Button
-                                                                    icon="close"
-                                                                    iconColor="error"
-                                                                    size="small"
-                                                                >
-                                                                    Clear
-                                                                </Button>
-                                                            </Toolbar.Item>
-                                                        </Toolbar>
-                                                    </Col>
-                                                </Row>
+                                                <ItemList
+                                                    onItemClick={(item) =>
+                                                        console.log("ITEM CLICKED", item)
+                                                    }
+                                                    onSort={(data) => console.log("SORT", data)}
+                                                >
+                                                    <ItemList.Item
+                                                        index={1}
+                                                        value={1}
+                                                        prepend={
+                                                            <Image
+                                                                thumbnail="regular"
+                                                                src="https://static.theceomagazine.net/wp-content/uploads/2018/10/15093202/elon-musk.jpg"
+                                                            />
+                                                        }
+                                                        append={
+                                                            <Badge color="success">Active</Badge>
+                                                        }
+                                                    >
+                                                        <Text block>Elon Musk</Text>
+                                                        <Text size="small" opacity={40}>
+                                                            Founder of SpaceX and Tesla Motor
+                                                            Company
+                                                        </Text>
+                                                    </ItemList.Item>
+                                                    <ItemList.Item
+                                                        index={2}
+                                                        value={2}
+                                                        prepend={
+                                                            <Image
+                                                                thumbnail="regular"
+                                                                src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5e88db50bfe9e50007a040b8%2F0x0.jpg"
+                                                            />
+                                                        }
+                                                        append={
+                                                            <Badge color="error">Inactive</Badge>
+                                                        }
+                                                    >
+                                                        <Text block>Chris Sacca</Text>
+                                                        <Text size="small" opacity={40}>
+                                                            American venture investor, company
+                                                            advisor, entrepreneur, and lawyer
+                                                        </Text>
+                                                    </ItemList.Item>
+                                                    <ItemList.Item
+                                                        index={3}
+                                                        value={3}
+                                                        prepend={
+                                                            <Image
+                                                                thumbnail="regular"
+                                                                src="https://res-4.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_170,w_170,f_auto,g_faces,z_0.7,b_white,q_auto:eco/v1448830269/gzcifut4c2xah95x0ewd.jpg"
+                                                            />
+                                                        }
+                                                        append={
+                                                            <Badge color="warning">Waiting</Badge>
+                                                        }
+                                                    >
+                                                        <Text block>Mark Zuckerberg</Text>
+                                                        <Text size="small" opacity={40}>
+                                                            American media magnate, internet
+                                                            entrepreneur, and philanthropist
+                                                        </Text>
+                                                    </ItemList.Item>
+                                                </ItemList>
                                             </CardContent>
-                                            <CardLoadMore
-                                                progress={30}
-                                                onClick={() => console.log("CLICK")}
-                                            />
                                         </Card>
                                     </Col>
                                     <Col span={24}>

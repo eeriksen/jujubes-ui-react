@@ -131,7 +131,7 @@ export const Textarea = ({
 };
 
 Textarea.defaultProps = {
-    maxLength: 50,
+    maxLength: 2000,
     rows: 3
 };
 

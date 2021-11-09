@@ -44,6 +44,19 @@ Pull requests are welcome.
 
 ## Changelog
 
+### [1.0.29] - 2021-11-09
+#### Image editor
+- `<ImageEditor />`: Edit images.
+
 ### [1.0.27] - 2021-11-09
 #### Changes
 - `<Button />`: Added `symbol` and `pill` properties.
+
+
+
+
+
+
+
+
+

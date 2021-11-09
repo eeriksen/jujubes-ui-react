@@ -11,7 +11,8 @@ export const Popup = ({ visible, size, onClose, children }) => {
         <div
             className={classNames(styles.base, {
                 [styles.sizeAuto]: size === "auto",
-                [styles.sizeMedium]: size === "medium"
+                [styles.sizeMedium]: size === "medium",
+                [styles.sizeFull]: size === "full",
             })}
             onClick={onclose}
         >
@@ -45,7 +46,7 @@ Popup.propTypes = {
     /**
      * Adjust the max size of the popup
      */
-    size: PropTypes.oneOf(["auto", "medium"]),
+    size: PropTypes.oneOf(["auto", "medium", "full"]),
     /**
      * Close button click callback
      */

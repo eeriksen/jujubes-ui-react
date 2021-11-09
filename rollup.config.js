@@ -20,7 +20,7 @@ const development = process.env.NODE_ENV === "development";
 
 export default {
     input: `${SRC_DIR}/index.js`,
-    output: [
+    output:[
         {
             file: pkg.main,
             format: "cjs",
@@ -29,7 +29,7 @@ export default {
         {
             file: pkg.module,
             format: "es",
-            sourcemap: true
+            sourcemap: true,
         }
     ],
     external: ["react", "react-dom", "react-router-dom"],

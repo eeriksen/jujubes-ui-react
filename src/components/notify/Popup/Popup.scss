@@ -68,6 +68,17 @@ $popup--width-medium: 600px;
         }
     }
 
+    &.sizeFull {
+        > .box {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            max-width: none;
+        }
+    }
+
     // RESPONSIVE
     @include for-mobile-down() {
         overflow-x: hidden;

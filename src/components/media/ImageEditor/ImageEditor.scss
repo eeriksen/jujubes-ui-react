@@ -1,0 +1,68 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   IMAGE EDITOR
+   =================================================================== */
+
+.base {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .header {
+        background: rgba(var(--color_primary), 1);
+        font-size: var(--fontSize_large);
+        color: rgba(var(--color_primaryContrast), 1);
+        border-radius: var(--borderRadius_content) var(--borderRadius_content) 0 0;
+        display: flex;
+        padding: 0 var(--spacing_small) 0 var(--spacing_medium);
+
+        .title {
+            padding: var(--spacing_medium) 0;
+            @include m-truncate();
+            flex-grow: 1;
+        }
+
+        .action {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .primaryTools {
+        position: relative;
+        padding: 0.5rem;
+        border-bottom: 1px solid rgba(var(--color_base), 0.1);
+    }
+
+    .secondaryTools {
+        position: relative;
+        padding: 0.5rem;
+        border-bottom: 1px solid rgba(var(--color_base), 0.1);
+    }
+
+    .frame {
+        position: relative;
+        flex-grow: 1;
+        background: rgba(var(--color_backgroundContent), 1);
+        @include m-stripedBackground(rgba(var(--color_base), 0.1), rgba(var(--color_base), 0.05), 10px);
+
+        > div {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .focusPoint {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        border: 2px solid red;
+        background: rgba(#fff, 0.8);
+        box-shadow: 0 0 6px 0 rgba(0, 0, 0, 1);
+        width: 20px !important;
+        height: 20px !important;
+        border-radius: 20px;
+    }
+}

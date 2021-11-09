@@ -1,0 +1,88 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { ImageEditor } from "./ImageEditor";
+import { Image } from "../Image";
+import { Page } from "../../page";
+import { Card, CardContent } from "../../card";
+import { Row, Col } from "../../grid";
+import { FileSelectButton } from "../../button";
+import { ComponentWrapper } from "../../layout";
+
+<Meta title="Components/Media/ImageEditor" component={ImageEditor} />
+
+# ImageEditor
+
+Write something here.
+
+<ArgsTable of={ImageEditor} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        <ComponentWrapper>
+            <ImageEditor>Something here</ImageEditor>
+        </ComponentWrapper>
+    </Story>
+</Canvas>
+
+### Focus point
+
+<Canvas>
+    <Story name="focus point">
+        {() => {
+            const [focusPoint, setFocusPoint] = useState({
+                x: 50,
+                y: 50
+            });
+            return (
+                <ComponentWrapper>
+                    <ImageEditor
+                        url="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Zell_am_See.Wiki.jpeg/1280px-Zell_am_See.Wiki.jpeg"
+                        focusPoint={focusPoint}
+                        onFocusPointChange={setFocusPoint}
+                    />
+                </ComponentWrapper>
+            );
+        }}
+    </Story>
+</Canvas>
+
+# Local image
+
+<Canvas>
+    <Story name="local image">
+        {() => {
+            const [file, setFile] = useState(null);
+            const [showEditor, setShowEditor] = useState(false);
+            return showEditor ? (
+                <ComponentWrapper>
+                    <ImageEditor
+                        file={file}
+                        onClose={() => setShowEditor(false)}
+                        onSave={(editedFile) => {
+                            setFile(editedFile);
+                            setShowEditor(false);
+                        }}
+                    />
+                </ComponentWrapper>
+            ) : (
+                <Page>
+                    <Card>
+                        <CardContent>
+                            <Row colSpacing>
+                                <Col sm={12}>
+                                    <Image
+                                        src={file && file.preview}
+                                        thumbnail="large"
+                                        onClick={() => setShowEditor(true)}
+                                    />
+                                </Col>
+                            </Row>
+                        </CardContent>
+                    </Card>
+                </Page>
+            );
+        }}
+    </Story>
+</Canvas>

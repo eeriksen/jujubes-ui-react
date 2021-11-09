@@ -24,6 +24,7 @@ $fontSize: var(--badge_fontSize, var(--fontSize_tiny));
     border-radius: var(--borderRadius_form);
     color: rgba(var(--color_base), 0.8);
     letter-spacing: .5px;
+    @include m-truncate();
 
     /* Filled
     ---------------------------------------------------------------------- */

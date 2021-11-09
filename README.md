@@ -44,6 +44,10 @@ Pull requests are welcome.
 
 ## Changelog
 
+### [1.1.0] - 2021-11-09
+#### Changes
+- Added chunks of libs as "image_editor", "emojis" and "dates".
+
 ### [1.0.29] - 2021-11-09
 #### Image editor
 - `<ImageEditor />`: Edit images.

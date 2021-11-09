@@ -11,7 +11,6 @@ import url from "postcss-url";
 import hash from "object-hash";
 import cssnano from "cssnano";
 
-import pkg from "./package.json";
 import path from "path";
 
 const SRC_DIR = path.resolve(__dirname, "src");
@@ -20,18 +19,16 @@ const development = process.env.NODE_ENV === "development";
 
 export default {
     input: `${SRC_DIR}/index.js`,
-    output:[
-        {
-            file: pkg.main,
-            format: "cjs",
-            sourcemap: true
-        },
-        {
-            file: pkg.module,
-            format: "es",
-            sourcemap: true,
+    output: {
+        dir: DIST_DIR,
+        format: "es",
+        sourcemap: true,
+        manualChunks: {
+            image_editor: ["@toast-ui/react-image-editor"],
+            emojis: ["emoji-mart"],
+            dates: ["react-dates"]
         }
-    ],
+    },
     external: ["react", "react-dom", "react-router-dom"],
     plugins: [
         clearPlugin({

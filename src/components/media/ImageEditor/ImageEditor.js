@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import styles from "./ImageEditor.scss";
 import "tui-image-editor/dist/tui-image-editor.css";
 import { Button } from "../../button/Button";
@@ -9,6 +9,9 @@ import { ButtonGroup } from "../../button/ButtonGroup";
 import { base64ToBlob } from "./utils";
 import { CropTools } from "./CropTools";
 import { Toolbar } from "../../navigation/Toolbar";
+import { AppContext } from "../../layout/AppContext/index";
+import ToastEditor from "@toast-ui/react-image-editor";
+import { useDebounce } from "../../../utils/hooks";
 
 export const ImageEditor = ({
     file,
@@ -20,6 +23,7 @@ export const ImageEditor = ({
     onSave,
     initCrop
 }) => {
+    const { pageInfo } = useContext(AppContext);
     const frameRef = useRef();
     const editorElement = useRef(null);
     const [image, setImage] = useState(null);
@@ -27,13 +31,8 @@ export const ImageEditor = ({
     const [activeMode, setActiveMode] = useState(null);
     const [undoStackSize, setUndoStackSize] = useState(0);
     const [redoStackSize, setRedoStackSize] = useState(0);
-    const [ToastEditor, setToastEditor] = useState(null);
     const stateRef = useRef({ onFocusPointChange });
     const [focusPointPosition, setFocusPointPosition] = useState(null);
-
-    import("@toast-ui/react-image-editor").then(({ default: comp }) => {
-        setToastEditor(() => comp);
-    });
 
     useEffect(() => {
         stateRef.current = {
@@ -54,6 +53,14 @@ export const ImageEditor = ({
     useEffect(() => {
         drawFocusPoint();
     }, [focusPoint, undoStackSize, redoStackSize]);
+
+    useDebounce(
+        () => {
+            drawFocusPoint();
+        },
+        [pageInfo.windowWidth, focusPoint, undoStackSize, redoStackSize],
+        200
+    );
 
     // Bind editor events and init crop
     useEffect(() => {
@@ -237,7 +244,6 @@ export const ImageEditor = ({
         <Popup size="full" onClose={onClose}>
             <PopupTitle>{title || language.title}</PopupTitle>
             <div className={styles.base}>
-
                 {/* PRIMARY TOOLS */}
                 <div className={styles.primaryTools}>
                     <Toolbar>
@@ -363,31 +369,28 @@ export const ImageEditor = ({
                 ) : null}
 
                 {/* EDITOR FRAME */}
-                {ToastEditor ? (
-                    <div className={styles.frame} ref={frameRef}>
-                        <ToastEditor
-                            ref={editorElement}
-                            selectionStyle={{
-                                cornerSize: 20,
-                                rotatingPointOffset: 70
-                            }}
-                            usageStatistics={false}
-                        />
+                <div className={styles.frame} ref={frameRef}>
+                    <ToastEditor
+                        ref={editorElement}
+                        selectionStyle={{
+                            cornerSize: 20,
+                            rotatingPointOffset: 70
+                        }}
+                        usageStatistics={false}
+                    />
 
-                        {/* Focus point */}
-                        {focusPoint && focusPointPosition ? (
-                            <div
-                                className={styles.focusPoint}
-                                style={{
-                                    left: `${focusPointPosition.left}px`,
-                                    top: `${focusPointPosition.top}px`
-                                }}
-                            />
-                        ) : null}
-                    </div>
-                ) : null}
+                    {/* Focus point */}
+                    {focusPoint && focusPointPosition ? (
+                        <div
+                            className={styles.focusPoint}
+                            style={{
+                                left: `${focusPointPosition.left}px`,
+                                top: `${focusPointPosition.top}px`
+                            }}
+                        />
+                    ) : null}
+                </div>
             </div>
-            {/* <WindowResizeListener onResize={drawFocusPoint} /> */}
         </Popup>
     );
 };

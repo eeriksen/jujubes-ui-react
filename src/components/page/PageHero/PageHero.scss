@@ -4,9 +4,9 @@
    PAGE HERO
    =================================================================== */
 
-$backgroundColor: rgba(var(--navMain_backgroundColor, var(--color_base)), 1);
-$foregroundColor: rgba(var(--navMain_foregroundColor, var(--color_contrast)), 1);
-$accentColor: rgba(var(--navMain_accentColor, var(--color_primary)), 1);
+$backgroundColor: rgba(var(--pageHero_backgroundColor, var(--navMain_backgroundColor)), 1);
+$foregroundColor: rgba(var(--pageHero_foregroundColor, var(--navMain_foregroundColor)), 1);
+$accentColor: rgba(var(--pageHero_accentColor, var(--color_primary)), 1);
 $imageOffset: var(--pageHero_imageOffset, 1rem);
 $imageRadius: var(--pageHero_imageRadius, var(--borderRadius_content));
 $imagePadding: var(--pageHero_imagePadding, 3px);
@@ -61,12 +61,13 @@ $imagePadding: var(--pageHero_imagePadding, 3px);
                     width: 100%;
                     font-size: var(--fontSize_heading1);
                     font-weight: var(--fontWeight_bold);
+                    font-family: var(--fontFamily_titles);
                     @include m-truncate();
                 }
 
                 .subtitle {
                     margin-top: -0.8rem;
-                    color: rgba(var(--color_primary), 1);
+                    color: $accentColor;
                     font-size: var(--fontSize_medium);
                     @include m-truncate();
                 }

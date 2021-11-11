@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { ButtonGroup } from './ButtonGroup';
-import { Button } from "../Button";
-import { Row } from "../../grid/Row";
-import { Col } from "../../grid/Col";
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { ButtonGroup } from "./ButtonGroup";
+import { Button } from "../Button";
+import { Row } from "../../grid/Row";
+import { Col } from "../../grid/Col";
 
 <Meta title="Components/Buttons/ButtonGroup" component={ButtonGroup} />
 
@@ -14,51 +14,69 @@ Use a `<ButtonGroup />` when you want to group two or more buttons nicely togeth
 <ArgsTable of={ButtonGroup} />
 
 ### Basic
+
 <Canvas>
     <Story name="basic">
-    {() => {
-        const [index, setIndex] = useState(0);
-        return (
-            <ButtonGroup>
-                <Button active={index === 0} onClick={() => setIndex(0)}>Left</Button>
-                <Button active={index === 1} onClick={() => setIndex(1)}>Middle</Button>
-                <Button active={index === 2} onClick={() => setIndex(2)}>Right</Button>
-            </ButtonGroup>
-        )
-    }}
+        {() => {
+            const [index, setIndex] = useState(0);
+            return (
+                <Row>
+                    <Col span={24}>
+                        <ButtonGroup>
+                            <Button active={index === 0} onClick={() => setIndex(0)}>
+                                Left
+                            </Button>
+                            <Button active={index === 1} onClick={() => setIndex(1)}>
+                                Middle
+                            </Button>
+                            <Button active={index === 2} onClick={() => setIndex(2)}>
+                                Right
+                            </Button>
+                        </ButtonGroup>
+                    </Col>
+                    <Col span={24}>
+                        <ButtonGroup fill>
+                            <Button active={index === 0} onClick={() => setIndex(0)}>
+                                Left
+                            </Button>
+                            <Button active={index === 1} onClick={() => setIndex(1)}>
+                                Middle
+                            </Button>
+                            <Button active={index === 2} onClick={() => setIndex(2)}>
+                                Right
+                            </Button>
+                        </ButtonGroup>
+                    </Col>
+                </Row>
+            );
+        }}
     </Story>
 </Canvas>
 
-
 ### With icons
+
 <Canvas>
     <Story name="with icons">
-    {() => {
-        const [index, setIndex] = useState(0);
-        return (
-            <ButtonGroup>
-                <Button
-                    square
-                    icon="gear"
-                    active={index === 0}
-                    onClick={() => setIndex(0)} />
-                <Button
-                    square
-                    icon="info"
-                    active={index === 1}
-                    onClick={() => setIndex(1)} />
-                <Button
-                    square
-                    icon="devices"
-                    active={index === 2}
-                    onClick={() => setIndex(2)} />
-                <Button
-                    square
-                    icon="warning"
-                    active={index === 3}
-                    onClick={() => setIndex(3)} />
-            </ButtonGroup>
-        )
-    }}
+        {() => {
+            const [index, setIndex] = useState(0);
+            return (
+                <ButtonGroup>
+                    <Button square icon="gear" active={index === 0} onClick={() => setIndex(0)} />
+                    <Button square icon="info" active={index === 1} onClick={() => setIndex(1)} />
+                    <Button
+                        square
+                        icon="devices"
+                        active={index === 2}
+                        onClick={() => setIndex(2)}
+                    />
+                    <Button
+                        square
+                        icon="warning"
+                        active={index === 3}
+                        onClick={() => setIndex(3)}
+                    />
+                </ButtonGroup>
+            );
+        }}
     </Story>
 </Canvas>

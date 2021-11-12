@@ -31,7 +31,10 @@ export const CardTitle = (props) => {
                                 key={index}
                                 visible={activeAction === index}
                                 onClose={() => setActiveAction(null)}
-                                content={action.content}
+                                content={
+                                    action.content &&
+                                    action.content({ onClose: () => setActiveAction(null) })
+                                }
                             >
                                 <ActionClickable
                                     {...action}

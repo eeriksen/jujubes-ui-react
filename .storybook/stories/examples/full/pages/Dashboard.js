@@ -263,11 +263,12 @@ export const Dashboard = () => {
                                     actions={[
                                         {
                                             icon: "more",
-                                            content: (
+                                            content: ({onClose}) => (
                                                 <Menu>
                                                     <MenuItem
                                                         icon="plus"
                                                         label="Create something"
+                                                        onClick={() => console.log("CREATE") | onClose()}
                                                     />
                                                     <MenuItem icon="edit" label="Edit something" />
                                                     <MenuItem

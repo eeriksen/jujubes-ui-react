@@ -237,11 +237,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 30%;
-        background-color: rgba(var(--color_base), 0.05);
-        @include m-iconSize(100%);
+	background-color: rgba(var(--color_base), 0.05);
+	padding: 30%;
 
         &.default {
+            @include m-iconSize(100%);
             @include m-iconColor(rgba(var(--color_base), 0.8));
         }
     }

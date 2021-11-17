@@ -6,6 +6,7 @@ import { Card } from "../../card/Card";
 import { CardContent } from "../../card/CardContent";
 import { Image } from "../../media/Image";
 import { Badge } from "../../notify/Badge";
+import { Button } from "../../button/Button";
 
 <Meta title="Components/Lists/ItemList" component={ItemList} />
 
@@ -73,7 +74,10 @@ With the item list you can sort items and display a simple thumbnail, title, des
                                 src="https://static.theceomagazine.net/wp-content/uploads/2018/10/15093202/elon-musk.jpg"
                             />
                         }
-                        append={<Badge color="success">Active</Badge>}
+                        append={[
+                            <Button square icon="close" iconColor="error" size="small" />,
+                            <Badge color="success">Active</Badge>
+                        ]}
                     >
                         <Text block>Elon Musk</Text>
                         <Text size="small" opacity={40}>

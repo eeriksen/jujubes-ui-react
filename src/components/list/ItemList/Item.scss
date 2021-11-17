@@ -42,6 +42,13 @@
     .append {
         display: flex;
         align-items: center;
+        white-space: nowrap;
+
+        .wrapper {
+            display: flex;
+            align-items: center;
+            column-gap: var(--spacing_regular);
+        }
     }
     &.appendAlignTop {
         .append {

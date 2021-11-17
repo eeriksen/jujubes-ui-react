@@ -42,7 +42,15 @@ export const Item = ({
                 {/* Prepend */}
                 {prepend ? (
                     <div className={styles.prepend}>
-                        <div className={styles.wrapper}>{prepend}</div>
+                        <div className={styles.wrapper}>
+                            {Array.isArray(prepend)
+                                ? prepend.map((elm, index) =>
+                                      React.cloneElement(elm, {
+                                          key: index
+                                      })
+                                  )
+                                : prepend}
+                        </div>
                     </div>
                 ) : null}
 
@@ -54,7 +62,15 @@ export const Item = ({
                 {/* Append */}
                 {append ? (
                     <div className={styles.append}>
-                        <div className={styles.wrapper}>{append}</div>
+                        <div className={styles.wrapper}>
+                            {Array.isArray(append)
+                                ? append.map((elm, index) =>
+                                      React.cloneElement(elm, {
+                                          key: index
+                                      })
+                                  )
+                                : append}
+                        </div>
                     </div>
                 ) : null}
 
@@ -79,12 +95,12 @@ Item.propTypes = {
     /**
      * Add element at start of item
      */
-    prepend: PropTypes.object,
+    prepend: PropTypes.any,
 
     /**
      * Add element to end of item
      */
-    append: PropTypes.object,
+    append: PropTypes.any,
 
     /**
      * The content to be displayed in item

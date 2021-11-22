@@ -6,7 +6,8 @@ import styles from "./Col.scss";
 import { Filler } from "../Filler";
 
 export const Col = (props) => {
-    const { span, order, offset, push, pull, gutter, className, align, children } = props;
+    const { span, order, offset, push, pull, gutter, className, align, grow, shrink, children } =
+        props;
 
     let spanLabel = 0;
     let sizeClassObj = {};
@@ -38,8 +39,7 @@ export const Col = (props) => {
             [styles[`col_${size}_offset_${sizeProps.offset}`]]:
                 sizeProps.offset || sizeProps.offset === 0,
             [styles[`col_${size}_push_${sizeProps.push}`]]: sizeProps.push || sizeProps.push === 0,
-            [styles[`col_${size}_pull_${sizeProps.pull}`]]: sizeProps.pull || sizeProps.pull === 0,
-            [styles.alignCenter]: align === "center"
+            [styles[`col_${size}_pull_${sizeProps.pull}`]]: sizeProps.pull || sizeProps.pull === 0
         });
     });
 
@@ -51,7 +51,11 @@ export const Col = (props) => {
             [styles[`col_push_${push}`]]: push,
             [styles[`col_pull_${pull}`]]: pull,
             [styles[`gutter_ver_${gutter[0]}`]]: gutter[0],
-            [styles[`gutter_hor_${gutter[1]}`]]: gutter[1]
+            [styles[`gutter_hor_${gutter[1]}`]]: gutter[1],
+            [styles[`align_hor_${align[0]}`]]: align.length && align[0],
+            [styles[`align_ver_${align[1]}`]]: align.length && align[1],
+            [styles.grow]: grow,
+            [styles.noShrink]: !shrink
         },
         className,
         sizeClassObj
@@ -60,9 +64,13 @@ export const Col = (props) => {
     return <div className={colClasses}>{children ? children : <Filler>{spanLabel}</Filler>}</div>;
 };
 
+Col.defaultProps = {
+    shrink: true,
+    align: []
+}
+
 const stringOrNumber = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);
 const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
-
 Col.propTypes = {
     /**
      * Span units of given column.
@@ -112,5 +120,20 @@ Col.propTypes = {
     /**
      * Define span and offset for large screens.
      */
-    lg: objectOrNumber
+    lg: objectOrNumber,
+
+    /**
+     * Column should grow to fill space
+     */
+    grow: PropTypes.bool,
+
+    /**
+     * Column should shrink or nit
+     */
+    shrink: PropTypes.bool,
+
+    /**
+     * Align content. First value is horizontal and second is vertical alignment.
+     */
+    align: PropTypes.array
 };

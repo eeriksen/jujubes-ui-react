@@ -1,11 +1,9 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Row } from "../Row";
-import { Col } from "./Col";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Row } from "../Row";
+import { Col } from "./Col";
+import { Button } from "../../button";
 
-<Meta
-    title="Components/Grid/Column"
-    component={Col}
-/>
+<Meta title="Components/Grid/Column" component={Col} />
 
 # Column
 
@@ -15,7 +13,9 @@ of content blocks that can break into separate rows on three different breakpoin
 
 <ArgsTable of={Col} />
 
+
 ### Span
+
 <Canvas>
     <Story name="span">
         <Row>
@@ -84,6 +84,7 @@ of content blocks that can break into separate rows on three different breakpoin
 </Canvas>
 
 ### Offset
+
 <Canvas>
     <Story name="offset">
         <div>
@@ -102,6 +103,7 @@ of content blocks that can break into separate rows on three different breakpoin
 </Canvas>
 
 ### Push / pull
+
 <Canvas>
     <Story name="push/pull">
         <div>
@@ -114,6 +116,7 @@ of content blocks that can break into separate rows on three different breakpoin
 </Canvas>
 
 ### Order
+
 <Canvas>
     <Story name="order">
         <div>
@@ -126,20 +129,21 @@ of content blocks that can break into separate rows on three different breakpoin
 </Canvas>
 
 ### Responsive
+
 <Canvas>
     <Story name="responsive">
         <div>
             <Row>
-                <Col xs={{span: 12, offset: 6}} />
+                <Col xs={{ span: 12, offset: 6 }} />
             </Row>
             <Row>
-                <Col sm={{span: 12, offset: 6}} />
+                <Col sm={{ span: 12, offset: 6 }} />
             </Row>
             <Row>
-                <Col md={{span: 12, offset: 6}} />
+                <Col md={{ span: 12, offset: 6 }} />
             </Row>
             <Row>
-                <Col lg={{span: 12, offset: 6}} />
+                <Col lg={{ span: 12, offset: 6 }} />
             </Row>
         </div>
     </Story>

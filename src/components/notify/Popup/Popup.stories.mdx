@@ -6,10 +6,8 @@ import { PopupContent } from "./PopupContent";
 import { PopupFooter } from "./PopupFooter";
 import { PopupTabs } from "./PopupTabs";
 import { ComponentWrapper } from "../../layout/ComponentWrapper";
-import { Button } from "../../button/Button";
+import { Button, ButtonRow } from "../../button";
 import { Tabs, TabPane } from "../../navigation/Tabs";
-import { Row } from "../../grid/Row";
-import { Col } from "../../grid/Col";
 
 <Meta title="Components/Notify/Popup" component={Popup} />
 
@@ -29,21 +27,25 @@ With `<PopupTabs />` you can add tabbed content inside the popup the same way yo
 # PopupTitle
 
 The `<PopupTitle/>` component displays a title and description in the popup.
+
 <ArgsTable of={PopupTitle} />
 
 # PopupContent
 
 Wrap all regular content of the popup inside the `<PopupContent/>` component.
+
 <ArgsTable of={PopupContent} />
 
 # PopupFooter
 
 The `<PopupFooter />` is where you place any navigation and form buttons. Layout multiple elements with `<Row/>` and `<Col/>`.
+
 <ArgsTable of={PopupFooter} />
 
 # PopupTabs
 
 If you want to use tabs inside a popup, wrap the `<Tabs/>` component inside the `<PopupTabs/>` component.
+
 <ArgsTable of={PopupTabs} />
 
 ### Basic
@@ -97,14 +99,12 @@ If you want to use tabs inside a popup, wrap the `<Tabs/>` component inside the 
                             </Tabs>
                         </PopupTabs>
                         <PopupFooter>
-                            <Row gutter={["small", "small"]}>
-                                <Col span={12}>
-                                    <Button color="success">Save changes</Button>
-                                </Col>
-                                <Col span={12}>
-                                    <Button>Cancel</Button>
-                                </Col>
-                            </Row>
+                            <ButtonRow>
+                                <Button color="success">
+                                    Save changes
+                                </Button>
+                                <Button>Cancel</Button>
+                            </ButtonRow>
                         </PopupFooter>
                     </Popup>
                 </ComponentWrapper>

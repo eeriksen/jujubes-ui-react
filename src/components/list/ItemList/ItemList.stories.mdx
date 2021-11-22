@@ -29,7 +29,6 @@ With the item list you can sort items and display a simple thumbnail, title, des
             <CardContent>
                 <ItemList
                     onItemClick={(item) => console.log("ITEM CLICKED", item)}
-                    onSort={(data) => console.log("SORT", data)}
                 >
                     <ItemList.Item index={1} value={1}>
                         <Text block>Elon Musk</Text>
@@ -68,15 +67,24 @@ With the item list you can sort items and display a simple thumbnail, title, des
                     <ItemList.Item
                         index={1}
                         value={1}
-                        prepend={
+                        prepend={[
+                            <Badge number fill>
+                                1
+                            </Badge>,
                             <Image
                                 thumbnail="regular"
                                 src="https://static.theceomagazine.net/wp-content/uploads/2018/10/15093202/elon-musk.jpg"
                             />
-                        }
+                        ]}
                         append={[
-                            <Button square icon="close" iconColor="error" size="small" />,
-                            <Badge color="success">Active</Badge>
+                            <Badge color="success">Active</Badge>,
+                            <Button
+                                square
+                                icon="trash"
+                                iconColor="error"
+                                color="silent"
+                                size="small"
+                            />
                         ]}
                     >
                         <Text block>Elon Musk</Text>
@@ -87,13 +95,25 @@ With the item list you can sort items and display a simple thumbnail, title, des
                     <ItemList.Item
                         index={2}
                         value={2}
-                        prepend={
+                        prepend={[
+                            <Badge number fill>
+                                2
+                            </Badge>,
                             <Image
                                 thumbnail="regular"
                                 src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5e88db50bfe9e50007a040b8%2F0x0.jpg"
                             />
-                        }
-                        append={<Badge color="error">Inactive</Badge>}
+                        ]}
+                        append={[
+                            <Badge color="error">Inactive</Badge>,
+                            <Button
+                                square
+                                icon="trash"
+                                iconColor="error"
+                                color="silent"
+                                size="small"
+                            />
+                        ]}
                     >
                         <Text block>Chris Sacca</Text>
                         <Text size="small" opacity={40}>
@@ -103,13 +123,25 @@ With the item list you can sort items and display a simple thumbnail, title, des
                     <ItemList.Item
                         index={3}
                         value={3}
-                        prepend={
+                        prepend={[
+                            <Badge number fill>
+                                3
+                            </Badge>,
                             <Image
                                 thumbnail="regular"
                                 src="https://res-4.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_170,w_170,f_auto,g_faces,z_0.7,b_white,q_auto:eco/v1448830269/gzcifut4c2xah95x0ewd.jpg"
                             />
-                        }
-                        append={<Badge color="warning">Waiting</Badge>}
+                        ]}
+                        append={[
+                            <Badge color="warning">Waiting</Badge>,
+                            <Button
+                                square
+                                icon="trash"
+                                iconColor="error"
+                                color="silent"
+                                size="small"
+                            />
+                        ]}
                     >
                         <Text block>Mark Zuckerberg</Text>
                         <Text size="small" opacity={40}>

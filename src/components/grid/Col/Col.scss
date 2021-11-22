@@ -31,7 +31,6 @@ $grid-columns: 24;
     @include col(1);
 }
 
-
 // MAKE FLOAT GRID COLUMNS
 // ----------------------------------------------------------
 
@@ -59,7 +58,6 @@ $grid-columns: 24;
 // ----------------------------------------------------------
 
 @mixin loop-grid-columns($index, $class) {
-
     @if ($index > 0) {
         .col#{$class}_#{$index} {
             display: block;
@@ -114,11 +112,10 @@ $grid-columns: 24;
     }
 }
 
-@mixin make-grid($class: '') {
+@mixin make-grid($class: "") {
     //@include float-grid-columns($class);
     @include loop-grid-columns($grid-columns, $class);
 }
-
 
 // GRID GUTTER
 // ----------------------------------------------------------
@@ -150,7 +147,33 @@ $grid-columns: 24;
     margin-top: var(--spacing_large);
 }
 
+.grow {
+    flex-grow: 1;
+}
 
+.noShrink {
+    flex-shrink: 0;
+}
+
+.align_hor_center {
+    display: flex;
+    justify-content: center;
+}
+
+.align_hor_right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.align_ver_center {
+    display: flex;
+    align-items: center;
+}
+
+.align_ver_bottom {
+    display: flex;
+    align-items: flex-end;
+}
 
 @include make-grid-columns();
 @include make-grid();
@@ -185,9 +208,4 @@ $grid-columns: 24;
 
 @include for-desktop-up() {
     @include make-grid("_lg");
-}
-
-
-.alignCenter {
-    text-align: center;
 }

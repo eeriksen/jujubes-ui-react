@@ -1,0 +1,27 @@
+.base {
+    &.silent {
+        :global {
+            .ps__rail-x {
+                bottom: auto;
+                top: 0;
+                height: 4px;
+
+                &:hover {
+                    & > .ps__thumb-x {
+                        height: 4px;
+                    }
+                }
+            }
+
+            .ps__thumb-x {
+                bottom: 0;
+                height: 4px;
+                opacity: 0;
+
+                &:hover {
+                    opacity: 0.4;
+                }
+            }
+        }
+    }
+}

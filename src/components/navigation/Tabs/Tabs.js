@@ -29,7 +29,7 @@ export const Tabs = ({ activeKey, onChange, children }) => {
         <div className={styles.base}>
             {/* Tabs */}
             <div className={styles.tabs}>
-                <ScrollableArea suppressScrollY>
+                <ScrollableArea suppressScrollY silent>
                     <div className={styles.wrapper}>
                         {React.Children.map(children, (child) => {
                             if (child && child.type === TabPane) {

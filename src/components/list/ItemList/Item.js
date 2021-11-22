@@ -30,7 +30,7 @@ export const Item = ({
     };
 
     return (
-        <SortableItem index={index}>
+        <SortableItem index={index} disabled={!sortable}>
             <Clickable
                 className={classNames(styles.item, {
                     [styles.clickable]: onClick,

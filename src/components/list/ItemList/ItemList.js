@@ -31,7 +31,7 @@ export const ItemList = ({ onItemClick, onSort, busy, children, className, empty
             <SortableItemList
                 items={children}
                 className={className}
-                sortable={typeof onSort !== "undefined"}
+                sortable={typeof onSort === "function"}
                 onItemClick={onItemClick}
                 onSortEnd={handleSortEnd}
                 helperClass="itemList_isDragging"
@@ -72,6 +72,7 @@ ItemList.propTypes = {
      */
     onItemClick: PropTypes.func,
 
+
     /**
      * Item sort callback (enables sorting and displays handle)
      */
@@ -89,5 +90,6 @@ ItemList.propTypes = {
 };
 
 ItemList.defaultProps = {
-    busy: false
+    busy: false,
+    onSort: null
 };

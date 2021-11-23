@@ -6,6 +6,7 @@ export * from "./components/grid";
 export * from "./components/layout";
 export * from "./components/list";
 export * from "./components/loader";
+export * from "./components/markup";
 export * from "./components/media";
 export * from "./components/navigation";
 export * from "./components/notify";

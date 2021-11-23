@@ -5,7 +5,7 @@ import themes from "../../../styles/themes";
 import { hexToRgb } from "../../../utils/colorUtils";
 import WebFont from "webfontloader";
 import "./AppContainer.scss";
-import { DATE_TIME_FORMAT, BREAKPOINTS } from "../../../constants";
+import { DATE_TIME_FORMAT, BREAKPOINTS } from "./constants";
 
 moment.defaultFormat = DATE_TIME_FORMAT;
 moment.defaultFormatUtc = DATE_TIME_FORMAT;

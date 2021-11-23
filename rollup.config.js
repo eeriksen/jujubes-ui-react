@@ -26,7 +26,8 @@ export default {
         manualChunks: {
             image_editor: ["@toast-ui/react-image-editor"],
             emojis: ["emoji-mart"],
-            dates: ["react-dates"]
+            dates: ["react-dates"],
+            markup: ["draft-js", "draftjs-to-html", "html-to-draftjs"]
         }
     },
     external: ["react", "react-dom", "react-router-dom"],

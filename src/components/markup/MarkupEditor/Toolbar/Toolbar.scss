@@ -1,0 +1,212 @@
+@import "../../../../styles/base";
+
+/* ===================================================================
+   TOOLBAR
+   =================================================================== */
+
+$buttonSize: var(--elementSize_regular);
+$buttonSizeMobile: var(--elementSize_small);
+
+.toolbar {
+    position: absolute;
+    display: none;
+    pointer-events: none;
+    z-index: $zIndex--markupEditorToolbar;
+
+    .wrapper {
+        position: relative;
+        left: -50%;
+        pointer-events: auto;
+        text-align: left;
+
+        // ARROW
+        .arrow {
+            position: absolute;
+            display: inline-block;
+            top: 100%;
+            left: 50%;
+            height: 0;
+            width: 0;
+            pointer-events: none;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent transparent transparent;
+            margin-left: -10px;
+            transition: border-color 0.2s ease-in-out;
+
+            .inner {
+                position: absolute;
+                left: 0;
+                top: -10px;
+                border-width: 10px;
+                border-style: solid;
+                border-color: rgba(var(--color_contrast), 1) transparent transparent;
+                margin-left: -10px;
+                transition: border-color 0.2s ease-in-out;
+                z-index: 2;
+            }
+        }
+
+        // CONTENT
+        .content {
+            background-color: rgba(var(--color_contrast), 1);
+            border-radius: var(--borderRadius_content);
+            box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.3);
+            padding: 3px;
+            width: 430px;
+        }
+    }
+
+    // VISIBLE
+    &.visible {
+        display: block;
+    }
+
+    @include for-mobile-down() {
+        .wrapper {
+            .content {
+                .groups {
+                    width: 90vw;
+                }
+            }
+        }
+    }
+}
+
+// TOOLBAR ITEM
+// ----------------------------------------------
+
+.item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    background: none;
+    height: $buttonSize;
+    width: $buttonSize;
+    font-family: var(--fontFamily_primary);
+    font-size: var(--fontSize_regular);
+    padding: 0;
+    cursor: pointer;
+    border: 1px solid rgba(var(--color_base), 0.3);
+    border-radius: var(--borderRadius_buttons);
+    text-decoration: none;
+    user-select: none;
+    transition: all 0.3s ease;
+    @include m-truncate();
+
+    .icon {
+        svg {
+            width: 20px;
+        }
+    }
+
+    .label {
+        font-size: var(--fontSize_medium);
+        font-weight: var(--fontWeight_bold);
+        color: rgba(var(--color_base), 1);
+    }
+
+    &:hover {
+        background-color: rgba(var(--color_base), 0.03);
+        @include m-iconColor(rgba(var(--color_primary), 1));
+
+        .label {
+            color: rgba(var(--color_primary), 1);
+        }
+    }
+
+    &:active {
+        background-color: rgba(var(--color_base), 0.1);
+    }
+
+    // Active
+    &.active {
+        background-color: rgba(var(--color_primary), 1);
+        @include m-iconColor(rgba(var(--color_primaryContrast), 1));
+
+        .label {
+            color: rgba(var(--color_primaryContrast), 1);
+        }
+
+        &:hover {
+            background-color: rgba(var(--color_primary), 1);
+        }
+    }
+
+    // Disabled
+    &.disabled {
+        background-color: rgba(var(--color_base), 0.05);
+        cursor: default;
+
+        .label {
+            color: rgba(var(--color_base), 0.2);
+        }
+
+        &:hover {
+            .label {
+                color: rgba(var(--color_base), 0.2);
+            }
+        }
+    }
+
+    @include for-mobile-down() {
+        height: $buttonSizeMobile;
+        width: $buttonSizeMobile;
+
+        .icon {
+            svg {
+                width: 14px;
+            }
+        }
+    }
+}
+
+// TOOLBAR ITEM GROUP
+// ----------------------------------------------
+
+.group {
+    display: inline-flex;
+    margin: 2px;
+    vertical-align: top;
+    white-space: nowrap;
+
+    .item {
+        border-left-width: 0;
+        border-right-color: rgba(var(--color_base), 0.1);
+        border-radius: 0;
+
+        &:first-child {
+            border-radius: var(--borderRadius_buttons) 0 0 var(--borderRadius_buttons);
+            border-left-width: 1px;
+        }
+
+        &:last-child {
+            border-radius: 0 var(--borderRadius_buttons) var(--borderRadius_buttons) 0;
+            border-right-color: rgba(var(--color_base), 0.3);
+        }
+    }
+}
+
+// PLACE: Inline
+.placeInline {
+    position: static;
+    display: block;
+    margin-bottom: calc(var(--spacing_regular) * -1);
+
+    .wrapper {
+        left: 0;
+
+        .arrow {
+            display: none;
+        }
+
+        .content {
+            background: transparent;
+            box-shadow: none;
+            width: auto;
+            padding: 0;
+        }
+    }
+}

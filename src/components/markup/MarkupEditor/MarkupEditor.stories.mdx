@@ -1,0 +1,62 @@
+import { useState, useEffect } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { MarkupEditor } from "./MarkupEditor";
+import { Card, CardContent } from "../../card";
+import { ComponentWrapper } from "../../layout/ComponentWrapper";
+
+<Meta title="Components/Markup/MarkupEditor" />
+
+# MarkupEditor
+
+Inline WYSIWYG editor.
+
+<ArgsTable of={MarkupEditor} />
+
+# Basic
+
+<Canvas>
+    <Story name="basic">
+        {() => {
+            const [htmlContent, setHtmlContent] = useState(null);
+            const handleChange = (val) => {
+                setHtmlContent(val);
+            };
+            return (
+                <Card>
+                    <CardContent>
+                        <MarkupEditor
+                            value={htmlContent}
+                            onChange={handleChange}
+                            placeholder="Start typing here..."
+                        />
+                    </CardContent>
+                </Card>
+            );
+        }}
+    </Story>
+</Canvas>
+
+# Place inline
+
+<Canvas>
+    <Story name="place inline">
+        {() => {
+            const [htmlContent, setHtmlContent] = useState(null);
+            const handleChange = (val) => {
+                setHtmlContent(val);
+            };
+            return (
+                <Card>
+                    <CardContent>
+                        <MarkupEditor
+                            place="inline"
+                            value={htmlContent}
+                            onChange={handleChange}
+                            placeholder="Start typing here..."
+                        />
+                    </CardContent>
+                </Card>
+            );
+        }}
+    </Story>
+</Canvas>

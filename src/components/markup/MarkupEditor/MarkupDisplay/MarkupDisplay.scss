@@ -1,0 +1,152 @@
+@import "../../../../styles/base";
+
+/* ===================================================================
+   MARKUP DISPLAY
+   =================================================================== */
+
+.base {
+    margin: -var(--spacing_large) 0;
+
+    .wrapper {
+        margin: var(--spacing_large) 0;
+    }
+
+    // Headings
+    h1 {
+        font-size: var(--fontSize_heading1);
+        margin: var(--spacing_large) 0 var(--spacing_medium);
+        font-weight: var(--fontWeight_bold);
+    }
+
+    h2 {
+        font-size: var(--fontSize_heading2);
+        margin: var(--spacing_large) 0 var(--spacing_medium);
+        font-weight: var(--fontWeight_bold);
+    }
+
+    h3 {
+        font-size: var(--fontSize_heading3);
+        margin: var(--spacing_large) 0 var(--spacing_medium);
+        font-weight: var(--fontWeight_bold);
+    }
+
+    h4 {
+        font-size: var(--fontSize_heading4);
+        margin: var(--spacing_large) 0 var(--spacing_medium);
+        font-weight: var(--fontWeight_bold);
+    }
+
+    // Removing margin between headers
+    @for $index from 1 through 4 {
+        h#{$index} {
+            & + h1,
+            & + h2,
+            & + h3,
+            & + h4 {
+                margin-top: -var(--spacing_medium);
+            }
+
+            * {
+                font-weight: var(--fontWeight_bold) !important;
+            }
+        }
+    }
+
+    // Paragraph
+    p, :global(.unstyled) {
+        margin: var(--spacing_medium) 0;
+    }
+
+    // Font style
+    b,
+    strong {
+        font-weight: var(--fontWeight_medium);
+    }
+
+    // Blockquote
+    blockquote {
+        margin: var(--spacing_large) 0;
+        font-size: 1.7em;
+        line-height: 1.4;
+        border-left: 4px solid rgba(var(--color_base), 1);
+        padding: 10px 40px 10px 16px;
+        font-style: italic;
+
+        > div {
+            // To show quote-symbol correctly in editor
+            display: inline;
+        }
+
+        // Quote symbol
+        &:after {
+            position: absolute;
+            display: inline-block;
+            content: " ";
+            background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='%23313131' viewBox='0 0 16 16'><path d='M9 9V2h7v7.1c0 4.8-4.5 5.4-4.5 5.4l-.6-1.4s2-.3 2.4-1.9c.4-1.2-.4-2.2-.4-2.2H9zM0 9V2h7v7.1c0 4.8-4.5 5.4-4.5 5.4l-.6-1.4s2-.3 2.4-1.9C4.7 10 3.9 9 3.9 9H0z'></path></svg>");
+            height: 36px;
+            width: 36px;
+            margin: 16px 0 0 15px;
+        }
+    }
+
+    // Link
+    a,
+    a:visited {
+        color: rgba(var(--color_primary), 1);
+        text-decoration: none;
+
+        &:hover {
+            color: rgba(var(--color_primary), 1);
+            text-decoration: underline;
+        }
+    }
+
+    // Ordered list
+    ol {
+        list-style: none;
+        margin: var(--spacing_large) 0;
+        padding: 0 65px;
+
+        li {
+            position: relative;
+            counter-increment: item;
+            margin-bottom: var(--spacing_medium);
+            padding-top: 4px;
+
+            &:before {
+                position: absolute;
+                left: -45px;
+                top: 0px;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                content: counter(item);
+                background: rgba(var(--color_base), 1);
+                color: rgba(var(--color_contrast), 1);
+                border-radius: 30px;
+                font-size: var(--fontSize_regular);
+                text-align: center;
+                display: inline-block;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    // Unordered list
+    ul {
+        padding: 0 40px;
+        margin: var(--spacing_large) 0;
+
+        li {
+            margin-bottom: var(--spacing_small);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+}

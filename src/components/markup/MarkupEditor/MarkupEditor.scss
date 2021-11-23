@@ -1,0 +1,56 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   MARKUP EDITOR
+   =================================================================== */
+
+$borderColorFirst: rgba(var(--color_base), 0.8);
+$borderColorSecond: rgba(var(--color_contrast), 1);
+
+.base {
+    position: relative;
+
+    &.hasFocus {
+        .editor {
+            background-image: linear-gradient(90deg, $borderColorFirst 50%, $borderColorSecond 50%),
+                linear-gradient(90deg, $borderColorFirst 50%, $borderColorSecond 50%),
+                linear-gradient(0deg, $borderColorFirst 50%, $borderColorSecond 50%),
+                linear-gradient(0deg, $borderColorFirst 50%, $borderColorSecond 50%);
+            background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+            background-size: 5px 1px, 5px 1px, 1px 5px, 1px 5px;
+            background-position: left top, right bottom, left bottom, right top;
+            animation: animateBorder 0.2s infinite linear;
+        }
+    }
+
+    // Editor placeholder
+    :global {
+        .public-DraftEditorPlaceholder-root {
+            position: absolute;
+            pointer-events: none;
+            background-color: rgba(var(--color_base), 1);
+            color: rgba(var(--color_contrast), 1);
+
+            &.public-DraftEditorPlaceholder-hasFocus {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+.blockAlignedRight {
+    text-align: right !important;
+}
+
+.blockAlignedCenter {
+    text-align: center !important;
+}
+
+@keyframes animateBorder {
+    0% {
+        background-position: left top, right bottom, left bottom, right top;
+    }
+    100% {
+        background-position: left 5px top, right 5px bottom, left bottom 5px, right top 5px;
+    }
+}

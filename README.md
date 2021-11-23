@@ -44,6 +44,10 @@ Pull requests are welcome.
 
 ## Changelog
 
+### [1.2.0] - 2021-11-23
+#### New
+- `<MarkupEditor>`: Added markup editor.
+
 ### [1.1.0] - 2021-11-09
 #### Changes
 - Added chunks of libs as "image_editor", "emojis" and "dates".

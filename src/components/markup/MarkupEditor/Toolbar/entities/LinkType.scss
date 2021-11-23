@@ -1,0 +1,23 @@
+@import "../../../../../styles/base";
+
+/* ===================================================================
+   LINK TYPE
+   =================================================================== */
+
+.base {
+    padding: 2px;
+
+    .input {
+        display: flex;
+
+        .field {
+            flex-grow: 1;
+            margin-right: var(--spacing_small);
+        }
+    }
+
+    .choice {
+        margin-top: 4px;
+    }
+
+}

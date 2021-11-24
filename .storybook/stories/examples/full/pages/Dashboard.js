@@ -99,7 +99,7 @@ export const Dashboard = () => {
 
     return (
         <Page loading={busyLoading}>
-            <PageHeader title="Example layout" />
+            <PageHeader icon="rocket" title="Example layout" subtitle="Jujubes UI" />
             <PageCrumbs>
                 <Crumb label="Start" link="/" />
                 <Crumb label="Company" link="/companies" />
@@ -116,7 +116,43 @@ export const Dashboard = () => {
                     Delete page
                 </Action>
             </PageActions>
-
+            <PageNav>
+                <NavButton
+                    active={activePageNav === 1}
+                    onClick={() => setActivePageNav(1)}
+                    icon="edit"
+                    label="Details"
+                />
+                <NavButton
+                    active={activePageNav === 2}
+                    onClick={() => setActivePageNav(2)}
+                    icon="devices"
+                    label="Devices"
+                    count={
+                        <Badge number fill color="accent">
+                            29
+                        </Badge>
+                    }
+                />
+                <NavButton
+                    active={activePageNav === 3}
+                    onClick={() => setActivePageNav(3) || showToast()}
+                    icon="palette"
+                    label="Theme"
+                />
+                <NavButton
+                    active={activePageNav === 4}
+                    onClick={() => setActivePageNav(4)}
+                    icon="bell"
+                    label="Notifications"
+                />
+                <NavButton
+                    active={activePageNav === 5}
+                    onClick={() => setActivePageNav(5)}
+                    icon="gear"
+                    label="Settings"
+                />
+            </PageNav>
             <Row>
                 <Col lg={18}>
                     <Row>

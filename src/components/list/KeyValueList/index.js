@@ -1,5 +1,5 @@
-import KeyValueList from "./KeyValueList";
-import Item from "./Item";
+import { KeyValueList } from "./KeyValueList";
+import { Item } from "./Item";
 
 KeyValueList.Item = Item;
 

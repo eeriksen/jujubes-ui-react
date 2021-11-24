@@ -4,24 +4,31 @@
    PAGE ACTIONS
    =================================================================== */
 
+$backgroundColor: var(--pageActionsButton_backgroundColor, var(--color_primary));
+$foregroundColor: var(--pageActionsButton_foregroundColor, var(--color_primaryContrast));
+$backgroundColorActive: var(--pageActionsButton_backgroundColorActive, var(--color_accent));
+$borderRadius: var(--pageActionsButton_borderRadius, 100%);
+$boxShadow: var(--pageActionsButton_boxShadow, 0 0.3rem 15px rgba(0, 0, 0, 0.2));
+
 .base {
     position: absolute;
-    top: var(--spacing_large);
+    top: calc(var(--spacing_medium) + 0.3rem);
     right: var(--spacing_edges);
 
     // Action button
     .button {
         width: var(--elementSize_big);
         height: var(--elementSize_big);
-        background: rgba(var(--color_primary), 1);
+        background: rgba($backgroundColor, 1);
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: var(--borderRadius_form);
-        box-shadow: var(--boxShadow_regular);
-        transition: transform .2s cubic-bezier(0.620, 0.055, 0.240, 1.305), background-color .2s ease-in-out, box-shadow .2s ease-in-out;
+        border-radius: $borderRadius;
+        box-shadow: $boxShadow;
+        transition: transform 0.2s cubic-bezier(0.62, 0.055, 0.24, 1.305), background-color 0.2s ease-in-out,
+            box-shadow 0.2s ease-in-out;
         user-select: none;
-        @include m-iconColor(rgba(var(--color_contrast), 1));
+        @include m-iconColor(rgba($foregroundColor, 1));
         @include m-iconSize($iconSize--large);
 
         &:hover {
@@ -29,7 +36,7 @@
         }
 
         &.active {
-            background-color: rgba(var(--color_accent), 1);
+            background-color: rgba($backgroundColorActive, 1);
             transform: scale(0.95);
             box-shadow: none;
         }
@@ -39,7 +46,7 @@
         padding: var(--spacing_small);
     }
 
-    @include for-tablet-down(){
+    @include for-tablet-down() {
         position: fixed;
         top: auto;
         bottom: var(--spacing_medium);
@@ -61,7 +68,7 @@
         }
     }
 
-    @include for-mobile-down(){
+    @include for-mobile-down() {
         .button {
             width: calc(var(--elementSize_big) - 10px);
             height: calc(var(--elementSize_big) - 10px);

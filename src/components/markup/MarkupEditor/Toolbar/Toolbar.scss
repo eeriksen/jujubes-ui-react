@@ -5,13 +5,15 @@
    =================================================================== */
 
 $buttonSize: var(--elementSize_regular);
-$buttonSizeMobile: var(--elementSize_small);
+$buttonSizeMobile: calc(var(--elementSize_regular) - 0.5rem);
+$backgroundColor: rgba(var(--color_backgroundContent), 0.7);
 
 .toolbar {
-    position: absolute;
+    position: fixed;
     display: none;
     pointer-events: none;
     z-index: $zIndex--markupEditorToolbar;
+    width: 430px;
 
     .wrapper {
         position: relative;
@@ -22,54 +24,33 @@ $buttonSizeMobile: var(--elementSize_small);
         // ARROW
         .arrow {
             position: absolute;
-            display: inline-block;
-            top: 100%;
+            width: 20px;
+            height: 20px;
+            bottom: 0;
             left: 50%;
-            height: 0;
-            width: 0;
             pointer-events: none;
-            border-width: 10px;
-            border-style: solid;
-            border-color: transparent transparent transparent;
-            margin-left: -10px;
-            transition: border-color 0.2s ease-in-out;
+            transform: translate(-50%, -50%) rotate(180deg);
+            z-index: 2;
 
-            .inner {
-                position: absolute;
-                left: 0;
-                top: -10px;
-                border-width: 10px;
-                border-style: solid;
-                border-color: rgba(var(--color_contrast), 1) transparent transparent;
-                margin-left: -10px;
-                transition: border-color 0.2s ease-in-out;
-                z-index: 2;
+            svg {
+                fill: rgba(var(--color_backgroundContent), 0.9);
             }
         }
 
         // CONTENT
         .content {
-            background-color: rgba(var(--color_contrast), 1);
+            background-color: $backgroundColor;
+            backdrop-filter: blur(2px);
             border-radius: var(--borderRadius_content);
             box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.3);
-            padding: 3px;
-            width: 430px;
+            padding: 5px;
+            z-index: 1;
         }
     }
 
     // VISIBLE
     &.visible {
         display: block;
-    }
-
-    @include for-mobile-down() {
-        .wrapper {
-            .content {
-                .groups {
-                    width: 90vw;
-                }
-            }
-        }
     }
 }
 
@@ -82,14 +63,14 @@ $buttonSizeMobile: var(--elementSize_small);
     align-items: center;
     justify-content: center;
     outline: none;
-    background: none;
+    background: rgba(var(--color_contrast), 1);
     height: $buttonSize;
     width: $buttonSize;
     font-family: var(--fontFamily_primary);
     font-size: var(--fontSize_regular);
     padding: 0;
     cursor: pointer;
-    border: 1px solid rgba(var(--color_base), 0.3);
+    border: 1px solid rgba(var(--color_base), 0.2);
     border-radius: var(--borderRadius_buttons);
     text-decoration: none;
     user-select: none;
@@ -109,7 +90,7 @@ $buttonSizeMobile: var(--elementSize_small);
     }
 
     &:hover {
-        background-color: rgba(var(--color_base), 0.03);
+        background: rgba(var(--color_contrast), 1);
         @include m-iconColor(rgba(var(--color_primary), 1));
 
         .label {
@@ -168,7 +149,7 @@ $buttonSizeMobile: var(--elementSize_small);
 
 .group {
     display: inline-flex;
-    margin: 2px;
+    padding: 2px;
     vertical-align: top;
     white-space: nowrap;
 
@@ -184,7 +165,21 @@ $buttonSizeMobile: var(--elementSize_small);
 
         &:last-child {
             border-radius: 0 var(--borderRadius_buttons) var(--borderRadius_buttons) 0;
-            border-right-color: rgba(var(--color_base), 0.3);
+            border-right-color: rgba(var(--color_base), 0.2);
+        }
+    }
+}
+
+// SIZE: Small
+.sizeSmall {
+    .item {
+        height: $buttonSizeMobile;
+        width: $buttonSizeMobile;
+
+        .icon {
+            svg {
+                width: 14px;
+            }
         }
     }
 }
@@ -193,7 +188,8 @@ $buttonSizeMobile: var(--elementSize_small);
 .placeInline {
     position: static;
     display: block;
-    margin-bottom: calc(var(--spacing_regular) * -1);
+    padding-bottom: var(--spacing_medium);
+    width: auto !important;
 
     .wrapper {
         left: 0;
@@ -205,7 +201,6 @@ $buttonSizeMobile: var(--elementSize_small);
         .content {
             background: transparent;
             box-shadow: none;
-            width: auto;
             padding: 0;
         }
     }

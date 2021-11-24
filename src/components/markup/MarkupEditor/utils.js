@@ -12,67 +12,80 @@ export function getSelectionCoords(editor, toolbar) {
         return null;
     }
 
-    const editorBounds = editor.getBoundingClientRect();
-    const win = editor.ownerDocument.defaultView || window;
-    const rangeBounds = getVisibleSelectionRect(win);
+    // TOOLBAR SIZE
+    // Fetch item groups
+    const itemGroups = toolbar.querySelectorAll(".toolbar_item_group");
+    let itemGroupWidths = [];
+    itemGroups.forEach((itemGroup) => {
+        itemGroupWidths.push(itemGroup.getBoundingClientRect().width);
+    });
+    itemGroupWidths.sort((a, b) => b - a);
+    const toolbarWidth = itemGroupWidths[0] + itemGroupWidths[1] + 10;
     const toolbarHeight = toolbar.offsetHeight;
-    const toolbarWidth = toolbar.offsetWidth;
-    const arrowSize = 20;
 
-    if (!rangeBounds || !toolbar) {
+    // TOOLBAR POSITION
+    const win = editor.ownerDocument.defaultView || window;
+    const selectionBounds = getVisibleSelectionRect(win);
+    const arrowSize = 20;
+    const edgeSpacing = 10;
+
+    if (!selectionBounds || !toolbar) {
         return null;
     }
 
-    const minOffsetLeft = 5;
-    const minOffsetRight = 5;
-    const minOffsetTop = 5;
+    // ###### FIXED POSITIOINGS
+    let offsetLeft = selectionBounds.left + selectionBounds.width / 2;
+    let offsetTop = selectionBounds.top - (toolbarHeight + arrowSize);
+    let arrowStyle = {
+        left: "50%"
+    };
 
-    const rangeWidth = rangeBounds.right - rangeBounds.left;
-    const arrowStyle = {};
+    // HORIZONTAL ALIGNMENT
+    // Find available space to the left of selection
+    const toolbarLeftSpace = offsetLeft - edgeSpacing;
+    const toolbarLeftOverflow = toolbarWidth / 2 - toolbarLeftSpace;
 
-    let offsetLeft = rangeBounds.left - editorBounds.left + rangeWidth / 2;
+    // Find available space to the right of selection
+    const toolbarRightSpace = win.innerWidth - offsetLeft - edgeSpacing;
+    const toolbarRightOverflow = toolbarWidth / 2 - toolbarRightSpace;
 
-    arrowStyle.left = "50%";
-
-    // If closing left edge of screen
-    if (offsetLeft - toolbarWidth / 2 + editorBounds.left < minOffsetLeft) {
-        arrowStyle.left =
-            rangeBounds.left + rangeBounds.width / 2 - arrowSize / 2;
-        offsetLeft = toolbarWidth / 2 - editorBounds.left + minOffsetLeft;
+    // Make sure toolbar is not disappearing outside screen
+    if (toolbarLeftOverflow > 0) {
+        offsetLeft = offsetLeft + toolbarLeftOverflow;
+        arrowStyle.left = `${toolbarWidth / 2 - toolbarLeftOverflow}px`;
+    } else if (toolbarRightOverflow > 0) {
+        offsetLeft = offsetLeft - toolbarRightOverflow;
+        arrowStyle.left = `${toolbarWidth / 2 + toolbarRightOverflow}px`;
     }
 
-    // If closing right edge of screen
-    if (
-        offsetLeft + toolbarWidth / 2 + editorBounds.left >
-        win.innerWidth - minOffsetRight
-    ) {
-        arrowStyle.left = "auto";
-        arrowStyle.right =
-            win.innerWidth -
-            rangeBounds.right +
-            rangeBounds.width / 2 -
-            minOffsetRight -
-            arrowSize / 2;
-        offsetLeft =
-            win.innerWidth -
-            editorBounds.left -
-            toolbarWidth / 2 -
-            minOffsetRight;
+    // VERTICAL ALIGNMENT
+    const toolbarTopSpace = selectionBounds.top;
+    const toolbarTopOverflow = toolbarHeight + arrowSize + edgeSpacing - toolbarTopSpace;
+    if (toolbarTopOverflow > 0) {
+        offsetTop = selectionBounds.bottom + arrowSize;
+        arrowStyle = {
+            ...arrowStyle,
+            bottom: "auto",
+            transform: "translate(-50%, -50%) rotate(0)"
+        };
     }
 
-    let offsetTop =
-        rangeBounds.top - editorBounds.top - (toolbarHeight + arrowSize);
+    // VISIBILITY
+    const hidden =
+        selectionBounds.left < 0 ||
+        selectionBounds.right < 0 ||
+        selectionBounds.top < 0 ||
+        selectionBounds.bottom < 0;
 
-    arrowStyle.top = "100%";
-    if (offsetTop - minOffsetTop - toolbarHeight + editorBounds.top < 0) {
-        if (rangeBounds.bottom && !Number.isNaN(rangeBounds.bottom)) {
-            offsetTop = rangeBounds.bottom - editorBounds.top + arrowSize;
-            arrowStyle.top = `-${arrowSize}px`;
-            arrowStyle.transform = "rotate(180deg)";
-        }
-    }
-
-    return { offsetLeft, offsetTop, arrowStyle };
+    return {
+        toolbarStyle: {
+            left: offsetLeft,
+            top: offsetTop,
+            width: toolbarWidth,
+            ...(hidden && { opacity: 0 })
+        },
+        arrowStyle
+    };
 }
 
 /**
@@ -153,7 +166,7 @@ export function getSelectedBlocksMetadata(editorState) {
                         deleteKey = key;
                     }
                 });
-                if(deleteKey){
+                if (deleteKey) {
                     metaData = metaData.delete(deleteKey);
                 }
                 if (metaData.size === 0) {
@@ -191,10 +204,7 @@ export function createTypeStrategy(type) {
     return (contentBlock, callback, contentState) => {
         contentBlock.findEntityRanges((character) => {
             const entityKey = character.getEntity();
-            return (
-                entityKey !== null &&
-                contentState.getEntity(entityKey).getType() === type
-            );
+            return entityKey !== null && contentState.getEntity(entityKey).getType() === type;
         }, callback);
     };
 }
@@ -205,3 +215,15 @@ export function replaceOldBoldTag(html) {
         .replace(new RegExp("<b ", "g"), "<strong ")
         .replace(new RegExp("</b>", "g"), "</strong>");
 }
+
+export const findParentWithCSS = (element, property, value) => {
+    while (element !== null) {
+        const style = window.getComputedStyle(element);
+        const propValue = style.getPropertyValue(property);
+        if (propValue === value) {
+            return element;
+        }
+        element = element.parentElement;
+    }
+    return null;
+};

@@ -19,13 +19,18 @@ import { Button } from "../../../../../src/components/button/Button";
 import { Badge } from "../../../../../src/components/notify/Badge";
 import { Row } from "../../../../../src/components/grid/Row";
 import { Col } from "../../../../../src/components/grid/Col";
-import { Popup, PopupTitle, PopupContent, PopupFooter } from "../../../../../src/components/notify/Popup";
+import {
+    Popup,
+    PopupTitle,
+    PopupContent,
+    PopupFooter
+} from "../../../../../src/components/notify/Popup";
 import { DataTable, Column, Cell } from "../../../../../src/components/table/DataTable";
 import { Select, Option } from "../../../../../src/components/form/Select";
 import { Toast } from "../../../../../src/components/notify/Toast";
 import { Toolbar } from "../../../../../src/components/navigation/Toolbar";
 import { Menu, MenuItem } from "../../../../../src/components/navigation/Menu";
-
+import { MarkupEditor } from "../../../../../src/components/markup/MarkupEditor";
 import * as themes from "../../../../../src/styles/themes";
 
 export const Dashboard = () => {
@@ -34,6 +39,9 @@ export const Dashboard = () => {
     const [data, setData] = useState({});
     const [busyLoading, setBusyLoading] = useState(true);
     const [activePageNav, setActivePageNav] = useState(1);
+    const [htmlContent, setHtmlContent] = useState(
+        "asjdh aksjdh aksjd aksjhdkajsh kajsh dkajh sdkjah skdjh aksjd hkajs dkja hsdkja skdj hakjsd hkajs hdkja sdkj haksjd kajs dkajs hdkjasd kjahsd"
+    );
     const [tableRows] = useState([
         {
             id: 1,
@@ -91,7 +99,7 @@ export const Dashboard = () => {
 
     return (
         <Page loading={busyLoading}>
-            <PageHeader icon="rocket" title="Example layout" subtitle="Jujubes UI" />
+            <PageHeader title="Example layout" />
             <PageCrumbs>
                 <Crumb label="Start" link="/" />
                 <Crumb label="Company" link="/companies" />
@@ -108,43 +116,7 @@ export const Dashboard = () => {
                     Delete page
                 </Action>
             </PageActions>
-            <PageNav>
-                <NavButton
-                    active={activePageNav === 1}
-                    onClick={() => setActivePageNav(1)}
-                    icon="edit"
-                    label="Details"
-                />
-                <NavButton
-                    active={activePageNav === 2}
-                    onClick={() => setActivePageNav(2)}
-                    icon="devices"
-                    label="Devices"
-                    count={
-                        <Badge number fill color="accent">
-                            29
-                        </Badge>
-                    }
-                />
-                <NavButton
-                    active={activePageNav === 3}
-                    onClick={() => setActivePageNav(3) || showToast()}
-                    icon="palette"
-                    label="Theme"
-                />
-                <NavButton
-                    active={activePageNav === 4}
-                    onClick={() => setActivePageNav(4)}
-                    icon="bell"
-                    label="Notifications"
-                />
-                <NavButton
-                    active={activePageNav === 5}
-                    onClick={() => setActivePageNav(5)}
-                    icon="gear"
-                    label="Settings"
-                />
-            </PageNav>
+
             <Row>
                 <Col lg={18}>
                     <Row>
@@ -169,6 +141,18 @@ export const Dashboard = () => {
                                     reasonable. The generated Lorem Ipsum is therefore always free
                                     from repetition, injected humour, or non-characteristic words
                                     etc.
+                                </CardContent>
+                            </Card>
+                        </Col>
+                        <Col span={24}>
+                            <Card>
+                                <CardTitle title="Markup editor" />
+                                <CardContent>
+                                    <MarkupEditor
+                                        value={htmlContent}
+                                        onChange={setHtmlContent}
+                                        placeholder="Start typing here..."
+                                    />
                                 </CardContent>
                             </Card>
                         </Col>
@@ -263,12 +247,14 @@ export const Dashboard = () => {
                                     actions={[
                                         {
                                             icon: "more",
-                                            content: ({onClose}) => (
+                                            content: ({ onClose }) => (
                                                 <Menu>
                                                     <MenuItem
                                                         icon="plus"
                                                         label="Create something"
-                                                        onClick={() => console.log("CREATE") | onClose()}
+                                                        onClick={() =>
+                                                            console.log("CREATE") | onClose()
+                                                        }
                                                     />
                                                     <MenuItem icon="edit" label="Edit something" />
                                                     <MenuItem
@@ -432,6 +418,13 @@ export const Dashboard = () => {
                 <PopupContent>
                     <Form>
                         <Row>
+                            <Col span={24}>
+                                <MarkupEditor
+                                    value={htmlContent}
+                                    onChange={setHtmlContent}
+                                    placeholder="Start typing here..."
+                                />
+                            </Col>
                             <Col span={24}>
                                 <FormItem label="Title">
                                     <Input />

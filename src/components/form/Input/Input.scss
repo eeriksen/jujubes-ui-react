@@ -173,17 +173,6 @@
         }
     }
 
-    /* COUNTER
-    --------------------------------------- */
-    .counter {
-        position: absolute;
-        right: -var(--spacing_medium);
-        top: 50%;
-        transform: translateY(-50%);
-        color: rgba(var(--color_base), 0.4);
-        font-size: var(--fontSize_small);
-    }
-
     // SIZE: Small
     &.sizeSmall {
         .input {

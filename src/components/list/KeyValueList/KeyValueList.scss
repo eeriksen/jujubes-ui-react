@@ -1,0 +1,65 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   KEY VALUE LIST
+   =================================================================== */
+
+.base {
+    border-spacing: 0;
+    border-collapse: separate;
+    width: 100%;
+
+    // VERTICAL
+    .row {
+        .key {
+            @include m-truncate();
+            padding: var(--spacing_regular) var(--spacing_large) var(--spacing_regular) var(--spacing_regular);
+            color: rgba(var(--color_base), 0.6);
+            border-bottom: 1px solid rgba(var(--color_base), 0.05);
+        }
+
+        .value {
+            width: 99%;
+            padding: var(--spacing_regular);
+            border-bottom: 1px solid rgba(var(--color_base), 0.05);
+        }
+
+        &:last-child {
+            .key {
+                border-bottom: none;
+            }
+
+            .value {
+                border-bottom: none;
+            }
+        }
+    }
+
+    // HORIZONTAL
+    &.horizontal {
+        thead {
+            th {
+                padding: var(--spacing_small) var(--spacing_regular);
+                text-align: center;
+                border-right: 1px solid rgba(var(--color_base), 0.2);
+                font-weight: var(--fontWeight_medium);
+
+                &:last-child {
+                    border-right: 0;
+                }
+            }
+        }
+
+        tbody {
+            td {
+                padding: var(--spacing_small) var(--spacing_regular);
+                text-align: center;
+                border-right: 1px solid rgba(var(--color_base), 0.2);
+
+                &:last-child {
+                    border-right: 0;
+                }
+            }
+        }
+    }
+}

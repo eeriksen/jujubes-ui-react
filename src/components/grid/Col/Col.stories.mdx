@@ -2,6 +2,7 @@ import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
 import { Row } from "../Row";
 import { Col } from "./Col";
 import { Button } from "../../button";
+import { Text } from "../../typography/Text";
 
 <Meta title="Components/Grid/Column" component={Col} />
 
@@ -135,14 +136,8 @@ of content blocks that can break into separate rows on three different breakpoin
         <div>
             <Row>
                 <Col xs={{ span: 12, offset: 6 }} />
-            </Row>
-            <Row>
                 <Col sm={{ span: 12, offset: 6 }} />
-            </Row>
-            <Row>
                 <Col md={{ span: 12, offset: 6 }} />
-            </Row>
-            <Row>
                 <Col lg={{ span: 12, offset: 6 }} />
             </Row>
         </div>

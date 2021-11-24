@@ -46,7 +46,8 @@ export const MarkupEditor = ({
     display,
     actions,
     excludeActions,
-    place
+    place,
+    size
 }) => {
     const containerRef = useRef();
     const editorRef = useRef();
@@ -214,6 +215,7 @@ export const MarkupEditor = ({
         >
             {/* Toolbar */}
             <Toolbar
+                size={size}
                 place={place}
                 actions={actions}
                 excludeActions={excludeActions}

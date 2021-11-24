@@ -7,7 +7,6 @@ import { Clickable } from "../../button/Clickable";
 
 export const Input = (props) => {
     const {
-        value,
         onPrependClick,
         onAppendClick,
         size,
@@ -16,7 +15,6 @@ export const Input = (props) => {
         prepend,
         append,
         className,
-        counter,
         disabled,
         onFocus,
         onBlur
@@ -47,7 +45,6 @@ export const Input = (props) => {
                 onBlur={(e) => setHasFocus(false) | onBlur && onBlur(e)}
             />
             <AppendPart append={append} onAppendClick={onAppendClick} />
-            <CounterPart counter={counter} value={value} />
         </div>
     );
 };
@@ -169,13 +166,6 @@ const AppendPart = ({ append, onAppendClick }) => {
     ) : null;
 };
 
-/**
- * PART:
- * Counter
- */
-const CounterPart = ({ counter, value }) => {
-    return counter ? <div className={styles.counter}>{value ? value.length : 0}</div> : null;
-};
 
 Input.defaultProps = {
     type: "text",
@@ -227,11 +217,6 @@ Input.propTypes = {
      * Render input error indication
      */
     error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-
-    /**
-     * Show character counter
-     */
-    counter: PropTypes.bool,
 
     /**
      * Show a prepended icon

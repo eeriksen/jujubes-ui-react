@@ -60,7 +60,6 @@ $grid-columns: 24;
 @mixin loop-grid-columns($index, $class) {
     @if ($index > 0) {
         .col#{$class}_#{$index} {
-            display: block;
             width: percentage(($index / $grid-columns));
         }
 

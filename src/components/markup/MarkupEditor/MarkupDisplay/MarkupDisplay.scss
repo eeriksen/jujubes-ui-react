@@ -5,7 +5,7 @@
    =================================================================== */
 
 .base {
-    margin: -var(--spacing_large) 0;
+    margin: calc(var(--spacing_large) * -1) 0;
 
     .wrapper {
         margin: var(--spacing_large) 0;
@@ -43,7 +43,7 @@
             & + h2,
             & + h3,
             & + h4 {
-                margin-top: -var(--spacing_medium);
+                margin-top: calc(var(--spacing_medium) * -1);
             }
 
             * {
@@ -93,7 +93,7 @@
     a,
     a:visited {
         color: rgba(var(--color_primary), 1);
-        text-decoration: none;
+        text-decoration: underline;
 
         &:hover {
             color: rgba(var(--color_primary), 1);

@@ -3,6 +3,7 @@ import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
 import { MarkupEditor } from "./MarkupEditor";
 import { Card, CardContent } from "../../card";
 import { ComponentWrapper } from "../../layout/ComponentWrapper";
+import { Popup, PopupContent } from "../../notify/Popup";
 
 <Meta title="Components/Markup/MarkupEditor" />
 
@@ -25,6 +26,31 @@ Inline WYSIWYG editor.
                 <Card>
                     <CardContent>
                         <MarkupEditor
+                            value={htmlContent}
+                            onChange={handleChange}
+                            placeholder="Start typing here..."
+                        />
+                    </CardContent>
+                </Card>
+            );
+        }}
+    </Story>
+</Canvas>
+
+# Size
+
+<Canvas>
+    <Story name="size">
+        {() => {
+            const [htmlContent, setHtmlContent] = useState(null);
+            const handleChange = (val) => {
+                setHtmlContent(val);
+            };
+            return (
+                <Card>
+                    <CardContent>
+                        <MarkupEditor
+                            size="small"
                             value={htmlContent}
                             onChange={handleChange}
                             placeholder="Start typing here..."

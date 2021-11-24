@@ -6,6 +6,7 @@
 
 $popup--width-normal: 450px;
 $popup--width-medium: 600px;
+$closeColor: var(--popup_closeColor, var(--color_primaryContrast));
 
 .base {
     position: fixed;
@@ -105,14 +106,14 @@ $popup--width-medium: 600px;
     justify-content: center;
 
     .icon {
-        @include m-iconColor(rgba(var(--color_base), 0.5), true);
+        @include m-iconColor(rgba($closeColor, 0.7), true);
     }
 
     &:hover, &:active {
         transition: background-color 0.2s linear;
 
         .icon {
-            @include m-iconColor(rgba(var(--color_primary), 1));
+            @include m-iconColor(rgba($closeColor, 1));
         }
     }
 }

@@ -1,0 +1,39 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { KeyValueList } from "./KeyValueList";
+import { Item } from "./Item";
+
+<Meta title="Components/Lists/KeyValueList" component={KeyValueList} />
+
+# KeyValueList
+
+Use the `<KeyValueList />` when you want to display a simple list of labels and fairly short values.
+Example of a use case can be listing author name and created date at the bottom of a document.
+
+<ArgsTable of={KeyValueList} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        <KeyValueList>
+            <Item label="First label">First value</Item>
+            <Item label="Second label">Second value</Item>
+            <Item label="Third label">Third value</Item>
+            <Item label="Fourth label">Fourth value</Item>
+        </KeyValueList>
+    </Story>
+</Canvas>
+
+### Horizontal
+
+<Canvas>
+    <Story name="horizontal">
+        <KeyValueList horizontal>
+            <Item label="First label">First value</Item>
+            <Item label="Second label">Second value</Item>
+            <Item label="Third label">Third value</Item>
+            <Item label="Fourth label">Fourth value</Item>
+        </KeyValueList>
+    </Story>
+</Canvas>

@@ -14,7 +14,7 @@ export const PopupYesNo = ({ title, children, onYes, onNo, visible, onClose, lan
             </PopupContent>
             <PopupFooter>
                 <ButtonRow>
-                    <Button icon="check" color="success" onClick={onYes}>
+                    <Button icon="check" iconColor="success" onClick={onYes}>
                         {lang.yes}
                     </Button>
                     <Button icon="close" iconColor="error" onClick={onNo}>

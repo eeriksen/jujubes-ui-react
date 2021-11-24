@@ -10,6 +10,8 @@ import { BlockStyleAction } from "./actions/BlockStyleAction";
 import { InlineStyleAction } from "./actions/InlineStyleAction";
 import { EntityAction } from "./actions/EntityAction";
 import { LinkType } from "./entities/LinkType";
+import { Arrow } from "../../../graphic";
+import { findParentWithCSS } from "../utils";
 
 export const Toolbar = ({
     editorHasFocus,
@@ -18,12 +20,13 @@ export const Toolbar = ({
     onChange,
     actions,
     excludeActions,
-    place
+    place,
+    size
 }) => {
     let updatePositionTimeout;
     const toolbarRef = useRef();
     const [visible, setVisible] = useState(false);
-    const [position, setPosition] = useState({
+    const [toolbarStyle, setToolbarStyle] = useState({
         top: 0,
         left: 0
     });
@@ -96,10 +99,25 @@ export const Toolbar = ({
     };
 
     useEffect(() => {
+        if (place !== "inline") {
+            const scrollParent =
+                findParentWithCSS(containerRef.current, "overflow-y", "auto") || document;
+            scrollParent.addEventListener("scroll", handleScroll);
+            return () => {
+                scrollParent.removeEventListener("scroll", handleScroll);
+            };
+        }
+    }, [place]);
+
+    const handleScroll = () => {
+        handleUpdateToolbarPosition();
+    };
+
+    useEffect(() => {
         const shouldDisplayToolbar =
             (editorHasFocus || editingEntity) && !editorState.getSelection().isCollapsed();
         setVisible(shouldDisplayToolbar);
-        if (shouldDisplayToolbar) {
+        if (shouldDisplayToolbar && place !== "inline") {
             handleUpdateToolbarPosition();
         } else {
             setEditingEntity(null);
@@ -114,19 +132,13 @@ export const Toolbar = ({
         clearTimeout(updatePositionTimeout);
         updatePositionTimeout = setTimeout(() => {
             // Get coordinates
-            const selectionCoordinates = getSelectionCoords(
+            const { toolbarStyle, arrowStyle } = getSelectionCoords(
                 containerRef.current,
                 toolbarRef.current
-            );
-            if (!selectionCoordinates) {
-                return null;
-            }
+            ) || {};
 
-            setPosition({
-                top: selectionCoordinates.offsetTop,
-                left: selectionCoordinates.offsetLeft
-            });
-            setArrowStyle(selectionCoordinates.arrowStyle);
+            setToolbarStyle(toolbarStyle);
+            setArrowStyle(arrowStyle);
         }, 0);
     };
 
@@ -135,9 +147,10 @@ export const Toolbar = ({
             ref={toolbarRef}
             className={classNames(styles.toolbar, {
                 [styles.visible]: visible,
-                [styles.placeInline]: place === "inline"
+                [styles.placeInline]: place === "inline",
+                [styles.sizeSmall]: size === "small"
             })}
-            style={position}
+            style={toolbarStyle}
             onMouseDown={(e) => {
                 const tagName = e.target.tagName.toUpperCase();
                 if (tagName !== "INPUT") {
@@ -147,9 +160,7 @@ export const Toolbar = ({
         >
             <div className={styles.wrapper}>
                 {/* Arrow */}
-                <div className={styles.arrow} style={arrowStyle}>
-                    <div className={styles.inner} />
-                </div>
+                <Arrow className={styles.arrow} style={arrowStyle} />
 
                 {/* Content */}
                 <div className={styles.content}>

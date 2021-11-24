@@ -17,7 +17,7 @@ $blur: var(--overlay_blur, 2px);
     transition: opacity .2s linear;
     pointer-events: none;
 
-    backdrop-filter: blur($blur);
+    // backdrop-filter: blur($blur);
     background: $background;
 
     &.visible {

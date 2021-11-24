@@ -4,6 +4,7 @@ import { Form } from "../Form";
 import { FormItem } from "../FormItem";
 import { Input } from "./Input";
 import { Text } from "../../typography/Text";
+import { Row, Col } from "../../grid";
 
 <Meta title="Components/Forms/Input" component={Input} />
 
@@ -38,25 +39,37 @@ The `<Input />` component is a very flexible text input component.
             const [value, setValue] = useState(null);
             return (
                 <Form>
-                    <FormItem>
-                        <Input
-                            size="small"
-                            value={value}
-                            onChange={setValue}
-                            placeholder="Small input"
-                        />
-                    </FormItem>
-                    <FormItem>
-                        <Input value={value} onChange={setValue} placeholder="Regular input" />
-                    </FormItem>
-                    <FormItem>
-                        <Input
-                            size="big"
-                            value={value}
-                            onChange={setValue}
-                            placeholder="Big input"
-                        />
-                    </FormItem>
+                    <Row>
+                        <Col span={24}>
+                            <FormItem>
+                                <Input
+                                    size="small"
+                                    value={value}
+                                    onChange={setValue}
+                                    placeholder="Small input"
+                                />
+                            </FormItem>
+                        </Col>
+                        <Col span={24}>
+                            <FormItem>
+                                <Input
+                                    value={value}
+                                    onChange={setValue}
+                                    placeholder="Regular input"
+                                />
+                            </FormItem>
+                        </Col>
+                        <Col span={24}>
+                            <FormItem>
+                                <Input
+                                    size="big"
+                                    value={value}
+                                    onChange={setValue}
+                                    placeholder="Big input"
+                                />
+                            </FormItem>
+                        </Col>
+                    </Row>
                 </Form>
             );
         }}
@@ -71,32 +84,40 @@ The `<Input />` component is a very flexible text input component.
             const [value, setValue] = useState(null);
             return (
                 <Form>
-                    <FormItem>
-                        <Input
-                            size="small"
-                            icon="link"
-                            value={value}
-                            onChange={setValue}
-                            placeholder="Small input with icon"
-                        />
-                    </FormItem>
-                    <FormItem>
-                        <Input
-                            icon="link"
-                            value={value}
-                            onChange={setValue}
-                            placeholder="Regular input with icon"
-                        />
-                    </FormItem>
-                    <FormItem>
-                        <Input
-                            size="big"
-                            icon="link"
-                            value={value}
-                            onChange={setValue}
-                            placeholder="Big input with icon"
-                        />
-                    </FormItem>
+                    <Row>
+                        <Col span={24}>
+                            <FormItem>
+                                <Input
+                                    size="small"
+                                    icon="link"
+                                    value={value}
+                                    onChange={setValue}
+                                    placeholder="Small input with icon"
+                                />
+                            </FormItem>
+                        </Col>
+                        <Col span={24}>
+                            <FormItem>
+                                <Input
+                                    icon="link"
+                                    value={value}
+                                    onChange={setValue}
+                                    placeholder="Regular input with icon"
+                                />
+                            </FormItem>
+                        </Col>
+                        <Col span={24}>
+                            <FormItem>
+                                <Input
+                                    size="big"
+                                    icon="link"
+                                    value={value}
+                                    onChange={setValue}
+                                    placeholder="Big input with icon"
+                                />
+                            </FormItem>
+                        </Col>
+                    </Row>
                 </Form>
             );
         }}

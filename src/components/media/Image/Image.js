@@ -5,6 +5,7 @@ import styles from "./Image.scss";
 import { useDropzone } from "react-dropzone";
 import { Icon } from "../../graphic/Icon";
 import { ProgressCircle } from "../../loader/ProgressCircle";
+import { iconList } from "../../graphic/Icon";
 
 export const Image = ({
     src,
@@ -13,6 +14,7 @@ export const Image = ({
     scale,
     mod,
     placeholder,
+    placeholderIcon,
     onClick,
     onFileSelect,
     alt,
@@ -51,7 +53,7 @@ export const Image = ({
 
                 // Mods
                 [styles.modRounded]: mod && mod.indexOf("rounded") >= 0,
-                [styles.modOval]: mod && (mod.indexOf("oval") >= 0 || mod.indexOf("circle") >= 0),
+                [styles.modOval]: mod && (mod.indexOf("oval") >= 0 || mod.indexOf("circle") >= 0),
                 [styles.modGray]: mod && mod.indexOf("gray") >= 0,
                 [styles.modShine]: mod && mod.indexOf("shine") >= 0,
 
@@ -84,7 +86,9 @@ export const Image = ({
                 {/* Image / Placeholder */}
                 {src ? (
                     <div className={styles.image}>
-                        <div className={styles.shine}></div>
+                        {mod && mod.indexOf("shine") >= 0 ? (
+                            <div className={styles.shine}></div>
+                        ) : null}
                         <img alt={alt} src={src} />
                     </div>
                 ) : percent == null ? (
@@ -93,7 +97,7 @@ export const Image = ({
                             [styles.default]: !placeholder
                         })}
                     >
-                        {placeholder || <Icon name="image" />}
+                        {placeholder || <Icon name={placeholderIcon} />}
                     </div>
                 ) : null}
             </div>
@@ -109,7 +113,8 @@ export const Image = ({
 };
 
 Image.defaultProps = {
-    percent: null
+    percent: null,
+    placeholderIcon: "image"
 };
 
 Image.propTypes = {
@@ -137,6 +142,10 @@ Image.propTypes = {
      * Placeholder if no image
      */
     placeholder: PropTypes.any,
+    /**
+     * Placeholder if no image
+     */
+    placeholderIcon: PropTypes.oneOf(iconList),
     /**
      * Click handler
      */

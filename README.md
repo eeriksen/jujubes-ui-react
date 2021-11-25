@@ -44,6 +44,12 @@ Pull requests are welcome.
 
 ## Changelog
 
+### [1.2.1] - 2021-11-24
+#### Changes
+- `<MarkupEditor>`: Fixed position. More agile.
+- `<PopupTitle>`: Changed colors.
+- `<Col>`: `align` also works with `span`.
+
 ### [1.2.0] - 2021-11-23
 #### New
 - `<MarkupEditor>`: Added markup editor.

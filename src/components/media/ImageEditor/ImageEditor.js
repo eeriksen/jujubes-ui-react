@@ -356,15 +356,13 @@ export const ImageEditor = ({
                 </div>
 
                 {/* SECONDARY TOOLS */}
-                {activeMode ? (
+                {activeMode === CROP_MODE ? (
                     <div className={styles.secondaryTools}>
-                        {activeMode === CROP_MODE ? (
-                            <CropTools
-                                onApply={applyCrop}
-                                onCancel={cancelMode}
-                                setCropZone={setCropZone}
-                            />
-                        ) : null}
+                        <CropTools
+                            onApply={applyCrop}
+                            onCancel={cancelMode}
+                            setCropZone={setCropZone}
+                        />
                     </div>
                 ) : null}
 

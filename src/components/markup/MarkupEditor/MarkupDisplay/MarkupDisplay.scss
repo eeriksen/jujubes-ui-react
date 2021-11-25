@@ -4,6 +4,8 @@
    MARKUP DISPLAY
    =================================================================== */
 
+$quoteSymbolColor: var(--markupDisplay_quoteSymbolColor, var(--color_base));
+
 .base {
     margin: calc(var(--spacing_large) * -1) 0;
 
@@ -68,7 +70,7 @@
         margin: var(--spacing_large) 0;
         font-size: 1.7em;
         line-height: 1.4;
-        border-left: 4px solid rgba(var(--color_base), 1);
+        border-left: 1px solid rgba(var(--color_base), 1);
         padding: 10px 40px 10px 16px;
         font-style: italic;
 
@@ -82,10 +84,11 @@
             position: absolute;
             display: inline-block;
             content: " ";
-            background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='%23313131' viewBox='0 0 16 16'><path d='M9 9V2h7v7.1c0 4.8-4.5 5.4-4.5 5.4l-.6-1.4s2-.3 2.4-1.9c.4-1.2-.4-2.2-.4-2.2H9zM0 9V2h7v7.1c0 4.8-4.5 5.4-4.5 5.4l-.6-1.4s2-.3 2.4-1.9C4.7 10 3.9 9 3.9 9H0z'></path></svg>");
+            mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M9 9V2h7v7.1c0 4.8-4.5 5.4-4.5 5.4l-.6-1.4s2-.3 2.4-1.9c.4-1.2-.4-2.2-.4-2.2H9zM0 9V2h7v7.1c0 4.8-4.5 5.4-4.5 5.4l-.6-1.4s2-.3 2.4-1.9C4.7 10 3.9 9 3.9 9H0z'></path></svg>");
             height: 36px;
             width: 36px;
             margin: 16px 0 0 15px;
+            background-color: rgba($quoteSymbolColor, 1);
         }
     }
 

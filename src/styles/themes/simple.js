@@ -117,6 +117,9 @@ export default {
         "navMenuItem": {
             "backgroundActive": "var(--color_contrast)"
         },
+        "card": {
+            "highlightBorder": "none"
+        },
         "cardTitle": {
             "borderBottom": "1px dotted rgba(var(--color_base), 0.1)",
             "actionBorder": "none"

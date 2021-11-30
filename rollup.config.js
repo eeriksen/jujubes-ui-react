@@ -74,7 +74,8 @@ export default {
         }),
         jsonPlugin(),
         babelPlugin({
-            babelHelpers: "bundled"
+            babelHelpers: "bundled",
+            exclude: 'node_modules/**'
         }),
         commonjsPlugin(),
         terserPlugin(),

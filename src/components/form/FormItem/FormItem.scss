@@ -4,17 +4,19 @@
    FORM ITEM
    =================================================================== */
 
+$marginBottom: var(--formItem_marginBottom, var(--spacing_small));
 
 .base {
-
     // LABEL
     .label {
+        position: relative;
+
         label {
             display: block;
             font-size: var(--fontSize_regular);
             font-weight: var(--fontWeight_medium);
             color: rgba(var(--color_base), 1);
-            margin-bottom: var(--spacing_small);
+            margin-bottom: $marginBottom;
             @include m-truncate();
 
             .colon {
@@ -26,6 +28,22 @@
     // FIELD
     .field {
         display: block;
+    }
+
+    .info {
+        position: absolute;
+        top: 2px;
+        right: 0;
+
+        .icon {
+            @include m-iconColor(rgba(var(--color_base), 0.2));
+        }
+
+        &.visible {
+            .icon {
+                @include m-iconColor(rgba(var(--color_primary), 1));
+            }
+        }
     }
 
     .infoText {
@@ -44,5 +62,4 @@
             color: rgba(var(--color_error), 1);
         }
     }
-
 }

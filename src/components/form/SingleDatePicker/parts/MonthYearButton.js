@@ -6,9 +6,15 @@ import { Form } from "../../Form";
 import { FormItem } from "../../FormItem";
 import { Select, Option } from "../../Select";
 import { PopOver } from "../../../navigation/PopOver";
+import { Row, Col } from "../../../grid";
 
-
-export const MonthYearButton = ({ visibleDate, onMonthSelect, onYearSelect, editValue }) => {
+export const MonthYearButton = ({
+    containerRef,
+    visibleDate,
+    onMonthSelect,
+    onYearSelect,
+    editValue
+}) => {
     const [visible, setVisible] = useState(false);
     const [dateValue, setDateValue] = useState(null);
     const [yearList, setYearList] = useState([]);
@@ -26,28 +32,41 @@ export const MonthYearButton = ({ visibleDate, onMonthSelect, onYearSelect, edit
     return dateValue ? (
         <PopOver
             visible={visible}
+            container={containerRef.current}
             onClose={() => setVisible(false)}
             padding={true}
             content={
                 <Form>
-                    <FormItem label="Month">
-                        <Select value={visibleDate.month()} onChange={(val) => onMonthSelect(visibleDate, val)}>
-                            {moment.months().map((month, index) => (
-                                <Option key={index} value={index}>
-                                    {month}
-                                </Option>
-                            ))}
-                        </Select>
-                    </FormItem>
-                    <FormItem label="Year">
-                        <Select value={visibleDate.year()} onChange={(val) => onYearSelect(visibleDate, val)}>
-                            {yearList.map((year) => (
-                                <Option key={year} value={year}>
-                                    {year}
-                                </Option>
-                            ))}
-                        </Select>
-                    </FormItem>
+                    <Row>
+                        <Col span={24}>
+                            <FormItem label="Month">
+                                <Select
+                                    value={visibleDate.month()}
+                                    onChange={(val) => onMonthSelect(visibleDate, val)}
+                                >
+                                    {moment.months().map((month, index) => (
+                                        <Option key={index} value={index}>
+                                            {month}
+                                        </Option>
+                                    ))}
+                                </Select>
+                            </FormItem>
+                        </Col>
+                        <Col span={24}>
+                            <FormItem label="Year">
+                                <Select
+                                    value={visibleDate.year()}
+                                    onChange={(val) => onYearSelect(visibleDate, val)}
+                                >
+                                    {yearList.map((year) => (
+                                        <Option key={year} value={year}>
+                                            {year}
+                                        </Option>
+                                    ))}
+                                </Select>
+                            </FormItem>
+                        </Col>
+                    </Row>
                 </Form>
             }
         >

@@ -41,24 +41,24 @@ export const ScrollableArea = ({
                 handlers
             }}
             ref={areaRef}
-            containerRef={(ref) => {
-                // Fix for wrong dimensions
-                if (ref) {
-                    ref._getBoundingClientRect = ref.getBoundingClientRect;
-                    ref.getBoundingClientRect = () => {
-                        const original = ref._getBoundingClientRect();
-                        return {
-                            ...original,
-                            width: Math.floor(original.width),
-                            height: Math.floor(original.height)
-                        };
-                    };
-                }
+            // containerRef={(ref) => {
+            //     // Fix for wrong dimensions
+            //     if (ref) {
+            //         ref._getBoundingClientRect = ref.getBoundingClientRect;
+            //         ref.getBoundingClientRect = () => {
+            //             const original = ref._getBoundingClientRect();
+            //             return {
+            //                 ...original,
+            //                 width: Math.floor(original.width),
+            //                 height: Math.floor(original.height)
+            //             };
+            //         };
+            //     }
 
-                if (containerRef) {
-                    containerRef.current = ref;
-                }
-            }}
+            //     if (containerRef) {
+            //         containerRef.current = ref;
+            //     }
+            // }}
             onScrollX={onScrollX}
             onScrollY={onScrollY}
         >

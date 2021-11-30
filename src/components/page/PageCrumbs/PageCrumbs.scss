@@ -9,6 +9,7 @@ $backgroundMobile: var(--pageCrumbs_backgroundMobile, rgba(var(--color_base), 0.
 
 .base {
     height: $height;
+    margin-top: calc(var(--spacing_medium) * -1);
 
     .leftFade {
         display: none;
@@ -28,7 +29,6 @@ $backgroundMobile: var(--pageCrumbs_backgroundMobile, rgba(var(--color_base), 0.
     }
 
     @include for-mobile-down(){
-        // background: $backgroundMobile;
         padding: 0 var(--spacing_regular);
     }
 }

@@ -7,10 +7,15 @@
 $backgroundColor: rgba(var(--card_backgroundColor, var(--color_backgroundContent)), 1);
 $boxShadow: var(--card_boxShadow, var(--boxShadow_regular));
 $borderRadius: var(--card_borderRadius, var(--borderRadius_content));
+$highlightBorder: var(--card_highlightBorder, 3px solid rgba(var(--color_primary), 1));
 
 .base {
     position: relative;
     background-color: $backgroundColor;
     box-shadow: $boxShadow;
     border-radius: $borderRadius;
+
+    &.typeHighlight {
+        border-bottom: $highlightBorder;
+    }
 }

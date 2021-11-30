@@ -20,12 +20,12 @@ export const Image = ({
     alt,
     actions
 }) => {
-    const { getRootProps, getInputProps, inputRef } = useDropzone({
+    const { getRootProps, getInputProps, inputRef, isFocused } = useDropzone({
         onDrop: (files) => onFileSelect(files && files[0]),
         multiple: false,
         accept: "image/*",
         onClick: (evt) => evt.preventDefault(),
-        disabled: percent !== null
+        disabled: percent !== null,
     });
 
     const handleClick = () => {
@@ -58,7 +58,11 @@ export const Image = ({
                 [styles.modShine]: mod && mod.indexOf("shine") >= 0,
 
                 // Clickable
-                [styles.isClickable]: onClick || onFileSelect
+                [styles.isClickable]: onClick,
+
+                // File select
+                [styles.isFileSelect]: onFileSelect,
+                [styles.fileSelectFocused]: isFocused
             })}
             onClick={handleClick}
         >
@@ -105,7 +109,10 @@ export const Image = ({
             {/* File select dropzone */}
             {onFileSelect ? (
                 <div {...getRootProps()}>
-                    <input className={styles.input} {...getInputProps()} />
+                    <input
+                        className={styles.input}
+                        {...getInputProps()}
+                    />
                 </div>
             ) : null}
         </div>

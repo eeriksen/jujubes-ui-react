@@ -40,7 +40,7 @@ export const ItemList = ({ onItemClick, onSort, busy, children, className, empty
             />
 
             {/* No items */}
-            {!children ? (
+            {!React.Children.count(children) ? (
                 <div className={styles.item}>
                     <div className={styles.content}>
                         <div className={styles.wrapper}>

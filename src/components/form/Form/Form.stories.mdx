@@ -26,21 +26,32 @@ The `<Form/>` component is used to wrap one or more `<FormItem/>` components.
             const [data, setData] = useState({});
             return (
                 <Card>
-                    <CardContent>
-                        <Form onSubmit={() => console.log("SUBMIT")}>
+                    <Form onSubmit={() => console.log("SUBMIT")}>
+                        <CardContent>
                             <Row>
-                                <Col span={24}>
-                                    <FormItem label="Your name">
+                                <Col span={12}>
+                                    <FormItem label="First name">
                                         <Input
-                                            value={data.name}
-                                            onChange={(val) => setData({ ...data, name: val })}
-                                            placeholder="Write here..."
+                                            value={data.firstName}
+                                            onChange={(val) => setData({ ...data, firstName: val })}
+                                            placeholder="John"
+                                        />
+                                    </FormItem>
+                                </Col>
+                                <Col span={12}>
+                                    <FormItem label="Last name">
+                                        <Input
+                                            value={data.lastName}
+                                            onChange={(val) => setData({ ...data, lastName: val })}
+                                            placeholder="Doe"
                                         />
                                     </FormItem>
                                 </Col>
                                 <Col span={24}>
                                     <FormItem label="Your comment">
                                         <Textarea
+                                            emojis
+                                            counter
                                             value={data.comment}
                                             onChange={(val) => setData({ ...data, comment: val })}
                                             placeholder="Write here..."
@@ -57,17 +68,19 @@ The `<Form/>` component is used to wrap one or more `<FormItem/>` components.
                                         </Checkbox>
                                     </FormItem>
                                 </Col>
-                                <Col span={24}>
-                                    <FormButtons>
-                                        <Button type="submit" color="primary">
-                                            Save changes now
-                                        </Button>
-                                        <Button onClick={() => setData({})}>Delete something</Button>
-                                    </FormButtons>
-                                </Col>
                             </Row>
-                        </Form>
-                    </CardContent>
+                        </CardContent>
+                        <CardContent border="top">
+                            <FormButtons>
+                                <Button type="submit" color="primary">
+                                    Save changes
+                                </Button>
+                                <Button onClick={() => setData({})} color="silent">
+                                    Delete something
+                                </Button>
+                            </FormButtons>
+                        </CardContent>
+                    </Form>
                 </Card>
             );
         }}

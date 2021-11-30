@@ -4,28 +4,31 @@
    POPUP TITLE
    =================================================================== */
 
-$backgroundColor: var(--pageTitle_backgroundColor, var(--color_primary));
-$foregroundColor: var(--pageTitle_foregroundColor, var(--color_primaryContrast));
+$backgroundColor: var(--pageTitle_backgroundColor, var(--color_backgroundContent));
+$foregroundColor: var(--pageTitle_foregroundColor, var(--color_primary));
+$descriptionColor: var(--pageTitle_descriptionColo, var(--color_base));
 
 .title {
-    padding: var(--spacing_medium);
+    padding: var(--spacing_medium) calc(var(--spacing_large) * 2) var(--spacing_medium) var(--spacing_medium);
     text-align: left;
     overflow: hidden;
     transition: color 0.3s ease;
     border-radius: var(--borderRadius_content) var(--borderRadius_content) 0 0;
     border-bottom: 1px solid rgba(var(--color_base), 0.1);
     background: rgba($backgroundColor, 1);
-    @include m-truncate();
+    position: relative;
 
     .text {
+        display: inline-block;
         font-size: var(--fontSize_heading4);
         font-weight: var(--fontWeight_medium);
         color: rgba($foregroundColor, 1);
+        overflow-wrap: break-word;
     }
 
     .description {
         font-size: var(--fontSize_regular);
         font-weight: var(--fontWeight_regular);
-        color: rgba($foregroundColor, 0.6);
+        color: rgba($descriptionColor, 0.4);
     }
 }

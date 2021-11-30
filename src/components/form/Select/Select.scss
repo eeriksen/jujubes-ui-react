@@ -4,6 +4,8 @@
    SELECT
    =================================================================== */
 
+$backgroundColor: var(--select_backgroundColor, var(--input_backgroundColor));
+
 .base {
     position: relative;
 
@@ -51,7 +53,7 @@
         color: rgba(var(--color_base), 0.8);
         border-radius: var(--borderRadius_form);
         transition: border-color 0.3s ease;
-        background-color: rgba(var(--color_contrast), 1);
+        background-color: $backgroundColor;
         appearance: none;
 
         &:focus {

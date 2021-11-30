@@ -10,7 +10,7 @@
     flex-flow: row wrap;
 
     .item {
-        margin: var(--spacing_regular) var(--spacing_regular) 0 0;
+        margin-right: var(--spacing_regular);
 
         &:last-child {
             margin-right: 0;
@@ -26,6 +26,10 @@
 
             .button {
                 width: 100%;
+            }
+
+            &:first-child {
+                margin: 0;
             }
         }
     }

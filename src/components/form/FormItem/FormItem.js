@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import classNames from "classnames";
 import PropTypes from "prop-types";
 import styles from "./FormItem.scss";
-import classNames from "classnames";
+import { PopOver } from "../../navigation/PopOver";
+import { Icon } from "../../graphic";
+import { Clickable } from "../../button/Clickable";
 
 export const FormItem = (props) => {
     const { children, label, error, className, info } = props;
-
+    const [infoVisible, setInfoVisible] = useState(false);
     return (
         <div
             className={classNames(
@@ -25,6 +28,26 @@ export const FormItem = (props) => {
                 ) : (
                     <span />
                 )}
+
+                {info ? (
+                    <div
+                        className={classNames(styles.info, {
+                            [styles.visible]: infoVisible
+                        })}
+                    >
+                        <PopOver
+                            padding
+                            position="top"
+                            visible={infoVisible}
+                            onClose={() => setInfoVisible(false)}
+                            content={info}
+                        >
+                            <Clickable onClick={() => setInfoVisible(!infoVisible)}>
+                                <Icon className={styles.icon} name="info" />
+                            </Clickable>
+                        </PopOver>
+                    </div>
+                ) : null}
             </div>
             <div className={styles.field}>
                 {React.Children.map(children, (child) => {
@@ -37,11 +60,9 @@ export const FormItem = (props) => {
                     });
                 })}
 
-                {/* Info text */}
-                {info || (error && typeof error === "string") ? (
-                    <div className={styles.infoText}>
-                        {info} {error}
-                    </div>
+                {/* Error text */}
+                {error && typeof error === "string" ? (
+                    <div className={styles.errorText}>{error}</div>
                 ) : null}
             </div>
         </div>

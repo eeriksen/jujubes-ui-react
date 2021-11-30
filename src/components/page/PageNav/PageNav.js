@@ -8,24 +8,25 @@ import { ContentWrapper } from "../../layout/ContentWrapper";
 import { useDebounce } from "../../../utils/hooks";
 
 export const PageNav = ({ children, embedded }) => {
+    const adjustTimeoutRef = useRef();
     const baseRef = useRef();
+    const mounted = useRef(false);
     const buttonsRef = useRef();
     const buttonsWidth = useRef();
     const [compact, setCompact] = useState(false);
     const { pageInfo, updatePageInfo } = useContext(AppContext);
 
     useEffect(() => {
-        const buttonsVal = buttonsRef.current.getBoundingClientRect();
-        buttonsWidth.current = buttonsVal.width;
+        mounted.current = true;
         adjustToWidth();
-
         updatePageInfo({
-            hasNav: true
+            hasPageNav: true
         });
 
         return () => {
+            mounted.current = true;
             updatePageInfo({
-                hasNav: false
+                hasPageNav: false
             });
         };
     }, []);
@@ -33,17 +34,29 @@ export const PageNav = ({ children, embedded }) => {
     useDebounce(
         () => {
             adjustToWidth();
+            updatePageInfo({
+                hasPageNav: true
+            });
         },
         [pageInfo.windowWidth],
         200
     );
 
     const adjustToWidth = () => {
-        if (!baseRef.current) {
-            return;
-        }
-        const baseVal = baseRef.current.getBoundingClientRect();
-        setCompact(baseVal.width < buttonsWidth.current);
+        clearTimeout(adjustTimeoutRef.current);
+        adjustTimeoutRef.current = setTimeout(() => {
+            if (!mounted.current || !baseRef.current || !buttonsRef.current) {
+                return;
+            }
+            const baseBounds = baseRef.current.getBoundingClientRect();
+            const buttonBounds = buttonsRef.current.getBoundingClientRect();
+
+            if(!buttonsWidth.current){
+                buttonsWidth.current = buttonBounds.width;
+            }
+
+            setCompact(buttonsWidth.current > baseBounds.width);
+        }, 200);
     };
 
     return (

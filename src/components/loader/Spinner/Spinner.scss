@@ -51,6 +51,14 @@ $color--spinner: rgba(var(--color_base), 0.6);
     width: 5.7rem;
 }
 
+.positionCentered {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
 @keyframes rotate {
     100% {
         transform: rotate(359deg);

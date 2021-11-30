@@ -17,26 +17,25 @@ export const Input = (props) => {
         className,
         disabled,
         onFocus,
-        onBlur
+        onBlur,
+        type
     } = props;
     const [hasFocus, setHasFocus] = useState(false);
 
-    // Base classes
-    const baseClasses = classNames(
-        styles.base,
-        {
-            [styles.sizeSmall]: size === "small",
-            [styles.sizeBig]: size === "big",
-            [styles.error]: error,
-            [styles.inputIcon]: icon,
-            [styles.inputPrepend]: prepend,
-            [styles.inputAppend]: append
-        },
-        className
-    );
-
     return (
-        <div className={baseClasses}>
+        <div className={classNames(
+            styles.base,
+            {
+                [styles.sizeSmall]: size === "small",
+                [styles.sizeBig]: size === "big",
+                [styles.error]: error,
+                [styles.inputIcon]: icon,
+                [styles.inputPrepend]: prepend,
+                [styles.inputAppend]: append,
+                [styles.typeColor]: type === "color"
+            },
+            className
+        )}>
             <IconPart icon={icon} hasFocus={hasFocus} />
             <PrependPart prepend={prepend} onPrependClick={onPrependClick} disabled={disabled} />
             <InputPart

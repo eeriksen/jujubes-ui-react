@@ -12,8 +12,8 @@ $boxShadow: var(--pageActionsButton_boxShadow, 0 0.3rem 15px rgba(0, 0, 0, 0.2))
 
 .base {
     position: absolute;
-    top: calc(var(--spacing_medium) + 0.3rem);
-    right: var(--spacing_edges);
+    right: 0;
+    top: calc((var(--elementSize_big) + var(--spacing_large)) * -1);
 
     // Action button
     .button {
@@ -26,7 +26,7 @@ $boxShadow: var(--pageActionsButton_boxShadow, 0 0.3rem 15px rgba(0, 0, 0, 0.2))
         border-radius: $borderRadius;
         box-shadow: $boxShadow;
         transition: transform 0.2s cubic-bezier(0.62, 0.055, 0.24, 1.305), background-color 0.2s ease-in-out,
-            box-shadow 0.2s ease-in-out;
+        box-shadow 0.2s ease-in-out;
         user-select: none;
         @include m-iconColor(rgba($foregroundColor, 1));
         @include m-iconSize($iconSize--large);
@@ -50,7 +50,7 @@ $boxShadow: var(--pageActionsButton_boxShadow, 0 0.3rem 15px rgba(0, 0, 0, 0.2))
         position: fixed;
         top: auto;
         bottom: var(--spacing_medium);
-        right: var(--spacing_medium);
+        right: var(--spacing_large);
         z-index: $zIndex--pageActionButton;
 
         .button {
@@ -64,14 +64,20 @@ $boxShadow: var(--pageActionsButton_boxShadow, 0 0.3rem 15px rgba(0, 0, 0, 0.2))
 
         &.evadeButtons {
             bottom: calc(var(--elementSize_big) + var(--spacing_medium));
-            right: var(--spacing_medium);
+            right: var(--spacing_large);
         }
     }
 
     @include for-mobile-down() {
+        right: var(--spacing_medium);
+
+        &.evadeButtons {
+            right: var(--spacing_medium);
+        }
+
         .button {
-            width: calc(var(--elementSize_big) - 10px);
-            height: calc(var(--elementSize_big) - 10px);
+            width: var(--elementSize_regular);
+            height: var(--elementSize_regular);
         }
     }
 }

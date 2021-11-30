@@ -9,6 +9,7 @@ module.exports = {
         "@storybook/addon-docs"
     ],
     webpackFinal: async (config, { configType }) => {
+        config.devtool = "inline-source-map";
         config.module.rules.push(
             {
                 test: /\.css$/,

@@ -34,9 +34,13 @@ Use the `<Textarea />` when users should input a longer text.
 
 <Canvas>
     <Story name="error">
-        <Textarea placeholder="Textarea with error" error />
+        {() => {
+            const [value, setValue] = useState(null);
+            return <Textarea value={value} onChange={setValue} placeholder="Textarea with error" error />;
+        }}
     </Story>
 </Canvas>
+
 
 ### With emojis / counter
 
@@ -45,13 +49,21 @@ Use the `<Textarea />` when users should input a longer text.
         {() => {
             const [value, setValue] = useState("");
             return (
-                <ComponentWrapper>
+                <ComponentWrapper height="50vh">
                     <Textarea
                         emojis
                         counter
                         value={value}
                         onChange={setValue}
                         placeholder="Write something..."
+                    /><br />
+                    <Textarea
+                        emojis
+                        counter
+                        value={value}
+                        onChange={setValue}
+                        placeholder="Write something..."
+                        disabled
                     />
                 </ComponentWrapper>
             );

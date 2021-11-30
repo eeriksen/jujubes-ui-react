@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
 import { AppContext } from "../AppContext";
 import themes from "../../../styles/themes";
 import { hexToRgb } from "../../../utils/colorUtils";
 import WebFont from "webfontloader";
 import "./AppContainer.scss";
-import { DATE_TIME_FORMAT, BREAKPOINTS } from "./constants";
+import { DATE_TIME_FORMAT } from "./constants";
+import { WindowResizeListener } from "../WindowResizeListener";
 
 moment.defaultFormat = DATE_TIME_FORMAT;
 moment.defaultFormatUtc = DATE_TIME_FORMAT;
@@ -14,23 +15,7 @@ export const AppContainer = ({ children, initialTheme }) => {
     const [navActive, setNavActive] = useState(false);
     const [subBarActive, setSubBarActive] = useState(false);
     const [theme, setTheme] = useState(initialTheme || themes["standard"]);
-    const [pageInfo, setPageInfo] = useState({
-        windowWidth: window.innerWidth,
-        breakpoint: null,
-        hasNav: false
-    });
-    const pageInfoRef = useRef(pageInfo);
-
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            window.addEventListener("resize", handleResize, false);
-        }
-        return () => {
-            if (typeof window !== "undefined") {
-                window.removeEventListener("resize", handleResize, false);
-            }
-        };
-    }, []);
+    const [pageInfo, setPageInfo] = useState({});
 
     useEffect(() => {
         if (!theme) {
@@ -71,43 +56,14 @@ export const AppContainer = ({ children, initialTheme }) => {
     }, [theme]);
 
     useEffect(() => {
-        pageInfoRef.current = pageInfo;
-    }, [pageInfo]);
-
-    useEffect(() => {
-        let breakpointKeys = Object.keys(BREAKPOINTS);
-        let breakpoint = breakpointKeys[breakpointKeys.length - 1];
-        breakpointKeys.forEach((key) => {
-            const keyNumber = parseInt(key, 10);
-            if (
-                pageInfo.windowWidth <= keyNumber &&
-                (breakpoint === null || keyNumber < breakpoint)
-            ) {
-                breakpoint = keyNumber;
-            }
-        });
-        setPageInfo({
-            ...pageInfoRef.current,
-            breakpoint: BREAKPOINTS[breakpoint]
-        });
-    }, [pageInfo.windowWidth]);
-
-    useEffect(() => {
         if (navActive && subBarActive) {
             setSubBarActive(false);
         }
     }, [navActive]);
 
-    const handleResize = () => {
-        setPageInfo({
-            ...pageInfoRef.current,
-            windowWidth: window.innerWidth
-        });
-    };
-
     const updatePageInfo = (changes) => {
         setPageInfo({
-            ...pageInfoRef.current,
+            ...pageInfo,
             ...changes
         });
     };
@@ -129,6 +85,7 @@ export const AppContainer = ({ children, initialTheme }) => {
             }}
         >
             {children}
+            <WindowResizeListener />
         </AppContext.Provider>
     );
 };

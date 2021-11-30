@@ -22,7 +22,6 @@ export function getSelectionCoords(editor, toolbar) {
     itemGroupWidths.sort((a, b) => b - a);
     const toolbarWidth = itemGroupWidths[0] + itemGroupWidths[1] + 10;
     const toolbarHeight = toolbar.offsetHeight;
-    console.log("HEIGHT", toolbarHeight);
 
     // TOOLBAR POSITION
     const win = editor.ownerDocument.defaultView || window;
@@ -76,7 +75,7 @@ export function getSelectionCoords(editor, toolbar) {
         selectionBounds.left < 0 ||
         selectionBounds.right < 0 ||
         selectionBounds.top < 0 ||
-        selectionBounds.bottom < 0;
+        selectionBounds.top > win.innerHeight;
 
     return {
         toolbarStyle: {

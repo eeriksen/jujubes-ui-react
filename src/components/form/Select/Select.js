@@ -37,14 +37,13 @@ export const Select = (props) => {
 
     // Select classes
     const selectClasses = classNames(styles.select, selectClassName);
-
     return (
         <div className={baseClasses}>
             <div className={styles.arrow}>
                 <Icon className={styles.icon} name="caret-down" />
             </div>
             <select
-                value={value}
+                value={value || ""}
                 onChange={handleChange}
                 className={selectClasses}
                 disabled={disabled}
@@ -56,8 +55,11 @@ export const Select = (props) => {
     );
 };
 
-Select.propTypes = {
+Select.defaultProps = {
+    value: ""
+};
 
+Select.propTypes = {
     /**
      * The value of the select.
      */

@@ -4,6 +4,7 @@
    CHECKBOX
    =================================================================== */
 
+$backgroundColor: var(--checkbox_backgroundColor, var(--input_backgroundColor));
 $checkbox--size: 28px;
 
 .base {
@@ -25,7 +26,7 @@ $checkbox--size: 28px;
         border: var(--input_border);
         border-radius: var(--borderRadius_form);
         transition: all 0.2s ease;
-        background-color: rgba(var(--color_contrast), 1);
+        background-color: $backgroundColor;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -50,7 +51,8 @@ $checkbox--size: 28px;
 
     &:hover {
         .check {
-            border-color: var(--input_borderFocus);
+            border: var(--input_borderFocus);
+            box-shadow: var(--input_boxShadowFocus);
         }
 
         .label {

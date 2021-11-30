@@ -7,6 +7,8 @@
 $height--item-with-image: 60px;
 
 .base {
+    position: relative;
+
     &.hidden {
         display: none;
     }
@@ -16,7 +18,7 @@ $height--item-with-image: 60px;
         position: absolute;
         width: 100%;
         height: 100%;
-        background-color: rgba(var(--color_contrast), 0.5);
+        background-color: rgba(var(--color_backgroundContent), 0.5);
         z-index: 2;
         display: flex;
         align-items: center;

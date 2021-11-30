@@ -1,5 +1,7 @@
 @import "../../../styles/base";
 
+$placeholderBackgroundColor: var(--image_placeholderBackgroundColor, rgba(var(--color_base), 0.05));
+
 /* ===================================================================
    IMAGE
    =================================================================== */
@@ -7,11 +9,10 @@
 .base {
     position: relative;
     display: block;
-    overflow: hidden;
 
     // Wrapper
     .wrapper {
-        position: static;
+        position: relative;
         text-align: center;
         overflow: hidden;
 
@@ -166,8 +167,6 @@
 
     // Rounded
     &.modRounded {
-        border-radius: var(--borderRadius_form);
-
         .wrapper {
             border-radius: var(--borderRadius_form);
         }
@@ -237,12 +236,35 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: rgba(var(--color_base), 0.05);
+        background-color: $placeholderBackgroundColor;
         padding: 30%;
         @include m-iconSize(100%);
 
         &.default {
             @include m-iconColor(rgba(var(--color_base), 0.1));
+        }
+    }
+
+    /* FILE SELECT
+    --------------------------------------------- */
+    &.isFileSelect {
+        cursor: pointer;
+
+        .placeholder {
+            background: transparent;
+            border: 1px dashed rgba(var(--color_base), 0.2);
+            border-radius: var(--borderRadius_form);
+        }
+
+        &:hover,
+        &.fileSelectFocused {
+            .wrapper {
+                box-shadow: var(--input_boxShadowFocus);
+            }
+
+            .placeholder {
+                border: var(--input_borderFocus);
+            }
         }
     }
 

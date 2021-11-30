@@ -1,16 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 import styles from "./PageHeader.scss";
 import { Icon, iconList } from "../../graphic/Icon";
 
 export const PageHeader = ({ icon, image, title, subtitle }) => {
     return (
-        <div
-            className={classNames(styles.base, {
-                [styles.withSymbol]: icon || image
-            })}
-        >
+        <div className={styles.base}>
             {/* Icon */}
             {icon || image ? (
                 <div className={styles.symbol}>
@@ -18,7 +13,9 @@ export const PageHeader = ({ icon, image, title, subtitle }) => {
                         <div className={styles.icon}>
                             <Icon name={icon} />
                         </div>
-                    ) : image ? image : null}
+                    ) : image ? (
+                        image
+                    ) : null}
                 </div>
             ) : null}
 

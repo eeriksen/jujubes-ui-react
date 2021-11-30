@@ -22,6 +22,7 @@ export const Textarea = ({
 }) => {
     const [showToolbar, setShowToolbar] = useState(false);
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+    const [focused, setFocused] = useState(false);
     const textareaRef = useRef();
 
     useEffect(() => {
@@ -31,7 +32,7 @@ export const Textarea = ({
     const handleChange = (e) => {
         let value = e.target.value;
         // Check if exceeding max length
-        if (maxLength && value.length > maxLength) {
+        if (maxLength && value && value.length > maxLength) {
             value = value.slice(0, maxLength);
         }
 
@@ -78,7 +79,9 @@ export const Textarea = ({
                 styles.base,
                 {
                     [styles.error]: error,
-                    [styles.toolbar]: showToolbar
+                    [styles.toolbar]: showToolbar,
+                    [styles.disabled]: disabled,
+                    [styles.focused]: focused
                 },
                 className
             )}
@@ -91,6 +94,8 @@ export const Textarea = ({
                 rows={rows}
                 value={value || ""}
                 onChange={handleChange}
+                onFocus={() => setFocused(true)}
+                onBlur={() => setFocused(false)}
             ></textarea>
 
             {showToolbar ? (
@@ -100,6 +105,7 @@ export const Textarea = ({
                             <Toolbar.Item>
                                 <PopOver
                                     visible={showEmojiPicker}
+                                    position="bottom"
                                     onClose={() => setShowEmojiPicker(false)}
                                     content={<EmojiPicker onSelect={handlePickEmoji} />}
                                     size="auto"
@@ -107,7 +113,9 @@ export const Textarea = ({
                                     <Button
                                         square
                                         size="small"
+                                        color="transparent"
                                         onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+                                        disabled={disabled}
                                     >
                                         <Emoji emoji="blush" size={22} />
                                     </Button>
@@ -117,10 +125,14 @@ export const Textarea = ({
                         <Toolbar.Item grow />
                         {counter ? (
                             <Toolbar.Item>
-                                <Text weight="medium" color={value.length >= maxLength ? "error" : null}>{value ? value.length : 0}</Text>
-                                <Text opacity={50}>
-                                    &nbsp;/&nbsp;{maxLength}
+                                <Text
+                                    weight="medium"
+                                    color={value && value.length >= maxLength ? "error" : null}
+                                >
+                                    {value ? value.length : 0}
                                 </Text>
+                                <Text opacity={50}>&nbsp;/&nbsp;{maxLength}</Text>
+                                &nbsp;&nbsp;
                             </Toolbar.Item>
                         ) : null}
                     </Toolbar>

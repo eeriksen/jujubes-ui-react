@@ -13,7 +13,6 @@ $borderRight: var(--navMain_borderRight, "none");
 
 .base {
     position: relative;
-    z-index: $zIndex--appNav;
 
     .content {
         position: relative;
@@ -99,6 +98,8 @@ $borderRight: var(--navMain_borderRight, "none");
 // RESPONSIVE
 @include for-tablet-down() {
     .base {
+        z-index: $zIndex--appNav;
+
         .content {
             position: fixed;
             left: -$appNav--width;

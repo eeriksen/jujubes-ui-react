@@ -212,3 +212,25 @@ The `<Input />` component is a very flexible text input component.
         }}
     </Story>
 </Canvas>
+
+### Color
+
+<Canvas>
+    <Story name="color">
+        {() => {
+            const [value, setValue] = useState("#34d896");
+            return (
+                <Form>
+                    <FormItem>
+                        <Input
+                            type="color"
+                            value={value}
+                            onChange={(val) => console.log("CHANGE", val) | setValue(val)}
+                            placeholder="Disabled input"
+                        />
+                    </FormItem>
+                </Form>
+            );
+        }}
+    </Story>
+</Canvas>

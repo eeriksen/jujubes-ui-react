@@ -9,6 +9,7 @@ import { Badge } from "../notify/Badge";
 import { ComponentWrapper } from "../layout/ComponentWrapper";
 import { AppLayout } from "../layout/AppLayout";
 import { AppContent } from "../layout/AppContent";
+import { Card, CardTitle, CardContent } from "../card";
 
 <Meta title="Components/Page/Page" component={Page} />
 
@@ -76,20 +77,23 @@ These should only be placed on the top of the page, just below the `<PageHeader 
                                     <Crumb label="Edit profile" link="/users/1" />
                                     <Crumb current />
                                 </PageCrumbs>
-                                <PageActions>
-                                    <Action icon="plus" onClick={() => console.log("CLICK")}>
-                                        Create a page
-                                    </Action>
-                                    <Action icon="edit" onClick={() => console.log("CLICK")}>
-                                        Edit page
-                                    </Action>
+                                <PageActions title="Actions">
                                     <Action
+                                        label="Create a page"
+                                        icon="plus"
+                                        onClick={() => console.log("CLICK")}
+                                    />
+                                    <Action
+                                        label="Edit page"
+                                        icon="edit"
+                                        onClick={() => console.log("CLICK")}
+                                    />
+                                    <Action
+                                        label="Delete page"
                                         icon="trash"
                                         iconColor="error"
                                         onClick={() => console.log("CLICK")}
-                                    >
-                                        Delete page
-                                    </Action>
+                                    />
                                 </PageActions>
                                 <PageNav>
                                     <NavButton
@@ -119,6 +123,19 @@ These should only be placed on the top of the page, just below the `<PageHeader 
                                         link="/theme"
                                     />
                                 </PageNav>
+                                <Card>
+                                    <CardTitle title="Content here" />
+                                    <CardContent>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                        do eiusmod tempor incididunt ut labore et dolore magna
+                                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                        ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit
+                                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                                        occaecat cupidatat non proident, sunt in culpa qui officia
+                                        deserunt mollit anim id est laborum.
+                                    </CardContent>
+                                </Card>
                             </Page>
                         </AppContent>
                     </AppLayout>

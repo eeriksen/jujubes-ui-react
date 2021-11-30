@@ -148,11 +148,11 @@ $fontSize: var(--badge_fontSize, var(--fontSize_tiny));
 
     /* Spacing
     ---------------------------------------------------------------------- */
-    &.leftSpacing {
+    &.spacingLeft {
         margin-left: var(--spacing_small);
     }
 
-    &.rightSpacing {
+    &.spacingRight {
         margin-right: var(--spacing_small);
     }
 

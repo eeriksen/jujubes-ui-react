@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Form } from "../Form";
-import { FormItem } from "../FormItem";
-import { Select } from './Select';
-import { Option } from "./Option";
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Form } from "../Form";
+import { FormItem } from "../FormItem";
+import { Select } from "./Select";
+import { Option } from "./Option";
+import { Row, Col } from "../../grid";
 
 <Meta title="Components/Forms/Select" component={Select} />
 
@@ -14,151 +15,127 @@ Use the `<Select />` when the user should choose from a list of alternatives.
 <ArgsTable of={Select} />
 
 ### Basic
+
 <Canvas>
-    <Story name="basic" >
+    <Story name="basic">
         {() => {
             const [value, setValue] = useState(null);
             return (
                 <Form>
                     <FormItem>
                         <Select placeholder="Choose one" value={value} onChange={setValue}>
-                            <Option value={0}>
-                                First choice
-                            </Option>
-                            <Option value={1}>
-                                Second choice
-                            </Option>
-                            <Option value={2}>
-                                Third choice
-                            </Option>
-                            <Option value={3}>
-                                Fourth choice
-                            </Option>
+                            <Option value={0}>First choice</Option>
+                            <Option value={1}>Second choice</Option>
+                            <Option value={2}>Third choice</Option>
+                            <Option value={3}>Fourth choice</Option>
                         </Select>
                     </FormItem>
                 </Form>
-            )
+            );
         }}
     </Story>
 </Canvas>
 
-
 ### Size
+
 <Canvas>
-    <Story name="size" >
+    <Story name="size">
         {() => {
             const [value, setValue] = useState(null);
             return (
                 <Form>
-                    <FormItem>
-                        <Select size="small" placeholder="Small select" value={value} onChange={setValue}>
-                            <Option value={0}>
-                                First choice
-                            </Option>
-                            <Option value={1}>
-                                Second choice
-                            </Option>
-                            <Option value={2}>
-                                Third choice
-                            </Option>
-                            <Option value={3}>
-                                Fourth choice
-                            </Option>
-                        </Select>
-                    </FormItem>
-                    <FormItem>
-                        <Select placeholder="Regular select" value={value} onChange={setValue}>
-                            <Option value={0}>
-                                First choice
-                            </Option>
-                            <Option value={1}>
-                                Second choice
-                            </Option>
-                            <Option value={2}>
-                                Third choice
-                            </Option>
-                            <Option value={3}>
-                                Fourth choice
-                            </Option>
-                        </Select>
-                    </FormItem>
-                    <FormItem>
-                        <Select size="big" placeholder="Big select" value={value} onChange={setValue}>
-                            <Option value={0}>
-                                First choice
-                            </Option>
-                            <Option value={1}>
-                                Second choice
-                            </Option>
-                            <Option value={2}>
-                                Third choice
-                            </Option>
-                            <Option value={3}>
-                                Fourth choice
-                            </Option>
-                        </Select>
-                    </FormItem>
+                    <Row>
+                        <Col span={24}>
+                            <FormItem>
+                                <Select
+                                    size="small"
+                                    placeholder="Small select"
+                                    value={value}
+                                    onChange={setValue}
+                                >
+                                    <Option value={0}>First choice</Option>
+                                    <Option value={1}>Second choice</Option>
+                                    <Option value={2}>Third choice</Option>
+                                    <Option value={3}>Fourth choice</Option>
+                                </Select>
+                            </FormItem>
+                        </Col>
+                        <Col span={24}>
+                            <FormItem>
+                                <Select
+                                    placeholder="Regular select"
+                                    value={value}
+                                    onChange={setValue}
+                                >
+                                    <Option value={0}>First choice</Option>
+                                    <Option value={1}>Second choice</Option>
+                                    <Option value={2}>Third choice</Option>
+                                    <Option value={3}>Fourth choice</Option>
+                                </Select>
+                            </FormItem>
+                        </Col>
+                        <Col span={24}>
+                            <FormItem>
+                                <Select
+                                    size="big"
+                                    placeholder="Big select"
+                                    value={value}
+                                    onChange={setValue}
+                                >
+                                    <Option value={0}>First choice</Option>
+                                    <Option value={1}>Second choice</Option>
+                                    <Option value={2}>Third choice</Option>
+                                    <Option value={3}>Fourth choice</Option>
+                                </Select>
+                            </FormItem>
+                        </Col>
+                    </Row>
                 </Form>
-            )
+            );
         }}
     </Story>
 </Canvas>
 
-
 ### Disabled
+
 <Canvas>
-    <Story name="disabled" >
+    <Story name="disabled">
         {() => {
             const [value, setValue] = useState(null);
             return (
                 <Form>
                     <FormItem>
                         <Select placeholder="Choose one" value={value} onChange={setValue} disabled>
-                            <Option value={0}>
-                                First choice
-                            </Option>
-                            <Option value={1}>
-                                Second choice
-                            </Option>
-                            <Option value={2}>
-                                Third choice
-                            </Option>
-                            <Option value={3}>
-                                Fourth choice
-                            </Option>
+                            <Option value={0}>First choice</Option>
+                            <Option value={1}>Second choice</Option>
+                            <Option value={2}>Third choice</Option>
+                            <Option value={3}>Fourth choice</Option>
                         </Select>
                     </FormItem>
                 </Form>
-            )
+            );
         }}
     </Story>
 </Canvas>
 
 ### Error
+
 <Canvas>
-    <Story name="error" >
+    <Story name="error">
         {() => {
             const [value, setValue] = useState(null);
             return (
                 <Form>
                     <FormItem error>
                         <Select placeholder="Choose one" value={value} onChange={setValue}>
-                            <Option value={0}>
-                                First choice
-                            </Option>
-                            <Option value={1}>
-                                Second choice
-                            </Option>
-                            <Option value={2}>
-                                Third choice
-                            </Option>
-                            <Option value={3}>
-                                Fourth choice
-                            </Option>
+                            <Option value={0}>First choice</Option>
+                            <Option value={1}>Second choice</Option>
+                            <Option value={2}>Third choice</Option>
+                            <Option value={3}>Fourth choice</Option>
                         </Select>
                     </FormItem>
                 </Form>
-            )
+            );
         }}
     </Story>
 </Canvas>

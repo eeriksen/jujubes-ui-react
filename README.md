@@ -44,6 +44,17 @@ Pull requests are welcome.
 
 ## Changelog
 
+### [1.2.3] - 2021-11-26
+#### New
+- `<PageLoader>`: Used to display a loader before content is loaded.
+#### Breaking changes
+- `<Page>`: Removed `loading` property. Use `<PageLoader>` to display loading content.
+- `<PageActions>`: Label is now moved from `children` to `label` on `<Action>`. `children` is now reserved for actions with content. `<PageActions>` on desktop will create a dedicated column. Added `title` on `<PageActions>` which determined the title of the action-card on desktop. 
+#### Changes
+- `<PopOver>`: Better positiong logic.
+- `<Icon>`: `plus-big` icon removed. `plus-small` is now same size as `plus` was.
+  
+  
 ### [1.2.1] - 2021-11-24
 #### Changes
 - `<MarkupEditor>`: Fixed position. More agile.

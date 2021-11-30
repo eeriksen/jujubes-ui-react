@@ -10,10 +10,10 @@ $fontSize: var(--cardTitle_fontSize, var(--fontSize_large));
 $fontWeight: var(--cardTitle_fontWeight, var(--fontWeight_medium));
 $paddingSides: var(--card_paddingSides, var(--spacing_medium));
 
-$actionIconColor: var(--cardTitle_actionIconColor, rgba(var(--color_base), 0.8));
+$actionIconColor: var(--cardTitle_actionIconColor, rgba(var(--color_base), 0.7));
 $actionIconColorActive: var(--cardTitle_actionIconColorActive, rgba(var(--color_primary), 1));
 $actionBackgroundActive: var(--cardTitle_actionBackgroundActive, rgba(var(--color_base), 0.03));
-$actionBorder: var(--cardTitle_actionBorder, 1px solid rgba(var(--color_base), 0.07));
+$actionBorder: var(--cardTitle_actionBorder, 1px solid rgba(var(--color_base), 0.05));
 
 .base {
     height: $height;
@@ -34,6 +34,11 @@ $actionBorder: var(--cardTitle_actionBorder, 1px solid rgba(var(--color_base), 0
         padding: 0 $paddingSides;
         display: flex;
         align-items: center;
+
+        .wrapper {
+            display: flex;
+            align-items: center;
+        }
     }
 
     .actions {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import moment from "moment";
 import styles from "../SingleDatePicker.scss";
 
@@ -11,8 +11,9 @@ import { Button } from "../../../button/Button";
 import { MonthYearButton } from "./MonthYearButton";
 
 export const DayPicker = ({ editValue, setEditValue, isDayBlocked, firstDayOfWeek }) => {
+    const containerRef = useRef();
     return (
-        <div className={styles.dayPicker}>
+        <div ref={containerRef} className={styles.dayPicker}>
             <DayPickerSingleDateController
                 noBorder={true}
                 date={editValue ? moment(editValue) : null}
@@ -25,6 +26,7 @@ export const DayPicker = ({ editValue, setEditValue, isDayBlocked, firstDayOfWee
                 renderMonthElement={({ month, onMonthSelect, onYearSelect }) => {
                     return (
                         <MonthYearButton
+                            containerRef={containerRef}
                             visibleDate={month}
                             onMonthSelect={onMonthSelect}
                             onYearSelect={onYearSelect}

@@ -17,16 +17,19 @@ export const Overlay = ({ visible, className, onClick, scrollControl }) => {
         };
     }, [visible]);
 
-    // Classes
-    const baseClasses = classNames(
-        styles.base,
-        {
-            [styles.visible]: visible
-        },
-        className
+    return (
+        <Clickable
+            block
+            className={classNames(
+                styles.base,
+                {
+                    [styles.visible]: visible
+                },
+                className
+            )}
+            onClick={onClick}
+        />
     );
-
-    return <Clickable block className={baseClasses} onClick={onClick} />;
 };
 
 Overlay.defaultValues = {

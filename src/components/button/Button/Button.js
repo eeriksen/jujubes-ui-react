@@ -75,6 +75,7 @@ export const Button = ({
             [styles.colorError]: color === "error",
             [styles.colorInfo]: color === "info",
             [styles.colorSilent]: color === "silent",
+            [styles.colorTransparent]: color === "transparent",
 
             [styles.sizeSmall]: size === "small",
             [styles.sizeBig]: size === "big",
@@ -174,7 +175,8 @@ Button.propTypes = {
         "success",
         "warning",
         "error",
-        "silent"
+        "silent",
+        "transparent"
     ]),
 
     /**

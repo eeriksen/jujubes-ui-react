@@ -1,6 +1,6 @@
 {
     "name": "@jujubes/ui-react",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "description": "Jujubes UI - React",
     "homepage": "https://github.com/eeriksen/jujubes-ui-react#readme",
     "bugs": {
@@ -49,8 +49,8 @@
     },
     "devDependencies": {
         "@babel/core": "^7.12.9",
-        "@babel/preset-env": "^7.15.8",
-        "@babel/preset-react": "^7.12.7",
+        "@babel/preset-env": "^7.16.4",
+        "@babel/preset-react": "^7.16.0",
         "@dump247/storybook-state": "^1.6.1",
         "@rollup/plugin-babel": "^5.2.2",
         "@rollup/plugin-commonjs": "^17.0.0",

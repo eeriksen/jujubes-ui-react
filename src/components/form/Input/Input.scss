@@ -4,6 +4,8 @@
    INPUT
    =================================================================== */
 
+$backgroundColor: var(--input_backgroundColor, rgba(var(--color_contrast), 1));
+
 .base {
     position: relative;
 
@@ -20,8 +22,8 @@
         font-family: var(--fontFamily_primary);
         font-size: var(--fontSize_regular);
         color: rgba(var(--color_base), 0.8);
-        transition: border-color .3s ease, box-shadow .3s ease;
-        background-color: rgba(var(--color_contrast), 1);
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        background-color: $backgroundColor;
         border-radius: var(--borderRadius_form);
         appearance: none;
 
@@ -33,7 +35,7 @@
 
         &[disabled] {
             background-color: rgba(var(--color_base), 0.03);
-            border-color: rgba(var(--color_base), 0.10);
+            border-color: rgba(var(--color_base), 0.1);
             color: rgba(var(--color_base), 0.4);
             cursor: not-allowed;
         }
@@ -42,7 +44,6 @@
     /* ICON
     --------------------------------------- */
     &.inputIcon {
-
         .input {
             padding-left: 43px;
         }
@@ -55,7 +56,7 @@
             z-index: 2;
             @include m-iconColor(rgba(var(--color_base), 0.2), true);
 
-            &.hasFocus{
+            &.hasFocus {
                 @include m-iconColor(rgba(var(--color_primary), 1), true);
             }
         }
@@ -124,13 +125,11 @@
                 &:hover {
                     background-color: rgba(var(--color_base), 0.05);
                 }
-
             }
 
             &.disabled {
-                border-color: rgba(var(--color_base), 0.10);
+                border-color: rgba(var(--color_base), 0.1);
             }
-
         }
     }
 
@@ -168,7 +167,6 @@
                 &:hover {
                     background-color: rgba(var(--color_base), 0.05);
                 }
-
             }
         }
     }
@@ -204,22 +202,44 @@
         }
     }
 
+    /* TYPE: Color
+    --------------------------------------- */
+    &.typeColor {
+        .input {
+            -webkit-appearance: none;
+            // border: none;
+            padding: 0;
+            cursor: pointer;
+
+            &::-webkit-color-swatch-wrapper {
+                padding: 3px;
+            }
+            &::-webkit-color-swatch {
+                border: none;
+                border-radius: 3px;
+            }
+        }
+    }
 }
 
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
     color: rgba(var(--color_base), 0.4);
 }
 
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
     color: rgba(var(--color_base), 0.4);
     opacity: 1;
 }
 
-::-moz-placeholder { /* Mozilla Firefox 19+ */
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
     color: rgba(var(--color_base), 0.4);
     opacity: 1;
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
     color: rgba(var(--color_base), 0.4);
 }

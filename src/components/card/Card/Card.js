@@ -4,9 +4,11 @@ import classNames from "classnames"
 import styles from "./Card.scss"
 
 
-export const Card = ({ className, children }) => {
+export const Card = ({ className, children, type }) => {
     return (
-        <div className={classNames(styles.base, className)}>
+        <div className={classNames(styles.base, {
+            [styles.typeHighlight]: type === "highlight"
+        }, className)}>
             {children}
         </div>
     )

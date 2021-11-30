@@ -75,9 +75,7 @@ export const Theming = () => {
                     <Card>
                         <CardTitle
                             title="Active theme"
-                            actions={[
-                                { icon: "plus-big", onClick: () => setShowNewThemePrompt(true) }
-                            ]}
+                            actions={[{ icon: "plus", onClick: () => setShowNewThemePrompt(true) }]}
                         />
                         <CardContent>
                             <Select

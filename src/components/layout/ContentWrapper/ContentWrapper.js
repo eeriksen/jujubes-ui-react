@@ -1,60 +1,77 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 import styles from "./ContentWrapper.scss";
 import { AppContext } from "../AppContext";
 
-export const ContentWrapper = ({ children, mobile, tablet, desktop, widescreen, confine, className }) => {
+export const ContentWrapper = ({
+    children,
+    mobile,
+    tablet,
+    desktop,
+    widescreen,
+    confine,
+    className
+}) => {
     const { pageInfo } = useContext(AppContext);
+    const [displayed, setDisplayed] = useState(true);
 
-    let visible = false;
-    switch (pageInfo.breakpoint) {
-        case "mobile":
-            visible =
-                mobile === "down" ||
-                mobile === "only" ||
-                tablet === "down" ||
-                desktop === "down" ||
-                widescreen === "down" ||
-                (!mobile && !tablet && !desktop && !widescreen);
-            break;
-        case "tablet":
-            visible =
-                mobile === "up" ||
-                tablet === "down" ||
-                tablet === "only" ||
-                desktop === "down" ||
-                widescreen === "down" ||
-                (!mobile && !tablet && !desktop && !widescreen);
-            break;
-        case "desktop":
-            visible =
-                mobile === "up" ||
-                tablet === "up" ||
-                desktop === "down" ||
-                desktop === "only" ||
-                widescreen === "down" ||
-                (!mobile && !tablet && !desktop && !widescreen);
-            break;
-        case "widescreen":
-            visible =
-                mobile === "up" ||
-                tablet === "up" ||
-                desktop === "up" ||
-                widescreen === "down" ||
-                widescreen === "only" ||
-                (!mobile && !tablet && !desktop && !widescreen);
-            break;
-        default:
-            visible = true;
-            break;
-    }
+    const calculateVisibility = () => {
+        if((!mobile && !tablet && !desktop && !widescreen)){
+            return setDisplayed(true);
+        }
 
-    return visible ? (
+        let visible = false;
+        switch (pageInfo.breakpoint) {
+            case "mobile":
+                visible =
+                    mobile === "down" ||
+                    mobile === "only" ||
+                    tablet === "down" ||
+                    desktop === "down" ||
+                    widescreen === "down";
+                break;
+            case "tablet":
+                visible =
+                    mobile === "up" ||
+                    tablet === "down" ||
+                    tablet === "only" ||
+                    desktop === "down" ||
+                    widescreen === "down";
+                break;
+            case "desktop":
+                visible =
+                    mobile === "up" ||
+                    tablet === "up" ||
+                    desktop === "down" ||
+                    desktop === "only" ||
+                    widescreen === "down";
+                break;
+            case "widescreen":
+                visible =
+                    mobile === "up" ||
+                    tablet === "up" ||
+                    desktop === "up" ||
+                    widescreen === "down" ||
+                    widescreen === "only";
+                break;
+            default:
+                visible = true;
+                break;
+        }
+        setDisplayed(visible);
+    };
+    useEffect(calculateVisibility, [pageInfo.breakpoint]);
+
+    return displayed ? (
         <div
-            className={classNames(styles.base, {
-                [styles.confinePage]: confine === "page"
-            }, className)}
+            className={classNames(
+                styles.base,
+                {
+                    [styles.confinePage]: confine === "page"
+                },
+                className
+            )}
         >
             {children}
         </div>

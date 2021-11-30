@@ -3,12 +3,13 @@ import classNames from "classnames";
 import styles from "./Spinner.scss";
 import PropTypes from "prop-types";
 
-export const Spinner = ({ size }) => {
+export const Spinner = ({ size, centered }) => {
     return (
         <div
             className={classNames(styles.base, {
                 [styles.sizeSmall]: size === "small",
-                [styles.sizeLarge]: size === "large"
+                [styles.sizeLarge]: size === "large",
+                [styles.positionCentered]: centered
             })}
         >
             <svg className={styles.circular} viewBox="25 25 50 50">

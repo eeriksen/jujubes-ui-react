@@ -75,6 +75,7 @@ export default {
         },
         "input": {
             "border": "1px solid rgba(24, 28, 50, 0.2)",
+            "backgroundColor": "rgba(var(--color_contrast), 1)",
             "borderFocus": "1px solid #3699ff",
             "borderError": "1px solid #ff668d",
             "boxShadowFocus": "0 0 5px 0 rgba(var(--color_primary), 0.3)",

@@ -1,0 +1,22 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   PAGE LOADER
+   =================================================================== */
+
+.base {
+    position: relative;
+
+    .loader {
+        margin-top: 20%;
+        text-align: center;
+
+        .box {
+            padding: 20px;
+            display: inline-block;
+            background-color: rgba(var(--color_backgroundContent), 1);
+            box-shadow: var(--boxShadow_regular);
+            border-radius: var(--borderRadius_content);
+        }
+    }
+}

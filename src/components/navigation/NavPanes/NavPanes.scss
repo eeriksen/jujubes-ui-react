@@ -28,7 +28,7 @@
         .nav {
             min-width: 200px;
             border-right: 1px solid rgba(var(--color_base), 0.15);
-            background-color: rgba(var(--color_base), 0.05);
+            background-color: rgba(var(--color_base), 0.03);
 
             .item {
                 height: var(--elementSize_regular);
@@ -92,7 +92,7 @@
     }
 
     &.sizeEmbedded {
-        width: 750px;
+        // width: 750px;
 
         @media (max-width: "770px"){
             width: calc(100vw - 20px);

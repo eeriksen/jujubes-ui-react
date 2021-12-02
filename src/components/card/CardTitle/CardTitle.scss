@@ -49,8 +49,8 @@ $actionBorderRadius: var(--cardTitle_actionBorderRadius, 0);
 
         .action {
             position: relative;
-            width: calc(#{$height} - #{$actionPadding});
-            height: calc(#{$height} - #{$actionPadding});
+            width: calc(#{$height} - #{$actionPadding} * 2);
+            height: calc(#{$height} - #{$actionPadding} * 2);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -60,6 +60,10 @@ $actionBorderRadius: var(--cardTitle_actionBorderRadius, 0);
             margin: $actionPadding $actionPadding $actionPadding 0;
             border-radius: $actionBorderRadius;
             @include m-iconColor($actionIconColor, true);
+
+            &:last-child {
+                border-top-right-radius: var(--card_borderRadius, var(--borderRadius_content));
+            }
 
             &:hover, &:active, &.active {
                 background-color: $actionBackgroundActive;

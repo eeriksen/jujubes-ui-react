@@ -19,11 +19,9 @@ import { Select, Option } from "../../../../../../src/components/form/Select";
 import { Toolbar } from "../../../../../../src/components/navigation/Toolbar";
 import { Menu, MenuItem } from "../../../../../../src/components/navigation/Menu";
 import { MarkupEditor } from "../../../../../../src/components/markup/MarkupEditor";
-import * as themes from "../../../../../../src/styles/themes";
 import { Breadcrumb } from "../../../../../../src/components/navigation/Breadcrumb/Breadcrumb";
 
 export const Details = () => {
-    const { themeKey, setThemeKey } = useContext(AppContext);
     const [data, setData] = useState({});
     const [htmlContent, setHtmlContent] = useState(null);
     const [tableRows] = useState([
@@ -110,7 +108,29 @@ export const Details = () => {
             </Col>
             <Col span={24}>
                 <Card>
-                    <CardTitle title="Card with table">
+                    <CardTitle
+                        title="Card with table"
+                        actions={[
+                            {
+                                icon: "more",
+                                content: ({ onClose }) => (
+                                    <Menu>
+                                        <MenuItem
+                                            icon="plus"
+                                            label="Create something"
+                                            onClick={() => console.log("CREATE") | onClose()}
+                                        />
+                                        <MenuItem icon="edit" label="Edit something" />
+                                        <MenuItem
+                                            icon="trash"
+                                            iconColor="error"
+                                            label="Delete something"
+                                        />
+                                    </Menu>
+                                )
+                            }
+                        ]}
+                    >
                         <Badge color="primary">878</Badge>
                     </CardTitle>
                     <CardContent>
@@ -175,42 +195,6 @@ export const Details = () => {
                         </Row>
                     </CardContent>
                     <CardLoadMore progress={30} onClick={() => console.log("CLICK")} />
-                </Card>
-            </Col>
-            <Col span={24}>
-                <Card>
-                    <CardTitle
-                        title="Theme"
-                        actions={[
-                            {
-                                icon: "more",
-                                content: ({ onClose }) => (
-                                    <Menu>
-                                        <MenuItem
-                                            icon="plus"
-                                            label="Create something"
-                                            onClick={() => console.log("CREATE") | onClose()}
-                                        />
-                                        <MenuItem icon="edit" label="Edit something" />
-                                        <MenuItem
-                                            icon="trash"
-                                            iconColor="error"
-                                            label="Delete something"
-                                        />
-                                    </Menu>
-                                )
-                            }
-                        ]}
-                    />
-                    <CardContent>
-                        <Select value={themeKey} onChange={setThemeKey}>
-                            {Object.keys(themes).map((key) => (
-                                <Option key={key} value={key}>
-                                    {key}
-                                </Option>
-                            ))}
-                        </Select>
-                    </CardContent>
                 </Card>
             </Col>
             <Col span={24}>

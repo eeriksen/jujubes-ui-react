@@ -4,7 +4,9 @@
    POPUP FOOTER
    =================================================================== */
 
+$borderTop: var(--popupTitle_borderTop, 1px solid rgba(var(--color_border), 1));
+
 .footer {
     padding: var(--spacing_medium);
-    border-top: 1px solid rgba(var(--color_base), 0.1);
+    border-top: $borderTop;
 }

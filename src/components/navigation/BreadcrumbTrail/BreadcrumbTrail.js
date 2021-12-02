@@ -9,7 +9,7 @@ import { PopOver } from "../PopOver";
 import { Button } from "../../button/Button";
 import { Menu, MenuItem } from "../Menu";
 
-export const BreadcrumbTrail = ({homeIcon}) => {
+export const BreadcrumbTrail = ({ homeIcon }) => {
     const { pathname } = useLocation();
     const { crumbs } = useContext(AppContext);
     const [popVisible, setPopVisible] = useState(false);
@@ -20,7 +20,13 @@ export const BreadcrumbTrail = ({homeIcon}) => {
                     padding="regular"
                     visible={popVisible}
                     onClose={() => setPopVisible(false)}
-                    content={<CrumbItems crumbs={crumbs} homeIcon={homeIcon} onClose={() => setPopVisible(false)} />}
+                    content={
+                        <CrumbItems
+                            crumbs={crumbs}
+                            homeIcon={homeIcon}
+                            onClose={() => setPopVisible(false)}
+                        />
+                    }
                 >
                     <Button
                         size="tiny"
@@ -45,11 +51,9 @@ export const BreadcrumbTrail = ({homeIcon}) => {
                             >
                                 <div className={styles.wrapper}>
                                     <Clickable block className={styles.label} link={crumb.link}>
-                                        <Icon
-                                            className={styles.icon}
-                                            name="home"
-                                            size="medium"
-                                        />
+                                        <div className={styles.icon}>
+                                            <Icon name="home" size="medium" />
+                                        </div>
                                         {crumb.label}
                                     </Clickable>
                                     <div className={styles.arrow}>
@@ -83,7 +87,6 @@ const CrumbItems = ({ crumbs, homeIcon, onClose }) => {
     );
 };
 
-
 BreadcrumbTrail.defaultProps = {
     homeIcon: "home"
-}
+};

@@ -49,7 +49,8 @@ export default {
             "info": "#4AA1DB",
             "attention": "#f6fd9a",
             "statusText": "#ffffff",
-            "link": "#2A82DC"
+            "link": "#2A82DC",
+            "border": "#e6e6e6"
         },
         "spacing": {
             "small": "0.357rem",
@@ -119,7 +120,6 @@ export default {
             "highlightBorder": "none"
         },
         "cardTitle": {
-            "borderBottom": "1px dotted rgba(var(--color_base), 0.1)",
             "actionBorder": "none"
         },
         "cardContent": {

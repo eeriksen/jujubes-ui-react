@@ -5,6 +5,7 @@
    =================================================================== */
 
 $fontSize: var(--menu_fontSize, var(--fontSize_regular));
+$border: var(--menu_border, 1px solid rgba(var(--color_border), 0.5));
 
 .item {
     position: relative;
@@ -13,7 +14,7 @@ $fontSize: var(--menu_fontSize, var(--fontSize_regular));
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
-    border-bottom: 1px solid rgba(var(--color_base), 0.05);
+    border-bottom: $border;
     border-right: none;
     height: var(--elementSize_regular);
     line-height: var(--elementSize_regular);

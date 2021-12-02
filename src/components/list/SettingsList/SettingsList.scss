@@ -4,13 +4,13 @@
    SETTINGS LIST
    =================================================================== */
 
+$border: var(--settingsList_border, 1px solid rgba(var(--color_border), 0.3));
+
 .base {
-
     .item {
-
         .title {
-            border-top: 1px solid rgba(var(--color_base), 0.1);
-            border-bottom: 1px solid rgba(var(--color_base), 0.1);
+            border-top: $border;
+            border-bottom: $border;
             height: calc(var(--elementSize_regular) + 1px);
             line-height: calc(var(--elementSize_regular) + 1px);
             padding: 0 var(--spacing_regular);

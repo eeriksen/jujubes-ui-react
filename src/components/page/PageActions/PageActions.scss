@@ -7,7 +7,7 @@
 $buttonHeight: var(--elementSize_regular);
 $backgroundColor: var(--pageActionsButton_backgroundColor, var(--color_primary));
 $foregroundColor: var(--pageActionsButton_foregroundColor, var(--color_primaryContrast));
-$backgroundColorActive: var(--pageActionsButton_backgroundColorActive, var(--color_primary));
+$backgroundColorActive: var(--pageActionsButton_backgroundColorActive, rgba(var(--color_accent), 1));
 $borderRadius: var(--pageActionsButton_borderRadius, $buttonHeight);
 $boxShadow: var(--pageActionsButton_boxShadow, 0 0.3rem 15px rgba(0, 0, 0, 0.2));
 $padding: 0rem;
@@ -87,15 +87,8 @@ $padding: 0rem;
         }
 
         &.active {
-            background-color: rgba(var(--color_primary), 1);
-            box-shadow: var(--boxShadow_content);
-
-            .label {
-                color: rgba(var(--color_primaryContrast), 1);
-            }
-
             .symbol {
-                background-color: rgba(var(--color_accent), 1);
+                background-color: $backgroundColorActive;
 
                 .icon {
                     animation: none;
@@ -114,6 +107,7 @@ $padding: 0rem;
         bottom: var(--spacing_medium);
         right: var(--spacing_large);
         z-index: $zIndex--pageActionButton;
+        background: none;
 
         .button {
             background: rgba(var(--color_backgroundContent), 0.3);
@@ -126,9 +120,7 @@ $padding: 0rem;
             }
 
             &.active {
-                .symbol {
-                    background: rgba(var(--color_primary), 0.3);
-                }
+                background: rgba(var(--color_backgroundContent), 1);
             }
         }
 

@@ -4,10 +4,12 @@
    CARD LOAD MORE
    =================================================================== */
 
+$borderTop: var(--cardLoadMore_borderTop, 1px solid rgba(var(--color_border), 1));
+
 .base {
     position: relative;
     height: var(--elementSize_big);
-    border-top: 1px solid rgba(var(--color_base), 0.10);
+    border-top: $borderTop;
 
     .progress {
         position: absolute;
@@ -41,7 +43,7 @@
         outline: none;
         cursor: default;
         background: transparent;
-        transition: background-color .3s linear;
+        transition: background-color 0.3s linear;
         @include m-iconColor(rgba(var(--color_primary), 1));
 
         &[disabled] {
@@ -58,5 +60,4 @@
             background: rgba(var(--color_background), 0.6);
         }
     }
-
 }

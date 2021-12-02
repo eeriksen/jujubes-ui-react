@@ -4,6 +4,8 @@
    NAV PANES
    =================================================================== */
 
+$borderColor: var(--navPanes_borderColor, rgba(var(--color_border), 0.8));
+
 .base {
     position: relative;
     display: flex;
@@ -27,7 +29,7 @@
 
         .nav {
             min-width: 200px;
-            border-right: 1px solid rgba(var(--color_base), 0.15);
+            border-right: 1px solid $borderColor;
             background-color: rgba(var(--color_base), 0.03);
 
             .item {
@@ -72,9 +74,9 @@
                     color: rgba(var(--color_base), 1);
                     box-shadow: inset 3px 0 0 0 rgba(var(--color_primary), 1);
                     font-weight: var(--fontWeight_medium);
-                    border-top-color: rgba(var(--color_base), 0.15);
-                    border-bottom-color: rgba(var(--color_base), 0.15);
-                    border-right: 1px solid rgba(var(--color_base), 0.05);
+                    border-top: 1px solid $borderColor;
+                    border-bottom: 1px solid $borderColor;
+                    border-right: 1px solid $borderColor;
 
                     .icon {
                         @include m-iconColor(rgba(var(--color_primary), 1));
@@ -94,7 +96,7 @@
     &.sizeEmbedded {
         // width: 750px;
 
-        @media (max-width: "770px"){
+        @media (max-width: "770px") {
             width: calc(100vw - 20px);
         }
     }
@@ -109,7 +111,6 @@
         width: 100%;
         max-height: none;
     }
-
 
     @include for-mobile-down() {
         .layout {

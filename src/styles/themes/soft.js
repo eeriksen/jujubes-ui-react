@@ -123,7 +123,6 @@ export default {
             "highlightBorder": "none"
         },
         "cardTitle": {
-            "borderBottom": "none",
             "actionBorder": "none",
             "actionIconColor": "rgba(var(--color_primary), 1)",
             "actionPadding": "0.4rem",

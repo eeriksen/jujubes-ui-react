@@ -5,7 +5,7 @@
    TABLE ROW
    =================================================================== */
 
-$border: var(--tableRow_border, 1px solid rgba(var(--color_base), 0.03));
+$border: var(--tableRow_border, 1px solid rgba(var(--color_border), 0.3));
 $backgroundHover: var(--tableRow_backgroundHover, rgba(var(--color_base), 0.03));
 
 .row {
@@ -23,7 +23,6 @@ $backgroundHover: var(--tableRow_backgroundHover, rgba(var(--color_base), 0.03))
             &:hover {
                 > .col {
                     background: $backgroundHover;
-                    border-top-color: transparent;
                 }
             }
         }

@@ -55,11 +55,11 @@ $iconColor: var(--breadcrumbTrail_iconColor, rgba(var(--color_primary), 1));
                 @include m-truncate();
                 display: flex;
                 align-items: center;
+                line-height: 1;
 
                 .icon {
                     display: none;
                     margin-right: 0.7rem;
-                    padding-bottom: 0.3rem;
                     @include m-iconColor($iconColor);
                 }
             }
@@ -92,6 +92,7 @@ $iconColor: var(--breadcrumbTrail_iconColor, rgba(var(--color_primary), 1));
             &:last-child {
                 .label .icon {
                     display: block;
+                    align-items: center;
                 }
             }
         }

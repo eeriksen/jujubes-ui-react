@@ -4,9 +4,10 @@
    POPUP TITLE
    =================================================================== */
 
-$backgroundColor: var(--pageTitle_backgroundColor, var(--color_backgroundContent));
-$foregroundColor: var(--pageTitle_foregroundColor, var(--color_primary));
-$descriptionColor: var(--pageTitle_descriptionColo, var(--color_base));
+$backgroundColor: var(--popupTitle_backgroundColor, var(--color_backgroundContent));
+$foregroundColor: var(--popupTitle_foregroundColor, var(--color_primary));
+$descriptionColor: var(--popupTitle_descriptionColo, var(--color_base));
+$borderBottom: var(--popupTitle_borderBottom, 1px solid rgba(var(--color_border), 1));
 
 .title {
     padding: var(--spacing_medium) calc(var(--spacing_large) * 2) var(--spacing_medium) var(--spacing_medium);
@@ -14,7 +15,7 @@ $descriptionColor: var(--pageTitle_descriptionColo, var(--color_base));
     overflow: hidden;
     transition: color 0.3s ease;
     border-radius: var(--borderRadius_content) var(--borderRadius_content) 0 0;
-    border-bottom: 1px solid rgba(var(--color_base), 0.1);
+    border-bottom: $borderBottom;
     background: rgba($backgroundColor, 1);
     position: relative;
 

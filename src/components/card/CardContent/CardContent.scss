@@ -4,7 +4,7 @@
    CARD CONTENT
    =================================================================== */
 
-$border: var(--cardContent_border, 1px solid rgba(var(--color_base), 0.10));
+$border: var(--cardContent_border, 1px solid rgba(var(--color_borders), 1));
 $padding: var(--card_padding, var(--spacing_medium));
 
 .base {

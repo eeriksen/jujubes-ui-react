@@ -36,7 +36,7 @@ export const FormItem = (props) => {
                         })}
                     >
                         <PopOver
-                            padding
+                            padding="regular"
                             position="top"
                             visible={infoVisible}
                             onClose={() => setInfoVisible(false)}

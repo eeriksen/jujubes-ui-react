@@ -4,6 +4,7 @@
    POP OVER
    =================================================================== */
 
+$backgroundColor: var(--popOver_backgroundColor, rgba(var(--color_backgroundPop), 1));
 $distance-pop: 20px;
 
 .base {
@@ -33,7 +34,7 @@ $distance-pop: 20px;
             z-index: 3;
 
             svg {
-                fill: rgba(var(--color_backgroundContent), 1);
+                fill: $backgroundColor;
             }
 
             &.colorPrimary {
@@ -45,8 +46,8 @@ $distance-pop: 20px;
 
         .content {
             overflow: hidden;
-            box-shadow: var(--boxShadow_large);
-            background-color: rgba(var(--color_contrast), 1);
+            box-shadow: var(--boxShadow_pop);
+            background-color: $backgroundColor;
             font-weight: var(--fontWeight_regular);
             border-radius: var(--borderRadius_content);
         }
@@ -78,9 +79,29 @@ $distance-pop: 20px;
     }
 
 
-    &.padding {
+    // PADDING
+
+    &.paddingSmall {
+        .pop .wrapper .content {
+            padding: var(--spacing_small);
+        }
+    }
+
+    &.paddingRegular {
+        .pop .wrapper .content {
+            padding: var(--spacing_regular);
+        }
+    }
+
+    &.paddingMedium {
         .pop .wrapper .content {
             padding: var(--spacing_medium);
+        }
+    }
+
+    &.paddingLarge {
+        .pop .wrapper .content {
+            padding: var(--spacing_large);
         }
     }
 }

@@ -38,6 +38,7 @@ export default {
             "contrast": "#ffffff",
             "background": "#fafafa",
             "backgroundContent": "#fafafa",
+            "backgroundPop": "#ffffff",
             "primary": "#3699ff",
             "primaryContrast": "#ffffff",
             "accent": "#36bfff",
@@ -69,11 +70,11 @@ export default {
             "content": "0"
         },
         "boxShadow": {
-            "regular": "none",
-            "medium": "0 1px 15px 1px rgba(var(--color_base), 0.2)",
-            "large": "0 1px 25px 1px rgba(var(--color_base), 0.2)"
+            "content": "none",
+            "pop": "0 1px 15px 1px rgba(var(--color_base), 0.2)"
         },
         "input": {
+            "backgroundColor": "rgba(var(--color_contrast), 1)",
             "border": "1px solid rgba(var(--color_base), 0.2)",
             "borderFocus": "1px solid rgb(var(--color_primary))",
             "borderError": "1px solid rgb(var(--color_error))",
@@ -89,7 +90,6 @@ export default {
             "backgroundColor": "var(--color_background)",
             "foregroundColor": "var(--color_base)",
             "accentColor": "var(--color_primary)",
-            "boxShadow": "0 1px 10px 1px rgba(var(--color_background), 1)",
             "subBackgroundColor": "var(--color_background)"
         },
         "navLogo": {
@@ -101,10 +101,8 @@ export default {
             "foregroundColor": "var(--color_primaryContrast)"
         },
         "pageNav": {
-            "borderBottom": "2px solid rgba(var(--color_base), 0.1)"
-        },
-        "pageCrumbs": {
-            "backgroundMobile": "none"
+            "buttonBorder": "2px solid rgba(var(--color_base), 0)",
+            "buttonActiveBorder": "2px solid rgba(var(--color_primary), 1)"
         },
         "pageHero": {
             "imageOffset": "0",

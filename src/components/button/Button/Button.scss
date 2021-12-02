@@ -7,7 +7,11 @@
 $height--button: var(--elementSize_regular);
 $height--button-big: var(--elementSize_big);
 $height--button-small: var(--elementSize_small);
+$height--button-tiny: calc(var(--elementSize_regular) / 1.7);
 
+$borderWidth: var(--button_borderWidth, 1px);
+$backgroundColor: var(--button_backgroundColor, rgba(var(--color_contrast), 1));
+$foregroundColor: var(--button_foregroundColor, rgba(var(--color_base), 1));
 $borderRadius: var(--button_borderRadius, var(--borderRadius_buttons));
 $boxShadow: var(--button_boxShadow);
 $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
@@ -25,7 +29,6 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
     border-radius: $borderRadius;
     text-decoration: none;
     user-select: none;
-    transition: border-color 0.3s linear, color 0.3s linear, background-color 0.3s linear, border-radius 0.3s linear;
     max-width: 100%;
     box-shadow: $boxShadow;
     display: flex;
@@ -60,7 +63,6 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
         flex-grow: 1;
         min-width: 0;
         height: 100%;
-        @include m-truncate();
     }
 
     .shade {
@@ -72,7 +74,6 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
         background: transparent;
         pointer-events: none;
         border-radius: $borderRadius;
-        transition: border-radius 0.3s linear;
     }
 
     &:hover {
@@ -106,8 +107,7 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
     background-color: rgba(var(--color_base), 0.03);
     color: rgba(var(--color_base), 0.3);
     box-shadow: none;
-    cursor: not-allowed;
-    border: none;
+    cursor: default;
 
     .icon {
         @include m-iconColor(rgba(var(--color_base), 0.2) !important);
@@ -146,7 +146,7 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
         vertical-align: -3px;
         margin-right: 8px;
         margin-left: -3px;
-        @include m-iconColor(rgba(var(--color_base), 1));
+        @include m-iconColor($foregroundColor);
     }
 
     // Icon on the right side of label
@@ -219,13 +219,9 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
    =================================================================== */
 
 .colorDefault {
-    color: rgba(var(--color_base), 1);
-    border: 1px solid rgba(var(--color_base), 0.2);
-    background: rgba(var(--color_contrast), 1);
-
-    &:hover {
-        color: rgba(var(--color_base), 1);
-    }
+    color: $foregroundColor;
+    border: $borderWidth solid rgba(var(--color_base), 0.2);
+    background: $backgroundColor;
 }
 
 .colorPrimary {
@@ -398,6 +394,20 @@ $boxShadowHover: var(--button_boxShadowHover, 0 2px 10px rgba(0, 0, 0, 0.1));
 
     .content {
         padding: 0 var(--spacing_medium);
+    }
+
+    .icon {
+        @include m-iconSize($iconSize--small);
+        vertical-align: -2px;
+    }
+}
+
+.sizeTiny {
+    height: $height--button-tiny;
+    line-height: $height--button-tiny - 2px;
+
+    .content {
+        padding: 0 var(--spacing_regular);
     }
 
     .icon {

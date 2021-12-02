@@ -1,6 +1,29 @@
-export const calculatePosition = ({$base, $pop, offset, position, container}) => {
-    const baseVal = $base.getBoundingClientRect();
-    const popVal = $pop.getBoundingClientRect();
+import { isElement } from "./domUtils";
+
+/**
+ * Calculate the position of a pop over given the $base-element which it should spring out from
+ * and the $pop-element itself.
+ * @param {*} param0
+ * @returns
+ */
+export const calculatePosition = ({
+    $base,
+    $pop,
+    offset = 10,
+    edgeSpacing = 10,
+    arrowSize = 20,
+    position,
+    container
+}) => {
+    const baseVal = isElement($base) ? $base.getBoundingClientRect() : $base;
+    const popVal = isElement($pop) ? $pop.getBoundingClientRect() : $pop;
+
+    if (!baseVal || !popVal) {
+        return {
+            popStyle: {},
+            arrowStyle: {}
+        };
+    }
 
     let windowWidth = window.innerWidth;
     let windowHeight = window.innerHeight;
@@ -8,15 +31,11 @@ export const calculatePosition = ({$base, $pop, offset, position, container}) =>
     let containerOffsetX = 0;
     let containerOffsetY = 0;
 
-    if(container){
+    if (container) {
         const containerBounds = container.getBoundingClientRect();
         containerOffsetX = containerBounds.x;
         containerOffsetY = containerBounds.y;
     }
-
-
-    const arrowSize = 20;
-    const edgeSpacing = 10;
 
     // ###### FIXED POSITIOINGS
     let offsetLeft = baseVal.left + baseVal.width / 2;
@@ -55,7 +74,7 @@ export const calculatePosition = ({$base, $pop, offset, position, container}) =>
     const bottomOverflow = popHeight - bottomSpace;
 
     // Place bottom
-    if (topOverflow > 0 || (position === "bottom" && bottomOverflow < 0)) {
+    if (topOverflow > 0 || (position === "bottom" && bottomOverflow < 0)) {
         position = "bottom";
         offsetTop = baseVal.bottom + arrowSize + offset;
         arrowStyle = {
@@ -63,35 +82,22 @@ export const calculatePosition = ({$base, $pop, offset, position, container}) =>
             bottom: "auto",
             transform: "translate(-50%, -45%) rotate(0)"
         };
-    }else {
-        position = "top"
+    } else {
+        position = "top";
     }
 
     // VISIBILITY
-    const hidden = baseVal.left < 0 || baseVal.right < 0 || baseVal.top < 0 || baseVal.top > windowHeight;
+    const hidden =
+        baseVal.left < 0 || baseVal.right < 0 || baseVal.top < 0 || baseVal.top > windowHeight;
 
     return {
         popStyle: {
             transform: `translateY(${position === "top" ? "10px" : "-10px"})`,
             left: offsetLeft - containerOffsetX,
             top: offsetTop - containerOffsetY,
-            width: popVal.width,
+            width: `${popVal.width}px`,
             ...(hidden && { opacity: 0 })
         },
         arrowStyle
     };
-};
-
-export const findParentWithCSS = (element, property, value) => {
-    while (element !== null) {
-        const style = window.getComputedStyle(element);
-        const propValue = style.getPropertyValue(property);
-        if (propValue === value || (!value && propValue !== "none")) {
-            return {
-                element, propValue
-            };
-        }
-        element = element.parentElement;
-    }
-    return null;
 };

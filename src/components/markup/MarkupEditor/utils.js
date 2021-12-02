@@ -1,91 +1,31 @@
-import { getVisibleSelectionRect, Modifier, EditorState } from "draft-js";
+import { Modifier, EditorState } from "draft-js";
 import { Map } from "immutable";
+import { findParentWithCSS } from "../../../utils/domUtils";
 
 /**
- * Get the coordinates of the editor selection
- * @param editor
- * @param toolbar
- * @returns {*}
+ * Calculate the width of the toolbar
+ * @param {*} toolbar
+ * @param {*} itemGroupClass
+ * @returns
  */
-export function getSelectionCoords(editor, toolbar) {
-    if (!editor || !toolbar) {
-        return null;
-    }
-
-    // TOOLBAR SIZE
-    // Fetch item groups
-    const itemGroups = toolbar.querySelectorAll(".toolbar_item_group");
+export function getToolbarWidth(toolbar, itemGroupClass) {
+    // Sort item groups by biggest size
+    const itemGroups = toolbar.querySelectorAll(`.${itemGroupClass}`);
     let itemGroupWidths = [];
     itemGroups.forEach((itemGroup) => {
         itemGroupWidths.push(itemGroup.getBoundingClientRect().width);
     });
     itemGroupWidths.sort((a, b) => b - a);
-    const toolbarWidth = itemGroupWidths[0] + itemGroupWidths[1] + 10;
-    const toolbarHeight = toolbar.offsetHeight;
 
-    // TOOLBAR POSITION
-    const win = editor.ownerDocument.defaultView || window;
-    const selectionBounds = getVisibleSelectionRect(win);
-    const arrowSize = 20;
-    const edgeSpacing = 10;
-
-    if (!selectionBounds || !toolbar) {
-        return null;
+    // Find parent padding
+    let parentPadding = 0;
+    const { element: parent } = findParentWithCSS(itemGroups[0].parentElement, "padding-left");
+    if (parent) {
+        const style = getComputedStyle(parent);
+        parentPadding = parseInt(style.getPropertyValue("padding-left"), 10) * 2;
     }
 
-    // ###### FIXED POSITIOINGS
-    let offsetLeft = selectionBounds.left + selectionBounds.width / 2;
-    let offsetTop = selectionBounds.top - (toolbarHeight + arrowSize);
-    let arrowStyle = {
-        left: "50%"
-    };
-
-    // HORIZONTAL ALIGNMENT
-    // Find available space to the left of selection
-    const toolbarLeftSpace = offsetLeft - edgeSpacing;
-    const toolbarLeftOverflow = toolbarWidth / 2 - toolbarLeftSpace;
-
-    // Find available space to the right of selection
-    const toolbarRightSpace = win.innerWidth - offsetLeft - edgeSpacing;
-    const toolbarRightOverflow = toolbarWidth / 2 - toolbarRightSpace;
-
-    // Make sure toolbar is not disappearing outside screen
-    if (toolbarLeftOverflow > 0) {
-        offsetLeft = offsetLeft + toolbarLeftOverflow;
-        arrowStyle.left = `${toolbarWidth / 2 - toolbarLeftOverflow}px`;
-    } else if (toolbarRightOverflow > 0) {
-        offsetLeft = offsetLeft - toolbarRightOverflow;
-        arrowStyle.left = `${toolbarWidth / 2 + toolbarRightOverflow}px`;
-    }
-
-    // VERTICAL ALIGNMENT
-    const toolbarTopSpace = selectionBounds.top;
-    const toolbarTopOverflow = toolbarHeight + arrowSize + edgeSpacing - toolbarTopSpace;
-    if (toolbarTopOverflow > 0) {
-        offsetTop = selectionBounds.bottom + arrowSize;
-        arrowStyle = {
-            ...arrowStyle,
-            bottom: "auto",
-            transform: "translate(-50%, -50%) rotate(0)"
-        };
-    }
-
-    // VISIBILITY
-    const hidden =
-        selectionBounds.left < 0 ||
-        selectionBounds.right < 0 ||
-        selectionBounds.top < 0 ||
-        selectionBounds.top > win.innerHeight;
-
-    return {
-        toolbarStyle: {
-            left: offsetLeft,
-            top: offsetTop,
-            width: toolbarWidth,
-            ...(hidden && { opacity: 0 })
-        },
-        arrowStyle
-    };
+    return itemGroupWidths[0] + itemGroupWidths[1] + parentPadding;
 }
 
 /**
@@ -215,15 +155,3 @@ export function replaceOldBoldTag(html) {
         .replace(new RegExp("<b ", "g"), "<strong ")
         .replace(new RegExp("</b>", "g"), "</strong>");
 }
-
-export const findParentWithCSS = (element, property, value) => {
-    while (element !== null) {
-        const style = window.getComputedStyle(element);
-        const propValue = style.getPropertyValue(property);
-        if (propValue === value) {
-            return element;
-        }
-        element = element.parentElement;
-    }
-    return null;
-};

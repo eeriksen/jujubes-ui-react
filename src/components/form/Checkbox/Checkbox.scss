@@ -30,6 +30,7 @@ $checkbox--size: 28px;
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: var(--input_boxShadow, "none");
 
         .icon {
             opacity: 0;
@@ -53,6 +54,7 @@ $checkbox--size: 28px;
         .check {
             border: var(--input_borderFocus);
             box-shadow: var(--input_boxShadowFocus);
+            background-color: var(--input_backgroundColorFocus, $backgroundColor);
         }
 
         .label {

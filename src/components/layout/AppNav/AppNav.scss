@@ -121,7 +121,7 @@ $borderRight: var(--navMain_borderRight, "none");
         &.isActive {
             .content {
                 left: 0;
-                box-shadow: var(--boxShadow_medium);
+                box-shadow: var(--boxShadow_pop);
             }
 
             .overlay {

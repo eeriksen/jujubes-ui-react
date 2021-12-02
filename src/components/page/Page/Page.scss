@@ -30,10 +30,6 @@
         padding-bottom: 80px;
         min-height: 100vh;
 
-        @include for-mobile-down(){
-            padding-top: 0;
-        }
-
         .wrapper {
             display: flex;
             column-gap: var(--spacing_medium);
@@ -46,6 +42,10 @@
                 width: 23rem;
                 flex-shrink: 0;
             }
+        }
+
+        @include for-mobile-down(){
+            padding-top: var(--spacing_regular);
         }
 
         @include for-desktop-down(){
@@ -66,12 +66,5 @@
             }
         }
 
-        @include for-widescreen-up(){
-            .wrapper {
-                .rightCol {
-                    width: 26rem;
-                }
-            }
-        }
     }
 }

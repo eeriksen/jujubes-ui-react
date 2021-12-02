@@ -1,0 +1,74 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Overlay } from "./Overlay";
+import { ComponentWrapper } from "../ComponentWrapper";
+import { Card, CardTitle, CardContent } from "../../card";
+import { Row, Col } from "../../grid";
+
+<Meta title="Components/Layout/Overlay" component={Overlay} />
+
+# Overlay
+
+Wrap content to show hide based on browser dimensions.
+
+<ArgsTable of={Overlay} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        <ComponentWrapper>
+            <Overlay visible />
+            <Row>
+                <Col span={24}>
+                    <Card>
+                        <CardTitle title={"This is the card title"} />
+                        <CardContent>
+                            Lorem ipsum dolor sit amet, mel aliquip consetetur ea, postulant
+                            salutandi et ius. Quas semper dissentiunt ad mel, in putent minimum ius,
+                            ne doctus audiam menandri mel. In amet utroque facilisi quo, mei ad
+                            mutat graeci evertitur, natum fastidii no mel. Etiam praesent moderatius
+                            an vis, vim velit tollit cu.
+                        </CardContent>
+                    </Card>
+                </Col>
+                <Col span={24}>
+                    <Card>
+                        <CardTitle title={"This is the card title"} />
+                        <CardContent>
+                            Lorem ipsum dolor sit amet, mel aliquip consetetur ea, postulant
+                            salutandi et ius. Quas semper dissentiunt ad mel, in putent minimum ius,
+                            ne doctus audiam menandri mel. In amet utroque facilisi quo, mei ad
+                            mutat graeci evertitur, natum fastidii no mel. Etiam praesent moderatius
+                            an vis, vim velit tollit cu.
+                        </CardContent>
+                    </Card>
+                </Col>
+                <Col span={24}>
+                    <Card>
+                        <CardTitle title={"This is the card title"} />
+                        <CardContent>
+                            Lorem ipsum dolor sit amet, mel aliquip consetetur ea, postulant
+                            salutandi et ius. Quas semper dissentiunt ad mel, in putent minimum ius,
+                            ne doctus audiam menandri mel. In amet utroque facilisi quo, mei ad
+                            mutat graeci evertitur, natum fastidii no mel. Etiam praesent moderatius
+                            an vis, vim velit tollit cu.
+                        </CardContent>
+                    </Card>
+                </Col>
+                <Col span={24}>
+                    <Card>
+                        <CardTitle title={"This is the card title"} />
+                        <CardContent>
+                            Lorem ipsum dolor sit amet, mel aliquip consetetur ea, postulant
+                            salutandi et ius. Quas semper dissentiunt ad mel, in putent minimum ius,
+                            ne doctus audiam menandri mel. In amet utroque facilisi quo, mei ad
+                            mutat graeci evertitur, natum fastidii no mel. Etiam praesent moderatius
+                            an vis, vim velit tollit cu.
+                        </CardContent>
+                    </Card>
+                </Col>
+            </Row>
+        </ComponentWrapper>
+    </Story>
+</Canvas>

@@ -32,7 +32,9 @@ export const Input = (props) => {
                 [styles.inputIcon]: icon,
                 [styles.inputPrepend]: prepend,
                 [styles.inputAppend]: append,
-                [styles.typeColor]: type === "color"
+                [styles.typeColor]: type === "color",
+                [styles.focused]: hasFocus,
+                [styles.disabled]: disabled
             },
             className
         )}>

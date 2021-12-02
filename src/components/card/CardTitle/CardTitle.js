@@ -28,6 +28,7 @@ export const CardTitle = (props) => {
                     {actions.map((action, index) =>
                         action.content ? (
                             <PopOver
+                                padding="regular"
                                 key={index}
                                 visible={activeAction === index}
                                 onClose={() => setActiveAction(null)}

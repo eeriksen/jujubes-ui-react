@@ -4,48 +4,59 @@
    PAGE NAV
    =================================================================== */
 
-$height: var(--pageNav_height, var(--elementSize_big));
-$counterSize: var(--pageNav_counterSize, 22px);
-$borderBottom: var(--pageNav_borderBottom, 3px solid rgba(var(--color_base), 0.1));
-$backgroundColor: rgba(var(--pageNav_backgroundColor, var(--color_backgroundContent)), 1);
-$boxShadow: var(--pageNav_boxShadow, var(--boxShadow_regular));
-$borderRadius: var(--pageNav_borderRadius, var(--borderRadius_content));
-$buttonSpacing: var(--pageNav_buttonSpacing, var(--spacing_regular));
-$compactBorderTop: var(--pageNav_borderTopCompact, "none");
-$compactBoxShadow: var(--pageNav_boxShadowCompact, var(--boxShadow_regular));
+$height: var(--pageNav_height, var(--elementSize_regular));
+$borderRadius: var(--pageNav_borderRadius, 100px);
+$backgroundColor: var(--pageNav_backgroundColor, rgba(var(--color_backgroundShade), 1));
+$buttonsMargin: var(--pageNav_buttonsMargin, 0);
+
+$buttonSpacing: var(--pageNav_buttonSpacing, 0);
+$buttonPadding: var(--pageNav_buttonPadding, 0 var(--spacing_large));
+$buttonBorder: var(--pageNav_buttonBorder, none);
+$buttonActiveBorder: var(--pageNav_buttonActiveBorder, none);
+$buttonBoxShadow: var(--pageNav_buttonBoxShadow, var(--boxShadow_content));
+$buttonBackgroundColor: var(--pageNav_buttonBackgroundColor, rgba(var(--color_backgroundContent), 1));
+
+$mobile-height: var(--pageNavMobile_height, var(--elementSize_big));
+$mobile-backgroundColor: var(--pageNavMobile_backgroundColor, rgba(var(--color_backgroundContent), 1));
+$mobile-buttonBorderBottom: var(--pageNavMobile_buttonBorder, 3px solid rgba(var(--color_base), 0.1));
+$mobile-buttonActiveBackgroundColor: var(--pageNavMobile_buttonActiveBackgroundColor, rgba(var(--color_backgroundContent), 1));
+$mobile-buttonActiveForegroundColor: var(--pageNavMobile_buttonActiveForegroundColor, rgba(var(--color_primary), 1));
+$mobile-buttonActiveBorderBottom: var(--pageNavMobile_buttonActiveBorder, 3px solid rgba(var(--color_primary), 1));
+$mobile-boxShadow: var(--pageNavMobile_boxShadow, var(--boxShadow_content));
 
 .base {
     position: relative;
     height: $height;
-    margin-right: calc(var(--elementSize_big) + var(--spacing_medium));
+    margin-right: 150px;
 
     .buttons {
         display: flex;
         flex-direction: row;
         position: absolute;
+        background-color: $backgroundColor;
+        border-radius: $borderRadius;
+        height: $height;
+        column-gap: $buttonSpacing;
+        padding: $buttonsMargin;
     }
 
     .button {
         display: flex;
         position: relative;
-        box-shadow: $boxShadow;
-        height: $height;
+        height: 100%;
         cursor: pointer;
         user-select: none;
-        margin-right: $buttonSpacing;
-        padding: 0 var(--spacing_small);
-        transition: box-shadow 0.2s linear, background-color 0.2s linear, border 0.2s ease-in-out;
-        border-bottom: $borderBottom;
+        padding: $buttonPadding;
+        border: $buttonBorder;
         text-decoration: none;
         border-radius: $borderRadius;
-        background-color: $backgroundColor;
 
         .icon {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: $height;
             height: 100%;
+            padding-right: 0.6rem;
             @include m-iconSize(19px);
             @include m-iconColor(rgba(var(--color_base), 0.2), true);
         }
@@ -56,8 +67,8 @@ $compactBoxShadow: var(--pageNav_boxShadowCompact, var(--boxShadow_regular));
             height: 100%;
             font-size: var(--fontSize_medium);
             font-weight: var(--fontWeight_medium);
-            padding: 2px var(--spacing_medium) 0 0;
-            color: rgba(var(--color_base), 0.6);
+            padding: 2px 0 0 0;
+            color: rgba(var(--color_base), 0.8);
             transition: color 0.2s linear;
         }
 
@@ -84,7 +95,9 @@ $compactBoxShadow: var(--pageNav_boxShadowCompact, var(--boxShadow_regular));
         // STATE: Active
         &.active {
             cursor: default;
-            border-color: rgba(var(--color_primary), 1);
+            border: $buttonActiveBorder;
+            background-color: $buttonBackgroundColor;
+            box-shadow: $buttonBoxShadow;
 
             .icon {
                 @include m-iconColor(rgba(var(--color_primary), 1), true);
@@ -94,12 +107,7 @@ $compactBoxShadow: var(--pageNav_boxShadowCompact, var(--boxShadow_regular));
                 color: rgba(var(--color_base), 1);
             }
         }
-
-        &:last-child {
-            margin-right: 0;
-        }
     }
-
 
     // MODE: Compact
     &.compact {
@@ -109,6 +117,11 @@ $compactBoxShadow: var(--pageNav_boxShadowCompact, var(--boxShadow_regular));
             align-items: center;
             justify-content: center;
 
+            .icon {
+                padding: 0;
+                @include m-iconColor(rgba(var(--color_base), 0.4), true);
+            }
+
             .label {
                 display: none;
             }
@@ -117,6 +130,11 @@ $compactBoxShadow: var(--pageNav_boxShadowCompact, var(--boxShadow_regular));
                 right: 2px;
             }
 
+            &.active {
+                .icon {
+                    @include m-iconColor(rgba(var(--color_primary), 1), true);
+                }
+            }
         }
     }
 
@@ -128,13 +146,16 @@ $compactBoxShadow: var(--pageNav_boxShadowCompact, var(--boxShadow_regular));
         right: 0;
         z-index: $zIndex--pageNav;
         margin: 0;
-        background: rgba(var(--color_backgroundContent), 1);
-        box-shadow: $compactBoxShadow;
         box-sizing: content-box;
-        border-top: $compactBorderTop;
+        height: $mobile-height;
 
         .buttons {
             width: 100%;
+            border-radius: 0;
+            padding: 0;
+            background: $mobile-backgroundColor;
+            box-shadow: $mobile-boxShadow;
+            height: $mobile-height;
         }
 
         .button {
@@ -145,6 +166,14 @@ $compactBoxShadow: var(--pageNav_boxShadowCompact, var(--boxShadow_regular));
             flex-grow: 1;
             align-items: center;
             justify-content: center;
+            padding: 0;
+            border: none;
+            border-bottom: $mobile-buttonBorderBottom;
+
+            .icon {
+                padding: 0;
+                @include m-iconColor(rgba(var(--color_base), 0.4), true);
+            }
 
             .label {
                 display: none;
@@ -152,6 +181,17 @@ $compactBoxShadow: var(--pageNav_boxShadowCompact, var(--boxShadow_regular));
 
             .count {
                 right: 2px;
+            }
+
+            &.active {
+                box-shadow: none;
+                background: $mobile-buttonActiveBackgroundColor;
+                border: none;
+                border-bottom: $mobile-buttonActiveBorderBottom;
+
+                .icon {
+                    @include m-iconColor($mobile-buttonActiveForegroundColor);
+                }
             }
         }
     }

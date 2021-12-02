@@ -8,6 +8,7 @@
 .base {
     display: none;
     line-height: 1;
+    pointer-events: none;
 
     svg {
         display: block;
@@ -73,6 +74,16 @@
 }
 
 // Sizes
+.sizeAuto {
+    width: 100%;
+    height: 100%;
+
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+}
+
 .sizeSmall {
     svg {
         width: $iconSize--small;

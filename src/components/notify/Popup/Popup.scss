@@ -40,7 +40,7 @@ $closeColor: var(--popup_closeColor, var(--color_base));
         opacity: 0;
         animation: boxIn 0.3s forwards;
         margin-top: -50px;
-        box-shadow: var(--boxShadow_large);
+        box-shadow: var(--boxShadow_pop);
         transition: border-bottom 0.3s ease;
         background: rgba(var(--color_backgroundContent), 1);
         border-radius: var(--borderRadius_content);

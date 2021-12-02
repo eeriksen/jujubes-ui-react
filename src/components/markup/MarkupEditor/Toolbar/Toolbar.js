@@ -2,7 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import classNames from "classnames";
 import styles from "./Toolbar.scss";
 
-import { getSelectionCoords } from "../utils";
+import { getVisibleSelectionRect } from "draft-js";
+import { calculatePosition } from "../../../../utils/popOverUtils";
+import { findParentWithCSS } from "../../../../utils/domUtils";
+
+import { getToolbarWidth } from "../utils";
 import { ToolbarItemGroup } from "./ToolbarItemGroup";
 
 import { BlockTypeAction } from "./actions/BlockTypeAction";
@@ -11,7 +15,6 @@ import { InlineStyleAction } from "./actions/InlineStyleAction";
 import { EntityAction } from "./actions/EntityAction";
 import { LinkType } from "./entities/LinkType";
 import { Arrow } from "../../../graphic";
-import { findParentWithCSS } from "../utils";
 
 export const Toolbar = ({
     editorHasFocus,
@@ -100,7 +103,7 @@ export const Toolbar = ({
 
     useEffect(() => {
         if (place !== "inline") {
-            const scrollParent =
+            const { element: scrollParent } =
                 findParentWithCSS(containerRef.current, "overflow-y", "auto") || document;
             scrollParent.addEventListener("scroll", handleScroll);
             return () => {
@@ -131,13 +134,23 @@ export const Toolbar = ({
     const handleUpdateToolbarPosition = () => {
         clearTimeout(updatePositionTimeout);
         updatePositionTimeout = setTimeout(() => {
-            // Get coordinates
-            const { toolbarStyle, arrowStyle } = getSelectionCoords(
-                containerRef.current,
-                toolbarRef.current
-            ) || {};
+            // Calculate toolbar width
+            const toolbarWidth = getToolbarWidth(toolbarRef.current, styles.group);
+            setToolbarStyle({
+                ...toolbarStyle,
+                width: `${toolbarWidth}px`
+            });
 
-            setToolbarStyle(toolbarStyle);
+            // Calculate toolbar position
+            const win = containerRef.current.ownerDocument.defaultView || window;
+            const selectionBounds = getVisibleSelectionRect(win);
+
+            const { popStyle, arrowStyle } = calculatePosition({
+                $base: selectionBounds,
+                $pop: toolbarRef.current
+            });
+
+            setToolbarStyle(popStyle);
             setArrowStyle(arrowStyle);
         }, 0);
     };
@@ -164,47 +177,43 @@ export const Toolbar = ({
 
                 {/* Content */}
                 <div className={styles.content}>
-                    {editingEntity ? (
-                        editingEntity
-                    ) : (
-                        <div className={styles.groups}>
-                            {actions &&
-                                actions.map((groupActions, index) => (
-                                    <ToolbarItemGroup key={index}>
-                                        {groupActions.map((actionKey) => {
-                                            // Check if action
-                                            if (!toolbarActionMap.hasOwnProperty(actionKey)) {
-                                                console.warn(
-                                                    "MarkupEditor: No such action: %s",
-                                                    actionKey
-                                                );
-                                                return null;
-                                            }
+                    {editingEntity
+                        ? editingEntity
+                        : actions &&
+                          actions.map((groupActions, index) => (
+                              <ToolbarItemGroup key={index}>
+                                  {groupActions.map((actionKey) => {
+                                      // Check if action
+                                      if (!toolbarActionMap.hasOwnProperty(actionKey)) {
+                                          console.warn(
+                                              "MarkupEditor: No such action: %s",
+                                              actionKey
+                                          );
+                                          return null;
+                                      }
 
-                                            const action = toolbarActionMap[actionKey];
-                                            let elementType;
-                                            if (action.hasOwnProperty("blockType")) {
-                                                elementType = BlockTypeAction;
-                                            } else if (action.hasOwnProperty("inlineStyle")) {
-                                                elementType = InlineStyleAction;
-                                            } else if (action.hasOwnProperty("blockStyle")) {
-                                                elementType = BlockStyleAction;
-                                            } else if (action.hasOwnProperty("entityType")) {
-                                                elementType = EntityAction;
-                                            }
+                                      const action = toolbarActionMap[actionKey];
+                                      let elementType;
+                                      if (action.hasOwnProperty("blockType")) {
+                                          elementType = BlockTypeAction;
+                                      } else if (action.hasOwnProperty("inlineStyle")) {
+                                          elementType = InlineStyleAction;
+                                      } else if (action.hasOwnProperty("blockStyle")) {
+                                          elementType = BlockStyleAction;
+                                      } else if (action.hasOwnProperty("entityType")) {
+                                          elementType = EntityAction;
+                                      }
 
-                                            return React.createElement(elementType, {
-                                                key: actionKey,
-                                                editorState: editorState,
-                                                onChange: onChange,
-                                                disabled: excludeActions.indexOf(actionKey) >= 0,
-                                                ...action
-                                            });
-                                        })}
-                                    </ToolbarItemGroup>
-                                ))}
-                        </div>
-                    )}
+                                      return React.createElement(elementType, {
+                                          key: actionKey,
+                                          editorState: editorState,
+                                          onChange: onChange,
+                                          disabled: excludeActions.indexOf(actionKey) >= 0,
+                                          ...action
+                                      });
+                                  })}
+                              </ToolbarItemGroup>
+                          ))}
                 </div>
             </div>
         </div>

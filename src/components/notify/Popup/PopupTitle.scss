@@ -19,11 +19,12 @@ $descriptionColor: var(--pageTitle_descriptionColo, var(--color_base));
     position: relative;
 
     .text {
-        display: inline-block;
+        display: block;
         font-size: var(--fontSize_heading4);
         font-weight: var(--fontWeight_medium);
         color: rgba($foregroundColor, 1);
-        overflow-wrap: break-word;
+        min-width: 0;
+        @include m-truncate();
     }
 
     .description {

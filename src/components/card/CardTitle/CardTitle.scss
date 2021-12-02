@@ -8,12 +8,14 @@ $height: var(--cardTitle_height, var(--elementSize_big));
 $borderBottom: var(--cardTitle_borderBottom, 1px solid rgba(var(--color_base), 0.10));
 $fontSize: var(--cardTitle_fontSize, var(--fontSize_large));
 $fontWeight: var(--cardTitle_fontWeight, var(--fontWeight_medium));
-$paddingSides: var(--card_paddingSides, var(--spacing_medium));
+$paddingSides: var(--card_padding, var(--spacing_medium));
 
 $actionIconColor: var(--cardTitle_actionIconColor, rgba(var(--color_base), 0.7));
 $actionIconColorActive: var(--cardTitle_actionIconColorActive, rgba(var(--color_primary), 1));
 $actionBackgroundActive: var(--cardTitle_actionBackgroundActive, rgba(var(--color_base), 0.03));
 $actionBorder: var(--cardTitle_actionBorder, 1px solid rgba(var(--color_base), 0.05));
+$actionPadding: var(--cardTitle_actionPadding, 0px);
+$actionBorderRadius: var(--cardTitle_actionBorderRadius, 0);
 
 .base {
     height: $height;
@@ -47,14 +49,16 @@ $actionBorder: var(--cardTitle_actionBorder, 1px solid rgba(var(--color_base), 0
 
         .action {
             position: relative;
-            width: $height;
-            height: $height;
+            width: calc(#{$height} - #{$actionPadding});
+            height: calc(#{$height} - #{$actionPadding});
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             user-select: none;
             border-left: $actionBorder;
+            margin: $actionPadding $actionPadding $actionPadding 0;
+            border-radius: $actionBorderRadius;
             @include m-iconColor($actionIconColor, true);
 
             &:hover, &:active, &.active {

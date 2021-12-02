@@ -80,3 +80,30 @@ Use a `<ButtonGroup />` when you want to group two or more buttons nicely togeth
         }}
     </Story>
 </Canvas>
+
+### Color
+
+<Canvas>
+    <Story name="color">
+        {() => {
+            const [index, setIndex] = useState(0);
+            return (
+                <Row>
+                    <Col span={24}>
+                        <ButtonGroup>
+                            <Button color={index === 0 && "primary"} onClick={() => setIndex(0)}>
+                                Left
+                            </Button>
+                            <Button color={index === 1 && "primary"} onClick={() => setIndex(1)}>
+                                Middle
+                            </Button>
+                            <Button color={index === 2 && "primary"} onClick={() => setIndex(2)}>
+                                Right
+                            </Button>
+                        </ButtonGroup>
+                    </Col>
+                </Row>
+            );
+        }}
+    </Story>
+</Canvas>

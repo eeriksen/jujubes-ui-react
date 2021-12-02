@@ -15,6 +15,7 @@ $placeholderBackgroundColor: var(--image_placeholderBackgroundColor, rgba(var(--
         position: relative;
         text-align: center;
         overflow: hidden;
+        border-radius: var(--borderRadius_form);
 
         .image {
             img {
@@ -172,6 +173,13 @@ $placeholderBackgroundColor: var(--image_placeholderBackgroundColor, rgba(var(--
         }
     }
 
+    // Unround
+    &.modUnround {
+        .wrapper {
+            border-radius: 0;
+        }
+    }
+
     // Oval
     &.modOval {
         border-radius: 50%;
@@ -197,7 +205,7 @@ $placeholderBackgroundColor: var(--image_placeholderBackgroundColor, rgba(var(--
             top: -170%;
             left: 0;
             width: 40%;
-            height: 200%;
+            height: 250%;
             transform: rotate(-55deg) translateX(-120%);
             transform-origin: 0 0;
             background-color: rgba(255, 255, 255, 0.3);
@@ -251,19 +259,18 @@ $placeholderBackgroundColor: var(--image_placeholderBackgroundColor, rgba(var(--
         cursor: pointer;
 
         .placeholder {
-            background: transparent;
-            border: 1px dashed rgba(var(--color_base), 0.2);
+            background: var(--input_backgroundColor);
+            border: var(--input_border);
+            box-shadow: var(--input_boxShadow);
             border-radius: var(--borderRadius_form);
         }
 
         &:hover,
         &.fileSelectFocused {
-            .wrapper {
-                box-shadow: var(--input_boxShadowFocus);
-            }
-
             .placeholder {
                 border: var(--input_borderFocus);
+                box-shadow: var(--input_boxShadowFocus);
+                background-color: var(--input_backgroundColor, rgba(var(--color_contrast), 1));
             }
         }
     }

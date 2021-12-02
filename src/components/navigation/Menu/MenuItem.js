@@ -7,7 +7,7 @@ import { Clickable } from "../../button/Clickable";
 import { Icon } from "../../graphic/Icon";
 import { Badge } from "../../notify/Badge";
 
-export const MenuItem = ({ label, icon, iconColor, link, selected, count, indicator, onClick }) => {
+export const MenuItem = ({ label, icon, iconColor, iconSize, link, selected, count, indicator, onClick }) => {
     const handleClick = (e) => {
         e.stopPropagation();
         onClick && onClick(e);
@@ -25,7 +25,7 @@ export const MenuItem = ({ label, icon, iconColor, link, selected, count, indica
             {/* Icon */}
             {icon ? (
                 <span className={styles.icon}>
-                    <Icon color={iconColor || "primary"} name={icon} />
+                    <Icon color={iconColor || "primary"} name={icon} size={iconSize} />
                 </span>
             ) : null}
 

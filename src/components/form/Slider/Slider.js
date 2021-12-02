@@ -66,7 +66,7 @@ export const Slider = (props) => {
                             </Text>
                         }
                         size="auto"
-                        padding
+                        padding="medium"
                     >
                         <div className={style.wrapper}>
                             <Icon name="dot-matrix" />

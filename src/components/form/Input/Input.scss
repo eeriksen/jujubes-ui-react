@@ -8,6 +8,11 @@ $backgroundColor: var(--input_backgroundColor, rgba(var(--color_contrast), 1));
 
 .base {
     position: relative;
+    box-shadow: var(--input_boxShadow, "none");
+    background-color: $backgroundColor;
+    border-radius: var(--borderRadius_form);
+    border: var(--input_border);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
     /* INPUT
     --------------------------------------- */
@@ -18,25 +23,30 @@ $backgroundColor: var(--input_backgroundColor, rgba(var(--color_contrast), 1));
         width: 100%;
         outline: none;
         padding: 0 10px 0;
-        border: var(--input_border);
         font-family: var(--fontFamily_primary);
         font-size: var(--fontSize_regular);
         color: rgba(var(--color_base), 0.8);
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        background-color: $backgroundColor;
-        border-radius: var(--borderRadius_form);
         appearance: none;
+        background: transparent;
+        border: none;
+        vertical-align: top;
+    }
 
-        &:focus {
-            border: var(--input_borderFocus);
+    // FOCUSED
+    &.focused {
+        border: var(--input_borderFocus);
+        box-shadow: var(--input_boxShadowFocus);
+        background-color: var(--input_backgroundColorFocus, $backgroundColor);
+
+        .input {
             color: rgba(var(--color_base), 1);
-            box-shadow: var(--input_boxShadowFocus);
         }
+    }
 
-        &[disabled] {
-            background-color: rgba(var(--color_base), 0.03);
-            border-color: rgba(var(--color_base), 0.1);
-            color: rgba(var(--color_base), 0.4);
+    // DISABLED
+    &.disabled {
+        opacity: 0.5;
+        .input {
             cursor: not-allowed;
         }
     }
@@ -99,14 +109,11 @@ $backgroundColor: var(--input_backgroundColor, rgba(var(--color_contrast), 1));
 
         .input {
             flex-grow: 1;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
         }
 
         .prepend {
             display: flex;
             flex-shrink: 0;
-            border: var(--input_border);
             border-right: none;
             border-radius: var(--borderRadius_form) 0 0 var(--borderRadius_form);
             background-color: rgba(var(--color_base), 0.03);
@@ -141,14 +148,11 @@ $backgroundColor: var(--input_backgroundColor, rgba(var(--color_contrast), 1));
 
         .input {
             flex-grow: 1;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
         }
 
         .append {
             display: flex;
             flex-shrink: 0;
-            border: var(--input_border);
             border-left: none;
             border-radius: 0 var(--borderRadius_form) var(--borderRadius_form) 0;
             background-color: rgba(var(--color_base), 0.03);
@@ -189,12 +193,10 @@ $backgroundColor: var(--input_backgroundColor, rgba(var(--color_contrast), 1));
 
     // STATE: Error
     &.error {
-        .input {
-            border: var(--input_borderError);
+        border: var(--input_borderError);
 
-            &:focus {
-                box-shadow: var(--input_boxShadowError);
-            }
+        &.focused {
+            box-shadow: var(--input_boxShadowError);
         }
 
         .icon {

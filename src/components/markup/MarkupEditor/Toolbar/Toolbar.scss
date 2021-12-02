@@ -6,7 +6,7 @@
 
 $buttonSize: var(--elementSize_regular);
 $buttonSizeMobile: calc(var(--elementSize_regular) - 0.5rem);
-$backgroundColor: rgba(var(--color_backgroundContent), 0.7);
+$backgroundColor: rgba(var(--color_backgroundPop), 1);
 
 .toolbar {
     position: fixed;
@@ -33,17 +33,16 @@ $backgroundColor: rgba(var(--color_backgroundContent), 0.7);
             z-index: 2;
 
             svg {
-                fill: rgba(var(--color_backgroundContent), 0.9);
+                fill: $backgroundColor;
             }
         }
 
         // CONTENT
         .content {
             background-color: $backgroundColor;
-            backdrop-filter: blur(2px);
             border-radius: var(--borderRadius_content);
-            box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.3);
-            padding: 5px;
+            box-shadow: var(--boxShadow_pop);
+            padding: 0.5rem;
             z-index: 1;
         }
     }

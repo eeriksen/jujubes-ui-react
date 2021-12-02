@@ -24,11 +24,7 @@ export const AppBar = ({ title, subtitle, children, right }) => {
                 </div>
                 <Clickable className={styles.center}>
                     <div className={styles.title}>{title}</div>
-                    {subtitle ? (
-                        <div className={styles.subtitle}>
-                            {subtitle}
-                        </div>
-                    ) : null}
+                    {subtitle ? <div className={styles.subtitle}>{subtitle}</div> : null}
                 </Clickable>
                 {right || children ? (
                     <div className={styles.right}>
@@ -65,4 +61,4 @@ AppBar.propTypes = {
 
 AppBar.defaultProps = {
     slot: "bar"
-}
+};

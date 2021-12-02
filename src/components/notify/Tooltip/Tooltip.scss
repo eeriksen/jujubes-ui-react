@@ -6,6 +6,7 @@
 
 $backgroundColor: rgba(var(--tooltip_backgroundColor, var(--color_base)), 1);
 $foregroundColor: rgba(var(--tooltip_foregroundColor, var(--color_contrast)), 1);
+$padding: var(--tooltip_padding, 0.3rem 0.7rem 0.3rem);
 
 :global {
     .tippy-popper {
@@ -14,7 +15,8 @@ $foregroundColor: rgba(var(--tooltip_foregroundColor, var(--color_contrast)), 1)
             color: $foregroundColor;
             font-family: var(--fontFamily_primary);
             font-size: var(--fontSize_regular);
-            padding: 0.3rem 0.7rem 0.3rem;
+            font-weight: var(--fontWeight_medium);
+            padding: $padding;
         }
 
         &[x-placement^="bottom"] [x-arrow] {

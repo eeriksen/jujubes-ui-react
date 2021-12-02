@@ -1,0 +1,129 @@
+@import "../../../styles/base";
+
+/* ===================================================================
+   BREADCRUMB TRAIL
+   =================================================================== */
+
+$height: var(--breadcrumbTrail_height, var(--elementSize_small));
+$backgroundMobile: var(--breadcrumbTrail_backgroundMobile, rgba(var(--color_base), 0.05));
+
+$labelColor: rgba(var(--breadcrumbTrail_labelColor, var(--color_base)), 0.5);
+$labelColorHover: var(--breadcrumbTrail_labelColorHover, rgba(var(--color_base), 1));
+$boxShadow: var(--breadcrumbTrail_boxShadow, none);
+$backgroundColor: var(--breadcrumbTrail_backgroundColor, none);
+$borderRadius: var(--breadcrumbTrail_borderRadius, 0);
+$padding: var(--breadcrumbTrail_padding, 0.2rem 0);
+$arrowColor: var(--breadcrumbTrail_arrowColor, rgba(var(--color_primary), 1));
+$arrowPadding: var(--breadcrumbTrail_arrowPadding, 0 1rem);
+$iconColor: var(--breadcrumbTrail_iconColor, rgba(var(--color_primary), 1));
+
+.base {
+    width: 100%;
+    display: flex;
+    padding: 0 var(--spacing_regular) 0 var(--spacing_small);
+    max-width: 100%;
+
+    .container {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        flex-grow: 1;
+
+        .crumb {
+            position: relative;
+            display: inline-grid;
+            user-select: none;
+            transition: all 0.2s linear;
+            height: 100%;
+            max-width: 100%;
+
+            .wrapper {
+                display: flex;
+                align-items: center;
+                max-width: 100%;
+                @include m-truncate();
+            }
+
+            .label {
+                height: $height;
+                color: $labelColor;
+                padding: $padding;
+                text-decoration: none;
+                background-color: $backgroundColor;
+                border-radius: $borderRadius;
+                height: 100%;
+                @include m-truncate();
+                display: flex;
+                align-items: center;
+
+                .icon {
+                    display: none;
+                    margin-right: 0.7rem;
+                    padding-bottom: 0.3rem;
+                    @include m-iconColor($iconColor);
+                }
+            }
+
+            .arrow {
+                padding: $arrowPadding;
+                @include m-iconSize(10px);
+                @include m-iconColor($arrowColor);
+            }
+
+            &.active:not(:last-child) {
+                opacity: 0.5;
+            }
+
+            // STATE: Hover
+            &:hover {
+                cursor: pointer;
+
+                .label {
+                    color: $labelColorHover;
+                }
+            }
+
+            &:first-child {
+                .arrow {
+                    display: none;
+                }
+            }
+
+            &:last-child {
+                .label .icon {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .pop {
+        display: none;
+        align-items: center;
+    }
+
+
+    @include for-mobile-down() {
+        .container {
+            .crumb {
+                display: none;
+
+                &:first-child {
+                    display: inline-grid;
+
+                    .arrow {
+                        display: flex;
+                        order: 1;
+                    }
+
+                    .label {
+                        order: 2;
+                    }
+                }
+            }
+        }
+        .pop {
+            display: flex;
+        }
+    }
+}

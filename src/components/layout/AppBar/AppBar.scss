@@ -7,7 +7,7 @@
 $backgroundColor: rgba(var(--navBar_backgroundColor, var(--color_base)), 1);
 $foregroundColor: rgba(var(--navBar_foregroundColor, var(--color_contrast)), 1);
 $accentColor: rgba(var(--navBar_accentColor, var(--color_primary)), 1);
-$boxShadow: var(--navBar_boxShadow, var(--boxShadow_regular));
+$boxShadow: var(--navBar_boxShadow, var(--boxShadow_content));
 $borderBottom: var(--navBar_borderBottom, "none");
 $subBackgroundColor: rgba(var(--navBar_subBackgroundColor, var(--color_backgroundContent)), 1);
 $subBorderBottom: var(--navBar_subBorderBottom, none);
@@ -69,6 +69,7 @@ $subBorderBottom: var(--navBar_subBorderBottom, none);
     .subBar {
         position: relative;
         width: 100%;
+        max-width: 100%;
         height: $appBar--height;
         background-color: $subBackgroundColor;
         transition: margin-top .2s cubic-bezier(0.550, 0.055, 0.675, 0.190), box-shadow .2s linear;

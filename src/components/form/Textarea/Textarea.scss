@@ -10,6 +10,7 @@ $backgroundColor: var(--select_backgroundColor, var(--input_backgroundColor));
     background-color: $backgroundColor;
     transition: border-color 0.3s ease;
     border: var(--input_border);
+    box-shadow: var(--input_boxShadow, "none");
 
     textarea {
         display: inline-block;
@@ -30,6 +31,7 @@ $backgroundColor: var(--select_backgroundColor, var(--input_backgroundColor));
         border: var(--input_borderFocus);
         box-shadow: var(--input_boxShadowFocus);
         color: rgba(var(--color_base), 1);
+        background-color: var(--input_backgroundColorFocus, $backgroundColor);
     }
 
     &.disabled {

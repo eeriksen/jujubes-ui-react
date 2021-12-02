@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./PopOver.scss";
 import classNames from "classnames";
-import { calculatePosition, findParentWithCSS } from "./utils";
+import { calculatePosition } from "../../../utils/popOverUtils";
+import { findParentWithCSS } from "../../../utils/domUtils";
 import { Arrow } from "../../graphic";
 
 export const PopOver = ({
@@ -37,7 +38,8 @@ export const PopOver = ({
     }, [visible]);
 
     useEffect(() => {
-        const { element = document } = findParentWithCSS(baseRef.current, "overflow-y", "auto") || {};
+        const { element = document } =
+            findParentWithCSS(baseRef.current, "overflow-y", "auto") || {};
         element.addEventListener("scroll", redrawPosition);
         return () => {
             element.removeEventListener("scroll", redrawPosition);
@@ -51,7 +53,7 @@ export const PopOver = ({
     const redrawPosition = () => {
         const $base = baseRef.current.childNodes[0];
         const $pop = popRef.current;
-        const result = calculatePosition({$base, $pop, offset, position, container});
+        const result = calculatePosition({ $base, $pop, offset, position, container });
         setPopStyle(result.popStyle);
         setArrowStyle(result.arrowStyle);
     };
@@ -70,7 +72,10 @@ export const PopOver = ({
         [styles.visible]: visible,
         [styles.sizeLarge]: size === "large",
         [styles.sizeAuto]: size === "auto",
-        [styles.padding]: padding
+        [styles.paddingSmall]: padding === "small",
+        [styles.paddingRegular]: padding === true || padding === "regular",
+        [styles.paddingMedium]: padding === "medium",
+        [styles.paddingLarge]: padding === "large"
     });
 
     return (
@@ -123,7 +128,7 @@ PopOver.propTypes = {
     /**
      * Padding around content
      */
-    padding: PropTypes.bool,
+    padding: PropTypes.oneOf([true, "small", "regular", "medium", "large"]),
     /**
      * Preferred placement
      */
@@ -132,7 +137,7 @@ PopOver.propTypes = {
 
 PopOver.defaultProps = {
     visible: false,
-    padding: false,
+    padding: null,
     offset: 0,
     hideDelay: 0,
     position: "bottom"

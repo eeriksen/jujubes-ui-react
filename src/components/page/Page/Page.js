@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Page.scss";
-import { PageCrumbs } from "../PageCrumbs";
 import { PageActions } from "../PageActions";
 import { ContentWrapper } from "../../layout/ContentWrapper";
 import { PageHeader } from "../PageHeader";
@@ -13,9 +12,7 @@ export const Page = ({ children }) => {
 
     React.Children.map(children, (child) => {
         if (child) {
-            if (child.type === PageCrumbs) {
-                topBox.unshift(child);
-            } else if (child.type === PageHeader || child.type === PageNav) {
+            if (child.type === PageHeader || child.type === PageNav) {
                 topBox.push(child);
             } else if (child.type === PageActions) {
                 actionsBox.push(child);

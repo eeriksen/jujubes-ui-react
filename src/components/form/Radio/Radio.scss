@@ -25,6 +25,7 @@ $radio--size: 28px;
         border-radius: $radio--size;
         transition: all 0.2s ease;
         background-color: $backgroundColor;
+        box-shadow: var(--input_boxShadow, "none");
 
         .dot {
             position: absolute;
@@ -49,6 +50,7 @@ $radio--size: 28px;
         .symbol {
             box-shadow: var(--input_boxShadowFocus);
             border: var(--input_borderFocus);
+            background-color: var(--input_backgroundColorFocus, $backgroundColor);
         }
 
         .label {

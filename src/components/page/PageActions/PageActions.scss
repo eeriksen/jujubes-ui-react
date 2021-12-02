@@ -4,41 +4,103 @@
    PAGE ACTIONS
    =================================================================== */
 
+$buttonHeight: var(--elementSize_regular);
 $backgroundColor: var(--pageActionsButton_backgroundColor, var(--color_primary));
 $foregroundColor: var(--pageActionsButton_foregroundColor, var(--color_primaryContrast));
-$backgroundColorActive: var(--pageActionsButton_backgroundColorActive, var(--color_accent));
-$borderRadius: var(--pageActionsButton_borderRadius, 100%);
+$backgroundColorActive: var(--pageActionsButton_backgroundColorActive, var(--color_primary));
+$borderRadius: var(--pageActionsButton_borderRadius, $buttonHeight);
 $boxShadow: var(--pageActionsButton_boxShadow, 0 0.3rem 15px rgba(0, 0, 0, 0.2));
+$padding: 0rem;
 
 .base {
     position: absolute;
     right: 0;
-    top: calc((var(--elementSize_big) + var(--spacing_large)) * -1);
+    top: calc((var(--spacing_large) + #{$buttonHeight} + #{$padding} * 2) * -1);
 
     // Action button
     .button {
-        width: var(--elementSize_big);
-        height: var(--elementSize_big);
-        background: rgba($backgroundColor, 1);
+        padding: $padding;
+        background-color: rgba(var(--color_backgroundShade), 1);
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: $borderRadius;
-        box-shadow: $boxShadow;
         transition: transform 0.2s cubic-bezier(0.62, 0.055, 0.24, 1.305), background-color 0.2s ease-in-out,
-        box-shadow 0.2s ease-in-out;
+            box-shadow 0.2s ease-in-out;
         user-select: none;
+        cursor: pointer;
+        box-shadow: var(--boxShadow_pop);
         @include m-iconColor(rgba($foregroundColor, 1));
-        @include m-iconSize($iconSize--large);
+
+        .symbol {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: $buttonHeight;
+            height: $buttonHeight;
+            border-radius: $buttonHeight;
+            background: rgba($backgroundColor, 1);
+
+            .icon {
+                animation: pulse 5s ease-in-out 1s infinite;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            5% {
+                transform: scale(1.2);
+            }
+            10% {
+                transform: scale(1);
+            }
+            15% {
+                transform: scale(1.2);
+            }
+            20% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .label {
+            font-size: var(--fontSize_medium);
+            font-weight: var(--fontWeight_medium);
+            color: rgba(var(--color_base), 0.4);
+            padding: 0 1rem 0 1.5rem;
+            transition: color 0.2s linear;
+            display: none;
+        }
 
         &:hover {
-            cursor: pointer;
+            .label {
+                color: rgba(var(--color_base), 1);
+            }
+
+            .symbol .icon {
+                animation: none;
+            }
         }
 
         &.active {
-            background-color: rgba($backgroundColorActive, 1);
-            transform: scale(0.95);
-            box-shadow: none;
+            background-color: rgba(var(--color_primary), 1);
+            box-shadow: var(--boxShadow_content);
+
+            .label {
+                color: rgba(var(--color_primaryContrast), 1);
+            }
+
+            .symbol {
+                background-color: rgba(var(--color_accent), 1);
+
+                .icon {
+                    animation: none;
+                }
+            }
         }
     }
 
@@ -54,11 +116,19 @@ $boxShadow: var(--pageActionsButton_boxShadow, 0 0.3rem 15px rgba(0, 0, 0, 0.2))
         z-index: $zIndex--pageActionButton;
 
         .button {
-            box-shadow: var(--boxShadow_medium);
+            background: rgba(var(--color_backgroundContent), 0.3);
+            backdrop-filter: blur(2px);
             @include m-iconSize($iconSize--medium);
 
+            .label {
+                color: rgba(var(--color_base), 1);
+                display: block;
+            }
+
             &.active {
-                box-shadow: var(--boxShadow_medium);
+                .symbol {
+                    background: rgba(var(--color_primary), 0.3);
+                }
             }
         }
 
@@ -78,6 +148,12 @@ $boxShadow: var(--pageActionsButton_boxShadow, 0 0.3rem 15px rgba(0, 0, 0, 0.2))
         .button {
             width: var(--elementSize_regular);
             height: var(--elementSize_regular);
+            padding: 0;
+            backdrop-filter: unset;
+
+            .label {
+                display: none;
+            }
         }
     }
 }

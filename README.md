@@ -44,6 +44,12 @@ Pull requests are welcome.
 
 ## Changelog
 
+### [1.3.0] - 2021-12-02
+#### Breaking changes
+- `<PageCrumbs|Crumb>`: Has been deprecated in favor of dynamic crumbs with `<Breadcrumb>` and `<BreadcrumbTrail>`.
+#### New
+- Added a `soft` theme. and added more css-variables.
+
 ### [1.2.3] - 2021-11-26
 #### New
 - `<PageLoader>`: Used to display a loader before content is loaded.

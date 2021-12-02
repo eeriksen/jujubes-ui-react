@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { AppLayout } from "../../../../src/components/layout/AppLayout";
 import { AppNav } from "../../../../src/components/layout/AppNav";
 import { AppBar } from "../../../../src/components/layout/AppBar";
@@ -15,6 +15,8 @@ import { ComponentWrapper } from "../../../../src/components/layout/ComponentWra
 import { Button } from "../../../../src/components/button/Button";
 import { Dashboard } from "./pages/Dashboard";
 import { SAMPLE_USER } from "../../../constants";
+import { Breadcrumb } from "../../../../src/components/navigation/Breadcrumb/Breadcrumb";
+import { BreadcrumbTrail } from "../../../../src/components/navigation/BreadcrumbTrail";
 
 export const ExampleFull = () => {
     const [activeMenuItem, setActiveMenuItem] = useState(1);
@@ -23,17 +25,8 @@ export const ExampleFull = () => {
         <ComponentWrapper>
             <AppLayout>
                 <AppBar title="Jujubes">
-                    <AppBar.Item placeLeft>
-                        <Button square icon="link" size="small" color="primary" />
-                    </AppBar.Item>
-                    <AppBar.Item placeLeft>
-                        <Input
-                            value={searchTerm}
-                            size="small"
-                            icon="search"
-                            onChange={setSearchTerm}
-                            placeholder="Search"
-                        />
+                    <AppBar.Item placeLeft grow>
+                        <BreadcrumbTrail />
                     </AppBar.Item>
                     <AppBar.Item placeRight>
                         <Button circle color="silent">
@@ -128,9 +121,11 @@ export const ExampleFull = () => {
                     </AppNav.Menu>
                 </AppNav>
                 <AppContent>
+                    <Breadcrumb label="Forsiden" link="/" />
                     <Switch>
                         <Route path="/" component={Dashboard} />
                     </Switch>
+                    <Redirect to="/details" />
                 </AppContent>
             </AppLayout>
         </ComponentWrapper>

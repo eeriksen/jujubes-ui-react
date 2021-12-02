@@ -5,7 +5,8 @@
    =================================================================== */
 
 $borderWidth: var(--badge_borderWidth, 1px);
-$height: var(--badge_height, 22px);
+$borderRadius: var(--badge_borderRadius, var(--borderRadius_form));
+$height: var(--badge_height, 1.5rem);
 $heightSmall: var(--badge_heightSmall, 17px);
 $fontWeight: var(--badge_fontWeight, var(--fontWeight_bold));
 $fontWeightNumbers: var(--badge_fontWeightNumbers, var(--fontWeight_medium));
@@ -16,12 +17,12 @@ $fontSize: var(--badge_fontSize, var(--fontSize_tiny));
     align-items: center;
     justify-content: center;
     height: $height;
-    padding: 0 7px;
+    padding: 0 0.5rem;
     font-size: $fontSize;
     border: $borderWidth solid rgba(var(--color_base), 0.4);
     font-weight: $fontWeight;
     text-transform: uppercase;
-    border-radius: var(--borderRadius_form);
+    border-radius: $borderRadius;
     color: rgba(var(--color_base), 0.8);
     letter-spacing: .5px;
     @include m-truncate();
@@ -38,7 +39,7 @@ $fontSize: var(--badge_fontSize, var(--fontSize_tiny));
     ---------------------------------------------------------------------- */
     &.number {
         border-radius: $height;
-        padding: 0 5px;
+        padding: 0 0.4rem;
         font-weight: $fontWeightNumbers;
         min-width: $height;
         text-align: center;
@@ -162,6 +163,6 @@ $fontSize: var(--badge_fontSize, var(--fontSize_tiny));
 
     &.placeCorner {
         position: absolute;
-        transform: translate(60%, -60%);
+        transform: translate(70%, -70%);
     }
 }

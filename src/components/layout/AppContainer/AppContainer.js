@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import moment from "moment";
 import { AppContext } from "../AppContext";
 import themes from "../../../styles/themes";
@@ -16,6 +16,8 @@ export const AppContainer = ({ children, initialTheme }) => {
     const [subBarActive, setSubBarActive] = useState(false);
     const [theme, setTheme] = useState(initialTheme || themes["standard"]);
     const [pageInfo, setPageInfo] = useState({});
+    const [crumbs, setCrumbs] = useState([]);
+    const crumbsRef = useRef([]);
 
     useEffect(() => {
         if (!theme) {
@@ -68,6 +70,30 @@ export const AppContainer = ({ children, initialTheme }) => {
         });
     };
 
+    const addCrumb = ({ id, link, label }) => {
+        const crumbIndex = crumbsRef.current.findIndex((c) => c.id === id);
+        if (crumbIndex < 0) {
+            let updatedCrumbs = [...crumbsRef.current];
+            updatedCrumbs.push({ id, link, label });
+            crumbsRef.current = updatedCrumbs;
+            setCrumbs(updatedCrumbs);
+        }
+    };
+
+    const removeCrumb = (id) => {
+        const crumbIndex = crumbsRef.current.findIndex((c) => c.id === id);
+        if (crumbIndex >= 0) {
+            let updatedCrumbs = [...crumbsRef.current];
+            updatedCrumbs.splice(crumbIndex, 1);
+            crumbsRef.current = updatedCrumbs;
+            setCrumbs(updatedCrumbs);
+        }
+    };
+
+    useEffect(() => {
+        setCrumbs(crumbsRef.current);
+    }, [crumbsRef.current])
+
     return (
         <AppContext.Provider
             value={{
@@ -81,7 +107,11 @@ export const AppContainer = ({ children, initialTheme }) => {
                 updatePageInfo,
 
                 theme,
-                setTheme
+                setTheme,
+
+                crumbs,
+                addCrumb,
+                removeCrumb
             }}
         >
             {children}

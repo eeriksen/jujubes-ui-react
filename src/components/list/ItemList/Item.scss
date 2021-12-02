@@ -98,7 +98,7 @@
 // STATE: Is dragged
 :global {
     .itemList_isDragging {
-        box-shadow: var(--boxShadow_large);
+        box-shadow: var(--boxShadow_pop);
         z-index: $zIndex--itemList-draggedItem;
     }
 }

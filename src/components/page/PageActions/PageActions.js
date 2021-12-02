@@ -17,10 +17,10 @@ import { Popup, PopupTitle, PopupContent } from "../../notify/Popup";
 export const PageActions = ({ title, children, extended }) => {
     return (
         <React.Fragment>
-            <ContentWrapper desktop="down">
+            <ContentWrapper widescreen="down">
                 {renderMobileContent({ title, children })}
             </ContentWrapper>
-            <ContentWrapper desktop="up">
+            <ContentWrapper widescreen="only">
                 {renderDesktopContent({ title, children })}
             </ContentWrapper>
         </React.Fragment>
@@ -78,7 +78,7 @@ const renderDesktopContent = ({ title, children }) => {
     );
 };
 
-const renderMobileContent = ({ children }) => {
+const renderMobileContent = ({ title, children }) => {
     const { pageInfo } = useContext(AppContext);
     const [visible, setVisible] = useState(false);
     const [activeItem, setActiveItem] = useState(null);
@@ -90,6 +90,7 @@ const renderMobileContent = ({ children }) => {
                 })}
             >
                 <PopOver
+                    padding="regular"
                     visible={visible}
                     content={renderMenuItems(children, setActiveItem, () => setVisible(false))}
                     onClose={() => setVisible(false)}
@@ -100,7 +101,10 @@ const renderMobileContent = ({ children }) => {
                         })}
                         onClick={() => setVisible(!visible)}
                     >
-                        <Icon name="lightning" />
+                        <div className={styles.label}>{title}</div>
+                        <div className={styles.symbol}>
+                            <Icon className={styles.icon} name="lightning" />
+                        </div>
                     </Clickable>
                 </PopOver>
             </div>

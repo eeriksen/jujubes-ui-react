@@ -5,11 +5,10 @@
    =================================================================== */
 
 $border: var(--cardContent_border, 1px solid rgba(var(--color_base), 0.10));
-$padding: var(--cardContent_padding, var(--spacing_medium));
-$paddingSides: var(--card_paddingSides, var(--spacing_medium));
+$padding: var(--card_padding, var(--spacing_medium));
 
 .base {
-    padding: $padding $paddingSides;
+    padding: $padding;
 }
 
 .borderBottom {

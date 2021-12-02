@@ -1,0 +1,25 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { BreadcrumbTrail } from "./BreadcrumbTrail";
+import { Breadcrumb } from "../Breadcrumb";
+
+<Meta title="Components/Navigation/BreadcrumbTrail" component={BreadcrumbTrail} />
+
+# BreadcrumbTrail
+
+This component renders the crumb trail.
+
+<ArgsTable of={BreadcrumbTrail} />
+
+### Basic
+
+<Canvas>
+    <Story name="basic">
+        <React.Fragment>
+            <Breadcrumb label="Dashboard" link="/" />
+            <Breadcrumb label="Profile" link="/profile" />
+            <Breadcrumb label="Details" link="/" />
+            <BreadcrumbTrail />
+        </React.Fragment>
+    </Story>
+</Canvas>

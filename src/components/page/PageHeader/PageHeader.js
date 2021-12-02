@@ -11,7 +11,7 @@ export const PageHeader = ({ icon, image, title, subtitle }) => {
                 <div className={styles.symbol}>
                     {icon ? (
                         <div className={styles.icon}>
-                            <Icon name={icon} />
+                            <Icon name={icon} size="auto" />
                         </div>
                     ) : image ? (
                         image

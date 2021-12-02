@@ -5,13 +5,13 @@
    =================================================================== */
 
 .base {
-    position: relative;
+    position: static;
 }
 
 .confinePage {
     margin: 0 auto;
     padding: 0 var(--spacing_edges);
-    max-width: $breakpoint--widescreen;
+    max-width: $contentWrapper-width;
 
     @include for-mobile-down() {
         padding: 0 var(--spacing_edgesMobile);

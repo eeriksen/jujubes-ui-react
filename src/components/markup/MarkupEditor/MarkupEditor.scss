@@ -4,20 +4,17 @@
    MARKUP EDITOR
    =================================================================== */
 
-$borderColorFirstIdle: rgba(var(--color_base), 0.3);
-$borderColorSecondIdle: rgba(var(--color_contrast), 0.5);
-
-$borderColorFirst: rgba(var(--color_base), 0.8);
-$borderColorSecond: rgba(var(--color_contrast), 1);
+$borderColorFirst: rgba(var(--color_base), 0.3);
+$borderColorSecond: rgba(var(--color_contrast), 0.5);
 
 .base {
     position: relative;
 
     .editor {
-        background-image: linear-gradient(90deg, $borderColorFirstIdle 50%, $borderColorSecondIdle 50%),
-            linear-gradient(90deg, $borderColorFirstIdle 50%, $borderColorSecondIdle 50%),
-            linear-gradient(0deg, $borderColorFirstIdle 50%, $borderColorSecondIdle 50%),
-            linear-gradient(0deg, $borderColorFirstIdle 50%, $borderColorSecondIdle 50%);
+        background-image: linear-gradient(90deg, $borderColorFirst 50%, $borderColorSecond 50%),
+            linear-gradient(90deg, $borderColorFirst 50%, $borderColorSecond 50%),
+            linear-gradient(0deg, $borderColorFirst 50%, $borderColorSecond 50%),
+            linear-gradient(0deg, $borderColorFirst 50%, $borderColorSecond 50%);
         background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
         background-size: 5px 0px, 5px 1px, 0px 5px, 0px 5px;
         background-position: left top, right bottom, left bottom, right top;

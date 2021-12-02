@@ -55,11 +55,13 @@ $backgroundColor: var(--select_backgroundColor, var(--input_backgroundColor));
         transition: border-color 0.3s ease;
         background-color: $backgroundColor;
         appearance: none;
+        box-shadow: var(--input_boxShadow, "none");
 
         &:focus {
             border: var(--input_borderFocus);
             color: rgba(var(--color_base), 1);
             box-shadow: var(--input_boxShadowFocus);
+            background-color: var(--input_backgroundColorFocus, $backgroundColor);
         }
     }
 

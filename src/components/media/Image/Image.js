@@ -53,6 +53,7 @@ export const Image = ({
 
                 // Mods
                 [styles.modRounded]: mod && mod.indexOf("rounded") >= 0,
+                [styles.modUnround]: mod && mod.indexOf("unround") >= 0,
                 [styles.modOval]: mod && (mod.indexOf("oval") >= 0 || mod.indexOf("circle") >= 0),
                 [styles.modGray]: mod && mod.indexOf("gray") >= 0,
                 [styles.modShine]: mod && mod.indexOf("shine") >= 0,

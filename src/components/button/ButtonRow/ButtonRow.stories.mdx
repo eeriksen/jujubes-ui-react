@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
 import { ButtonRow } from "./ButtonRow";
+import { Button } from "../Button";
 
 <Meta title="Components/Buttons/ButtonRow" component={ButtonRow} />
 
@@ -14,6 +15,25 @@ Write something here.
 
 <Canvas>
     <Story name="basic">
-        <ButtonRow>Something here</ButtonRow>
+        {() => {
+            const [index, setIndex] = useState(0);
+            return (
+                <Row>
+                    <Col span={24}>
+                        <ButtonRow>
+                            <Button active={index === 0} onClick={() => setIndex(0)}>
+                                First
+                            </Button>
+                            <Button active={index === 1} onClick={() => setIndex(1)}>
+                                Second
+                            </Button>
+                            <Button active={index === 2} onClick={() => setIndex(2)}>
+                                Third
+                            </Button>
+                        </ButtonRow>
+                    </Col>
+                </Row>
+            );
+        }}
     </Story>
 </Canvas>

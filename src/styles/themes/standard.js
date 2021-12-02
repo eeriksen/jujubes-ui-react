@@ -37,7 +37,9 @@ export default {
             "base": "#181c32",
             "contrast": "#ffffff",
             "background": "#e7ebf1",
+            "backgroundShade": "#E0E5EB",
             "backgroundContent": "#ffffff",
+            "backgroundPop": "#ffffff",
             "primary": "#3699ff",
             "primaryContrast": "#ffffff",
             "accent": "#36bfff",
@@ -69,13 +71,12 @@ export default {
             "content": "5px"
         },
         "boxShadow": {
-            "regular": "0 1px 10px 1px rgba(var(--color_base), 0.1)",
-            "medium": "0 1px 15px 1px rgba(var(--color_base), 0.2)",
-            "large": "0 1px 25px 1px rgba(var(--color_base), 0.2)"
+            "content": "0 1px 10px 1px rgba(var(--color_base), 0.1)",
+            "pop": "0 1px 15px 1px rgba(var(--color_base), 0.2)"
         },
         "input": {
-            "border": "1px solid rgba(24, 28, 50, 0.2)",
             "backgroundColor": "rgba(var(--color_contrast), 1)",
+            "border": "1px solid rgba(24, 28, 50, 0.2)",
             "borderFocus": "1px solid #3699ff",
             "borderError": "1px solid #ff668d",
             "boxShadowFocus": "0 0 5px 0 rgba(var(--color_primary), 0.3)",

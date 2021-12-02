@@ -8,7 +8,7 @@ import { Icon } from "../../../../src/components/graphic/Icon";
 import { LogoSymbol } from "../../../../src/components/graphic/Logo";
 import { ComponentWrapper } from "../../../../src/components/layout/ComponentWrapper";
 import { Button } from "../../../../src/components/button/Button";
-import { Page, PageNav, NavButton, PageCrumbs, Crumb } from "../../../../src/components/page";
+import { Page, PageNav, NavButton } from "../../../../src/components/page";
 import { Image } from "../../../../src/components/media/Image";
 import { SAMPLE_USER } from "../../../constants";
 import { Row, Col } from "../../../../src/components/grid";

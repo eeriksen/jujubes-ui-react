@@ -77,6 +77,7 @@ export const Button = ({
             [styles.colorSilent]: color === "silent",
             [styles.colorTransparent]: color === "transparent",
 
+            [styles.sizeTiny]: size === "tiny",
             [styles.sizeSmall]: size === "small",
             [styles.sizeBig]: size === "big",
 
@@ -182,7 +183,7 @@ Button.propTypes = {
     /**
      * Size of button
      */
-    size: PropTypes.oneOf(["small", "big"]),
+    size: PropTypes.oneOf(["tiny", "small", "big"]),
 
     /**
      * Renders a pressed state of the button

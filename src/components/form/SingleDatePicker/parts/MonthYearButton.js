@@ -34,7 +34,7 @@ export const MonthYearButton = ({
             visible={visible}
             container={containerRef.current}
             onClose={() => setVisible(false)}
-            padding={true}
+            padding="regular"
             content={
                 <Form>
                     <Row>

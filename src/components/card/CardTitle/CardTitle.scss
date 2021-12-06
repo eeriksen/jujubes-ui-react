@@ -8,6 +8,7 @@ $height: var(--cardTitle_height, var(--elementSize_big));
 $borderBottom: var(--cardTitle_borderBottom, 1px solid rgba(var(--color_border), 1));
 $fontSize: var(--cardTitle_fontSize, var(--fontSize_large));
 $fontWeight: var(--cardTitle_fontWeight, var(--fontWeight_medium));
+$marginBottom: var(--cardTitle_marginBottom, 0);
 $paddingSides: var(--card_padding, var(--spacing_medium));
 
 $actionIconColor: var(--cardTitle_actionIconColor, rgba(var(--color_base), 0.7));
@@ -22,6 +23,7 @@ $actionBorderRadius: var(--cardTitle_actionBorderRadius, 0);
     border-bottom: $borderBottom;
     display: flex;
     align-items: center;
+    margin-bottom: $marginBottom;
 
     .title {
         flex-grow: 1;

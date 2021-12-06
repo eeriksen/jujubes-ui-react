@@ -126,7 +126,8 @@ export default {
             "actionBorder": "none",
             "actionIconColor": "rgba(var(--color_primary), 1)",
             "actionPadding": "0.4rem",
-            "actionBorderRadius": "var(--borderRadius_content"
+            "actionBorderRadius": "var(--borderRadius_content",
+            "marginBottom": "calc(var(--spacing_regular) * -1)"
         },
         "cardContent": {
             "border": "none"

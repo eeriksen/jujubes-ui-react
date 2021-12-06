@@ -6,14 +6,15 @@ import styles from "./PageNav.scss";
 import { Clickable } from "../../button/Clickable";
 import { Icon } from "../../graphic/Icon";
 
-export const NavButton = ({ icon, label, count, active, onClick, link }) => {
+export const NavButton = ({ icon, label, count, active, onClick, link, replace }) => {
     const { pathname } = useLocation();
     return (
         <Clickable
             className={classNames(styles.button, {
-                [styles.active]: active || (link && pathname.endsWith(link))
+                [styles.active]: active || (link && pathname.endsWith(link))
             })}
             link={link}
+            replace={replace}
             onClick={!active ? onClick : null}
             activeClassName={styles.active}
             title={label}
@@ -46,6 +47,10 @@ NavButton.propTypes = {
      */
     link: PropTypes.string,
     /**
+     * Replace route
+     */
+    replace: PropTypes.bool,
+    /**
      * Click handler.
      */
     onClick: PropTypes.func,
@@ -53,4 +58,8 @@ NavButton.propTypes = {
      * Define manually if button should show as active or not. Used in conjunction with onClick.
      */
     active: PropTypes.bool
+};
+
+NavButton.defaultProps = {
+    replace: true
 };

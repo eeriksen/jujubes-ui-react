@@ -44,6 +44,11 @@ Pull requests are welcome.
 
 ## Changelog
 
+### [1.3.3] - 2021-12-06
+#### Changes
+- `<Button>`: Changed to `display: inline-flex`.
+- `<NavButton>`: `link` is now replacing current route.
+
 ### [1.3.0] - 2021-12-02
 #### Breaking changes
 - `<PageCrumbs|Crumb>`: Has been deprecated in favor of dynamic crumbs with `<Breadcrumb>` and `<BreadcrumbTrail>`.

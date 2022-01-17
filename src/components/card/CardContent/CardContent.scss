@@ -22,3 +22,25 @@ $padding: var(--card_padding, var(--spacing_medium));
 .paddingNone {
     padding: 0;
 }
+
+// BACKGROUNDS
+.backgroundAttention {
+    background-color: rgba(var(--color_attention), 0.8);
+}
+
+.backgroundStriped {
+    background: rgba(var(--color_backgroundContent), 1);
+    @include m-stripedBackground(rgba(var(--color_base), 0.07), rgba(var(--color_base), 0.03), 10px);
+}
+
+.backgroundSuccess {
+    background-color: rgba(var(--color_success), 0.15);
+}
+
+.backgroundError {
+    background-color: rgba(var(--color_error), 0.15);
+}
+
+.backgroundMuted {
+    background-color: rgba(var(--color_background), 0.5);
+}

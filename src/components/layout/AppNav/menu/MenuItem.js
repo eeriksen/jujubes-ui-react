@@ -7,11 +7,11 @@ import { Clickable } from "../../../button/Clickable";
 import { Icon } from "../../../graphic/Icon";
 import { AppContext } from "../../AppContext";
 
-export const MenuItem = ({ icon, link, indicator, children }) => {
+export const MenuItem = ({ icon, link, exact, indicator, children }) => {
     const { setNavActive } = useContext(AppContext);
     const { pathname } = useLocation();
     const itemClasses = classNames(styles.item, {
-        [styles.selected]: link && pathname.endsWith(link)
+        [styles.selected]: !link ? false : exact ? pathname === link : pathname.startsWith(link)
     });
 
     const handleClick = () => {
@@ -37,3 +37,4 @@ export const MenuItem = ({ icon, link, indicator, children }) => {
         </Clickable>
     );
 };
+

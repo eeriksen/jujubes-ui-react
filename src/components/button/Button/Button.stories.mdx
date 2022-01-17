@@ -301,16 +301,34 @@ Use a careful combination of colored buttons where needed.
                             Login with Google
                         </Button>
                     </Col>
-                    <Col circle span={8}>
+                    <Col span={8}>
                         <Button fill pill size="big" symbol={GoogleButton}>
                             Login with Google
                         </Button>
                     </Col>
-                    <Col circle span={8}>
+                    <Col span={8}>
                         <Button size="big" square symbol={GoogleButton}></Button>
                     </Col>
                 </Row>
             );
         }}
+    </Story>
+</Canvas>
+
+### Responsive
+
+<Canvas>
+    <Story name="responsive">
+        <Row>
+            <Col span={8}>
+                <Button fill icon="rocket">First button</Button>
+            </Col>
+            <Col span={8}>
+                <Button fill icon="rocket">Second button with even more</Button>
+            </Col>
+            <Col span={8}>
+                <Button fill icon="rocket">Third button</Button>
+            </Col>
+        </Row>
     </Story>
 </Canvas>

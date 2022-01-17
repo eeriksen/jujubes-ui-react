@@ -6,7 +6,10 @@
 
 .base {
     &:hover {
-        cursor: pointer;
         text-decoration: none !important;
+    }
+
+    &.isClickable {
+        cursor: pointer;
     }
 }

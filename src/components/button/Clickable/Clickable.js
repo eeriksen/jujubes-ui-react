@@ -19,7 +19,9 @@ export const Clickable = ({
         children,
         link,
         onClick,
-        className: classNames(styles.base, className),
+        className: classNames(styles.base, {
+            [styles.isClickable]: link || onClick
+        }, className),
         to: link,
         ...(link && { replace: replace }),
         title,

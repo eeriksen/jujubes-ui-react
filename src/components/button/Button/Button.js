@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import classNames from "classnames";
@@ -7,6 +7,8 @@ import { Icon } from "../../graphic/Icon";
 
 import { LoaderHorizontal } from "../../loader/LoaderHorizontal";
 import { Spinner } from "../../loader/Spinner";
+import { AppContext } from "../../layout/AppContext";
+import { useDebounce } from "../../../utils/hooks";
 
 export const Button = ({
     color,
@@ -35,7 +37,19 @@ export const Button = ({
     pill,
     className
 }) => {
+    const labelRef = useRef();
+    const { pageInfo } = useContext(AppContext);
+    const [overflow, setOverflow] = useState(false);
     const history = useHistory();
+
+    useDebounce(() => {
+        setOverflow(false);
+        if(labelRef.current){
+            const visibleWidth = labelRef.current.clientWidth;
+            const actualWidth = labelRef.current.scrollWidth;
+            setOverflow(visibleWidth < actualWidth);
+        }
+    }, [pageInfo.windowWidth], 1000);
 
     /**
      * Handle on click
@@ -105,7 +119,9 @@ export const Button = ({
 
             [styles.labelSizeBig]: labelSize === "big",
             [styles.withSymbol]: symbol !== null,
-            [styles.isBusy]: busy
+            [styles.isBusy]: busy,
+
+            [styles.overflow]: overflow && icon,
         },
         className
     );
@@ -125,16 +141,18 @@ export const Button = ({
             <div className={styles.content}>
                 {/* Busy */}
                 {busy ? (
-                    <div className={styles.loader}>
-                        {square || circle ? <Spinner /> : <LoaderHorizontal />}
+                    <div className={classNames(styles.loader, {
+                        [styles.spinner]: square || circle || overflow
+                    })}>
+                        {square || circle || overflow ? <Spinner size="auto" /> : <LoaderHorizontal />}
                     </div>
                 ) : null}
 
                 {/* Icon left */}
                 {icon && !iconRight ? <Icon className={styles.icon} name={icon} /> : null}
 
-                {/* Children */}
-                {children}
+                {/* Label */}
+                <span ref={labelRef} className={styles.label}>{children}</span>
 
                 {/* Icon right */}
                 {icon && iconRight ? <Icon className={styles.icon} name={icon} /> : null}
@@ -148,7 +166,7 @@ export const Button = ({
 
 Button.defaultProps = {
     symbol: null
-}
+};
 
 Button.propTypes = {
     /**

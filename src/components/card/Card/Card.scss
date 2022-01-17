@@ -14,8 +14,22 @@ $highlightBorder: var(--card_highlightBorder, 3px solid rgba(var(--color_primary
     background-color: $backgroundColor;
     box-shadow: $boxShadow;
     border-radius: $borderRadius;
+    overflow: hidden;
+
+    &.clickable {
+        cursor: pointer;
+        user-select: none;
+    }
 
     &.typeHighlight {
         border-bottom: $highlightBorder;
+    }
+
+    .link {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
     }
 }

@@ -9,6 +9,7 @@ export const Spinner = ({ size, centered }) => {
             className={classNames(styles.base, {
                 [styles.sizeSmall]: size === "small",
                 [styles.sizeLarge]: size === "large",
+                [styles.sizeAuto]: size === "auto",
                 [styles.positionCentered]: centered
             })}
         >
@@ -23,5 +24,5 @@ Spinner.propTypes = {
     /**
      * Size of spinner
      */
-    size: PropTypes.oneOf(["small", "large"])
+    size: PropTypes.oneOf(["small", "large", "auto"])
 };

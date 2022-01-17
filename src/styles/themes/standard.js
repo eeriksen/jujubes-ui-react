@@ -48,7 +48,7 @@ export default {
             "error": "#ff668d",
             "warning": "#e4bb40",
             "info": "#4AA1DB",
-            "attention": "#f6fd9a",
+            "attention": "#FBFFCD",
             "statusText": "#ffffff",
             "link": "#2A82DC",
             "border": "#e6e6e6"

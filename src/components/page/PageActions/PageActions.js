@@ -160,5 +160,5 @@ const renderMenuItems = (items, setActiveItem, onClose) => {
 };
 
 PageActions.propTypes = {
-    children: PropTypes.arrayOf(Action)
+    children: PropTypes.oneOfType([PropTypes.arrayOf(Action), PropTypes.objectOf(Action)])
 };
